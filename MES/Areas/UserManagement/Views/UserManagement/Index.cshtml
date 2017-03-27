@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Users";
+}
+
+<div ng-view></div>
+@*<script src="~/App_Client/common/services/UserManagement/UserIdentity.services.js"></script>
+    <script src="~/App_Client/views/UserManagement/UserManagement/Users.controller.js"></script>
+    <script src="~/App_Client/views/UserManagement/UserManagement/Users.route.js"></script>*@
+
+@section pageScripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/UserManagement")
+}

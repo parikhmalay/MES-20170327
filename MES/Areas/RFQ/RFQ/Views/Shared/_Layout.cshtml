@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie9"> <![endif]-->
+<html ng-app="app">
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="../../Content/images/favicon.png" />
+    <link href="~/Content/mes-main-w-s-b.less" type="text/css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/angularjs")
+
+    <script src="~/App_Client/common/directives/Chart/highcharts.js"></script>
+    <script src="~/App_Client/common/directives/Chart/highcharts-exporting.js"></script>
+    <script src="~/App_Client/common/directives/Chart/highcharts-ng.js"></script>
+
+    @RenderSection("scriptsHeader", false)
+    <!--[if IE]>
+    <script src="/Scripts/html5.js"></script>
+    <script src="/Scripts/ie.js"></script>
+    <![endif]-->
+</head>
+<body class="sidebar-opened search-advance-minimize">
+    <!--Wrapper Part start-->
+    <div id="wrapper">
+        <!--Top Header Part start-->
+        <section id="top-header-panel" class="body-click-hide">
+            <div class="page-title-h">
+                <span class="p-title-txt ng-binding" ng-bind="PageHeader"></span>
+            </div>
+        </section>
+        <!--Top Header Part start-->
+        <!--Right Part start-->
+        <section id="content-part-main-panel" class="body-click-hide">
+            <!--Content Part start-->
+            <div class="content-common-panel">
+                @RenderBody()
+            </div>
+            <!--Content Part start-->
+        </section>
+        <!--Right Part End-->
+    </div>
+    <!--Wrapper Part end-->
+    <div aa-notify style="position: fixed; bottom: 25px; right: 25px; z-index:1061;"></div>
+    <cst-loading-overlay></cst-loading-overlay>
+
+    @*------------------------------------------------------------------------------------------------------------*@
+    @*------------------------------START SCRIPTS HERE------------------------------------------------------------*@
+    @*------------------------------------------------------------------------------------------------------------*@
+
+    <script type="text/javascript">
+        //runtime common variable
+        var ApiURL = "@System.Configuration.ConfigurationManager.AppSettings["ApiURL"].ToString()";
+        @{
+          //To test a different culture please uncomment the below code
+         //System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
+         System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+        }
+        var Culture = "@System.Threading.Thread.CurrentThread.CurrentUICulture";
+        var Version = 1;
+    </script>
+    <script src="@Url.Content(string.Format("~/Scripts/i18n/angular-locale_{0}.js", System.Threading.Thread.CurrentThread.CurrentUICulture.ToString().ToLower()))"></script>
+
+    @RenderSection("pageScripts", false)
+
+    @Scripts.Render("~/bundles/CommonScriptsForAllModule")
+
+    @RenderSection("scriptsFooter", false)
+
+
+
+
+    @*------------------------------------------------------------------------------------------------------------*@
+    @*------------------------------END SCRIPTS HERE------------------------------------------------------------*@
+    @*------------------------------------------------------------------------------------------------------------*@
+</body>
+</html>

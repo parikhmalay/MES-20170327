@@ -1,0 +1,106 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>List style 1</Title>
+    <Author>NonProfitEasy</Author>
+    <Shortcut>ls1</Shortcut>
+    <Description>Markup snippet for a List style 2</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Code Language="html">
+      <![CDATA[
+      <!-- Start List Style 1 structure here -->
+      <div class="list-1 root-list">
+        <div class="lst-header">
+            <div class="lst-item">
+              <div class="col-4">
+                  <label>Label1</label>
+              </div>
+              <div class="col-4">
+                  <label>label2</label>
+              </div>
+              <div class="col-4">
+            
+              </div>
+            </div>
+        </div>
+        <div class="lst-body">
+            <div class="lst-item">
+                <div class="col-4" data-colmn-title="Label1">
+                    <p>Value1</p>
+                </div>
+                <div class="col-4" data-colmn-title="Label2">
+                    <p>Value2</p>
+                </div>
+                <div class="col-4 align-right">
+                    <div class="btn-group action-btn" dropdown>
+                        <button type="button" class="btn" data-ng-click="AddEditExpenseGroup(objExpenseGroup.ExpenseGroupId)">Edit</button>
+                        <button type="button" class="btn action-toggle">
+                            <span class="caret"></span>
+                            <span class="sr-only">Split button!</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" data-ng-click="deleteExpenseGroup(objExpenseGroup)" ng-show="objExpenseGroup.IsActive">Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="lst-item">
+                <div class="col-4" data-colmn-title="Label1">
+                    <p>Value1</p>
+                </div>
+                <div class="col-4" data-colmn-title="Label2">
+                    <p>Value2</p>
+                </div>
+                <div class="col-4 align-right">
+                    <div class="btn-group action-btn" dropdown>
+                        <button type="button" class="btn" data-ng-click="AddEditExpenseGroup(objExpenseGroup.ExpenseGroupId)">Edit</button>
+                        <button type="button" class="btn action-toggle">
+                            <span class="caret"></span>
+                            <span class="sr-only">Split button!</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" data-ng-click="deleteExpenseGroup(objExpenseGroup)" ng-show="objExpenseGroup.IsActive">Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="lst-item">
+                <div class="col-12">
+                    <div class="error-box rounded-info-box">
+                        <p>No records found.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lst-footer">
+            <div class="lst-item">
+                <div class="col-4" data-colmn-title="Label1">
+                    <label>Value1</label>
+                </div>
+                <div class="col-4" data-colmn-title="Label2">
+                    <label>Value2</label>
+                </div>
+                <div class="col-4 align-right">
+                    <div class="btn-group action-btn" dropdown>
+                        <button type="button" class="btn" data-ng-click="AddEditExpenseGroup(objExpenseGroup.ExpenseGroupId)">Edit</button>
+                        <button type="button" class="btn action-toggle">
+                            <span class="caret"></span>
+                            <span class="sr-only">Split button!</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="javascript:void(0)" data-ng-click="deleteExpenseGroup(objExpenseGroup)" ng-show="objExpenseGroup.IsActive">Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!-- End List Style 1 structure here -->
+          $selected$$end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

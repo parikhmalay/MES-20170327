@@ -1,0 +1,85 @@
+/*-----------------------------------------------------------------------------------------------*/
+/*------------------------- Bread Crumbs Start Here ---------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+
+.report-breadcrumbs {
+    background: #343b44;
+    display: inline-block;
+    float: left;
+    width: 100%;
+
+    & .bread-crumbs {
+        padding: 10px 20px 10px 20px;
+    }
+
+        & .bread-crumbs ul li a {
+            color: @color-white;
+
+            &:hover {
+                color: @color-green;
+            }
+        }
+
+        & .bread-crumbs ul li.active a {
+            color: @color-green;
+            background: none;
+            padding: 0px;
+        }
+}
+
+
+.bread-crumbs {
+    float: left;
+    width: auto;
+    display: inline-block;
+    padding: 5px 20px 5px 20px;
+
+
+    & ul {
+        float: left;
+
+        & li {
+            float: left;
+
+            & a {
+                color: @color-black-40;
+                font-size: 1.2em;
+                text-transform: uppercase;
+                line-height: 22px;
+
+                &:hover {
+                    color: @color-blue;
+                }
+            }
+
+            &.active a {
+                padding: 0 10px;
+                background: @color-green;
+                color: @color-white;
+                .borderRadius(2px);
+            }
+
+            &:last-child:after {
+                display: none;
+            }
+
+            &:after {
+                content: "\\";
+                line-height: 22px;
+                color: @color-black-60;
+                font-size: 2em;
+                color: @color-black-80;
+                padding-left: 7px;
+                padding-right: 7px;
+                display: inline-block;
+                vertical-align: middle;
+                position: relative;
+                top: -3px;
+            }
+        }
+    }
+}
+
+/*-----------------------------------------------------------------------------------------------*/
+/*------------------------- Bread Crumbs Start Here ---------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/

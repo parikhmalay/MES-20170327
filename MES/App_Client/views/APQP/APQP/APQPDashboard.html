@@ -1,0 +1,151 @@
+﻿<div class="common-accordion-panel" ng-controller="APQPCtrl" id="spnAPQP">
+    <form ng-submit="Search()">
+        <us-spinner spinner-key="spnAPQP" spinner-start-active="1" show-spinner-text="{{SAPItemLoadSpinnerText}}"></us-spinner> <!--show-spinner-text=" "-->
+        <div class="col-12 pad-10 pad-l-0">
+            <div class="col-12">
+                <div class="col-12 pad-10 pad-t-5 pad-b-5">
+                    <button class="mar-0" translate="yes" ng-click="SearchOptionTabs='SearchFromCurrentAPQP';ShowFromAPQPRecords()" ng-class="{active:isActiveSearchOptionTabs('SearchFromCurrentAPQP')}">_SearchFromCurrentAPQP_</button>
+                    <button ng-disabled="IsReadOnlyAddNewButton" class="" translate="yes" ng-click="SearchOptionTabs='AddNewFromSAPRecords';ShowFromSAPRecords()" ng-class="{active:isActiveSearchOptionTabs('AddNewFromSAPRecords')}">_AddNewRecordFromSAPItemMaster_</button>
+                </div>
+                <div class="col-12 pad-10 pad-b-0">
+                    <h3 class="pad-b-5 title-sd">
+                        <span class="p-title-txt ng-binding">{{SearchCriteria.SearchHeading}}</span>
+                    </h3>
+                </div>
+                <div class="col-12 pad-10 pad-b-0 pad-t-0">
+                    <div class="col-12 pad-10 border-box-content">
+                        <div class="fs linear fs-col-4">
+                            <div class="fs-g border-none" ng-show="IsShowFromAPQPRecords==true">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_PartNo_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_PartNo_' | translate}}" aa-field-name="{{'_PartNo_' | translate}}"
+                                               ng-model="SearchCriteria.PartNo" tabindex="1" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_RfqNo_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_RfqNo_' | translate}}" aa-field-name="{{'_RfqNo_' | translate}}"
+                                               ng-model="SearchCriteria.RFQNumber" tabindex="2" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_QuoteNo_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_QuoteNo_' | translate}}" aa-field-name="{{'_QuoteNo_' | translate}}"
+                                               ng-model="SearchCriteria.QuoteNumber" tabindex="3" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_CustomerName_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_CustomerName_' | translate}}" aa-field-name="{{'_CustomerName_' | translate}}"
+                                               ng-model="SearchCriteria.CustomerName" tabindex="4" ng-maxlength="100" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ProjectName_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_ProjectName_' | translate}}" aa-field-name="{{'_ProjectName_' | translate}}"
+                                               ng-model="SearchCriteria.ProjectName" tabindex="5" ng-maxlength="100" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_APQPStatus_</label>
+                                    </span> <span class="fs-f-i">
+                                        <multiselect multiple="true"
+                                                     ng-model="SearchCriteria.APQPStatusItems"
+                                                     itemkey="Id"
+                                                     itemvalue="Name"
+                                                     options="item as item.Name for item in DashAPQPStatusList"
+                                                     header="{{'_Select_' | translate}}" button-class="small"></multiselect>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_APQPQualityEngineer_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_APQPQualityEngineer_' | translate}}" aa-field-name="{{'_APQPQualityEngineer_' | translate}}" ng-model="SearchCriteria.APQPQualityEngineerId" tabindex="8" ng-options="item.Id as item.Name for item in DashAPQPQualityEngineerList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_SupplyChainCoordinator_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_SupplyChainCoordinator_' | translate}}" aa-field-name="{{'_SupplyChainCoordinator_' | translate}}" ng-model="SearchCriteria.SupplyChainCoordinatorId" tabindex="9" ng-options="item.Id as item.Name for item in DashSupplyChainCoordinatorList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_MesSam_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_MesSam_' | translate}}" aa-field-name="{{'_MesSam_' | translate}}" ng-model="SearchCriteria.SAMUserId" tabindex="7" ng-options="item.Id as item.Name for item in DashSAMList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="fs-g" ng-show="IsShowFromSAPRecords==true">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_PartNo_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_PartNo_' | translate}}" aa-field-name="{{'_PartNo_' | translate}}"
+                                               ng-model="SearchCriteria.PartNo" tabindex="1" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_RfqNo_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_RfqNo_' | translate}}" aa-field-name="{{'_RfqNo_' | translate}}"
+                                               ng-model="SearchCriteria.RFQNumber" tabindex="2" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_QuoteNo_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_QuoteNo_' | translate}}" aa-field-name="{{'_QuoteNo_' | translate}}"
+                                               ng-model="SearchCriteria.QuoteNumber" tabindex="3" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_CustomerName_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_CustomerName_' | translate}}" aa-field-name="{{'_CustomerName_' | translate}}"
+                                               ng-model="SearchCriteria.CustomerName" tabindex="4" ng-maxlength="100" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Top Header Show Start-->
+        <div class="freeze-bottom top-header-freeze-panel">
+            <button class="orange-btn" translate="yes" ng-click="Search()" tabindex="57">_Search_</button>
+            <button class="orange-btn" translate="yes" ng-click="ResetSearch()" tabindex="58">_Reset_</button>
+        </div>
+        <!--Top Header Show End-->
+
+        <div class="freeze-bottom">
+            <button class="back-button" onclick="RedirecttoDashboard.Go()"></button>
+            <button class="orange-btn" translate="yes" ng-click="Search()" tabindex="57">_Search_</button>
+            <button class="orange-btn" translate="yes" ng-click="ResetSearch()" tabindex="58">_Reset_</button>
+        </div>
+    </form>
+</div>

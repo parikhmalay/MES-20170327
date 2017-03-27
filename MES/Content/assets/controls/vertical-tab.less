@@ -1,0 +1,102 @@
+.vertical-tab {
+    width: 13%;
+    float: left;
+    background: @color-white;
+    margin-top: 0px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.vertical-tab-content {
+    width: 87%;
+    float: left;
+    padding: 20px 20px 20px 20px;
+    background: @color-black-98;
+    border: 1px solid @color-black-90;
+    margin-top: 20px;
+}
+
+.vertical-tab ul.tab {
+    display: inline-block;
+    width: 100%;
+}
+
+    .vertical-tab ul.tab li {
+        width: 100%;
+        position: relative;
+    }
+
+        .vertical-tab ul.tab li label {
+            margin: 0;
+            text-align: center;
+            display: inline-block;
+            width: 100%;
+            padding: 15px 0;
+            .boxSizing(border-box);
+            position: relative;
+        }
+
+            .vertical-tab ul.tab li label .tab-icon {
+                margin: 0;
+                line-height: 0;
+                padding: 30px 0px;
+                font-size: 7em;
+                color: @base-color-2-l13;
+            }
+
+            .vertical-tab ul.tab li label:before, .left-tab-bar ul.side-tab li input[type="radio"]:checked + label:before {
+                display: none;
+            }
+
+        .vertical-tab ul.tab li input[type="radio"]:checked + label {
+            background: @color-black-98;
+            border: 1px solid @color-black-90;
+            border-right: 0px;
+        }
+
+            .vertical-tab ul.tab li input[type="radio"]:checked + label:after {
+                background: @color-black-98;
+                width: 5px;
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                bottom: 0px;
+                right: -3px;
+            }
+
+        .vertical-tab ul.tab li input[type="radio"] + label {
+            border: 1px solid @color-white;
+            border-right: 0px;
+        }
+
+@media screen and (max-width:1024px) {
+    .vertical-tab {
+        width: 16%;
+    }
+
+    .vertical-tab-content {
+        width: 84%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .vertical-tab {
+        width: 24%;
+    }
+
+    .vertical-tab-content {
+        width: 76%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .vertical-tab {
+        width: 100%;
+    }
+
+    .vertical-tab-content {
+        width: 100%;
+    }
+}

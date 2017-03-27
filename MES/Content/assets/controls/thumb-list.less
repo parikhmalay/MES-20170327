@@ -1,0 +1,61 @@
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Thumb List Controll Start Here ---------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+.thumb-list {
+    width: 100%;
+    float: left;
+
+    & .thumb {
+        border: 1px solid @color-black-90;
+        padding: 10px;
+        background: @color-white;
+        position: relative;
+        float: left;
+        margin: 10px;
+
+        & .thumb-overlay {
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background: rgba(256,256,256,0.9);
+            text-align: center;
+
+            & .thumb-overlay-icon-slide {
+                position: absolute;
+                top: 50%;
+                left: 0px;
+                right: 0px;
+                text-align: center;
+            }
+
+            & span[class*="icon-"] {
+                font-size: 2.8em;
+                color: @color-black-60;
+                line-height: 0px;
+                cursor: pointer;
+                display: inline-block;
+
+                &:hover {
+                    color: @color-black-40;
+                }
+            }
+        }
+
+        &:hover .thumb-overlay {
+            display: block;
+        }
+
+        & .thumb-image {
+            background: @color-black-98;
+            float: left;
+        }
+    }
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Thumb List Controll End Here -----------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/

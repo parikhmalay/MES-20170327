@@ -1,0 +1,371 @@
+﻿<div class="col-12 window-min-height bx-white" ng-controller="RFQCtrl" id="spnRFQList">
+    <us-spinner spinner-key="spnRFQList" spinner-start-active="1"></us-spinner>
+    <div class="col-12">
+        <!-- Start List Style 1 structure here -->
+        <div class="list-1 root-list-tb ng-isolate-scope">
+            <div class="lst-header">
+                <div class="lst-item">
+                    <div class="col-grid-sm-1 high-light-1">
+
+                    </div>
+                    <div class="col-grid-sm-1 align-center">
+                        <label ng-click="sortType = 'QuotesRcvd';sortReverse = !sortReverse">
+                            {{'_QuotesRcvd_' | translate}}
+                            <i ng-show="sortType == 'QuotesRcvd' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'QuotesRcvd' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-2">
+                        <label ng-click="sortType = 'Id';sortReverse = !sortReverse">
+                            {{'_RFQId_' | translate}}
+                            <i ng-show="sortType == 'Id' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'Id' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-4">
+                        <label ng-click="sortType = 'CustomerName';sortReverse = !sortReverse">
+                            {{'_CustomerName_' | translate}}
+                            <i ng-show="sortType == 'CustomerName' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'CustomerName' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label ng-click="sortType = 'RFQType';sortReverse = !sortReverse">
+                            {{'_RFQType_' | translate}}
+                            <i ng-show="sortType == 'RFQType' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'RFQType' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label ng-click="sortType = 'Commodity';sortReverse = !sortReverse">
+                            {{'_Commodity_' | translate}}
+                            <i ng-show="sortType == 'Commodity' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'Commodity' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-2">
+                        <label ng-click="sortType = 'RFQCoordinator';sortReverse = !sortReverse">
+                            {{'_RFQCoordinator_' | translate}}
+                            <i ng-show="sortType == 'RFQCoordinator' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'RFQCoordinator' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-2 high-light-2">
+                        <label ng-click="sortType = 'CustomerContactName';sortReverse = !sortReverse">
+                            {{'_ContactFullName_' | translate}}
+                            <i ng-show="sortType == 'CustomerContactName' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'CustomerContactName' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-2">
+                        <label ng-click="sortType = 'Date';sortReverse = !sortReverse">
+                            {{'_Date_' | translate}}
+                            <i ng-show="sortType == 'Date' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'Date' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-2">
+                        <label ng-click="sortType = 'QuoteDueDate';sortReverse = !sortReverse">
+                            {{'_QuoteDueDate_' | translate}}
+                            <i ng-show="sortType == 'QuoteDueDate' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'QuoteDueDate' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-2 align-right">
+                        <label translate="yes">_Action_</label>
+                    </div>
+                </div>
+            </div>
+            <div class="lst-body">
+                <div class="lst-item ng-pristine ng-valid ng-scope {{item.daysOld}}" ng-repeat="item in RFQList | orderBy:sortType:sortReverse">
+                    <div class="row-click-section" data-ng-click="Edit(item.Id,item.CustomerName)">
+                        <div class="col-grid-sm-1 high-light-1">
+                            <div class="notification-pl" ng-bind-html="to_trusted(item.StatusLegend)">
+                            </div>
+                        </div>
+                        <div class="col-grid-sm-1 align-center" data-colmn-title="{{'_QuotesRcvd_' | translate}}">
+                            <p>
+                                <a href="javascript:void(0)" class="" ng-if="item.QuotesRcvd==0">
+                                    <span class="quotes-rcvd">{{item.QuotesRcvd}}</span>
+                                </a>
+                                <a href="javascript:void(0)" class="click-col-panel" ng-if="item.QuotesRcvd>0" ng-click="ShowQuotesPanel(item.Id,$index)">
+                                    <span class="quotes-rcvd">{{item.QuotesRcvd}}</span>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-grid-sm-2" data-colmn-title="{{'_RFQId_' | translate}}">
+                            <p>{{item.Id}}</p>
+                        </div>
+                        <div class="col-grid-sm-4" data-colmn-title="{{'_CustomerName_' | translate}}">
+                            <p>{{item.CustomerName}}</p>
+                        </div>
+                        <div class="col-grid-sm-3" data-colmn-title="{{'_RFQType_' | translate}}">
+                            <p>{{item.RFQType}}</p>
+                        </div>
+                        <div class="col-grid-sm-3" data-colmn-title="{{'_Commodity_' | translate}}">
+                            <p>{{item.Commodity}}</p>
+                        </div>
+                        <div class="col-grid-sm-2" data-colmn-title="{{'_RFQCoordinator_' | translate}}">
+                            <p>{{item.RFQCoordinator}}</p>
+                        </div>
+                        <div class="col-grid-sm-2 high-light-2" data-colmn-title="{{'_ContactFullName_' | translate}}">
+                            <p>{{item.CustomerContactName}}</p>
+                        </div>
+                        <div class="col-grid-sm-2" data-colmn-title="{{'_Date_' | translate}}">
+                            <p>{{item.Date|date:'dd-MMM-yy'}}</p>
+                        </div>
+                        <div class="col-grid-sm-2" data-colmn-title="{{'_QuoteDueDate_' | translate}}">
+                            <p>{{item.QuoteDueDate|date:'dd-MMM-yy'}}</p>
+                        </div>
+                    </div>
+                    <div class="col-grid-sm-2 align-right" data-colmn-title="Action">
+                        <div class="btn-group action-btn" dropdown>
+                            <button type="button" class="btn" data-ng-click="Edit(item.Id,item.CustomerName)" translate="yes">_Edit_</button>
+                            <button type="button" class="btn action-toggle">
+                                <span class="caret"></span>
+                                <span class="sr-only">Split button!</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="javascript:void(0)" data-ng-click="Delete(item.Id)" translate="yes" ng-class="{disableAnchor:IsDisableDeleteListButton,'':IsDisableDeleteListButton}">_Delete_</a></li>
+                                <li ng-hide="item.RfqPDFPath=='' || item.RfqPDFPath==undefined"><a href="javascript:void(0)" data-ng-click="DownloadPDF(item.RfqPDFPath)" translate="yes">_DownloadPDF_</a></li>
+                                <li ng-hide="true"><a href="javascript:void(0)" data-ng-click="ViewQuote(item.Id)" translate="yes">_ViewQuote_</a></li>
+                                <!--<li><a href="javascript:void(0)" data-ng-click="ShowChangeLogPopup(item.Id)" translate="yes">_ViewChangeLog_</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-12 pad-0 commonColPanel" ng-hide="item.QuotesRcvd==0">
+
+                        <!--Default Hide-->
+                        <div class="sub-collepse-panel">
+                            <div class="col-grid-sm-1 high-light-1 none-m">&nbsp;</div>
+                            <div class="col-grid-sm-11 border-s">
+                                <div class="list-1 root-list-tb ng-isolate-scope">
+                                    <us-spinner spinner-key="spnQuotesPanel_{{$index}}" spinner-start-active="1"></us-spinner>
+                                    <div class="lst-header">
+                                        <div class="lst-item">
+                                            <div class="col-10 pad-l-20"><label>{{'_QuotedBySupplier_'|translate}} <button data-ng-click="RFQPartCostComparisonPopup(item)" class="orange-btn">Compare</button></label></div>
+                                            <div class="col-2 align-right"><label>{{'_QuotedOn_'|translate}}</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="lst-body">
+                                        <button data-ng-click="RFQPartCostComparisonPopup(item)" class="orange-btn mobile-btn-sub">Compare</button>
+                                        <div class="lst-item" ng-repeat="sItem in item.lstQuotedSuppliers | orderBy:sortType:sortReverse">
+                                            <div class="col-10 pad-l-20 cursor" data-colmn-title="{{'_QuotedBySupplier_'|translate}}" ng-click="SupplierQuotePopup(item.Id,sItem.SupplierId,item)"><p>{{sItem.CompanyName}}</p></div>
+                                            <div class="col-2 align-right" data-colmn-title="{{'_QuotedOn_'|translate}}"><p>{{sItem.QuoteDate|date:'dd-MMM-yy'}}</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="lst-item" ng-hide="item.lstQuotedSuppliers.length>0">
+                                        <div class="col-12">
+                                            <div class="error-box rounded-info-box">
+                                                <p translate="yes">No Quotes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-grid-sm-1 none-m">&nbsp;</div>
+                            <div class="col-grid-sm-11 border-s sd">
+                                <div class="list-1 root-list-tb ng-isolate-scope">
+                                    <us-spinner spinner-key="spnQTCPanel_{{$index}}" spinner-start-active="1"></us-spinner>
+                                    <div class="lst-header">
+                                        <div class="lst-item">
+                                            <div class="col-8 pad-l-20"><label>{{'_QuoteToCustomer_'|translate}}</label></div>
+                                            <div class="col-2 align-center"></div>
+                                            <div class="col-2 align-right"><label>{{'_CreatedOn_'|translate}}</label></div>
+                                        </div>
+                                    </div>
+                                    <div class="lst-body">
+                                        <div class="lst-item" ng-repeat="qItem in item.lstQuoteToCustomer | orderBy:sortType:sortReverse">
+                                            <div class="col-8 pad-l-20 cursor" data-colmn-title="{{'_QuoteToCustomer_'|translate}}" ng-click="EditQuoteToCustomer(qItem,item)"><p>{{qItem.QuoteNumber}}</p></div>
+                                            <div class="col-2 align-center">
+                                                <a href="javascript:void(0)" ng-hide="qItem.QuoteFilePath==''" title="Dowload PDF" data-ng-click="DownloadQuotePDF(qItem.QuoteFilePath)" translate="yes"><img src="/Content/images/pdf-icon.png" /></a>
+                                                <a href="javascript:void(0)" ng-hide="qItem.ExtQuoteFilePath==''" title="Dowload Ext. PDF" data-ng-click="DownloadExtPDF(qItem.ExtQuoteFilePath)" translate="yes"><img src="/Content/images/pdf-icon.png" /></a>
+                                            </div>
+                                            <div class="col-2 align-right" data-colmn-title="{{'_CreatedOn_'|translate}}"><p>{{qItem.CreatedDate|date:'dd-MMM-yy'}}</p></div>
+                                        </div>
+                                    </div>
+                                    <div class="lst-item" ng-hide="item.lstQuoteToCustomer.length>0">
+                                        <div class="col-12">
+                                            <div class="error-box rounded-info-box">
+                                                <p translate="yes">No Quotes</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-grid-sm-1 none-m"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="lst-item" ng-hide="RFQList.length>0">
+                    <div class="col-12">
+                        <div class="error-box rounded-info-box">
+                            <p translate="yes">_NoRecordsFound_</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mespagination boundary-links="true" total-items="Paging.TotalRecords" on-select-page="pageChanged(page)"
+                   page="Paging.PageNo" items-per-page="Paging.PageSize" fix-to-bottom=""
+                   previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page-size="pageSizeChanged(pagesize)" pagesize="Paging.PageSize"></mespagination>
+
+    <!--Top Header Show Start-->
+    <div class="freeze-bottom top-header-freeze-panel">
+        <button class="orange-btn" ng-click="RedirectToAddEditPage()" ng-disabled="IsDisableAddNewButton">
+            {{'_AddNew_' | translate}}
+        </button>
+    </div>
+    <!--Top Header Show End-->
+    <!-- Start tab structure here -->
+    <div class="freeze-bottom">
+        <div class="legend-notification-icon">
+            <div class="control-legend">
+                LEGEND | <span><i class="fa fa-star-half-empty quote-due"></i> Quote Due</span> <span><i class="fa fa-star-half-empty pending-incomplete"></i> Pending/Incomplete</span> <span><i class="fa fa-lock on-hold"></i> On Hold</span> <span><i class="fa fa-unlock release"></i> Release</span>  <span><i class="fa fa-check completed"></i> Completed </span> <span><i class="fa fa-ban void"></i> Void </span>
+                <span><i class="fa fa-exclamation-triangle need-revision"></i> Need Revision </span>
+            </div>
+        </div>
+        <button class="back-button" onclick="RedirecttoDashboard.Go()"></button>
+        <button class="orange-btn" ng-click="RedirectToAddEditPage()" ng-disabled="IsDisableAddNewButton">
+            {{'_AddNew_' | translate}}
+        </button>
+    </div>
+    <!-- End tab structure here -->
+    <!--Advance Search Part start-->
+    <form ng-submit="Search()">
+        <div class="advance-search-panel">
+            <div class="search-title-box">
+                <div class="search-title">
+                    Advance Search
+                    <span onclick="advanceSearch.close()" class="fa fa-times-circle"></span>
+                </div>
+            </div>
+            <div class="search-content-panel">
+                <!-- Start form layout structure here -->
+                <div class="fs linear">
+                    <div class="fs-g">
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_RFQNo_' | translate}}" placeholder="{{'_RFQNo_' | translate}}" ng-model="SearchCriteria.RfqId" maxlength="13" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_CustomerName_' | translate}}" placeholder="{{'_CustomerName_' | translate}}" ng-model="SearchCriteria.CompanyName" maxlength="100" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_ContactFullName_' | translate}}" placeholder="{{'_ContactFullName_' | translate}}" ng-model="SearchCriteria.ContactFullName" maxlength="200" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_ProjectName_' | translate}}" placeholder="{{'_ProjectName_' | translate}}" ng-model="SearchCriteria.ProjectName" maxlength="50" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_PartNumber_' | translate}}" placeholder="{{'_PartNumber_' | translate}}" ng-model="SearchCriteria.PartNumber" maxlength="50" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_PartDesc_' | translate}}" placeholder="{{'_PartDesc_' | translate}}" ng-model="SearchCriteria.PartDescription" maxlength="500" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <select name="{{'_RFQCoordinator_' | translate}}" aa-field-name="{{'_RFQCoordinator_' | translate}}"
+                                        ng-model="SearchCriteria.rfqCoordinator" ng-options="item.Id as item.Name for item in RFQCoordinatorList">
+                                    <option value="">{{'_SelectRFQCoordinator_' | translate}}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <multiselect multiple="true"
+                                             ng-model="SearchCriteria.SAMItems"
+                                             itemkey="Id"
+                                             itemvalue="Name"
+                                             options="item.Id as item.Name for item in SAMList"
+                                             header="{{'_SelectSAM_' | translate}}" button-class="small"></multiselect>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <select name="{{'_RFQSource_' | translate}}" ng-model="SearchCriteria.rfqSource" aa-field-name="{{'_RFQSource_'|translate}}"
+                                        ng-options="item.Id as item.Name for item in RFQSourceList">
+                                    <option value="">{{'_SelectRFQSource_' | translate}}</option>
+                                </select>
+
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <multiselect multiple="true"
+                                             ng-model="SearchCriteria.ProcessItems"
+                                             itemkey="Id"
+                                             itemvalue="Name"
+                                             options="item.Id as item.Name for item in ProcessList"
+                                             header="{{'_SelectProcess_' | translate}}" button-class="small"></multiselect>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <multiselect multiple="true"
+                                             ng-model="SearchCriteria.CommodityItems"
+                                             itemkey="Id"
+                                             itemvalue="Name"
+                                             options="item.Id as item.Name for item in CommodityList"
+                                             header="{{'_SelectCommodity_' | translate}}" button-class="small"></multiselect>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <multiselect multiple="true"
+                                             ng-model="SearchCriteria.RFQPriorityItems"
+                                             itemkey="Id"
+                                             itemvalue="Name"
+                                             options="item.Id as item.Name for item in RFQPriorityList"
+                                             header="{{'_SelectRFQPriority_' | translate}}" button-class="small"></multiselect>
+                            </span>
+                        </div>
+                        <div class="spacer-trip-full"></div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_RFQCreatedBetween_' | translate}}"
+                                       placeholder="{{'_RFQCreatedBetween_' | translate}}" aa-field-name="{{'_RFQCreatedBetween_' | translate}}"
+                                       ng-model="SearchCriteria.RfqDateFrom" date-time view="date" min-view="date" format="dd-MMM-yy"
+                                       max="{{SearchCriteria.RfqDateTo}}" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <label translate="yes">_And_</label>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_RFQCreatedDate_' | translate}}"
+                                       aa-field-name="{{'_RFQCreatedDate_' | translate}}"
+                                       ng-model="SearchCriteria.RfqDateTo" date-time view="date" min-view="date" format="dd-MMM-yy" min="{{SearchCriteria.RfqDateFrom}}" />
+                            </span>
+                        </div>
+                        <div class="spacer-trip-full"></div>
+                    </div>
+                </div>
+                <!-- End form layout structure here -->
+            </div>
+
+            <div class="search-footer-box">
+                <button class="orange-btn" translate="yes" aa-submit-form="Search()">_Search_</button>
+                <button class="orange-btn" translate="yes" ng-click="ResetSearch()" tabindex="">_Reset_</button>
+            </div>
+        </div>
+    </form>
+    <!--Advance Search End-->
+</div>

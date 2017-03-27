@@ -1,0 +1,143 @@
+﻿<div class="col-12 pad-t-0 openScrollDiv" ng-controller="ReportsCtrl">
+    <div class="col-12 pad-b-10">
+        <div class="header-highligt-panel title-header-spacer-two">
+            <span style="width:95%;"><label translate="yes">_RFQ_</label> <p>{{SelectionCriteria.RFQItems}}</p></span>
+        </div>
+    </div>
+    <div ng-show="DataList.length>0">
+
+        <div class="col-12 pad-t-0">
+            <div class="col-12">
+                <div class="grid-title-panel">
+                    <h3>{{'_RFQPartsCostComparison_' | translate}}</h3>
+                </div>
+                <div class="custom-grid-panel mar-b-10 grid-option-one">
+                    <div class="scroller-panel sap-group" ng-repeat="mItem in lstRFQ">
+
+                        <div class="border-full">
+                            <div class="grid-common-detail-panel">
+                                <div class="grid-common-content-panel">
+                                    <div class="common-grid-box third-group">
+                                        <div class="col-hori-box title-sub-group-box sub-total-price-box"><label style="width:100% !important;">{{'_MESRFQ_' | translate}} <i class="small-df">{{mItem.Id}}</i> {{'_CustomerName_' | translate}}: <i class="small-df">{{mItem.CustomerName}}</i> {{'_RFQDate_' | translate}}: <i class="small-df">{{mItem.rfqDateString}}</i></label></div>
+                                    </div>
+                                    <div class="grid-left-panel">
+                                        <ul>
+                                            <li>
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        &nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-5 pad-0" translate="yes">_PartNo_</div>
+                                                            <div class="col-3 pad-0 align-right" translate="yes">_EstQty_</div>
+                                                            <div class="col-4 pad-0 align-right" translate="yes">_WeightInKg_</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel">
+                                            <div class="common-grid-panel supplierQuote sliderOn col-width-6000" row column-width="465" column-move="1" margin-minus="340">
+                                                <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                                <div class="common-grid-box" ng-repeat="sItem in mItem.lstQuotedSuppliers">
+                                                    <div class="col-hori-box">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 align-center">{{sItem.CompanyName}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-3 pad-0" translate="yes">_QuoteDt_</div>
+                                                                    <div class="col-2 pad-0 align-right" translate="yes">_PiecePrice_</div>
+                                                                    <div class="col-3 pad-0 align-right" translate="yes">_ToolingPrice_</div>
+                                                                    <div class="col-4 pad-0 align-right" translate="yes">_SupplierCostkg_</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-common-detail-panel">
+                            <div class="fixed-height-grid height-auto-important">
+                                <div class="border-full">
+                                    <div class="section-coomon">
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul class="grid-option-one">
+                                                    <li ng-repeat="item in mItem.lstRFQPart">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-body">
+                                                                <div class="lst-item">
+                                                                    <div class="col-5 pad-0">{{item.CustomerPartNo}}</div>
+                                                                    <div class="col-3 pad-0 align-right">{{item.EstimatedQty}}</div>
+                                                                    <div class="col-4 pad-0 align-right">{{item.PartWeightKG}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel sap-group">
+                                                    <div class="common-grid-panel sub-group SupplierQuote sliderOn col-width-6000" row column-width="245" column-move="1">
+
+                                                        <div class="common-grid-box" ng-repeat="tItem in mItem.lstQuotedSuppliers">
+                                                            <div ng-repeat="pItem in mItem.lstRFQPart" class="col-hori-box">
+                                                                <div class="common-grid-box" ng-repeat="cItem in pItem.lstRFQPartCostComparison | filter:{SupplierId:tItem.SupplierId,rfqPartId:pItem.Id}">
+                                                                    <div class="col-hori-box align-right">
+                                                                        <div class="list-1 root-list">
+                                                                            <div class="lst-body">
+                                                                                <div class="lst-item">
+                                                                                    <div class="col-3 pad-0 align-left">{{cItem.UpdatedDate|date:'dd-MMM-yy'}}</div>
+                                                                                    <div class="col-2 pad-0 align-right">{{cItem.PiecePrice|setDecimal:3}}</div>
+                                                                                    <div class="col-3 pad-0 align-right">{{cItem.ToolingCost|setDecimal:3}}</div>
+                                                                                    <div class="col-4 pad-0 align-right">{{cItem.SupplierCostPerKg|setDecimal:3}}</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-show="mItem.lstQuotedSuppliers.length<=0" class="col-hori-box no-data">
+                                                            <label class="pad-10" translate="yes">_NoRecordsFound_</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 align-center" ng-hide="DataList.length>0">
+        <div class="spacer-gray-line"></div>
+        <div class="error-box rounded-info-box" style="display:inline-block;">
+            <p translate="yes">_NoRecordsFound_</p>
+        </div>
+    </div>
+</div>

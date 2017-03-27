@@ -1,0 +1,585 @@
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Box List Start here --------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+.box-list {
+    width: 100%;
+    float: left;
+
+    & .box-lst-item {
+        float: left;
+        width: 100%;
+        padding: 10px;
+
+        &:hover .box-lst-item-container {
+            border-color: @color-black-80;
+
+            & + div {
+                border-color: @color-black-80;
+            }
+        }
+    }
+
+    & .box-lst-item-container {
+        border: 1px solid @color-black-90;
+        border-bottom: none;
+        background: @color-black-94;
+        display: inline-block;
+        width: 100%;
+
+        &.clickable {
+            cursor: pointer;
+
+            &:hover {
+                background: @color-black-90;
+            }
+        }
+
+        &.table {
+            display: table !important;
+
+            & .tr .td {
+                vertical-align: middle;
+                text-align: center;
+            }
+        }
+
+        & h4 {
+            font-size: 1.6em;
+            font-weight: normal;
+            color: @color-black-40;
+            padding-bottom: 0px;
+        }
+
+        &.template-box {
+            height: 75px;
+        }
+    }
+
+    & .box-lst-item-footer {
+        background: @color-white;
+        border: 1px solid @color-black-90;
+        border-top: none;
+        text-align: right;
+
+        & span[class*="icon-"] {
+            font-size: 2.7em;
+            line-height: 35px;
+            border-left: 1px solid @color-black-94;
+            display: inline-block;
+            color: @color-black-60;
+            cursor: pointer;
+
+            &:hover {
+                color: @color-black-27;
+            }
+        }
+    }
+
+    &.box-size-2 {
+        & .box-lst-item {
+            width: 50%;
+        }
+    }
+
+    &.box-size-3 {
+        & .box-lst-item {
+            width: 33%;
+        }
+    }
+
+    &.box-size-4 {
+        & .box-lst-item {
+            width: 25%;
+        }
+    }
+
+    &.box-size-5 {
+        & .box-lst-item {
+            width: 20%;
+        }
+    }
+
+    &.box-size-6 {
+        & .box-lst-item {
+            width: 16.66%;
+        }
+    }
+
+    &.box-size-7 {
+        & .box-lst-item {
+            width: 14.28%;
+        }
+    }
+
+    &.box-size-8 {
+        & .box-lst-item {
+            width: 12.5%;
+        }
+    }
+}
+
+@media screen and (min-width:1281px) {
+    .box-list.box-size-xlg-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-list.box-size-xlg-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-list.box-size-xlg-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-list.box-size-xlg-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-list.box-size-xlg-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-list.box-size-xlg-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-list.box-size-xlg-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-list.box-size-xlg-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:1280px) and (min-width:1025px) {
+    .box-list.box-size-lg-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-list.box-size-lg-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-list.box-size-lg-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-list.box-size-lg-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-list.box-size-lg-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-list.box-size-lg-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-list.box-size-lg-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-list.box-size-lg-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:1024px) and (min-width:769px) {
+    .box-list.box-size-md-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-list.box-size-md-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-list.box-size-md-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-list.box-size-md-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-list.box-size-md-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-list.box-size-md-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-list.box-size-md-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-list.box-size-md-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .box-list.box-size-sm-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-list.box-size-sm-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-list.box-size-sm-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-list.box-size-sm-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-list.box-size-sm-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-list.box-size-sm-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-list.box-size-sm-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-list.box-size-sm-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Box List End here ----------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+
+
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Box View List Start here --------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+.box-view-list {
+    width: 100%;
+    float: left;
+
+
+    & .box-lst-item {
+        float: left;
+        width: 100%;
+        padding: 5px;
+
+        & .box-lst-item-frame {
+            padding: 5px;
+            float: left;
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+                background: @color-black-90;
+                .boxShadow(0px 0px 5px rgba(0,0,0,0.1));
+            }
+        }
+
+        & .box-lst-item-body {
+            float: left;
+            width: 100%;
+            border: 1px solid @color-black-90;
+            background: @color-white;
+        }
+
+        & .box-lst-item-add {
+            background: @color-black-94;
+            width: 100%;
+            float: left;
+            position: relative;
+            cursor: pointer;
+
+            & .icon-add {
+                color: @color-black-60;
+                font-size: 12em;
+                line-height: 0px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-left: -55px;
+            }
+        }
+    }
+
+    & .box-lst-item-container {
+        float: left;
+        width: 100%;
+        padding: 10px;
+
+        & .box-lst-image {
+            width: 100%;
+            float: left;
+            overflow: hidden;
+            max-height: 162px;
+
+            & img {
+                width: 100%;
+            }
+        }
+
+        & h3 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: @color-black-20;
+            padding: 5px 0;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            float: left;
+            width: auto;
+            max-width: 100%;
+            white-space: nowrap;
+        }
+
+        & .box-lst-seperator {
+            width: 100%;
+            float: left;
+            padding: 10px 0;
+
+            & span {
+                border-right: 1px solid @color-black-90;
+                float: left;
+                padding-right: 10px;
+                padding-left: 10px;
+
+                &:first-child {
+                    padding-left: 0px;
+                }
+
+                &:last-child {
+                    border-right: none;
+                }
+
+                & b {
+                    font-size: 1.5em;
+                    font-weight: 400;
+                    padding: 0px;
+                    float: left;
+                    color: @color-black-20;
+                }
+
+                & label {
+                    float: left;
+                    font-size: 1.3em;
+                    color: @color-black-60;
+                }
+            }
+        }
+    }
+
+    & .box-lst-item-footer {
+        border-top: 1px solid @color-black-90;
+        text-align: right;
+        float: left;
+        width: 100%;
+
+        & span[class*="icon-"] {
+            font-size: 2.7em;
+            line-height: 35px;
+            border-left: 1px solid @color-black-90;
+            display: inline-block;
+            color: @color-black-60;
+            cursor: pointer;
+            padding-left: 2px;
+
+            &:hover {
+                color: @color-black-27;
+            }
+        }
+    }
+
+
+    &.box-size-2 {
+        & .box-lst-item {
+            width: 50%;
+        }
+    }
+
+    &.box-size-3 {
+        & .box-lst-item {
+            width: 33%;
+        }
+    }
+
+    &.box-size-4 {
+        & .box-lst-item {
+            width: 25%;
+        }
+    }
+
+    &.box-size-5 {
+        & .box-lst-item {
+            width: 20%;
+        }
+    }
+
+    &.box-size-6 {
+        & .box-lst-item {
+            width: 16.66%;
+        }
+    }
+
+    &.box-size-7 {
+        & .box-lst-item {
+            width: 14.28%;
+        }
+    }
+
+    &.box-size-8 {
+        & .box-lst-item {
+            width: 12.5%;
+        }
+    }
+}
+
+@media screen and (min-width:1281px) {
+    .box-view-list.box-size-xlg-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-view-list.box-size-xlg-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-view-list.box-size-xlg-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-view-list.box-size-xlg-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-view-list.box-size-xlg-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-view-list.box-size-xlg-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-view-list.box-size-xlg-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-view-list.box-size-xlg-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:1280px) and (min-width:1025px) {
+    .box-view-list.box-size-lg-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-view-list.box-size-lg-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-view-list.box-size-lg-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-view-list.box-size-lg-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-view-list.box-size-lg-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-view-list.box-size-lg-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-view-list.box-size-lg-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-view-list.box-size-lg-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:1024px) and (min-width:769px) {
+    .box-view-list.box-size-md-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-view-list.box-size-md-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-view-list.box-size-md-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-view-list.box-size-md-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-view-list.box-size-md-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-view-list.box-size-md-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-view-list.box-size-md-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-view-list.box-size-md-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .box-view-list.box-size-sm-1 > .box-lst-item {
+        width: 100%;
+    }
+
+    .box-view-list.box-size-sm-2 > .box-lst-item {
+        width: 50%;
+    }
+
+    .box-view-list.box-size-sm-3 > .box-lst-item {
+        width: 33%;
+    }
+
+    .box-view-list.box-size-sm-4 > .box-lst-item {
+        width: 25%;
+    }
+
+    .box-view-list.box-size-sm-5 > .box-lst-item {
+        width: 20%;
+    }
+
+    .box-view-list.box-size-sm-6 > .box-lst-item {
+        width: 16.66%;
+    }
+
+    .box-view-list.box-size-sm-7 > .box-lst-item {
+        width: 14.28%;
+    }
+
+    .box-view-list.box-size-sm-8 > .box-lst-item {
+        width: 12.5%;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Box View List End here ----------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/

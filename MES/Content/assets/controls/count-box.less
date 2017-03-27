@@ -1,0 +1,231 @@
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------- START COUNT BOX CONTROL HERE -------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.line-count-box {
+    height: 50px;
+    border-left: 3px solid @color-black-90;
+    padding: 12px 10px;
+    width: 100%;
+    background: @color-white;
+    .transition(border-width 0.2s);
+    cursor: pointer;
+
+    &.double-line-count {
+        padding:2px 10px;
+    }
+
+    & p {
+        font-size: 1.2em;
+        color: @color-black-60;
+    }
+
+    &:hover {
+        border-width: 7px;
+    }
+
+    &.green-theme {
+        border-left-color: @color-green;
+
+        & h2 label {
+            color: @color-green;
+        }
+    }
+
+    &.red-theme {
+        border-left-color: @color-red;
+
+        & h2 label {
+            color: @color-red;
+        }
+    }
+
+    &.blue-theme {
+        border-left-color: @color-blue;
+
+        & h2 label {
+            color: @color-blue;
+        }
+    }
+
+    &.orange-theme {
+        border-left-color: @color-orange;
+
+        & h2 label {
+            color: @color-orange;
+        }
+    }
+
+    & h2 {
+        font-size: 1.6em;
+        font-weight: 400;
+        color: @color-black-60;
+        padding-bottom: 0px;
+
+        & label {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: @color-black-20;
+        }
+    }
+}
+
+.count-box {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    min-height: 80px;
+    background: @color-white;
+    cursor: pointer;
+
+    &.count-box-sm {
+        min-height: 50px;
+
+        & .count-num {
+            line-height: 50px !important;
+            font-size: 2.0em;
+            width: 50px;
+        }
+
+        & .count-container {
+            padding-left: 60px;
+        }
+    }
+
+    &.single-count-text {
+        & .count-container {
+
+            & b {
+                padding-top: 20px;
+                font-size: 2em;
+                display: inline-block;
+            }
+        }
+    }
+
+    &.count-box-sm.single-count-text {
+        & .count-container {
+            & b {
+                padding-top: 10px;
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+    .count-box.active {
+        .boxShadow(2px 3px 0 rgba(0,0,0,0.1));
+    }
+
+    .count-box.inactive .bx-red,
+    .count-box.inactive .bx-green,
+    .count-box.inactive .bx-orange,
+    .count-box.inactive .bx-blue,
+    .count-box.inactive .bx-purple {
+        background: @color-black-69 !important;
+    }
+
+    .count-box.inactive .color-red,
+    .count-box.inactive .color-orange,
+    .count-box.inactive .color-green,
+    .count-box.inactive .color-blue,
+    .count-box.inactive .color-purple {
+        color: @color-black-69 !important;
+    }
+
+    .count-box > .count-num {
+        display: inline-block;
+        background: @color-black-90;
+        width: 80px;
+        text-align: center;
+        line-height: 2.1em;
+        font-size: 3.6em;
+        color: @color-white;
+        font-weight: 200;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+    }
+
+    .count-box > .count-container {
+        width: 100%;
+        display: inline-block;
+        padding: 5px 0 5px 100px;
+    }
+
+        .count-box > .count-container > h2 {
+            font-size: 3em;
+            font-weight: 200 !important;
+            color: @base-color-2-l2-5;
+            line-height: 1.0em;
+            padding-bottom: 0px;
+            padding-top: 10px;
+        }
+
+        .count-box > .count-container > b {
+            font-size: 1.4em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+@media screen and (max-width:1500px) {
+    .count-box > .count-container > h2 {
+        font-size: 2.5em;
+        padding-top: 15px;
+    }
+
+    .count-box > .count-container > b {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .count-box {
+        margin: 0 0 10px 0;
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------- END COUNT BOX CONTROL HERE -------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*---------------------------- count number start here -------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+.count-number {
+    padding: 3px 8px;
+    .borderRadius(3px);
+    background: @color-black-90;
+    font-size: 1.3em;
+
+    &.green {
+        background: @color-green;
+        color: @color-white;
+    }
+
+    &.red {
+        background: @color-red;
+        color: @color-white;
+    }
+
+    &.blue {
+        background: @color-blue;
+        color: @color-white;
+    }
+
+    &.orange {
+        background: @color-orange;
+        color: @color-white;
+    }
+
+    &.purple {
+        background: @color-purple;
+        color: @color-white;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/*---------------------------- count number start here -------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/

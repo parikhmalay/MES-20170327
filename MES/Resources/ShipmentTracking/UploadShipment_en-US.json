@@ -1,0 +1,19 @@
+﻿{
+    "_PageHeading_": "Upload Shipment",
+
+    "_DownloadShipment_": "Download Shipment",
+    "_DownloadShipmentText1_": "Steps to follow:",
+    "_DownloadShipmentText2_": "1. Click DOWNLOAD SHIPMENT button for RFQ shipment template.",
+    "_DownloadShipmentText3_": "2. Fill in the downloaded shipment with the required information.",
+    "_DownloadShipmentText4_": "3. Verify your shipment in the file.",
+    "_DownloadShipmentText5_": "4. Upload the shipment from the below section.",
+
+    "_UploadShipment_": "Upload Shipment",
+    "_UploadShipmentText1_": "Steps to follow:",
+    "_UploadShipmentText2_": "1. Upload the shipment from here by selecting your file.",
+    "_UploadShipmentText3_": "2. Click on UPLOAD SHIPMENT and wait for the Success message. This will confirm that your shipment has been submitted.",
+    "_SelectFile_": "Select a File",
+    "_ViewFile_": "View File"
+
+
+}

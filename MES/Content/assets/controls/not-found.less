@@ -1,0 +1,56 @@
+﻿#notifiation-box-panel {
+    width:100%;
+    float:left;
+    height:100%;
+    position:absolute;
+    background:@color-black-90;
+    & .notification-inner-panel {
+        width: 75%;
+        height: auto;
+        float: left;
+        padding: 5px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        & .title-big-box {
+            float:left;
+            text-align:right;
+            width:100%;
+            font-size:180px;
+            color:#524f4f;
+            font-weight:600;
+            margin-top:80px;
+            line-height:96px;
+            & span {
+                font-size:90px;
+                font-weight:400;
+            }
+        }
+        & .title-sub-box {
+            width:100%;
+            float:left;
+            font-size:35px;
+            color:#524f4f;
+            font-weight:600;
+            text-align:right;
+        }
+        & .title-sub-sub-box {
+            width:100%;
+            float:left;
+            font-size:23px;
+            color:#524f4f;
+            font-weight:400;
+            text-align:right;
+        }
+        & .notification-img {
+            width:100%;
+            float:left;
+            height:500px;
+            background:url("@{images}/not-found-page.png") center center no-repeat;
+            background-size:auto 100%;
+        }        
+    }
+}

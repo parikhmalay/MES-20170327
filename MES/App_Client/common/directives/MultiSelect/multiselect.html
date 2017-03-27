@@ -1,0 +1,26 @@
+<div class="btn-group" outside-click="outsideCallClickMethod()">
+    <button type="button" class="dropdown-toggle {{buttonClass}}" ng-click="toggleSelect()" ng-disabled="disabled" ng-class="{'error': !valid()}">
+        {{header}}<span class="icon-down-arrow"></span>
+    </button>
+    <div class="dropdown-menu">
+        <div class="input">
+            <input class="form-control input-sm" type="text" ng-model="searchText.label" autofocus="autofocus" placeholder="Filter" />
+        </div>
+        <div class="button" ng-show="multiple" role="presentation">
+            <button class="btn btn-link btn-xs" ng-click="checkAll()" type="button">Check all</button>
+            <button class="btn btn-link btn-xs" ng-click="uncheckAll()" type="button">Uncheck all</button>
+        </div>
+        <ul>
+            <li ng-repeat="i in items | filter:searchText" ng-class="{'selected': i.checked, '': !i.checked}">
+                <a ng-click="select(i); focus()">
+                    <i class='dm-icon' ng-class="{'dm-checked': i.checked, 'dm-unchecked': !i.checked}"></i> {{i.label}}
+                </a>
+            </li>
+        </ul>
+        <div class="button apply-btn align-center" ng-show="showOnApply">
+            <button class="blue-btn" ng-click="onapplyclick()">
+                {{buttontext}}
+            </button>
+        </div>
+    </div>
+</div>

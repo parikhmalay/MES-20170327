@@ -1,0 +1,221 @@
+﻿@using MES.Extended
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html xmlns="http://www.w3.org/1999/xhtml" class="ie ie9"> <![endif]-->
+<html ng-app="app">
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+    <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=10">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="../../Content/images/favicon.png" />
+    <link href="~/Content/mes-main.less" type="text/css" rel="stylesheet" />
+    <link href='~/Content/ie-style.less' rel='stylesheet' type='text/css'>
+    @Scripts.Render("~/bundles/angularjs")
+
+    <script src="~/App_Client/common/directives/Chart/highcharts.js"></script>
+    <script src="~/App_Client/common/directives/Chart/highcharts-exporting.js"></script>
+    <script src="~/App_Client/common/directives/Chart/highcharts-ng.js"></script>
+    
+    <script src="~/App_Client/common/directives/CkEditor/ckeditor.js"></script>
+    <script src="~/App_Client/common/directives/CkEditor/ng-ckeditor.js"></script>
+    
+    @RenderSection("scriptsHeader", false)
+    <!--[if IE]>
+    <script src="/Scripts/html5.js"></script>
+    <script src="/Scripts/ie.js"></script>
+    <link href='~/Content/ie-style.less' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+
+
+
+
+
+
+</head>
+<body class="sidebar-minimize search-advance-minimize">
+    <!--Wrapper Part start-->
+
+    <div id="wrapper">
+
+
+        <!--Left Part start-->
+        <section id="left-sidebar">
+            <div class="logo-box">
+                <a href="javascript:void(0)" title="MES">
+                    <!-- <img src="images/logo.png" alt="MES" title="MES"> -->
+                </a>
+            </div>@if (Request.IsAuthenticated)
+            {
+                <div class="menu-part">
+                    <script type="text/ng-template" id="treeMenuParent">
+                        <a ng-if="menu.PageName==''" href="javascript:void(0);" ng-class="(menu.childObject | filter:{ParentId : menu.ObjectId}).length > 0 ? 'sub-menu' : ''" title="{{menu.ObjectName}}">
+                            <img ng-src="/Content/images/{{menu.MenuClass}}.png" /> <span>{{menu.ObjectName}}</span>
+                            <i class="sub-menu fa fa-angle-right" data-ng-if="(menu.childObject | filter:{ParentId : menu.ObjectId}).length > 0"></i>
+                        </a>
+                        <a ng-if="menu.PageName!=''" href="{{menu.PageName}}" ng-class="(menu.childObject | filter:{ParentId : menu.ObjectId}).length > 0 ? 'sub-menu' : ''" title="{{menu.ObjectName}}">
+                            <img ng-src="/Content/images/{{menu.MenuClass}}.png" /> <span>{{menu.ObjectName}}</span>
+                            <i class="sub-menu fa fa-angle-right" data-ng-if="(menu.childObject | filter:{ParentId : menu.ObjectId}).length > 0"></i>
+                        </a>
+                        <ul data-ng-if="(menu.childObject | filter:{ParentId : menu.ObjectId}).length > 0">
+                            <li class="back-menu"><a href="javascript:void(0)"><i class="sub-menu fa fa-angle-left"></i> {{menu.ObjectName}}</a></li>
+                            <li data-ng-repeat="cMenu in menu.childObject | filter:{ParentId : menu.ObjectId} : true" data-ng-include="'treeMenu'" ng-class="{active:cMenu.IsActive,'':cMenu.IsActive}"></li>@*class="{{cMenu.IsActive}}"*@
+                        </ul>
+                    </script>
+                    <script type="text/ng-template" id="treeMenu">
+                        <a ng-href="{{cMenu.PageName}}"><i class="icon-dot"></i> {{cMenu.ObjectName}}</a>
+                    </script>
+                    <nav class="menu-box sub-menu-slide" ng-controller="menuCtrl">
+                        <ul>
+                            <li data-ng-repeat="menu in menuObject | filter:{ParentId : null} : true" data-ng-include="'treeMenuParent'" ng-class="{active:menu.IsActive,'':menu.IsActive}"></li>@*class="{{menu.IsActive}}"*@
+                        </ul>
+                    </nav>
+                </div>
+            }
+        </section>
+        <!--Left Part End-->
+        <!--Top Header Part start-->
+        <section id="top-header-panel" class="body-click-hide">
+            <div class="sidebar-toggle">
+                <span id="mobileMenu"><i class="fa fa-bars"></i></span>
+            </div>
+            <div class="page-title-h">
+                <span class="p-title-txt ng-binding" ng-bind="PageHeader"></span>
+            </div>
+            <div class="navbar-options">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </section>
+        <!--Top Header Part start-->
+        <!--Right Part start-->
+        <section id="content-part-main-panel" class="body-click-hide">
+            <!--Content Part start-->
+            <div class="content-common-panel">
+                @RenderBody()
+            </div>
+            <!--Content Part start-->
+        </section>
+        <!--Right Part End-->
+    </div>
+    <!--Wrapper Part end-->
+    @*<div aa-notify style="position: fixed; bottom: 25px; right: 25px; z-index:1061;"></div>*@
+    <div aa-notify class="notification-show-pop-up"></div>
+    <cst-loading-overlay></cst-loading-overlay>
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fa fa-chevron-up"></i></a>
+    @*------------------------------------------------------------------------------------------------------------*@
+    @*------------------------------START SCRIPTS HERE------------------------------------------------------------*@
+    @*------------------------------------------------------------------------------------------------------------*@
+
+    <script type="text/javascript">
+
+        //runtime common variable
+        var ApiURL = "@System.Configuration.ConfigurationManager.AppSettings["ApiURL"].ToString()";
+        @{
+          //To test a different culture please uncomment the below code
+         //System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR");
+         //System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture("en-US");
+            System.Globalization.CultureInfo obj = new System.Globalization.CultureInfo("en-US");
+
+            if (Request.Cookies["culture"] != null && !string.IsNullOrEmpty( Request.Cookies["culture"].Value))
+            {
+                obj = new System.Globalization.CultureInfo(Request.Cookies["culture"].Value);
+            }
+
+            System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture(obj.Name);
+            }
+
+        var userPreferencePagesize = "@Convert.ToString(ViewData["userPreferencePagesize"])";
+
+        //get security object data page wise
+        var currentSecurityObject =@Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(ViewData["currentObjects"]));
+
+        @{
+            var userPreferenceCulture = Convert.ToString(ViewData["userPreferenceCulture"]);
+            if (userPreferenceCulture!=null && userPreferenceCulture!="")
+            {
+                obj = new System.Globalization.CultureInfo(userPreferenceCulture);
+                System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.CreateSpecificCulture(obj.Name);
+            }
+            }
+        var Culture = "@System.Threading.Thread.CurrentThread.CurrentUICulture";
+        //var Version = 1;
+        var Version = @ViewContext.Controller.GetType().Assembly.GetName().Version.ToString().Replace(".", string.Empty)
+
+    </script>
+    <script src="@Url.Content(string.Format("~/Scripts/i18n/angular-locale_{0}.js", System.Threading.Thread.CurrentThread.CurrentUICulture.ToString().ToLower()))"></script>
+
+    @RenderSection("pageScripts", false)
+
+    @Scripts.Render("~/bundles/CommonScriptsForAllModule")
+    @Scripts.Render("~/bundles/Preferences")
+    @Scripts.Render("~/bundles/ChangePassword")
+
+    @RenderSection("scriptsFooter", false)
+
+    <script type="text/javascript">
+        var menuO=@Html.Json("Role");
+
+        app.controller('menuCtrl', ['$scope', function ($scope) {
+            $scope.menuObject = menuO;
+            var path= window.location.href;
+
+            $scope.Init=function(){
+                $scope.setChildObjActive($scope.menuObject);
+            };
+
+            $scope.setChildObjActive=function(lstChild){
+                var activeParentId;
+                angular.forEach(lstChild,function(i){
+                    if(!IsUndefinedNullOrEmpty(i.PageName)){
+                        if(path.toLowerCase().indexOf(i.PageName.toLowerCase())>-1){
+                            i.IsActive='active';
+                            activeParentId=i.ParentId;
+                        }
+                        else
+                            i.IsActive='';
+                    }
+                    else
+                        i.IsActive='';
+
+                    $scope.setChildObjActive(i.childObject);
+                });
+
+                if(activeParentId>0){
+                    $scope.setParentObjActive(activeParentId);
+                }
+            };
+
+            $scope.setParentObjActive=function(parentId){
+                var activeParentId;
+                var flag= false;
+                angular.forEach($scope.menuObject,function(i){
+                    if(i.ObjectId==parentId && flag==false)
+                    {
+                        i.IsActive='active';
+                        activeParentId=i.ParentId;
+                        flag=true;
+                    }
+                    else
+                        i.IsActive='';
+                });
+
+                if(activeParentId>0){
+                    $scope.setParentObjActive(activeParentId);
+                }
+            };
+            setTimeout(function () {
+                $scope.Init();
+            }, 500);
+        }]);
+
+    </script>
+
+
+    @*------------------------------------------------------------------------------------------------------------*@
+    @*------------------------------END SCRIPTS HERE------------------------------------------------------------*@
+    @*------------------------------------------------------------------------------------------------------------*@
+</body>
+</html>

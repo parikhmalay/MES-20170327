@@ -1,0 +1,492 @@
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------- START HORIZONTAL-ACCORDION PANEL CONTROL HERE -------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+.hori-accordion-panel {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+    .hori-accordion-panel > div:first-child > .base-area {
+        border-right: 4px solid @color-black-90;
+    }
+
+    .hori-accordion-panel > div:last-child > .base-area {
+        border-left: 4px solid @color-black-90;
+    }
+
+    .hori-accordion-panel > div:first-child.hori-accordion-subarea {
+        border-right: 4px solid @color-black-90;
+        margin-right: -4px;
+    }
+
+    .hori-accordion-panel > div[class="hori-accordion-area"] + [class="hori-accordion-subarea"] {
+        border-left: 4px solid @color-black-90;
+        margin-left: -4px;
+    }
+
+    .hori-accordion-panel > div:first-child > .base-subarea {
+        border-right: 4px solid @color-black-90;
+        margin-right: -4px;
+    }
+
+    .hori-accordion-panel > div:last-child > .base-subarea {
+        border-left: 4px solid @color-black-90;
+        margin-left: -4px;
+    }
+
+    .hori-accordion-panel > div:first-child {
+        left: 0;
+    }
+
+    .hori-accordion-panel > div:last-child {
+        right: 0;
+    }
+
+    .hori-accordion-panel > div[class="hori-accordion-area"] {
+        left: inherit;
+        right: inherit;
+    }
+
+    .hori-accordion-panel > div:first-child {
+        padding-right: 400px;
+        padding-left: inherit;
+    }
+
+    .hori-accordion-panel > div:last-child {
+        padding-left: 400px;
+        padding-right: inherit;
+    }
+
+    .hori-accordion-panel > div[class="hori-accordion-subarea"] {
+        padding-left: inherit;
+        padding-right: inherit;
+    }
+
+    .hori-accordion-panel > div:first-child > .base-area > .show-hide-arrow:after {
+        content: ">";
+    }
+
+    .hori-accordion-panel > div:first-child > .base-area > .show-hide-arrow {
+        right: -30px;
+        left: inherit;
+        .borderRadius(0px 5px 5px 0px);
+    }
+
+    .hori-accordion-panel > div:last-child > .base-area > .show-hide-arrow:after {
+        content: "<";
+    }
+
+    .hori-accordion-panel > div:last-child > .base-area > .show-hide-arrow {
+        left: -30px;
+        right: inherit;
+        .borderRadius(5px 0px 0px 5px);
+    }
+
+    .hori-accordion-panel > .hori-accordion-area > .base-area > .show-hide-arrow {
+        position: absolute;
+        top: 10px;
+        width: 26px;
+        height: 31px;
+        background: @color-black-90;
+        color: @color-black-60;
+        font-size: 2.0em;
+        line-height: 31px;
+        text-align: center;
+        font-family: @icon-font-npe !important;
+        display: inline-block;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+.hori-accordion-area {
+    width: 100%;
+    float: left;
+    .transition(padding 0.5s);
+    min-height: 100%;
+    background: @color-white;
+}
+
+.hori-accordion-subarea {
+    width: 404px;
+    position: absolute;
+    top: 0px;
+    float: left;
+    background: @color-black-98;
+    bottom: 0px;
+    .transition(width 0.5s);
+    min-height: 100%;
+}
+
+.hori-accordion-area > .base-area {
+    width: 100%;
+    float: left;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 65px;
+}
+
+.hori-accordion-subarea > .base-subarea {
+    width: 404px;
+    background: @color-black-98;
+    padding-bottom: 65px;
+    float: left;
+    min-height: 100%;
+}
+
+.hori-accordion-panel.panel-hide > .hori-accordion-subarea {
+    width: 54px;
+    overflow: hidden;
+}
+
+.hori-accordion-panel.panel-hide > div:first-child {
+    padding-right: 50px;
+    padding-left: inherit;
+}
+
+.hori-accordion-panel.panel-hide > div:last-child {
+    padding-left: 50px;
+    padding-right: inherit;
+}
+
+.hori-accordion-panel.panel-hide > div[class="hori-accordion-subarea"] {
+    padding-left: inherit;
+    padding-right: inherit;
+}
+
+.hori-accordion-panel.panel-hide > div:first-child > .base-area > .show-hide-arrow {
+    right: 0px;
+    left: inherit;
+    .borderRadius(5px 0px 0px 5px);
+}
+
+.hori-accordion-panel.panel-hide > div:last-child > .base-area > .show-hide-arrow {
+    left: 0px;
+    right: inherit;
+    .borderRadius(0px 5px 5px 0px);
+}
+
+.hori-accordion-panel.panel-hide > div:first-child > .base-area > .show-hide-arrow:after {
+    content: "<";
+}
+
+.hori-accordion-panel.panel-hide > div:last-child > .base-area > .show-hide-arrow:after {
+    content: ">";
+}
+
+.hori-accordion-panel.half-panel > div {
+    width: 50% !important;
+    float: left;
+    position: inherit;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.hori-accordion-panel.half-panel > .hori-accordion-subarea {
+    background: @color-white;
+}
+
+    .hori-accordion-panel.half-panel > .hori-accordion-subarea > .base-subarea {
+        background: @color-white;
+        width: 100% !important;
+    }
+
+.hori-accordion-panel.invoiceDisable {
+    position: relative;
+}
+
+    .hori-accordion-panel.invoiceDisable .invoiceOverlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(240,240,240, .6);
+        z-index: 2;
+    }
+/*@media screen and (max-width:1500px) {
+
+    .hori-accordion-panel > div:first-child { padding-right:250px; padding-left:inherit; }
+    .hori-accordion-panel > div:last-child { padding-left:250px; padding-right:inherit; }
+    .hori-accordion-panel > div[class="hori-accordion-subarea"] { padding-left:inherit; padding-right:inherit; }
+
+    .hori-accordion-panel.panel-hide > div:first-child { padding-right:80px; padding-left:inherit; }
+    .hori-accordion-panel.panel-hide > div:last-child { padding-left:80px; padding-right:inherit; }
+    .hori-accordion-panel.panel-hide > div[class="hori-accordion-subarea"] { padding-left:inherit; padding-right:inherit; }
+
+    .hori-accordion-subarea { width:250px; }
+    .hori-accordion-subarea > .base-subarea { width:250px; }
+    .hori-accordion-panel.panel-hide > .hori-accordion-subarea { width:80px; }
+}*/
+/*@media screen and (max-width:1280px) {
+    .hori-accordion-area { padding-left:200px; }
+    .hori-accordion-panel.panel-hide > .hori-accordion-area { padding-left:80px; }
+
+    .hori-accordion-subarea { width:200px; }
+    .hori-accordion-subarea > .base-subarea { width:200px; }
+    .hori-accordion-panel.panel-hide > .hori-accordion-subarea { width:80px; }
+}*/
+
+/*@media screen and (max-width:1170px) {
+    .hori-accordion-area { padding-left:150px; }
+    .hori-accordion-panel.panel-hide > .hori-accordion-area { padding-left:80px; }
+
+    .hori-accordion-subarea { width:150px; }
+    .hori-accordion-subarea > .base-subarea { width:150px; }
+    .hori-accordion-panel.panel-hide > .hori-accordion-subarea { width:80px; }
+}*/
+@media screen and (max-width:1270px) {
+    .hori-accordion-panel .col-6.sap-v {
+        width: 100%;
+        border: none;
+    }
+
+        .hori-accordion-panel .col-6.sap-v + .col-6 {
+            width: 100%;
+            border: none;
+        }
+}
+
+@media screen and (max-width:1024px) {
+    /*---------- invoie 1024 screen condition for event invoice--------------*/
+
+    .hori-accordion-panel > div:first-child {
+        padding-right: 330px;
+    }
+
+    .hori-accordion-panel > div:last-child {
+        padding-left: 330px;
+    }
+
+    .hori-accordion-subarea {
+        width: 334px;
+    }
+
+        .hori-accordion-subarea > .base-subarea {
+            width: 334px;
+        }
+
+    .hori-accordion-panel.panel-hide > .hori-accordion-subarea {
+        width: 54px;
+    }
+
+    .hori-accordion-panel.panel-hide > div:first-child {
+        padding-right: 50px;
+    }
+
+    .hori-accordion-panel.panel-hide > div:last-child {
+        padding-left: 50px;
+    }
+
+    .hori-accordion-panel.panel-hide > div[class="hori-accordion-subarea"] {
+        padding-left: inherit;
+        padding-right: inherit;
+    }
+
+    .hori-accordion-panel.half-panel > div {
+        width: 50% !important;
+    }
+
+    .hori-accordion-panel > div[class="hori-accordion-subarea"] {
+        padding-left: inherit;
+        padding-right: inherit;
+    }
+
+    .hori-accordion-panel.half-panel > div {
+        padding: 0;
+    }
+
+        .hori-accordion-panel.half-panel > div:first-child > .base-area {
+            border-right: none;
+        }
+
+        .hori-accordion-panel.half-panel > div:last-child > .base-area {
+            border-left: none;
+        }
+    /*---------- invoie 1024 screen condition for event invoice--------------*/
+
+    .hori-accordion-panel {
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+        .hori-accordion-panel.user-profile > div:first-child {
+            padding-right: 0px;
+            padding-left: inherit;
+        }
+
+        .hori-accordion-panel.user-profile > div:last-child {
+            padding-left: 0px;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel.user-profile > div[class="hori-accordion-subarea"] {
+            padding-left: inherit;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel.user-profile.panel-hide > div:first-child {
+            padding-right: 0px;
+            padding-left: inherit;
+        }
+
+        .hori-accordion-panel.user-profile.panel-hide > div:last-child {
+            padding-left: 0px;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel.user-profile.panel-hide > div[class="hori-accordion-subarea"] {
+            padding-left: inherit;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel.user-profile > div:first-child > .base-area {
+            border-right: none;
+        }
+
+        .hori-accordion-panel.user-profile > div:last-child > .base-area {
+            border-left: none;
+        }
+
+        .hori-accordion-panel.user-profile .hori-accordion-subarea {
+            width: 100%;
+            position: inherit;
+            border-bottom: 1px solid @color-black-90;
+        }
+
+            .hori-accordion-panel.user-profile .hori-accordion-subarea > .base-subarea {
+                width: 100%;
+                padding-bottom: 20px;
+                background: @color-white;
+            }
+
+        .hori-accordion-panel.user-profile .profile-devider {
+            border-bottom: 1px solid @color-black-90;
+        }
+
+        .hori-accordion-panel.user-profile.panel-hide > .hori-accordion-subarea {
+            width: 100%;
+        }
+
+        .hori-accordion-panel.user-profile > .hori-accordion-area > .base-area > .show-hide-arrow {
+            display: none;
+        }
+
+
+        .hori-accordion-panel.user-profile .invoice-profile-name {
+            width: 50%;
+            float: left;
+            padding-bottom: 12px;
+        }
+
+        .hori-accordion-panel.user-profile .side-invoice-details {
+            width: 50%;
+            float: left;
+            background: none;
+        }
+
+        .hori-accordion-panel.user-profile .invoice-half-details {
+            width: 50%;
+            float: left;
+            border-left: 2px solid @color-black-90;
+            padding: 0 20px;
+        }
+
+            .hori-accordion-panel.user-profile .invoice-half-details p {
+                word-wrap: break-word;
+            }
+
+        .hori-accordion-panel.half-panel > div {
+            width: 100% !important;
+        }
+
+            .hori-accordion-panel.half-panel > div:first-child {
+                border-bottom: 4px solid @color-black-90;
+            }
+
+    .hori-accordion-area > .base-area {
+        padding-bottom: 0px;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+    .hori-accordion-panel {
+        height: auto !important;
+        min-height: 0 !important;
+    }
+
+        .hori-accordion-panel > div:first-child {
+            padding-right: 0px;
+            padding-left: inherit;
+        }
+
+        .hori-accordion-panel > div:last-child {
+            padding-left: 0px;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel > div[class="hori-accordion-subarea"] {
+            padding-left: inherit;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel.panel-hide > div:first-child {
+            padding-right: 0px;
+            padding-left: inherit;
+        }
+
+        .hori-accordion-panel.panel-hide > div:last-child {
+            padding-left: 0px;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel.panel-hide > div[class="hori-accordion-subarea"] {
+            padding-left: inherit;
+            padding-right: inherit;
+        }
+
+        .hori-accordion-panel > div:first-child > .base-area {
+            border-right: none;
+        }
+
+        .hori-accordion-panel > div:last-child > .base-area {
+            border-left: none;
+        }
+
+    .hori-accordion-subarea {
+        width: 100%;
+        position: inherit;
+        border-bottom: 1px solid @color-black-90;
+    }
+
+        .hori-accordion-subarea > .base-subarea {
+            width: 100%;
+            padding-bottom: 20px;
+        }
+
+    .hori-accordion-panel.panel-hide > .hori-accordion-subarea {
+        width: 100%;
+    }
+
+    .hori-accordion-panel > .hori-accordion-area > .base-area > .show-hide-arrow {
+        display: none;
+    }
+
+    .hori-accordion-panel > div:last-child > .base-subarea {
+        border-left: none;
+    }
+
+    .hori-accordion-panel > div:first-child {
+        border-bottom: 4px solid @color-black-90;
+    }
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ---------------- END HORIZONTAL-ACCORDION PANEL CONTROL HERE -------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------- */

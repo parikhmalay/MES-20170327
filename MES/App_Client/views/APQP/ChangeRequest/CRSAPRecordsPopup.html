@@ -1,0 +1,103 @@
+﻿<div>
+    <div class="modal-header">
+        <h3 translate="yes">_SAPRecordsPopupPageHeading_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="list-1 root-list">
+            <div class="lst-header">
+                <div class="lst-item">
+                    <div class="col-grid-sm-1">
+                        <!--<input ng-change="SelectDeselectAll()" type="checkbox" id="chkSelectAll" ng-model="SelectAll" />
+                        <label for="chkSelectAll">_SelectAll_</label>-->
+                        &nbsp;
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label ng-click="sortType = 'ItemCode';sortReverse = !sortReverse">
+                            {{'_PartNo_' | translate}}
+                            <i ng-show="sortType == 'ItemCode' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'ItemCode' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label ng-click="sortType = 'RevLevel';sortReverse = !sortReverse">
+                            {{'_RevLevel_' | translate}}
+                            <i ng-show="sortType == 'RevLevel' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'RevLevel' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label ng-click="sortType = 'RFQNumber';sortReverse = !sortReverse">
+                            {{'_RfqNo_' | translate}}
+                            <i ng-show="sortType == 'RFQNumber' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'RFQNumber' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label> {{'_RFQDate_' | translate}}</label>
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label ng-click="sortType = 'QuoteNumber';sortReverse = !sortReverse">
+                            {{'_QuoteNo_' | translate}}
+                            <i ng-show="sortType == 'QuoteNumber' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'QuoteNumber' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-4">
+                        <label ng-click="sortType = 'CustomerName';sortReverse = !sortReverse">
+                            {{'_CustomerName_' | translate}}
+                            <i ng-show="sortType == 'CustomerName' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'CustomerName' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-4">
+                        <label ng-click="sortType = 'SupplierName';sortReverse = !sortReverse">
+                            {{'_SupplierName_' | translate}}
+                            <i ng-show="sortType == 'SupplierName' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'SupplierName' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="lst-body">
+                <div class="lst-item" ng-repeat="item in SAPRecordsList | orderBy:sortType:sortReverse">
+                    <div class="col-grid-sm-1" data-colmn-title="{{'_SelectAll_'| translate}}">
+                        <input ng-change="select()" type="checkbox" id="chkSelectSAPRecordPopup{{$index}}" ng-model="item.chkSelect" />
+                        <label for="chkSelectSAPRecordPopup{{$index}}"></label>
+                    </div>
+                    <div class="col-grid-sm-3" data-colmn-title="{{'_PartNo_'| translate}}">
+                        <p>{{item.ItemCode}}</p>
+                    </div>
+                    <div class="col-grid-sm-3" data-colmn-title="{{'_RevLevel_'| translate}}">
+                        <label>{{item.RevLevel}}</label>
+                    </div>
+                    <div class="col-grid-sm-3" data-colmn-title="{{'_RfqNo_'| translate}}">
+                        <label>{{item.RFQNumber}}</label>
+                    </div>
+                    <div class="col-grid-sm-3" data-colmn-title="{{'_RFQDate_'| translate}}">
+                        <label>{{item.RFQDate}}</label>
+                    </div>
+                    <div class="col-grid-sm-3" data-colmn-title="{{'_QuoteNo_'| translate}}">
+                        <label>{{item.QuoteNumber}}</label>
+                    </div>
+                    <div class="col-grid-sm-4" data-colmn-title="{{'_CustomerName_'| translate}}">
+                        <label>{{item.CustomerName}}</label>
+                    </div>
+                    <div class="col-grid-sm-4" data-colmn-title="{{'_SupplierName_'| translate}}">
+                        <label>{{item.SupplierName}}</label>
+                    </div>
+                </div>
+                <div class="lst-item" ng-hide="SAPRecordsList.length>0">
+                    <div class="col-12">
+                        <div class="error-box rounded-info-box">
+                            <p translate="yes">_NoRecordsFound_</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="orange-btn" ng-click="InsertFromSAPRecords()">{{'_AddToCR_' | translate}}</button>
+        <button class="orange-btn" ng-click="Cancel()">{{'_Cancel_' | translate}}</button>
+    </div>
+</div>

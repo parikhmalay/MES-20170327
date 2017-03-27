@@ -1,0 +1,190 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Client", "1.Client", "{80124011-FE9B-4017-B073-7F7CB427F7F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Logic", "3.Logic", "{3E5E35A6-3CC5-46F5-BC78-D76CAABCE40E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Data", "4.Data", "{B8AA31BA-72BB-4970-B2D7-917DA4F5B2C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7.Test", "7.Test", "{48B591D7-7446-45FB-A211-45796CFE463B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Solution-Items", "5.Solution-Items", "{E61B6C4B-1004-40DB-881A-D523BB03AEFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.Scheduler", "6.Scheduler", "{5928F7BB-9B07-4589-9F94-FD5528439B07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infrastructure", "2.Infrastructure", "{D137B16F-2AF1-4108-AF51-D29E5702CC6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{BE3B59B2-63B6-4B33-865B-C726B2F5CF2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{7AD011D6-BD8C-4CBA-AD0A-F795543AF10A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.API", "MES.API\MES.API.csproj", "{E285C1B0-C854-49D0-9AB6-83AC0D5E434C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES", "MES\MES.csproj", "{8F9CEC96-5B12-4888-BD2E-058FE759A18E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.Business.Library", "MES.Business.Library\MES.Business.Library.csproj", "{C985C330-76AC-45C6-A79E-8439A2DA34DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.Business.Mapping", "MES.Business.Mapping\MES.Business.Mapping.csproj", "{CF6841E2-B235-4336-8EC7-2F703DEC4702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.Business.Repositories", "MES.Business.Repositories\MES.Business.Repositories.csproj", "{050294AF-6765-4F98-8107-353C534ED0AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.DTO.Library", "MES.DTO.Library\MES.DTO.Library.csproj", "{08EEA579-76A2-4B5C-B12D-4928873D7750}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.ModelBuilder.Library", "MES.ModelBuilder.Library\MES.ModelBuilder.Library.csproj", "{A708A144-EB7D-4E6E-9413-B66BA0694AAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.Data.Library", "MES.Data.Library\MES.Data.Library.csproj", "{DB916D05-494E-4237-AC37-53356C7FA448}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.Identity.Data.Library", "MES.Identity.Data.Library\MES.Identity.Data.Library.csproj", "{36F8904C-0E7A-454F-A880-29C700CD5CB0}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "MES.API.Azure", "MES.API.Azure\MES.API.Azure.ccproj", "{D9545802-0E0C-4058-B50A-DFE14BB149BB}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "MES.Azure", "MES.Azure\MES.Azure.ccproj", "{71947607-DE97-4B3A-95A7-604D361615D3}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "MES.Scheduler.Azure", "MES.Scheduler.Azure\MES.Scheduler.Azure.ccproj", "{8F37E0C7-5CA5-4A35-A2C6-213B6389C793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MES.Scheduler", "MES.Scheduler\MES.Scheduler.csproj", "{929B64DD-2BEA-4F2C-A720-453D646EFEC4}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 14
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://iqrtfs:8080/tfs/iqr%20projects
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MES.API\\MES.API.csproj
+		SccProjectTopLevelParentUniqueName1 = MES.sln
+		SccProjectName1 = MES.API
+		SccLocalPath1 = MES.API
+		SccProjectUniqueName2 = MES.Business.Library\\MES.Business.Library.csproj
+		SccProjectTopLevelParentUniqueName2 = MES.sln
+		SccProjectName2 = MES.Business.Library
+		SccLocalPath2 = MES.Business.Library
+		SccProjectUniqueName3 = MES.Business.Mapping\\MES.Business.Mapping.csproj
+		SccProjectTopLevelParentUniqueName3 = MES.sln
+		SccProjectName3 = MES.Business.Mapping
+		SccLocalPath3 = MES.Business.Mapping
+		SccProjectUniqueName4 = MES.Business.Repositories\\MES.Business.Repositories.csproj
+		SccProjectTopLevelParentUniqueName4 = MES.sln
+		SccProjectName4 = MES.Business.Repositories
+		SccLocalPath4 = MES.Business.Repositories
+		SccProjectUniqueName5 = MES.Data.Library\\MES.Data.Library.csproj
+		SccProjectTopLevelParentUniqueName5 = MES.sln
+		SccProjectName5 = MES.Data.Library
+		SccLocalPath5 = MES.Data.Library
+		SccProjectUniqueName6 = MES.DTO.Library\\MES.DTO.Library.csproj
+		SccProjectTopLevelParentUniqueName6 = MES.sln
+		SccProjectName6 = MES.DTO.Library
+		SccLocalPath6 = MES.DTO.Library
+		SccProjectUniqueName7 = MES.Identity.Data.Library\\MES.Identity.Data.Library.csproj
+		SccProjectTopLevelParentUniqueName7 = MES.sln
+		SccProjectName7 = MES.Identity.Data.Library
+		SccLocalPath7 = MES.Identity.Data.Library
+		SccProjectUniqueName8 = MES.ModelBuilder.Library\\MES.ModelBuilder.Library.csproj
+		SccProjectTopLevelParentUniqueName8 = MES.sln
+		SccProjectName8 = MES.ModelBuilder.Library
+		SccLocalPath8 = MES.ModelBuilder.Library
+		SccProjectUniqueName9 = MES\\MES.csproj
+		SccProjectTopLevelParentUniqueName9 = MES.sln
+		SccProjectName9 = MES
+		SccLocalPath9 = MES
+		SccProjectUniqueName10 = MES.API.Azure\\MES.API.Azure.ccproj
+		SccProjectTopLevelParentUniqueName10 = MES.sln
+		SccProjectName10 = MES.API.Azure
+		SccLocalPath10 = MES.API.Azure
+		SccProjectUniqueName11 = MES.Azure\\MES.Azure.ccproj
+		SccProjectTopLevelParentUniqueName11 = MES.sln
+		SccProjectName11 = MES.Azure
+		SccLocalPath11 = MES.Azure
+		SccProjectUniqueName12 = MES.Scheduler.Azure\\MES.Scheduler.Azure.ccproj
+		SccProjectTopLevelParentUniqueName12 = MES.sln
+		SccProjectName12 = MES.Scheduler.Azure
+		SccLocalPath12 = MES.Scheduler.Azure
+		SccProjectUniqueName13 = MES.Scheduler\\MES.Scheduler.csproj
+		SccProjectTopLevelParentUniqueName13 = MES.sln
+		SccProjectName13 = MES.Scheduler
+		SccLocalPath13 = MES.Scheduler
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E285C1B0-C854-49D0-9AB6-83AC0D5E434C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E285C1B0-C854-49D0-9AB6-83AC0D5E434C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E285C1B0-C854-49D0-9AB6-83AC0D5E434C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E285C1B0-C854-49D0-9AB6-83AC0D5E434C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9CEC96-5B12-4888-BD2E-058FE759A18E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9CEC96-5B12-4888-BD2E-058FE759A18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9CEC96-5B12-4888-BD2E-058FE759A18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9CEC96-5B12-4888-BD2E-058FE759A18E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C985C330-76AC-45C6-A79E-8439A2DA34DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C985C330-76AC-45C6-A79E-8439A2DA34DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C985C330-76AC-45C6-A79E-8439A2DA34DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C985C330-76AC-45C6-A79E-8439A2DA34DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF6841E2-B235-4336-8EC7-2F703DEC4702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF6841E2-B235-4336-8EC7-2F703DEC4702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF6841E2-B235-4336-8EC7-2F703DEC4702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF6841E2-B235-4336-8EC7-2F703DEC4702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{050294AF-6765-4F98-8107-353C534ED0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{050294AF-6765-4F98-8107-353C534ED0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{050294AF-6765-4F98-8107-353C534ED0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{050294AF-6765-4F98-8107-353C534ED0AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08EEA579-76A2-4B5C-B12D-4928873D7750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EEA579-76A2-4B5C-B12D-4928873D7750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EEA579-76A2-4B5C-B12D-4928873D7750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EEA579-76A2-4B5C-B12D-4928873D7750}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A708A144-EB7D-4E6E-9413-B66BA0694AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A708A144-EB7D-4E6E-9413-B66BA0694AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A708A144-EB7D-4E6E-9413-B66BA0694AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A708A144-EB7D-4E6E-9413-B66BA0694AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB916D05-494E-4237-AC37-53356C7FA448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB916D05-494E-4237-AC37-53356C7FA448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB916D05-494E-4237-AC37-53356C7FA448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB916D05-494E-4237-AC37-53356C7FA448}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36F8904C-0E7A-454F-A880-29C700CD5CB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36F8904C-0E7A-454F-A880-29C700CD5CB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36F8904C-0E7A-454F-A880-29C700CD5CB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36F8904C-0E7A-454F-A880-29C700CD5CB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9545802-0E0C-4058-B50A-DFE14BB149BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9545802-0E0C-4058-B50A-DFE14BB149BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9545802-0E0C-4058-B50A-DFE14BB149BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9545802-0E0C-4058-B50A-DFE14BB149BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71947607-DE97-4B3A-95A7-604D361615D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71947607-DE97-4B3A-95A7-604D361615D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71947607-DE97-4B3A-95A7-604D361615D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71947607-DE97-4B3A-95A7-604D361615D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F37E0C7-5CA5-4A35-A2C6-213B6389C793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F37E0C7-5CA5-4A35-A2C6-213B6389C793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F37E0C7-5CA5-4A35-A2C6-213B6389C793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F37E0C7-5CA5-4A35-A2C6-213B6389C793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{929B64DD-2BEA-4F2C-A720-453D646EFEC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{929B64DD-2BEA-4F2C-A720-453D646EFEC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{929B64DD-2BEA-4F2C-A720-453D646EFEC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{929B64DD-2BEA-4F2C-A720-453D646EFEC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE3B59B2-63B6-4B33-865B-C726B2F5CF2E} = {80124011-FE9B-4017-B073-7F7CB427F7F9}
+		{7AD011D6-BD8C-4CBA-AD0A-F795543AF10A} = {80124011-FE9B-4017-B073-7F7CB427F7F9}
+		{E285C1B0-C854-49D0-9AB6-83AC0D5E434C} = {BE3B59B2-63B6-4B33-865B-C726B2F5CF2E}
+		{8F9CEC96-5B12-4888-BD2E-058FE759A18E} = {7AD011D6-BD8C-4CBA-AD0A-F795543AF10A}
+		{C985C330-76AC-45C6-A79E-8439A2DA34DE} = {3E5E35A6-3CC5-46F5-BC78-D76CAABCE40E}
+		{CF6841E2-B235-4336-8EC7-2F703DEC4702} = {3E5E35A6-3CC5-46F5-BC78-D76CAABCE40E}
+		{050294AF-6765-4F98-8107-353C534ED0AC} = {3E5E35A6-3CC5-46F5-BC78-D76CAABCE40E}
+		{08EEA579-76A2-4B5C-B12D-4928873D7750} = {3E5E35A6-3CC5-46F5-BC78-D76CAABCE40E}
+		{A708A144-EB7D-4E6E-9413-B66BA0694AAD} = {3E5E35A6-3CC5-46F5-BC78-D76CAABCE40E}
+		{DB916D05-494E-4237-AC37-53356C7FA448} = {B8AA31BA-72BB-4970-B2D7-917DA4F5B2C4}
+		{36F8904C-0E7A-454F-A880-29C700CD5CB0} = {B8AA31BA-72BB-4970-B2D7-917DA4F5B2C4}
+		{D9545802-0E0C-4058-B50A-DFE14BB149BB} = {BE3B59B2-63B6-4B33-865B-C726B2F5CF2E}
+		{71947607-DE97-4B3A-95A7-604D361615D3} = {7AD011D6-BD8C-4CBA-AD0A-F795543AF10A}
+		{8F37E0C7-5CA5-4A35-A2C6-213B6389C793} = {5928F7BB-9B07-4589-9F94-FD5528439B07}
+		{929B64DD-2BEA-4F2C-A720-453D646EFEC4} = {5928F7BB-9B07-4589-9F94-FD5528439B07}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8;packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,82 @@
+/*----------------------------------------------------------------------------------------------*/
+/*---------------------- Action bar start here -------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+.action-bar {
+    padding: 0px;
+    float: left;
+    width: 100%;
+
+    & .action-bar-left {
+        float: left;
+        width: auto;
+        padding: 10px 0 10px 20px;
+
+        & .action-section-icon {
+            border-right: 1px solid @color-black-90;
+        }
+
+        & .action-section-info {
+            padding-left: 20px;
+        }
+    }
+
+    & .action-bar-right {
+        float: right;
+        width: auto;
+        padding: 10px 20px 10px 0px;
+
+        &.action-section-container {
+            padding: 0px;
+        }
+
+        & .action-section-icon {
+            border-left: 1px solid @color-black-90;
+        }
+
+        & .action-section-info {
+            padding-right: 20px;
+        }
+    }
+
+    & .action-section {
+        float: left;
+        width: 100%;
+
+        & .action-section-info {
+            float: left;
+            line-height: 20px;
+            font-size: 1.4em;
+            padding-top: 16px;
+            padding-bottom: 15px;
+            color: @color-black-40;
+        }
+
+        & .action-section-icon {
+            float: left;
+            width: 52px;
+            height: 52px;
+            text-align: center;
+            cursor: pointer;
+
+            & [class*="icon-"] {
+                position: relative;
+                top: 50%;
+                line-height: 0px;
+                color: @color-black-40;
+                font-size: 3.5em;
+            }
+
+            &:hover {
+                background: @color-black-87;
+
+                & [class*="icon-"] {
+                    color: @color-blue;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------------------------------------------------------------------------*/
+/*---------------------- Action bar end here ---------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/

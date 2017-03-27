@@ -1,0 +1,46 @@
+﻿{
+    "_PageHeading_": "Add/Edit User",
+    "_UserList_": "User List",
+    "_Users_": "Users",
+    "_FullName_": "Full Name",
+    "_UserName_": "User Name",
+    "_Email_": "Email",
+    "_Status_": "Status",
+    "_Active_": "Active",
+    "_Inactive_": "Inactive",
+    "_Role_": "Role",
+    "_SelectRole_": "--Select Role--",
+
+    "_PersonalDetails_": "Personal Details",
+    "_Prefix_": "Prefix",
+    "_SelectPrefix_": "--Select Prefix--",
+    "_FirstName_": "First Name",
+    "_MiddleName_": "Middle Name",
+    "_LastName_": "Last Name",
+    "_EmailAddress_": "E-mail Address",
+    "_Gender_": "Gender",
+    "_SelectGender_": "--Select Gender--",
+
+    "_AddressDetails": "Address Details",
+    "_AddressLine1_": "Address Line 1",
+    "_AddressLine2_": "Address Line 2",
+    "_City_": "City",
+    "_State_": "State",
+    "_ZipCode_": "Zip Code",
+    "_Country_": "Country",
+    "_SelectCountry_": "--Select Country--",
+
+    "_AccountDetails_": "Account Details",
+    "_SystemRole": "Role",
+    "_Designation_": "Designation",
+    "_SelectDesignation_": "--Select Designation--",
+    "_Supplier_": "Supplier",
+    "_SelectSupplier_": "--Select Supplier--",
+    "_IsRFQCoordinator_": "Is RFQ Coordinator?",
+    "_Password_": "Password",
+    "_ConfirmPassword_": "Confirm Password",
+
+    "_UsernameAlreadyExist_": "User name already exist."
+
+
+}

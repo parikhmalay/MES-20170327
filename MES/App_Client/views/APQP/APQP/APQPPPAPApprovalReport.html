@@ -1,0 +1,306 @@
+﻿<div class="col-12 pad-t-0 openScrollDiv">
+    <div class="col-12 pad-10 pad-b-0 pad-l-0">
+        <div class="header-highligt-panel">
+            <span class="height-20"><label translate="yes">_PPAPPartsApprovedDate_</label><p>{{SelectionCriteria.PPAPPartsApprovedDateFrom | date:'dd-MMM-yy'}} - {{SelectionCriteria.PPAPPartsApprovedDateTo | date:'dd-MMM-yy'}}</p></span>
+            <span class="height-20"><label translate="yes">_CustomerName_</label><p>{{SelectionCriteria.CustomerName}}</p></span>
+            <span class="height-20"><label translate="yes">_ApqpEngineer_</label><p>{{SelectionCriteria.APQPQualityEngineerIds}}</p></span>
+            <span class="height-20"><label translate="yes">_SupplyChainCoordinator_</label><p>{{SelectionCriteria.SupplyChainCoordinatorIds}}</p></span>
+            <span class="height-20"><label translate="yes">_MesSam_</label><p>{{SelectionCriteria.SAMUserIds}}</p></span>
+            <span class="height-20"><label translate="yes">_ProjectType_</label><p>{{SelectionCriteria.ProjectStageIds}}</p></span>
+            <span class="height-20"><label translate="yes">_PPAPStatus_</label><p>{{SelectionCriteria.PPAPStatus}}</p></span>
+            
+        </div>
+    </div>
+    <div>
+        <!--ng-show="DataList.length>0 && ShowRFQPartQuoteDetailGridReport==false"-->
+        <div class="col-12 pad-t-0">
+            <div class="col-12">
+                <div class="custom-grid-panel mar-b-10 grid-option-five">
+                    <div class="border-full">
+                        <div class="grid-common-detail-panel">
+                            <div class="grid-common-content-panel">
+                                <div class="grid-right-panel">
+                                    <div class="scroller-panel">
+                                        <div class="common-grid-panel supplierQuote sliderOn header-two-line" row column-width="200" column-move="1" margin-minus="340">
+                                            <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_PartNumber_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_ProjectKickOffDate_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_ActualToolingKickoffDate_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0 align-right">{{'_ToolingLeadtime_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-200">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_ApqpEngineer_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-250">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_SupplyChainCoordinator_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_MesSam_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_CustomerName_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_PlannedToolingCompletionDate_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_ActualToolingCompletionDate_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_PlannedPSWDate_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_ActualPSWDate_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_ActualPPAPPartsApprovedDate_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-120">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_PPAPStatus_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-120">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0 align-right">{{'_EauUsage_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-common-detail-panel">
+                        <div class="fixed-height-grid auto-height-grid height-auto-important">
+                            <div class="border-full">
+                                <div class="section-coomon">
+                                    <div class="grid-common-content-panel">
+                                        <div class="grid-right-panel">
+                                            <div class="scroller-panel sap-group">
+                                                <div class="common-grid-panel sub-group SupplierQuote sliderOn" row column-width="200" column-move="1">
+                                                    <div class="common-grid-panel" ng-repeat="APQP in APQPPPAPApprovalReportList">
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.PartNumber}} <span class="tooltip-h">{{APQP.PartNumber}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.ProjectKickoffDate | date:'dd-MMM-yy'}} </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.ToolingKickoffDate | date:'dd-MMM-yy'}} </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box align-right">
+                                                                <label>{{APQP.ToolingLeadtimeDays}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-200">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.APQPEngineer}} </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-250">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.SupplyChainCoordinator}} <span class="tooltip-h">{{APQP.SupplyChainCoordinator}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.SalesAccountManager}}<span class="tooltip-h">{{APQP.SalesAccountManager}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.CustomerName}} <span class="tooltip-h">{{APQP.CustomerName}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.PlanToolingCompletionDate | date:'dd-MMM-yy'}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.ActualToolingCompletionDate | date:'dd-MMM-yy'}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.PSWDate | date:'dd-MMM-yy'}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.ActualPSWDate | date:'dd-MMM-yy'}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-150">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.PPAPPartsApprovedDate | date:'dd-MMM-yy'}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-120">
+                                                            <div class="col-hori-box">
+                                                                <label>{{APQP.PPAPStatus}}</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-120">
+                                                            <div class="col-hori-box align-right">
+                                                                <label>{{APQP.EAUUsage}}</label>
+                                                            </div>
+                                                        </div>                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 align-center" ng-hide="APQPPPAPApprovalReportList.length>0">
+        <div class="spacer-gray-line"></div>
+        <div class="error-box rounded-info-box" style="display:inline-block;">
+            <p translate="yes">_NoRecordsFound_</p>
+        </div>
+    </div>
+    <div class="col-12" ng-show="APQPPPAPApprovalReportList.length>0">
+        <mespagination boundary-links="true" total-items="Paging.TotalRecords" on-select-page="APQPPPAPApprovalReportPageChanged(page)"
+                       page="Paging.PageNo" items-per-page="Paging.PageSize" fix-to-bottom=""
+                       previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page-size="APQPPPAPApprovalReportPageSizeChanged(pagesize)" pagesize="Paging.PageSize"></mespagination>
+    </div>
+</div>

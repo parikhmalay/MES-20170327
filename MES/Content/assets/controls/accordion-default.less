@@ -1,0 +1,301 @@
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Accordion controll start here ----------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+
+.display-inline-block{
+    display:inline-block;
+    width:100%;
+    .boxSizing(borderbox);
+}
+.common-accordion-panel {
+    & .rating-s {
+        & .rating li {
+            font-size:19px; height:23px;
+        }
+    } 
+    & .panel-heading .panel-title a.accordion-toggle {
+        padding:4px 2px 3px 32px !important;
+        & span.accordion-icon {
+            left:5px;
+            top:2px;
+        }
+    }
+    & .fs-f-i input[type="checkbox"] + label {
+        padding-bottom:2px !important;
+    }
+    & .spacer-blank-col {
+        height:68px;
+    }
+    & .label-spacer-line-height {
+        label {
+            line-height:21px;
+        }
+    }
+    & .commodity-type {
+        & .btn-group {
+            width:100%;
+            &  > button {
+                width:100%;
+                text-align:left;
+                font-size:1.4em;
+                color:#454545;
+                padding:2px 9px;
+                margin-left:0px;
+                & span.icon-down-arrow {
+                    float: right;
+                    margin-right: -3px;
+                    margin-top: -7px;
+                }
+            }
+        }        
+    }
+   
+    & .border-none {
+        border:none;
+    }
+    & .label-show-panel {
+        float: left;
+        position: absolute;
+        text-align: center;
+        top: 10px;
+        width: 100%;
+    }
+     & .spacer-position-relative {
+        position:relative;
+        top:0;
+    }
+    & .disabled-tab-according {
+        & .accordion-icon:before {
+            content:"\f0fe" !important;
+        }
+        & .panel-collapse {
+            display:none !important;
+        }
+    }
+    & .spacer-right-t {
+        label {
+            padding-right:5px;
+            display:inline;
+        }
+    }
+    & .panel-default {
+        border-color:#cdcdcd !important;
+        overflow:visible !important;
+    }
+     & .active {
+             overflow:hidden !important;
+         }  
+    & .panel-heading {
+        border-bottom:solid 1px #cdcdcd;
+    }
+    .last-trip-panel {
+        text-align:right;
+        float:left;
+        width:100%;
+        border-top:solid 1px #e5e5e5;
+        padding-top:12px;
+        text-transform:uppercase;
+    }
+    & .border-top-spacer {
+        border-top:4px solid #e5e5e5;
+    }
+    & .fs-g {
+        padding-bottom:0px;
+        margin-bottom:0px;
+        & .fs-f:last-child {
+            padding-bottom:0px;
+        }
+        & .fs-f {
+            position:relative;
+        }
+    }
+}
+accordion{
+    .display-inline-block();
+    /*text-transform:uppercase;*/
+    .panel-group {
+        .display-inline-block(); 
+        border-bottom:1px solid @color-black-80;
+        & .lst-header {
+            .display-inline-block(); 
+            background:@color-dark-gray;
+            border-radius:5px 5px 0px 0px;
+            border:1px solid @color-black-80;
+            margin-bottom:0px;
+            & label {
+                padding-top:1px;
+                color:#e67757;
+            }
+        } 
+        & .full-wrap-table-panel {
+            width:100%;
+            float:left;
+            overflow:auto;
+            & .full-wrap-table-box {
+                width:3300px;
+                float:left;
+            }
+        }
+        & .panel-default {
+            .display-inline-block();
+            /*background: @base-color-1-l8;*/
+            background-color:@color-gray;
+            border:1px solid @color-black-80;
+            overflow: hidden;
+            float: left;
+            width: 100%;
+            border-bottom:none;
+            border-top-color:#e5e5e5;
+            &.active {
+                /*background: @color-orange;*/
+                /*& .panel-heading h4.panel-title a {
+                    color:#fff;
+                }*/
+                & .accordion-icon:before {
+                    /*content: "\f146";*/
+                     content: "\f0fe";
+                 }
+            }
+
+            & .accordion-icon {
+                float: right;
+                line-height: 0px;
+                vertical-align: middle;
+                display: inline-block;
+                font-family: FontAwesome;
+                font-feature-settings: normal;
+                font-kerning: auto;
+                font-language-override: normal;
+                font-size: inherit;
+                font-size-adjust: none;
+                font-stretch: normal;
+                font-style: normal;
+                font-synthesis: weight style;
+                font-variant: normal;
+                font-weight: normal;
+                line-height: 1;
+                text-rendering: auto;  
+                font-size: 14px;
+                margin-right: 5px;
+                margin-top:3px;
+                text-align: right;
+                width: 32px;
+            }
+             & .accordion-icon:before {
+                 /*content: "\f0fe";*/
+                 content: "\f146";
+             }
+            & > .panel-heading {
+                height: 25px;
+                & span {
+                    vertical-align: middle;
+                }
+                & h4 {
+                    font-weight: normal;
+                    font-size: inherit;
+                    &.panel-title {
+                        height: 25px;
+                        & a {
+                            height: 25px;
+                        }
+                    }
+                    & a{
+                         padding: 0px !important;
+                         &.accordion-toggle {
+                            padding: 7px 10px;
+                            width: 100%;
+                            display: inline-block;
+                            cursor: pointer;
+                            font-size: 1.3em;
+                            font-weight:600;
+                            .boxSizing(border-box);
+                            color: @color-orange;
+                            position: relative;
+                            line-height:12px;
+                            text-transform:uppercase;
+                            & span.title {
+                                width: 100%;
+                                float: left;
+                                .boxSizing(border-box);
+                                padding-left: 45px;
+                            }
+
+                            & span.accordion-icon {
+                                position: absolute;
+                                left: 7px;
+                                top:2px;
+                                width: auto;
+                                padding-right: 0px;
+                            }
+                            & .p-title-txt {
+                                position:relative;
+                                left:-5px;
+                            }
+                            & .float-r-r {
+                                position:absolute;
+                                right:0;
+                            }
+                        }
+
+                         & span {
+                            padding:0 0 0 3px;
+                            &[class*="icon-"] {
+                                padding-left: 0px;
+                                padding-right: 0px;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        .panel-title {
+            color: inherit;
+            font-size: 16px;
+            margin-bottom: 0;
+            margin-top: 0;
+            padding-bottom: 0px;
+        }
+
+        .collapse.in {
+            display: block;
+            /*margin-bottom:-2px;*/
+        }
+
+        .panel-collapse {
+            .transition(height 0.5s);
+        }
+
+        /*.panel + .panel {
+            margin-top: 10px;
+        }*/
+
+        .panel-body {
+            background: @color-white;
+            /*border: 1px solid @color-black-90;*/
+            border-top: none;
+            .display-inline-block();
+
+            & div:last-child > a {
+                border-bottom: none;
+            }
+
+            & div.active a {
+                color: @color-green;
+                background: @color-black-98;
+            }
+
+            
+            & .lst-body {
+                border-bottom:none;
+            }
+        }
+    }
+}
+
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------- Accordion controll end here ----------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/

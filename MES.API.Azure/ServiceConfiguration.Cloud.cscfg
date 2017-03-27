@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="MES.API.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="MES.API">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mesmeshstorage2;AccountKey=tf41mmByClu74MZ0hD/NW0TXGifVxHzwRLOeq4/2Z4ZDgij48tflQslp0CWW0+kOYgNWGO8Kr9uScFdOaXrg2A==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="mesuser" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEBHzsvKG4t2UTUjmA8njqSMwDQYJKoZIhvcNAQEBBQAEggEAb0Fb8ARVbaoUJO9STroT1wake4w3NryzsMp+dMzeksAue84mmoExeyCy/+7YLGGFcko6gRsmLEqeOXgkFtuzxjjccC0fE+GrksKWm4h0BtfuTdasLlAKzXMavpjqSAX/lnntCmx6ZG3W4YhW2pINyYqM6bNQfC0FiHZXm+h2oEUVTm8n1gXuNJrbYepwR4xNyQEUJIEoiri8G2N59AZChHcQNlWv8WYZGp67JHLbY8mpkFSxczHSrfetNzEkQRRajt3kINceLNr0hJxvaZ95b9ehPYhmwiRBUJfSFwaOZG11P8eSNEUePeoIE57XDhixXkuQ73xgxEa4OWuW7ibNqjAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECFAdk4Yd//x9gBCLJXx2GzHrKSAILyHwiTw7" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2017-07-27T23:59:59.0000000+05:30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="161014E96169EDAF6E5F0B835845C2E5816A47CF" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

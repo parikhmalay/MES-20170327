@@ -1,0 +1,154 @@
+﻿<div class="modal-header">
+    <h3 translate="yes">_DocumentManagement_</h3>
+    <button class="btn float-r" ng-click="Cancel()"> <i class="fa fa-close"></i> </button>
+</div>
+<div class="modal-body">
+    <!--DOCUMENT MANAGEMENT Start-->
+    <div class="col-12">
+        <div class="common-accordion-panel">
+            <div class="col-12">
+                <accordion close-others="false">
+                    <div class="list-1 root-list">
+                        <div class="lst-header">
+                            <div class="lst-item">
+                                <div class="col-grid-sm-6">
+                                    <label ng-click="sortType = 'DocumentType';sortReverse = !sortReverse">
+                                        {{'_DocumentType_' | translate}}
+                                        <i ng-show="sortType == 'DocumentType' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                        <i ng-show="sortType == 'DocumentType' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-5">
+                                    <label ng-click="sortType = 'FileTitle';sortReverse = !sortReverse">
+                                        {{'_FileTitle_' | translate}}
+                                        <i ng-show="sortType == 'FileTitle' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                        <i ng-show="sortType == 'FileTitle' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-6">
+                                    <label ng-click="sortType = 'Comments';sortReverse = !sortReverse">
+                                        {{'_Comments_' | translate}}
+                                        <i ng-show="sortType == 'Comments' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                        <i ng-show="sortType == 'Comments' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                    </label>
+                                </div>
+
+                                <div class="col-grid-sm-5">
+                                    <label ng-click="sortType = 'RevLevel';sortReverse = !sortReverse">
+                                        {{'_RevLevel_' | translate}}
+                                        <i ng-show="sortType == 'RevLevel' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                        <i ng-show="sortType == 'RevLevel' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                    </label>
+                                </div>
+
+                                <div class="col-grid-sm-2 align-right spacer-right-t">
+                                    <label>
+                                        {{'_Action_' | translate}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lst-body">
+                            <div class="lst-item" ng-show="AddEditDocument==true">
+                                <div class="col-grid-sm-6">
+                                    <select name="{{'_DocumentType_' | translate}}" aa-field-name="{{'_DocumentType_'|translate}}" ng-model="Document.DocumentTypeItem" ng-options="item as item.Name for item in DocumentLookupList" ng-required="AddEditDocument==true" ng-change="setAssociatedTo(Document.DocumentTypeItem)">
+                                        <option value="">{{'_Select_' | translate}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-grid-sm-5 upload-image">
+                                    <file-select fs-model="Document.DocumentFilePath"
+                                                 fs-multiselect="false"
+                                                 fs-upload-path="documentPath"
+                                                 fs-extension-validation-msg="File not supported"
+                                                 fs-saveuploadedfiles="SetObjectvalues(UploadedFilePath,UploadedFileName)"
+                                                 fs-spinnder-key="spnAPQP"
+                                                 fs-stop-spinner="1"
+                                                 fs-extension=""
+                                                 fs-file-upload-folder-name="APQPFile/{{FolderName}}"
+                                                 fs-max-size="1050000"></file-select>
+                                    <ul class="images-upload-panal mar-t-5" ng-hide="Document.FilePath==undefined || Document.FilePath==''">
+                                        <li>
+                                            <a href="/APQP/CAPA/CAPA/DownloadFile?filePath={{Document.FilePath}}&fileName={{Document.FileTitle}}" target="_blank">{{Document.FileTitle}}</a>
+                                            <button class="btn float-r" ng-click="deleteFile(Document.FilePath)"> <i class="fa fa-close"></i> </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-grid-sm-6">
+                                    <textarea class="textarea-height-half" type="text" rows="5" name="{{'_Comments_' | translate}}" aa-field-name="{{'_Comments_' | translate}}" ng-model="Document.Comments" maxlength="255"></textarea>
+                                </div>
+                                <div class="col-grid-sm-5">
+                                    <input type="text" name="{{'_RevLevel_' | translate}}" aa-field-name="{{'_RevLevel_' | translate}}" ng-model="Document.RevLevel" />
+                                </div>
+
+                                <div class="col-grid-sm-2 align-right">
+                                    <div class="btn-group action-btn" dropdown>
+                                        <button type="button" class="btn" data-ng-click="SaveDocument(item,$index)" translate="yes">_Save_</button>
+                                        <button type="button" class="btn action-toggle">
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Split button!</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="javascript:void(0)" data-ng-click="CancelDocument(item.Id,$index)" translate="yes">_Cancel_</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lst-item" ng-show="AddEditDocument==false && IsAccordionObjectEmpty">
+                                <div class="col-12">
+                                    <div class="error-box rounded-info-box">
+                                        <p translate="yes">_NoRecordsFound_</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <accordion-group heading="" ng-repeat="(DocumentTypeName,DocumentItems) in DocumentsListWithGroup" is-open="true" ng-hide="IsAccordionObjectEmpty" ng-init="DocumentItems.IsOpen=true">
+                        <accordion-heading>
+                            <span class="p-title-txt">{{'_DocumentType_' | translate}}: {{DocumentTypeName}}</span>
+                            <span class="accordion-icon"></span>
+                        </accordion-heading>
+                        <div class="list-1 root-list">
+                            <div class="lst-body">
+                                <div class="lst-item" ng-repeat="item in DocumentItems | orderBy:sortType:sortReverse">
+                                    <div class="col-grid-sm-6" data-colmn-title="{{'_DocumentType_'| translate}}">
+                                        <label>{{item.DocumentType}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-5" data-colmn-title="{{'_FileTitle_'| translate}}">
+                                        <a class="page-url" href="/APQP/CAPA/CAPA/DownloadFile?filePath={{item.FilePath}}&fileName={{item.FileTitle}}" target="_blank">{{item.FileTitle}}</a>
+                                    </div>
+                                    <div class="col-grid-sm-6" data-colmn-title="{{'_Comments_'| translate}}">
+                                        <label>{{item.Comments}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-5" data-colmn-title="{{'_RevLevel_'| translate}}">
+                                        <label>{{item.RevLevel}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-2 align-right">
+                                        <div class="btn-group action-btn" dropdown ng-hide="AddEditDocument==true">
+                                            <button type="button" class="btn" data-ng-click="EditDocument(item,$index,item.Id)" translate="yes" ng-disabled="IsReadOnlyPage">_Edit_</button>
+                                            <button type="button" class="btn action-toggle">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Split button!</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="javascript:void(0)" data-ng-click="DeleteDocument(item.Id,$index)" translate="yes" ng-class="{disableAnchor:IsReadOnlyPage,'':IsReadOnlyPage}">_Delete_</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+
+    </div>
+    <!--DOCUMENT MANAGEMENT End-->
+</div>
+<div class="modal-footer">
+    <button ng-show="AddEditDocument==false" class="orange-btn" ng-click="AddNewDocument()" translate="yes" ng-disabled="IsReadOnlyPage">_AddDocuments_</button>
+    <!--<button class="orange-btn" ng-click="Cancel()">{{'_Cancel_' | translate}}</button>-->
+</div>
+
+
+

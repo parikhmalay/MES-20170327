@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "RFQ Parts Quote By Supplier";
+    Layout = "~/Areas/RFQ/PartQuoteReportFromQuote/Views/Shared/_Layout.cshtml";
+}
+
+<div ng-view></div>
+
+@section pageScripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/RFQ/PartQuoteReportFromQuote")
+}

@@ -1,0 +1,176 @@
+﻿<div class="common-accordion-panel">
+    <form unsaved-warning-form novalidate id="spnAddEditQuote" accessible-form>
+        <!--<us-spinner spinner-key="spnCreateQuote" spinner-start-active="1"></us-spinner>-->
+        <div class="modal-header">
+            <h3 translate="yes">_CompareQuotePageHeader_</h3>
+            <button class="btn float-r" ng-click="RedirectToList()"> <i class="fa fa-close"></i> </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12 pad-10 pad-t-0">
+                <div class="header-highligt-panel title-header-spacer width-7">
+                    <span><label translate="yes">_QuotesRcvd_</label> <p>{{RFQData.QuotesRcvd}}</p></span>
+                    <span><label translate="yes">_RFQId_</label><p>{{RFQData.Id}}</p></span>
+                    <span class="w11">
+                        <label translate="yes">_CustomerName_</label>
+                        <p class="fix">{{RFQData.CustomerName}}</p>
+                        <span class="tooltip-h">{{RFQData.CustomerName}}</span>
+                    </span>
+                    <span>
+                        <label translate="yes">_RFQType_</label>
+                        <p class="fix">{{RFQData.RFQType}}</p>
+                        <span class="tooltip-h">{{RFQData.RFQType}}</span>
+                    </span>
+                    <span>
+                        <label translate="yes">_Commodity_</label>
+                        <p class="fix">{{RFQData.Commodity}}</p>
+                        <span class="tooltip-h">{{RFQData.Commodity}}</span>
+                    </span>
+                    <span class="w11">
+                        <label translate="yes">_RFQCoordinator_</label>
+                        <p class="fix">{{RFQData.RFQCoordinator}}</p>
+                        <span class="tooltip-h">{{RFQData.RFQCoordinator}}</span>
+                    </span>
+                    <span class="w12">
+                        <label translate="yes">_ContactFullName_</label>
+                        <p class="fix">{{RFQData.CustomerContactName}}</p>
+                        <span class="tooltip-h">{{RFQData.CustomerContactName}}</span>
+                    </span>
+                    <span><label translate="yes">_Date_</label><p>{{RFQData.Date|date:'dd-MMM-yy'}}</p></span>
+                    <span class="w12"><label translate="yes">_QuoteDueDate_</label><p>{{RFQData.QuoteDueDate|date:'dd-MMM-yy'}}</p></span>
+                </div>
+                <!--<div class="spacer-gray-line"></div>-->
+            </div>
+
+            <div class="col-12 pad-10 pad-t-0">
+                <div class="col-12">
+                    <div class="custom-grid-panel mar-b-10 grid-option-one">
+                        <div class="border-full">
+                            <div class="grid-common-detail-panel scroller-dummy">
+                                <div class="grid-title-panel">
+                                    <h3>{{'_PartsList_' | translate}}</h3>
+                                </div>
+                                <div class="grid-common-content-panel">
+                                    <div class="grid-left-panel">
+                                        <ul>
+                                            <li>
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        &nbsp;
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-5 pad-0" translate="yes">_PartNo_</div>
+                                                            <div class="col-3 pad-0 align-right" translate="yes">_EstQty_</div>
+                                                            <div class="col-4 pad-0 align-right" translate="yes">_WeightInKg_</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel">
+                                            <div class="common-grid-panel supplierQuote sliderOn col-width-6000" row column-width="465" column-move="1" margin-minus="340">
+                                                <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                                <div class="common-grid-box" ng-repeat="sItem in RFQ.lstQuotedSuppliers">
+                                                    <div class="col-hori-box">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 align-center">{{sItem.CompanyName}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-1 pad-0">
+                                                                        &nbsp;
+                                                                    </div>
+                                                                    <div class="col-2 pad-0" translate="yes">_QuoteDt_</div>
+                                                                    <div class="col-2 pad-0 align-right" translate="yes">_PiecePrice_</div>
+                                                                    <div class="col-3 pad-0 align-right" translate="yes">_ToolingPrice_</div>
+                                                                    <div class="col-4 pad-0 align-right" translate="yes">_SupplierCostkg_</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-common-detail-panel">
+                            <div class="fixed-height-grid auto-height-grid">
+                                <div class="border-full">
+                                    <div class="section-coomon">
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul class="grid-option-one">
+                                                    <li ng-repeat="item in RFQ.lstRFQPart">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-body">
+                                                                <div class="lst-item">
+                                                                    <div class="col-5 pad-0">{{item.CustomerPartNo}}</div>
+                                                                    <div class="col-3 pad-0 align-right">{{item.EstimatedQty}}</div>
+                                                                    <div class="col-4 pad-0 align-right">{{item.PartWeightKG}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn col-width-6000" row column-width="245" column-move="1">
+                                                        <div ng-repeat="tItem in RFQ.lstQuotedSuppliers" class="common-grid-box">
+                                                            <div ng-repeat="pItem in RFQ.lstRFQPart" class="col-hori-box">
+                                                                <div class="common-grid-box" ng-repeat="cItem in  pItem.lstRFQPartCostComparison | filter:{SupplierId:tItem.SupplierId,rfqPartId:pItem.Id}">
+                                                                    <div class="col-hori-box align-right">
+                                                                        <div class="list-1 root-list">
+                                                                            <div class="lst-body">
+                                                                                <div class="lst-item">
+                                                                                    <div class="col-1 pad-0">
+                                                                                        <input type="radio" id="Part_{{tItem.SupplierId}}_{{cItem.rfqPartId}}" name="{{cItem.rfqPartId}}" value="{{tItem.SupplierId}}_{{cItem.rfqPartId}}" ng-model="cItem.rdoSelectValue" ng-change="onChangeParts(tItem.SupplierId,cItem.rfqPartId)" />
+                                                                                        <label for="Part_{{tItem.SupplierId}}_{{cItem.rfqPartId}}"></label>
+                                                                                    </div>
+                                                                                    <div class="col-2 pad-0 align-left">{{cItem.UpdatedDate|date:'dd-MMM-yy'}}</div>
+                                                                                    <div class="col-2 pad-0 align-right">{{cItem.PiecePrice|setDecimal:3}}</div>
+                                                                                    <div class="col-3 pad-0 align-right">{{cItem.ToolingCost|setDecimal:3}}</div>
+                                                                                    <div class="col-4 pad-0 align-right">{{cItem.SupplierCostPerKg|setDecimal:3}}</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="fs-g">
+                <button class="orange-btn" aa-submit-form="CreateQuote()" translate="yes">_CreateQuote_</button>
+                <button class="orange-btn" ng-click="RedirectToList()" translate="yes">_Cancel_</button>
+            </div>
+        </div>
+    </form>
+</div>

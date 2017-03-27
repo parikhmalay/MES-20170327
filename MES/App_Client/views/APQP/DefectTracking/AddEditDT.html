@@ -1,0 +1,990 @@
+﻿<div class="common-accordion-panel" ng-controller="AddEditDTCtrl" id="spnAPQP">
+    <us-spinner spinner-key="spnAPQP" spinner-start-active="1"></us-spinner> <!--spinner-start-active="1"-->
+    <form unsaved-warning-form novalidate accessible-form>
+        <!--Section - 1 - Change Request Form-->
+        <div class="col-12 pad-10 pad-b-0">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_AddEditDTTitle_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10 tool-tip-title-common">
+                        <div class="fs linear fs-col-4">
+                            <div class="fs-g">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_RMANo_</label>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <label>{{DefectTracking.RMANumber}}</label>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_RMADate_</label>
+                                        <span class="required">*</span>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <input type="text" name="{{'_RMADate_' | translate}}" aa-field-name="{{'_RMADate_' | translate}}" ng-model="DefectTracking.RMADate" date-time view="date" min-view="date" format="dd-MMM-yy" required ng-disabled="IsReadOnlyPage" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_IncludeInPPM_</label>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <select name="{{'_IncludeInPPM_' | translate}}" aa-field-name="{{'_IncludeInPPM_'|translate}}" ng-model="DefectTracking.IncludeInPPM" ng-disabled="IsReadOnlyPage">
+                                            <option value="Yes">{{'_Yes_' | translate}}</option>
+                                            <option value="No">{{'_No_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_IntOrExtFinding_</label>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <select name="{{'_IntOrExtFinding_' | translate}}" aa-field-name="{{'_IntOrExtFinding_'|translate}}" ng-model="DefectTracking.Finding" ng-disabled="IsReadOnlyPage">
+                                            <option value="External">{{'_External_' | translate}}</option>
+                                            <option value="Internal">{{'_Internal_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_QualityOrDeliveryIssue_</label>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <select name="{{'_QualityOrDeliveryIssue_' | translate}}" aa-field-name="{{'_QualityOrDeliveryIssue_'|translate}}" ng-model="DefectTracking.QualityOrDeliveryIssue" ng-disabled="IsReadOnlyPage">
+                                            <option value="Quality">{{'_Quality_' | translate}}</option>
+                                            <option value="Delivery">{{'_Delivery_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Customer_</label>
+                                        <span class="required">*</span>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <select name="{{'_Customer_' | translate}}" aa-field-name="{{'_Customer_'|translate}}" ng-model="DefectTracking.CustomerCode" ng-options="item.Id as item.Name for item in SAPCustomersList" ng-change="SetLooksupForPartOnCustomerChange()" required ng-disabled="IsReadOnlyPage || TransactionMode=='Edit'">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_PartNo_</label>
+                                        <span class="required">*</span>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <span class="col-11">
+                                            <multiselect multiple="true"
+                                                         ng-model="DefectTracking.PartNumberItems"
+                                                         itemkey="Id"
+                                                         itemvalue="Name"
+                                                         options="item as item.Name for item in PartsList"
+                                                         header="{{'_Select_' | translate}}" button-class="small" ng-disabled="IsReadOnlyPage"></multiselect>
+                                        </span>
+                                        <span class="col-1 button-add-s">
+                                            <button ng-show="TransactionMode=='Edit'" aa-submit-form="SaveDefectTracking('DropdownButton',0,0)" ng-disabled="IsReadOnlyPage"><i class="fa fa-plus-circle"></i></button>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_RMAInitiatedBy_</label>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <select name="{{'_RMAInitiatedBy_' | translate}}" aa-field-name="{{'_RMAInitiatedBy_'|translate}}" ng-model="DefectTracking.RMAInitiatedBy" ng-options="item.Id as item.Name for item in RMAInitiatedByList" ng-disabled="IsReadOnlyPage">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <!--Section - 1 - History - Change Request-->
+        <div class="col-12 pad-10 pad-l-0 pad-r-0" ng-show="TransactionMode=='Edit'">
+            <div class="col-12 pad-10 pad-t-0 pad-b-35">
+                <div class="wizard-s1">
+                    <ul class="nav nav-tabs">
+                        <li ng-click="TabObject.CurrentTab='CustomerSortReworkData'" ng-class="{active:isActive('CustomerSortReworkData')}" ng-disabled="isActive('CustomerSortReworkData')"><a href="javascript:void(0)">{{'_Tab1_'| translate}}</a></li>
+                        <li ng-click="TabObject.CurrentTab='MESWarehouse'" ng-class="{active:isActive('MESWarehouse')}" ng-disabled="isActive('MESWarehouse')"><a href="javascript:void(0)">{{'_Tab3_'| translate}}</a></li>
+                        <li ng-click="TabObject.CurrentTab='OtherFields'" ng-class="{active:isActive('OtherFields')}" ng-disabled="isActive('OtherFields')"><a href="javascript:void(0)">{{'_Tab4_'| translate}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--CurrentTab=='CustomerSortReworkData'-->
+            <div class="col-12 pad-10 pad-t-0 pad-t-m-none" ng-show="TabObject.CurrentTab=='CustomerSortReworkData'" dir-field-disabled="IsReadOnlyPage">
+                <div class="col-12">
+                    <div class="custom-grid-panel mar-b-10 grid-option-eight eight-spaccer">
+                        <div class="border-full">
+                            <div class="grid-common-detail-panel scroller-dummy scroller-dummy-s">
+                                <div class="grid-common-content-panel">
+                                    <div class="grid-left-panel">
+                                        <ul>
+                                            <li class="checkbox">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-2 pad-0 ng-scope">&nbsp;</div>
+                                                            <div class="col-10 pad-0 ng-scope">{{'_PartNo_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel">
+                                            <div column-width="200" margin-minus="280" row="" class="common-grid-panel supplierQuote sliderOn dubble-text-show col-width-1620">
+                                                <button type="button" onclick="scrollColumn(1)" class="slick-prev slick-arrow" aria-label="Previous" role="button" name="btnPrevious"></button>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_PartName_</b><span class="required">*</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_WarehouseLocation_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_DispositionOfParts_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_DateRejected_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_InitialRejectsAtCustomer_</b><span class="required">*</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_DefectsDescription_</b><span class="required">*</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_DateSortStarted_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_BalanceQtySortedOfCustomerParts_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_ADDLQTYREJECTOFCUSTOMERSORT_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_TOTALQTYREWORKEDSAVEDCUSTOMER_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_QtyRejectCustPartsPPM_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 align-center">
+                                                                        <b translate="yes">_Documents_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--TODO-->
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 align-center">
+                                                                        <b translate="yes">Delete</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" onclick="scrollColumn(0)" class="slick-next slick-arrow" aria-label="Next" role="button" name="btnNext"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-common-detail-panel">
+                            <div class="fixed-height-grid auto-height-grid">
+                                <!--auto-height-grid-225-->
+                                <div class="border-full">
+                                    <div class="section-coomon">
+                                        <div class="grid-common-content-panel">
+                                            <div class="lst-item" ng-hide="DefectTracking.lstDefectTrackingDetail.length>0">
+                                                <div class="col-12">
+                                                    <div class="error-box rounded-info-box">
+                                                        <p translate="yes">_NoRecordsFound_</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="grid-left-panel">
+                                                <ul class="grid-option-one">
+                                                    <li class="ng-scope" ng-repeat="DefectTrackingDetail in DefectTracking.lstDefectTrackingDetail">
+                                                        <!--ng-repeat="APQP in APQPList"-->
+                                                        <div class="list-1 root-list tool-tip-title-common">
+                                                            <div class="lst-body">
+                                                                <div class="lst-item yellow-tooltip">
+                                                                    <div class="col-2">
+                                                                        <input type="checkbox" id="chkSelect{{$index}}" class="always-enable" ng-model="DefectTrackingDetail.chkSelect" />
+                                                                        <label for="chkSelect{{$index}}"></label>
+                                                                    </div>
+                                                                    <div class="col-10">
+                                                                        <label>{{DefectTrackingDetail.PartNumber}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel sap-group ng-scope">
+                                                    <div class="common-grid-panel sub-group SupplierQuote sliderOn" row="" column-width="200" column-move="2">
+                                                        <div class="common-grid-panel group-mix-box">
+                                                            <div class="col-group-panel yellow-tooltip col-width-1800">
+                                                                <div class="sub-group-box-ver col-width-1620" ng-repeat="DefectTrackingDetail in DefectTracking.lstDefectTrackingDetail">
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input id="PartName_{{$index}}" type="text" class="red-invalid" name="{{'_PartName_' | translate}}" aa-field-name="{{'_PartName_' | translate}}" ng-model="DefectTrackingDetail.PartName" change-bgc-defect-tracking="{{$index}}" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <select name="{{'_WarehouseLocation_' | translate}}" aa-field-name="{{'_WarehouseLocation_'|translate}}" ng-model="DefectTrackingDetail.MESWarehouseLocationId" ng-options="item.Id as item.Name for item in MESWareHouseList">
+                                                                                <option value="">{{'_Select_' | translate}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box">
+                                                                            <select name="{{'_DispositionOfParts_' | translate}}" aa-field-name="{{'_DispositionOfParts_'|translate}}" ng-model="DefectTrackingDetail.DispositionOfParts">
+                                                                                <option value="Scrap">{{'_Scrap_' | translate}}</option>
+                                                                                <option value="Return">{{'_Return_' | translate}}</option>
+                                                                                <option value="Other">{{'_Other_' | translate}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box click-label-edit">
+                                                                            <input type="text" position="fixed" width="200" name="{{'_DateRejected_' | translate}}" aa-field-name="{{'_DateRejected_' | translate}}" ng-model="DefectTrackingDetail.DateRejected" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box">
+                                                                            <input id="CustomerInitialRejectQty_{{$index}}" type="text" class="align-right red-invalid" name="{{'_InitialRejectsAtCustomer_' | translate}}" aa-field-name="{{'_InitialRejectsAtCustomer_' | translate}}" ng-model="DefectTrackingDetail.CustomerInitialRejectQty" ng-maxlength="8" integer-only ng-blur="RowwiseCalculations(DefectTrackingDetail,$index)" change-bgc-defect-tracking="{{$index}}" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box">
+                                                                            <textarea id="DefectDescription_{{$index}}" class="textarea-height-half red-invalid" type="text" rows="5" name="{{'_DefectsDescription_' | translate}}" aa-field-name="{{'_DefectsDescription_' | translate}}" ng-model="DefectTrackingDetail.DefectDescription" change-bgc-defect-tracking="{{$index}}"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" position="fixed" width="200" name="{{'_DateSortStarted_' | translate}}" aa-field-name="{{'_DateSortStarted_' | translate}}" ng-model="DefectTrackingDetail.SortedStartDate" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" class="align-right" name="{{'_BalanceQtySortedOfCustomerParts_' | translate}}" aa-field-name="{{'_BalanceQtySortedOfCustomerParts_' | translate}}" ng-model="DefectTrackingDetail.CustomerBalanceSortedQty" ng-maxlength="8" integer-only />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" class="align-right" name="{{'_ADDLQTYREJECTOFCUSTOMERSORT_' | translate}}" aa-field-name="{{'_ADDLQTYREJECTOFCUSTOMERSORT_' | translate}}" ng-model="DefectTrackingDetail.CustomerAdditionalRejectQty" ng-maxlength="8" integer-only ng-blur="RowwiseCalculations(DefectTrackingDetail,$index)" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" class="align-right" name="{{'_TOTALQTYREWORKEDSAVEDCUSTOMER_' | translate}}" aa-field-name="{{'_TOTALQTYREWORKEDSAVEDCUSTOMER_' | translate}}" ng-model="DefectTrackingDetail.CustomerTotalReworkedQty" ng-maxlength="8" integer-only ng-blur="RowwiseCalculations(DefectTrackingDetail,$index)" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box align-right">
+                                                                            <label>{{DefectTrackingDetail.CustomerRejectedPartQty}}</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box align-center">
+                                                                            <a href="" class="spacer-top-img" title="DOCUMENT(S)" ng-click="ShowPopupDocuments('DTSTEP1',DefectTrackingDetail.Id)"><img src="/Content/images/document-icon.png" /></a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--TODO-->
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box align-center">
+                                                                            <a href="javascript:void(0)" class="spacer-top-img" title="Delete" ng-click="DeleteDefectTrackingDetail(DefectTrackingDetail.Id)" ng-class="{disableAnchor:IsReadOnlyPage,'':IsReadOnlyPage}"><img src="/Content/images/close-data-icon.png" /></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--CurrentTab=='MESWarehouse'-->
+            <div class="col-12 pad-10 pad-t-0 pad-t-m-none" ng-show="TabObject.CurrentTab=='MESWarehouse'" dir-field-disabled="IsReadOnlyPage">
+                <div class="col-12">
+                    <div class="custom-grid-panel mar-b-10 grid-option-eight eight-spaccer">
+                        <div class="border-full">
+                            <div class="grid-common-detail-panel scroller-dummy scroller-dummy-s">
+                                <div class="grid-common-content-panel">
+                                    <div class="grid-left-panel">
+                                        <ul>
+                                            <li class="checkbox">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-2 pad-0 ng-scope">&nbsp;</div>
+                                                            <div class="col-10 pad-0 ng-scope">{{'_PartNo_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel">
+                                            <div column-width="200" row="" class="common-grid-panel supplierQuote sliderOn dubble-text-show col-width-1258">
+                                                <button type="button" onclick="scrollColumn(1)" class="slick-prev slick-arrow" aria-label="Previous" role="button" name="btnPrevious"></button>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_WarehouseLocation_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_TotalQtySorted_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_RejectsDuringSort_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_QtyReworkedSaved_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_FinalQtyScrapped_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_FinalQtyGood_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 align-center">
+                                                                        <b translate="yes">_Delete_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" onclick="scrollColumn(0)" class="slick-next slick-arrow" aria-label="Next" role="button" name="btnNext"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-common-detail-panel">
+                            <div class="fixed-height-grid auto-height-grid">
+                                <!--auto-height-grid-225-->
+                                <div class="border-full">
+                                    <div class="section-coomon">
+                                        <div class="grid-common-content-panel">
+                                            <div class="lst-item" ng-hide="DefectTracking.lstDefectTrackingDetail.length>0">
+                                                <div class="col-12">
+                                                    <div class="error-box rounded-info-box">
+                                                        <p translate="yes">_NoRecordsFound_</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="grid-left-panel">
+                                                <ul class="grid-option-one">
+                                                    <li class="ng-scope" ng-repeat="DefectTrackingDetail in DefectTracking.lstDefectTrackingDetail">
+                                                        <!--ng-repeat="APQP in APQPList"-->
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-body">
+                                                                <div class="lst-item yellow-tooltip">
+                                                                    <div class="col-2">
+                                                                        <input type="checkbox" id="chkSelect{{$index}}" class="always-enable" ng-model="DefectTrackingDetail.chkSelect" />
+                                                                        <label for="chkSelect{{$index}}"></label>
+                                                                    </div>
+                                                                    <div class="col-10">
+                                                                        <label>{{DefectTrackingDetail.PartNumber}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel sap-group ng-scope">
+                                                    <div class="common-grid-panel sub-group SupplierQuote sliderOn" row="" column-width="200" column-move="2">
+                                                        <div class="common-grid-panel group-mix-box">
+                                                            <div class="col-group-panel col-width-1258">
+                                                                <div class="sub-group-box-ver col-width-1258" ng-repeat="DefectTrackingDetail in DefectTracking.lstDefectTrackingDetail">
+                                                                    <!--ng-repeat="APQP in APQPList"-->
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <label>{{DefectTrackingDetail.MESWarehouseLocationLabel}}</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" name="{{'_TotalQtySorted_' | translate}}" aa-field-name="{{'_TotalQtySorted_' | translate}}" ng-model="DefectTrackingDetail.MESTotalSortedQty" class="align-right" ng-maxlength="8" integer-only />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" name="{{'_DateCAInitiated_' | translate}}" aa-field-name="{{'_DateCAInitiated_' | translate}}" ng-model="DefectTrackingDetail.MESRejectDuringSort" class="align-right" ng-maxlength="8" integer-only />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" name="{{'_QtyReworkedSaved_' | translate}}" aa-field-name="{{'_QtyReworkedSaved_' | translate}}" ng-model="DefectTrackingDetail.MESReworkedQty" class="align-right" ng-maxlength="8" integer-only />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" name="{{'_FinalQtyScrapped_' | translate}}" aa-field-name="{{'_FinalQtyScrapped_' | translate}}" ng-model="DefectTrackingDetail.FinalQtyScrapped" class="align-right" ng-maxlength="8" integer-only ng-blur="RowwiseCalculations(DefectTrackingDetail,$index)" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" name="{{'_FinalQtyGood_' | translate}}" aa-field-name="{{'_FinalQtyGood_' | translate}}" ng-model="DefectTrackingDetail.FinalQtyGood" class="align-right" ng-maxlength="8" integer-only />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box align-center">
+                                                                            <a href="javascript:void(0)" class="spacer-top-img" title="Delete" ng-click="DeleteDefectTrackingDetail(DefectTrackingDetail.Id)" ng-class="{disableAnchor:IsReadOnlyPage,'':IsReadOnlyPage}"><img src="/Content/images/close-data-icon.png" /></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--CurrentTab=='OtherFields'-->
+            <div class="col-12 pad-10 pad-t-0 pad-t-m-none" ng-show="TabObject.CurrentTab=='OtherFields'" dir-field-disabled="IsReadOnlyPage">
+                <div class="col-12">
+                    <div class="custom-grid-panel mar-b-10 grid-option-eight eight-spaccer">
+                        <div class="border-full">
+                            <div class="grid-common-detail-panel scroller-dummy scroller-dummy-s">
+                                <div class="grid-common-content-panel">
+                                    <div class="grid-left-panel">
+                                        <ul>
+                                            <li class="checkbox">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-2 pad-0 ng-scope">&nbsp;</div>
+                                                            <div class="col-10 pad-0 ng-scope">{{'_PartNo_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel">
+                                            <div column-width="200" row="" class="common-grid-panel supplierQuote sliderOn dubble-text-show col-width-1570">
+                                                <button type="button" onclick="scrollColumn(1)" class="slick-prev slick-arrow" aria-label="Previous" role="button" name="btnPrevious"></button>
+                                                <div class="common-grid-box cg-180">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_WeightPerPiece_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-130">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_SellingPricePerPiece_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_DateSortEnded_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-200">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_TotalNoOfPartsRejected_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_DateCreditIssuedToCustomer_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_Supplier_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_SupplierContact_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_SortingCost_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_DateDebitIssuedToSupplier_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>-->
+                                                <div class="common-grid-box cg-250">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_Comments_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 ng-binding">
+                                                                        <b translate="yes">_Region_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box ng-s">
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-header">
+                                                                <div class="lst-item">
+                                                                    <div class="col-12 pad-0 align-center">
+                                                                        <b translate="yes">_Delete_</b>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" onclick="scrollColumn(0)" class="slick-next slick-arrow" aria-label="Next" role="button" name="btnNext"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-common-detail-panel">
+                            <div class="fixed-height-grid auto-height-grid">
+                                <!--auto-height-grid-225-->
+                                <div class="border-full">
+                                    <div class="section-coomon">
+                                        <div class="grid-common-content-panel">
+                                            <div class="lst-item" ng-hide="DefectTracking.lstDefectTrackingDetail.length>0">
+                                                <div class="col-12">
+                                                    <div class="error-box rounded-info-box">
+                                                        <p translate="yes">_NoRecordsFound_</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="grid-left-panel">
+                                                <ul class="grid-option-one">
+                                                    <li class="ng-scope" ng-repeat="DefectTrackingDetail in DefectTracking.lstDefectTrackingDetail">
+                                                        <!--ng-repeat="APQP in APQPList"-->
+                                                        <div class="list-1 root-list">
+                                                            <div class="lst-body">
+                                                                <div class="lst-item yellow-tooltip">
+                                                                    <div class="col-2">
+                                                                        <input type="checkbox" id="chkSelect{{$index}}" class="always-enable" ng-model="DefectTrackingDetail.chkSelect" />
+                                                                        <label for="chkSelect{{$index}}"></label>
+                                                                    </div>
+                                                                    <div class="col-10">
+                                                                        <label>{{DefectTrackingDetail.PartNumber}}</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel sap-group ng-scope">
+                                                    <div class="common-grid-panel sub-group SupplierQuote sliderOn" row="" column-width="200" column-move="2">
+                                                        <div class="common-grid-panel group-mix-box">
+                                                            <div class="col-group-panel col-width-1570 yellow-tooltip">
+                                                                <div class="sub-group-box-ver col-width-1570" ng-repeat="DefectTrackingDetail in DefectTracking.lstDefectTrackingDetail">
+                                                                    <!--ng-repeat="APQP in APQPList"-->
+                                                                    <div class="common-grid-box cg-180">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" name="{{'_WeightPerPiece_' | translate}}" aa-field-name="{{'_WeightPerPiece_' | translate}}" ng-model="DefectTrackingDetail.WeightPerPiece" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-130">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" class="align-right" name="{{'_SellingPricePerPiece_' | translate}}" aa-field-name="{{'_SellingPricePerPiece_' | translate}}" ng-model="DefectTrackingDetail.SellingPricePerPiece" ng-maxlength="10" numbers-only to-precision="3" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input position="fixed" width="200" type="text" name="{{'_DateSortEnded_' | translate}}" aa-field-name="{{'_DateSortEnded_' | translate}}" ng-model="DefectTrackingDetail.SortedEndDate" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-200">
+                                                                        <div class="col-hori-box align-right">
+                                                                            <label>{{DefectTrackingDetail.TotalNumberOfPartsRejected}}</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--<div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input position="fixed" width="200" type="text" name="{{'_DateCreditIssuedToCustomer_' | translate}}" aa-field-name="{{'_DateCreditIssuedToCustomer_' | translate}}" ng-model="DefectTrackingDetail.CustomerIssuedCreditDate" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                                                        </div>
+                                                                    </div>-->
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <select name="{{'_Supplier_' | translate}}" aa-field-name="{{'_Supplier_'|translate}}" ng-model="DefectTrackingDetail.SupplierCode" ng-options="item.Id as item.Name for item in DefectTrackingDetail.SAPSuppliersList" ng-change="setSupplierName(DefectTrackingDetail.SupplierCode,DefectTrackingDetail);SetLooksupForSupplierContact(DefectTrackingDetail.SupplierCode,DefectTrackingDetail)">
+                                                                                <option value="">{{'_Select_' | translate}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <select name="{{'_SupplierContact_' | translate}}" aa-field-name="{{'_SupplierContact_'|translate}}" ng-model="DefectTrackingDetail.SupplierContactName" ng-options="item.Id as item.Name for item in DefectTrackingDetail.SupplierContactList">
+                                                                                <option value="">{{'_Select_' | translate}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box">
+                                                                            <input type="text" class="align-right" name="{{'_SortingCost_' | translate}}" aa-field-name="{{'_SortingCost_' | translate}}" ng-model="DefectTrackingDetail.SortingCost" ng-maxlength="10" numbers-only to-precision="3" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--<div class="common-grid-box cg-150">
+                                                                        <div class="col-hori-box">
+                                                                            <input position="fixed" width="200" type="text" name="{{'_DateDebitIssuedToSupplier_' | translate}}" aa-field-name="{{'_DateDebitIssuedToSupplier_' | translate}}" ng-model="DefectTrackingDetail.SupplierIssuedDebitDate" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                                                        </div>
+                                                                    </div>-->
+                                                                    <div class="common-grid-box cg-250">
+                                                                        <div class="col-hori-box">
+                                                                            <textarea class="textarea-height-half" type="text" rows="5" name="{{'_Comments_' | translate}}" aa-field-name="{{'_Comments_' | translate}}" ng-model="DefectTrackingDetail.Comment"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box align-center">
+                                                                            <select name="{{'_Region_' | translate}}" aa-field-name="{{'_Region_'|translate}}" ng-model="DefectTrackingDetail.Region">
+                                                                                <option value="USA">{{'_USA_' | translate}}</option>
+                                                                                <option value="International">{{'_International_' | translate}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="common-grid-box cg-120">
+                                                                        <div class="col-hori-box align-center">
+                                                                            <a href="javascript:void(0)" class="spacer-top-img" title="Delete" ng-click="DeleteDefectTrackingDetail(DefectTrackingDetail.Id)" ng-class="{disableAnchor:IsReadOnlyPage,'':IsReadOnlyPage}"><img src="/Content/images/close-data-icon.png" /></a>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Top Header Show Start-->
+        <div class="freeze-bottom top-header-freeze-panel">
+            <button class="orange-btn" aa-submit-form="SaveDefectTracking('FinalSaveButton',0,0)" tabindex="40" translate="yes" ng-disabled="IsReadOnlyPage">_Save_</button>
+            <button class="orange-btn" aa-submit-form="SaveDefectTracking('FinalSaveButton',1,0)" tabindex="40" translate="yes" ng-disabled="IsReadOnlyPage">_SaveAndClose_</button>
+            <button class="orange-btn" ng-show="TransactionMode=='Edit'" ng-click="ShowChangeLogPopup()" tabindex="41" translate="yes">_ViewChangeLog_</button>
+            <button class="orange-btn" ng-show="TransactionMode=='Edit'" ng-click="AddToCAPAFromDT()" translate="yes">_AddToCAPAFromDT_</button>
+            <button class="orange-btn" ng-click="RedirectToList()" tabindex="42" translate="yes">_Cancel_</button>
+        </div>
+        <!--Top Header Show End-->
+
+        <div class="freeze-bottom">
+            <button class="orange-btn" aa-submit-form="SaveDefectTracking('FinalSaveButton',0,0)" tabindex="40" translate="yes" ng-disabled="IsReadOnlyPage">_Save_</button>
+            <button class="orange-btn" aa-submit-form="SaveDefectTracking('FinalSaveButton',1,0)" tabindex="40" translate="yes" ng-disabled="IsReadOnlyPage">_SaveAndClose_</button>
+            <button class="orange-btn" ng-show="TransactionMode=='Edit'" ng-click="ShowChangeLogPopup()" tabindex="41" translate="yes">_ViewChangeLog_</button>
+            <button class="orange-btn" ng-show="TransactionMode=='Edit'" ng-click="AddToCAPAFromDT()" translate="yes">_AddToCAPAFromDT_</button>
+            <button class="orange-btn" ng-click="RedirectToList()" tabindex="42" translate="yes">_Cancel_</button>
+        </div>
+    </form>
+</div>

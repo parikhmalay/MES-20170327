@@ -1,0 +1,86 @@
+.nav-tab2 {
+    background: @color-black-98;
+    padding: 15px 20px 0 20px;
+    float: left;
+    width: 100%;
+}
+
+    .nav-tab2 > ul {
+        width: 100%;
+    }
+
+        .nav-tab2 > ul > li {
+            float: left;
+            border-top: 4px solid @color-black-80;
+            margin-top: 4px;
+            margin-bottom: 1px;
+            margin-right: 3px;
+
+            &.disable {
+            }
+        }
+
+            .nav-tab2 > ul > li > a {
+                display: block;
+                padding: 7px 25px 9px 25px;
+                color: @color-black-60;
+                text-transform: uppercase;
+                cursor: pointer;
+                font-size: 1.4em;
+                background: @color-white;
+                text-decoration: none;
+            }
+
+                .nav-tab2 > ul > li > a:hover {
+                    color: @color-black-27;
+                }
+
+            .nav-tab2 > ul > li.active {
+                border-top: 4px solid @color-green;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                cursor: pointer;
+            }
+
+                .nav-tab2 > ul > li.active > a {
+                    color: @color-black-27;
+                    font-weight: 600;
+                    padding: 11px 25px 10px 25px;
+                }
+
+.nav-count {
+    & ul li a {
+        padding-right: 5px;
+    }
+
+    & ul li.no-count-box a {
+        padding-right: 20px;
+    }
+
+    & ul li.no-count-box.active a {
+        padding-right: 20px;
+    }
+
+    & ul li.active a {
+        padding-right: 5px;
+
+        & .nav-count-box {
+            background: @color-green;
+            color: @color-white;
+        }
+    }
+
+    & .nav-count-box {
+        padding: 2px 7px;
+        .borderRadius(3px);
+        background: @color-black-90;
+        color: @color-black-20;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width:1170px) {
+    .nav-tab2 > ul > li > a {
+        font-size: 1.3em;
+    }
+}

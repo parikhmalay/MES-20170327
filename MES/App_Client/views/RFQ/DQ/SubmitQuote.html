@@ -1,0 +1,614 @@
+﻿<div class="common-accordion-panel" ng-controller="RFQDetailSupplierPartQuoteCtrl" id="spnRFQSupplierPartQuote">
+    <us-spinner spinner-key="spnRFQSupplierPartQuote" spinner-start-active="1"></us-spinner>
+    <section id="left-sidebar" ng-show="IsForm==true">
+        <div class="logo-box">
+            <a href="javascript:void(0)" title="MES">
+                <!-- <img src="images/logo.png" alt="MES" title="MES"> -->
+            </a>
+        </div>
+        <div class="req-details-panel">
+            <div class="title-left-box">
+                <label> RFQ Details </label>
+            </div>
+            <div class="rfq-list-panel">
+                <div class="row pad-l-10 pad-r-10">
+                    <div class="col-6 ls-i"><label>{{'_Number_' | translate}}</label></div>
+                    <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].RfqId}}</label></div>
+                </div>
+                <div class="row pad-l-10 pad-r-10">
+                    <div class="col-6 ls-i"><label>{{'_Supplier_' | translate}}</label></div>
+                    <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].CompanyName}}</label></div>
+                </div>
+                <div class="row pad-l-10 pad-r-10">
+                    <div class="col-6 ls-i"><label>{{'_RFQDate_' | translate}}</label></div>
+                    <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].RFQDate |customDate: 'dd-MMM-yy'}}</label></div>
+                </div>
+                <div class="row pad-l-10 pad-r-10">
+                    <div class="col-6 ls-i"><label>{{'_QuoteDueDate_' | translate}}</label></div>
+                    <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].QuoteDueDate |customDate: 'dd-MMM-yy'}}</label></div>
+                </div>
+                <div class="row pad-l-10 pad-r-10">
+                    <div class="col-6 ls-i"><label>{{'_SupplierRequirement_' | translate}}</label></div>
+                    <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].SupplierRequirement}}</label></div>
+                </div>
+                <div class="row pad-l-10 pad-r-10">
+                    <div class="col-6 ls-i"><label>{{'_Remarks_' | translate}}</label></div>
+                    <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].RFQRemarks}}</label></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="col-12 pad-10 pad-t-10" ng-show="IsForm==true">
+        <input type="radio" ng-model="EnterQuote" ng-value="true" id="rdoEnterQuote" name="QouteType" ng-checked="true">
+        <label for="rdoEnterQuote">{{'_EnterQuote_'|translate}}</label>
+        <input type="radio" ng-model="EnterQuote" ng-value="false" id="rdoUploadQuote" name="QouteType">
+        <label for="rdoUploadQuote">{{'_UploadQuote_'|translate}}</label>
+
+        <input type="checkbox" ng-model="NoQuote" id="chkNoQuote">
+        <label for="chkNoQuote">{{'_NoQuote_'|translate}}</label>
+    </div>
+    <form unsaved-warning-form novalidate ng-show="IsForm==true" accessible-form>
+        <div class="col-12 pad-10 pad-t-0">
+            <div class="col-12">
+                <div ng-show="EnterQuote==true && NoQuote==false">
+                    <div class="custom-grid-panel">
+                        <div class="border-full">
+                            <div class="grid-common-detail-panel scroller-dummy drag-common-panel">
+                                <div class="grid-title-panel">
+                                    <h3>{{'_PartDetail_'| translate}}</h3>
+                                </div>
+                                <div class="grid-common-content-panel">
+                                    <div class="grid-left-panel">
+                                        <ul>
+                                            <li>{{'_PartNo_'| translate}}</li>
+                                            <li>{{'_Description_'| translate}}</li>
+                                            <li>{{'_AdditionalDescription_'| translate}}</li>
+                                            <li>{{'_AnnualQuantity_'| translate}}</li>
+                                            <li>{{'_Specifications_'| translate}}</li>
+                                            <li>{{'_MinOrderQty_'| translate}} <span class="required">*</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel">
+                                            <div class="common-grid-panel supplierQuote sliderOn" row column-width="245" column-move="1" margin-minus="350" height-fixed-cols="194">
+                                                <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                                <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                    <div class="col-hori-box"><label>{{item.CustomerPartNo}}</label></div>
+                                                    <div class="col-hori-box"><label>{{item.PartDescription}}<span class="tooltip-h">{{item.PartDescription}}</span></label></div>
+                                                    <div class="col-hori-box"><label>{{item.AdditionalPartDesc}}<span class="tooltip-h">{{item.AdditionalPartDesc}}</span></label></div>
+                                                    <div class="col-hori-box align-right"><label>{{item.EstimatedQty}}</label></div>
+                                                    <div class="col-hori-box">
+                                                        <span callout="left" class="internal-popout open-left" callout-max-width="200px" ng-if="item.Specifications.length>0">
+                                                            <a href="javascript:void(0)" class="specification-file-btn"><img src="/Content/images/document-icon.png" /><span>{{'_ShowDocuments_' | translate}}</span></a>
+                                                            <span class="popout-window">
+                                                                <span ng-repeat="spec in item.Specifications">
+                                                                    <span class="col-12">
+                                                                        <a class="" href="{{spec.AttachmentPathOnServer}}" target="_blank">{{$index + 1}}.&nbsp;{{spec.AttachmentName}}</a>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-hori-box align-right">
+                                                        <input id="MinOrderQtyDQ_{{$index}}"
+                                                               type="text" class="half align-right red-invalid" name="{{'_MinOrderQty_'| translate}}"
+                                                               aa-field-name="{{'_MinOrderQty_'| translate}}" ng-model="item.MinOrderQty"
+                                                               integer-only ng-maxlength="10" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                    </div>
+                                                </div>
+                                                <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-common-detail-panel">
+                            <div class="fixed-height-grid auto-height-grid">
+                                <div class="border-full">
+                                    <div class="section-coomon">
+                                        <div class="drag-section-panel"></div>
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_RawMaterial_'| translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_Material_'| translate}}</li>
+                                                    <li>{{'_RawMaterialIndexUsed_'|translate}}</li>
+                                                    <li>{{'_RawMatInput_'| translate}}<span class="required">*</span><span class="small">{{'_RawMatInputGrossWtInkg_'| translate}}</span></li>
+                                                    <li>{{'_PartWeight(KG)_'| translate}}</li>
+                                                    <li>{{'_RawMatCost_'|translate}}<span class="required">*</span><span class="small">{{'_RawMatCost/kg_'| translate}}</span></li>
+                                                    <li>{{'_MaterialLoss_'| translate}}</li>
+                                                    <li>{{'_RawMatTotal_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box">
+                                                                <label>{{item.MaterialType}}<span class="tooltip-h">{{item.MaterialType}}</span></label>
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="RawMaterialIndexUsed_{{$index}}" class="half align-right" type="text" name="{{'_RawMaterialIndexUsed_'| translate}}" aa-field-name="{{'_RawMaterialIndexUsed_'| translate}}" ng-model="item.rFQdqRawMaterial.RawMaterialIndexUsed" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="RawMatInputInKgDQ_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_RawMatInput_'| translate}}" aa-field-name="{{'_RawMatInput_'| translate}}" ng-model="item.rFQdqRawMaterial.RawMatInputInKg" ng-change="CalculateUnitPrice(item,$index);setRawMaterialPriceAssumed(item)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.PartWeightKG | number:3}}</label></div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="RawMatCostPerKgDQ_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_RawMatCost_'| translate}}" aa-field-name="{{'_RawMatCost_'| translate}}" ng-model="item.rFQdqRawMaterial.RawMatCostPerKg" ng-change="CalculateUnitPrice(item,$index);setRawMaterialPriceAssumed(item)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <label>{{item.rFQdqRawMaterial.MaterialLoss | number:3}}</label>
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.rFQdqRawMaterial.RawMatTotal}}</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-coomon">
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_PrimaryProcess/Conversion_'| translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_MachineDesc_'| translate}}<span class="required">*</span></li>
+                                                    <li>{{'_MachineSize_'| translate}}</li>
+                                                    <li>{{'_MachineCycleTime_'| translate}}<span class="required">*</span></li>
+                                                    <li>{{'_ManMachineRatePerHour_'| translate}}<span class="required">*</span></li>
+                                                    <li>{{'_ProcessConvCostPerPart_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box align-right">
+                                                                <select id="MachineDescId_{{$index}}" class="red-invalid half" name="{{'_MachineDesc_' | translate}}" aa-field-name="{{'_MachineDesc_' | translate}}" ng-model="item.rFQdqPrimaryProcessConversion.MachineDescId" ng-options="item.Id as item.Name for item in MachineDescList" change-background-color-detail="{{$index}}">
+                                                                    <option value="">{{'_Select_' | translate}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MachineSize_{{$index}}" class="half align-right" type="text" placeholder="0" name="{{'_MachineSize_'| translate}}" aa-field-name="{{'_MachineSize_'| translate}}" ng-model="item.rFQdqPrimaryProcessConversion.MachineSize" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="4" integer-only to-precision="0" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MachineCycleTime_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0" name="{{'_MachineCycleTime_'| translate}}" aa-field-name="{{'_MachineCycleTime_'| translate}}" ng-model="item.rFQdqPrimaryProcessConversion.CycleTime" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="4" integer-only to-precision="0" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="ManMachineRatePerHour_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_ManMachineRatePerHour_'| translate}}" aa-field-name="{{'__ManMachineRatePerHour__'| translate}}" ng-model="item.rFQdqPrimaryProcessConversion.ManPlusMachineRatePerHour" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.rFQdqPrimaryProcessConversion.ProcessConversionCostPerPart}}</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-coomon">
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_Machining_'| translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_Description_'| translate}}</li>
+                                                    <li>{{'_MachiningCycleTime_'| translate}}</li>
+                                                    <li>{{'_MManMachineRatePerHour_'| translate}}</li>
+                                                    <li>{{'_MachiningCostPerPart_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box align-right">
+                                                                <select class="half" name="{{'_MachiningDesc_' | translate}}" aa-field-name="{{'_MachiningDesc_' | translate}}" ng-model="item.rFQdqMachining.MachiningDescId" ng-options="item.Id as item.Name for item in MachiningDescList" change-background-color-detail="{{$index}}">
+                                                                    <option value="">{{'_Select_' | translate}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MCycleTime_{{$index}}" class="half align-right" type="text" placeholder="0" name="{{'_MachiningCycleTime_'| translate}}" aa-field-name="{{'_MachiningCycleTime_'| translate}}" ng-model="item.rFQdqMachining.CycleTime" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" integer-only to-precision="0" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MManPlusMachineRatePerHour_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_MManMachineRatePerHour_'| translate}}" aa-field-name="{{'_MManMachineRatePerHour_'| translate}}" ng-model="item.rFQdqMachining.ManPlusMachineRatePerHour" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.rFQdqMachining.MachiningCostPerPart}}</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-coomon">
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_Machining/SecondaryOpr_'| translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_MSOSecOperationDesc_'| translate}}</li>
+                                                    <li>{{'_MSOCycleTime_'| translate}}</li>
+                                                    <li>{{'_MSOManMachineRatePerHour_'| translate}}</li>
+                                                    <li>{{'_MSOSecCostPerPart_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box align-right">
+                                                                <select class="half" name="{{'_MSOSecOperationDesc_' | translate}}" aa-field-name="{{'_MSOSecOperationDesc_' | translate}}" ng-model="item.rFQdqMachiningSecondaryOperation.SecondaryOperationDescId" ng-options="item.Id as item.Name for item in MachiningSecOperationList" change-background-color-detail="{{$index}}">
+                                                                    <option value="">{{'_Select_' | translate}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MSOCycleTime_{{$index}}" class="half align-right" type="text" placeholder="0" name="{{'_MSOCycleTime_'| translate}}" aa-field-name="{{'_MSOCycleTime_'| translate}}" ng-model="item.rFQdqMachiningSecondaryOperation.CycleTime" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" integer-only to-precision="0" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MSOManPlusMachineRatePerHour_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_MSOManMachineRatePerHour_'| translate}}" aa-field-name="{{'_MSOManMachineRatePerHour_'| translate}}" ng-model="item.rFQdqMachiningSecondaryOperation.ManPlusMachineRatePerHour" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.rFQdqMachiningSecondaryOperation.SecondaryCostPerPart}}</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-coomon">
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_Machining/OtherOpr_'| translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_MOOSecOperationDesc_'| translate}}</li>
+                                                    <li>{{'_MOOCycleTime_'| translate}}</li>
+                                                    <li>{{'_MOOManMachineRatePerHour_'| translate}}</li>
+                                                    <li>{{'_MOOSecCostPerPart_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box align-right">
+                                                                <select class="half" name="{{'_MSOSecOperationDesc_' | translate}}" aa-field-name="{{'_MSOSecOperationDesc_' | translate}}" ng-model="item.rFQdqMachiningOtherOperation.SecondaryOperationDescId" ng-options="item.Id as item.Name for item in MachiningSecOperationList" change-background-color-detail="{{$index}}">
+                                                                    <option value="">{{'_Select_' | translate}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MOOCycleTime_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_MOOCycleTime_'| translate}}" aa-field-name="{{'_MOOCycleTime_'| translate}}" ng-model="item.rFQdqMachiningOtherOperation.CycleTime" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="4" integer-only to-precision="0" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="MOOManMachineRatePerHour_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_MOOManMachineRatePerHour_' | translate}}" aa-field-name="{{'_MOOManMachineRatePerHour_'| translate}}" ng-model="item.rFQdqMachiningOtherOperation.ManPlusMachineRatePerHour" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.rFQdqMachiningOtherOperation.SecondaryCostPerPart}}</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-coomon">
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_SurfaceTreatment_'| translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_CoatingType_'| translate}}</li>
+                                                    <li>{{'_STPartsPerHour_'| translate}}</li>
+                                                    <li>{{'_STManMachineRatePerHour_'| translate}}</li>
+                                                    <li>{{'_CoatingCostPerHour_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box align-right">
+                                                                <select class="half" name="{{'_CoatingType_' | translate}}" aa-field-name="{{'_CoatingType_' | translate}}" ng-model="item.rFQdqSurfaceTreatment.CoatingTypeId" ng-options="item.Id as item.Name for item in CoatingTypesList" change-background-color-detail="{{$index}}">
+                                                                    <option value="">{{'_Select_' | translate}}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="STPartsPerHour_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_STPartsPerHour_'| translate}}" aa-field-name="{{'_STPartsPerHour_'| translate}}" ng-model="item.rFQdqSurfaceTreatment.PartsPerHour" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="9" integer-only to-precision="0" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="STManPlusMachineRatePerHour_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_STManMachineRatePerHour_'| translate}}" aa-field-name="{{'_STManMachineRatePerHour_'| translate}} " ng-model="item.rFQdqSurfaceTreatment.ManPlusMachineRatePerHour" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.rFQdqSurfaceTreatment.CoatingCostPerHour}}</label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-coomon">
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_Overhead_'| translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_InventoryCost_'| translate}}<br /><span class="small">{{'_IfApplicable_'| translate}}</span></li>
+                                                    <li>
+                                                        {{'_PackagingMat_'| translate}}
+                                                    </li>
+                                                    <li>{{'_PackingLabour_'| translate}}</li>
+                                                    <li>{{'_FOBPort_'| translate}}</li>
+                                                    <li>{{'_ProfitSGA_'| translate}}</li>
+                                                    <li>{{'_OverheadAsPercent_'| translate}}</li>
+                                                    <li class="high-light-Col-yellow">{{'_FinalPiecePricePerPart_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="OverheadInventoryCarryingCost_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_InventoryCost_'| translate}}" aa-field-name="{{'_InventoryCost_'| translate}}" ng-model="item.rFQdqOverhead.InventoryCarryingCost" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="OverheadPackagingMaterial_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_PackagingMat_'| translate}}" aa-field-name="{{'_PackagingMat_'| translate}}" ng-model="item.rFQdqOverhead.PackagingMaterial" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="OverheadPacking_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_PackingLabour_'| translate}}" aa-field-name="{{'_PackingLabour_'| translate}}" ng-model="item.rFQdqOverhead.Packing" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="OverheadLocalFreightToPort_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_FOBPort_'| translate}}" aa-field-name="{{'_FOBPort_'| translate}}" ng-model="item.rFQdqOverhead.LocalFreightToPort" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="OverheadProfitAndSGA_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_ProfitSGA_'| translate}}" aa-field-name="{{'_ProfitSGA_'| translate}}" ng-model="item.rFQdqOverhead.ProfitAndSGA" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.rFQdqOverhead.OverheadPercentPiecePrice | number:2}}</label></div>
+                                                            <div class="col-hori-box high-light-Col-yellow align-right" "><label><b>{{item.UnitPrice}}</b></label></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="section-coomon">
+                                        <div class="grid-title-panel">
+                                            <h3>{{'_Tooling_'|translate}}</h3>
+                                        </div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_NoOfCavities_'| translate}}<span class="required">*</span></li>
+                                                    <li>{{'_ToolingCost_'| translate}}<span class="small">{{'_ToolingCostNote_'| translate}}</span></li>
+                                                    <li class="des">{{'_ToolingWarranty_'| translate}}</li>
+                                                    <li class="des">{{'_SupplierToolingLeadtime_'| translate}}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <div class="common-grid-box" ng-repeat="item in RFQSupplierPartQuoteList">
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="NoOfCavitiesDQ_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0" name="{{'_NoOfCavities_'| translate}}" aa-field-name="{{'_NoOfCavities_'| translate}}" ng-model="item.NoOfCavities" ng-maxlength="4" integer-only to-precision="0" ng-required="item.IsMandatory" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <input id="ToolingCost_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_ToolingCost_'| translate}}" aa-field-name="{{'_ToolingCost_'| translate}}" ng-model="item.ToolingCost" ng-keyup="CalculateUnitPrice(item,$index)" ng-maxlength="13" numbers-only to-precision="3" ng-blur="setToolingCost(item)" change-background-color-detail="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right des">
+                                                                <textarea id="ToolingWarranty_{{$index}}" name="{{'_ToolingWarranty_'| translate}}" type="text" ng-model="item.ToolingWarranty" ng-maxlength="255"></textarea>
+                                                            </div>
+                                                            <div class="col-hori-box align-right des">
+                                                                <textarea id="SupplierToolingLeadtime_{{$index}}" name="{{'_SupplierToolingLeadtime_'| translate}}" type="text" ng-model="item.SupplierToolingLeadtime" ng-maxlength="255"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="spacer-gray-line"></div>
+                                <div class="col-12">
+                                    <div class="col-6 pad-10">
+                                        <div class="fs linear">
+                                            <div class="fs-g">
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_SupplierRemarks_</label>- {{'_SupplierRemarksNote1_'|translate}}
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <textarea type="text" name="{{'_Remarks_' | translate}}"
+                                                                  aa-field-name="{{'_Remarks_' | translate}}"
+                                                                  ng-model="RFQSupplierPartQuoteList[0].Remarks"></textarea>
+                                                        <p class="pad-5 pad-l-0">
+                                                            - {{'_SupplierRemarksNote2_'|translate}}<br />
+                                                            - {{'_SupplierRemarksNote3_'|translate}}
+                                                        </p>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 pad-10">
+                                        <div class="fs linear">
+                                            <div class="fs-g">
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_ExchangeRate1USD_</label>
+                                                        <span class="required">*</span>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <div class="col-8">
+                                                            <input type="text" name="{{'_ExchangeRate_' | translate}}"
+                                                                   placeholder="0.000" aa-field-name="{{'_ExchangeRate_' | translate}}"
+                                                                   ng-model="RFQSupplierPartQuoteList[0].ExchangeRate" maxlength="9" to-precision="3" numbers-only required class="red-invalid" />
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <input type="text" name="{{'_Currency_' | translate}}"
+                                                                   placeholder="{{'_Currency_' | translate}}" aa-field-name="{{'_Currency_' | translate}}"
+                                                                   ng-model="RFQSupplierPartQuoteList[0].Currency" required class="red-invalid" />
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_UploadFile_</label>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <file-select fs-model="RFQSupplierPartQuoteList[0].QuoteAttachmentFilePath"
+                                                                     fs-multiselect="false"
+                                                                     fs-upload-path="RFQSupplierQuoteFiles"
+                                                                     fs-extension-validation-msg="File not supported"
+                                                                     fs-extension=".xls, .xlsx"
+                                                                     fs-saveuploadedfiles="SetObjectvalues(UploadedFilePath,UploadedFileName,'F')"
+                                                                     fs-spinnder-key="spnRFQSupplierPartQuote"
+                                                                     fs-stop-spinner="1"
+                                                                     fs-file-upload-folder-name="RFQSupplierQuoteFiles"
+                                                                     fs-max-size="1050000" style="width:auto;"></file-select>
+                                                    </span>
+                                                </div>
+                                                <div class="fs-f">
+                                                    <span class="fs-f-i">
+                                                        <ul class="images-upload-panal" ng-hide="RFQSupplierPartQuoteList[0].QuoteAttachmentFilePath==''">
+                                                            <li>
+                                                                <a href="{{RFQSupplierPartQuoteList[0].QuoteAttachmentFilePath}}" target="_blank"><span translate="yes">_ViewFile_</span></a>
+                                                                <button class="btn float-r" ng-click="deleteFile(RFQSupplierPartQuoteList[0].QuoteAttachmentFilePath)"> <i class="fa fa-close"></i> </button>
+                                                            </li>
+                                                        </ul>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 pad-10">
+                                        <div class="fs linear">
+                                            <div class="fs-g">
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_RawMaterialPriceAssumed_</label>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <input type="text" name="{{'_RawMaterialPriceAssumed_' | translate}}"
+                                                               placeholder="{{'_RawMaterialPriceAssumed_' | translate}}" aa-field-name="{{'_RawMaterialPriceAssumed_' | translate}}"
+                                                               ng-model="RFQSupplierPartQuoteList[0].RawMaterialPriceAssumed" class="align-right" />
+                                                        <p class="pad-5 pad-l-0" translate="yes">_RawMatPriceNoteText_</p>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="freeze-bottom">
+                        <button class="orange-btn" aa-submit-form="SaveRFQSupplierPartQuote()" tabindex="23" translate="yes">_SaveQuote_</button>
+                        <button class="orange-btn" ng-click="ResetForm()" tabindex="24" translate="yes">_Reset_</button>
+                        <!--<button class="btn" ng-click="RedirectToList()" tabindex="25" translate="yes">_Cancel_</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-hide="NoQuote==true || EnterQuote==true">
+            <div class="col-12 pad-10 pad-t-0">
+                <accordion close-others="false">
+                    <accordion-group heading="" is-open="true">
+                        <accordion-heading>
+                            <span class="p-title-txt">{{'_DownloadQuote_' | translate}}</span>
+                            <span class="accordion-icon"></span>
+                        </accordion-heading>
+                        <div class="col-12 pad-10">
+                            <div class="col-12">
+                                <div class="list-box-item-panel">
+                                    <p>{{'_DownloadQuoteText1_' | translate}}</p>
+                                    <ul>
+                                        <li>{{'_DownloadQuoteText2_' | translate}}</li>
+                                        <li>{{'_DownloadQuoteText3_' | translate}}</li>
+                                        <li>{{'_DownloadQuoteText4_' | translate}}</li>
+                                        <li>{{'_DownloadQuoteText5_' | translate}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="last-trip-panel">
+                                <button class="orange-btn" ng-click="DownloadRSPQFile()" translate="yes">_DownloadQuote_</button>
+                            </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
+            </div>
+            <div class="col-12 pad-10 pad-t-0">
+                <accordion close-others="false">
+                    <accordion-group heading="" is-open="true">
+                        <accordion-heading>
+                            <span class="p-title-txt">{{'_UploadQuote_' | translate}}</span>
+                            <span class="accordion-icon"></span>
+                        </accordion-heading>
+                        <div class="col-12 pad-10">
+                            <div class="col-12">
+                                <div class="list-box-item-panel">
+                                    <p>{{'_UploadQuoteText1_'|translate}}</p>
+                                    <ul>
+                                        <li>{{'_UploadQuoteText2_'|translate}}</li>
+                                        <li>{{'_UploadQuoteText3_'|translate}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="last-trip-panel">
+                                <file-select fs-model="RFQSupplierPartQuoteList[0].UploadQuoteFilePath"
+                                             fs-multiselect="false"
+                                             fs-upload-path="RFQSupplierQuoteFiles"
+                                             fs-extension-validation-msg="File not supported"
+                                             fs-extension=".xls, .xlsx"
+                                             fs-saveuploadedfiles="SetObjectvalues(UploadedFilePath,UploadedFileName,'Q')"
+                                             fs-spinnder-key="spnRFQSupplierPartQuote"
+                                             fs-stop-spinner="1"
+                                             fs-file-upload-folder-name="TempFilesEmailAttachments"
+                                             fs-max-size="1050000" style="width:auto;"></file-select>
+                                <a href="{{RFQSupplierPartQuoteList[0].UploadQuoteFilePath}}" target="_blank" ng-show="RFQSupplierPartQuoteList[0].UploadQuoteFilePath"><span translate="yes">_ViewFile_</span></a>
+                                <button class="orange-btn" ng-click="UploadRSPQFile()" translate="yes">_UploadQuote_</button>
+                            </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+
+        <div ng-show="NoQuote==true">
+            <div class="col-12 pad-10">
+
+            </div>
+            <div class="freeze-bottom">
+                <button class="orange-btn" ng-click="SubmitNoQuote()" translate="yes">_SaveQuote_</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div ng-show="IsThanks==true">
+        <section id="left-sidebar">
+            <div class="logo-box">
+                <a href="javascript:void(0)" title="MES">
+                </a>
+            </div>
+        </section>
+        <div class="thanks-msg">
+            <p class="sms">{{ThanksMsg}}</p>
+            <p class="copy-right">Copyright &copy; 2009 MES Inc. | Powered by <a href="http://www.iqrconsulting.com/" target="_blank">IQR Consulting Pvt. Ltd.</a></p>
+        </div>
+    </div>
+    <div ng-show="IsWarning==true">
+        <section id="left-sidebar">
+            <div class="logo-box">
+                <a href="javascript:void(0)" title="MES">
+                </a>
+            </div>
+        </section>
+        <div class="thanks-msg">
+            <p class="sms">{{WarningMsg}}</p>
+            <p class="copy-right">Copyright &copy; 2009 MES Inc. | Powered by <a href="http://www.iqrconsulting.com/" target="_blank">IQR Consulting Pvt. Ltd.</a></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+﻿<form unsaved-warning-form novalidate id="frmDivision">
+    <div class="modal-header">
+        <h3 translate="yes">_PageDivision_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_DivisionCode_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_DivisionCode_' | translate}}" aa-field-name="{{'_DivisionCode_' | translate}}"
+                                   ng-model="Division.CustomerCode" tabindex="15" ng-maxlength="50" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_DivisionName_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_DivisionName_' | translate}}" aa-field-name="{{'_DivisionName_' | translate}}"
+                                   ng-model="Division.CompanyName" required tabindex="16" ng-maxlength="100" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_AddressLine1_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_AddressLine1_' | translate}}" aa-field-name="{{'_AddressLine1_' | translate}}"
+                                   ng-model="Division.Address1" required tabindex="17" ng-maxlength="255" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_AddressLine2_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_AddressLine2_' | translate}}" aa-field-name="{{'_AddressLine2_' | translate}}"
+                                   ng-model="Division.Address2" tabindex="18" ng-maxlength="255" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_City_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_City_' | translate}}" aa-field-name="{{'_City_' | translate}}"
+                                   ng-model="Division.City" tabindex="19" required ng-maxlength="100" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_State_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_State_' | translate}}" aa-field-name="{{'_State_' | translate}}"
+                                   ng-model="Division.State" tabindex="20" required ng-maxlength="100" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_PinCode_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_PinCode_' | translate}}" aa-field-name="{{'_PinCode_' | translate}}"
+                                   ng-model="Division.Zip" tabindex="21" required ng-maxlength="50" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Country_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <select name="{{'_Country_' | translate}}" required aa-field-name="{{'_Country_' | translate}}" ng-model="Division.CountryId" tabindex="22" ng-options="item.Id as item.Name for item in CountryList">
+                                <option value="">{{'_SelectCountry_' | translate}}</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Comments_</label>
+                        </span> <span class="fs-f-i">
+                            <textarea type="text" name="{{'_Comments_' | translate}}" aa-field-name="{{'_Comments_' | translate}}"
+                                      ng-model="Division.Comments" tabindex="23" ng-maxlength="500" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Website_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="url" name="{{'_Website_' | translate}}" aa-field-name="{{'_Website_' | translate}}"
+                                   ng-model="Division.Website" tabindex="24" ng-maxlength="500" my-url />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_DivisionPhone1_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_DivisionPhone1_' | translate}}" aa-field-name="{{'_DivisionPhone1_' | translate}}"
+                                   ng-model="Division.CompanyPhone1" tabindex="25" required numbers-only ng-maxlength="20" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_DivisionPhone2_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_DivisionPhone2_' | translate}}" aa-field-name="{{'_DivisionPhone2_' | translate}}"
+                                   ng-model="Division.CompanyPhone2" tabindex="26" numbers-only ng-maxlength="20" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_DivisionFax_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_DivisionFax_' | translate}}" aa-field-name="{{'_DivisionFax_' | translate}}"
+                                   ng-model="Division.CompanyFax" tabindex="27" numbers-only ng-maxlength="20" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_PaymentRating_</label>
+                        </span> <span class="fs-f-i">
+                            <div star-rating rating-value="DivisionPaymentRating"
+                                 data-max="5" on-rating-selected="DivisionPaymentRatingRate(rating)"></div>
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_SAM_</label>
+                        </span> <span class="fs-f-i">
+                            <select name="{{'_Select_' | translate}}" aa-field-name="{{'_Select_' | translate}}" ng-model="Division.SAM" tabindex="28" ng-options="item as item.Name for item in SAMList track by item.Id">
+                                <option value="">{{'_Select_' | translate}}</option>
+                            </select>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="fs-g">
+            <button class="orange-btn" aa-submit-form="AddDivision()" tabindex="34" translate="yes">_Save_ </button>
+            <button class="orange-btn" ng-click="Cancel()" tabindex="34" translate="yes">_Cancel_</button>
+        </div>
+    </div>
+</form>

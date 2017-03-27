@@ -1,0 +1,138 @@
+﻿<div class="modal-header">
+    <h3 translate="yes">_DocumentList_</h3>
+    <button class="btn float-r" ng-click="Cancel()"> <i class="fa fa-close"></i> </button>
+</div>
+<div class="modal-body">
+    <!--DOCUMENT MANAGEMENT Start-->
+    <div class="col-12">
+        <div class="common-accordion-panel">
+            <div class="col-12">
+                <accordion close-others="false">
+                    <div class="list-1 root-list">
+                        <div class="lst-header">
+                            <div class="lst-item">
+                                <div class="col-grid-sm-1">
+                                    &nbsp;
+                                </div>
+                                <div class="col-grid-sm-4">
+                                    <label>
+                                        {{'_DocumentType_' | translate}}
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-4">
+                                    <label>
+                                        {{'_FileTitle_' | translate}}
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-3">
+                                    <label>
+                                        {{'_ReceivedDate_' | translate}}
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-3">
+                                    <label>
+                                        {{'_RevLevel_' | translate}}
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-3">
+                                    <label>
+                                        {{'_CreatedDate_' | translate}}
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-4">
+                                    <label>
+                                        {{'_Comments_' | translate}}
+                                    </label>
+                                </div>
+                                <div class="col-grid-sm-2">
+                                    &nbsp;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <accordion-group heading="" ng-repeat="(DocumentTypeName,DocumentItems) in DocumentsListWithGroup" is-open="true" ng-hide="IsAccordionObjectEmpty" ng-init="DocumentItems.IsOpen=true">
+                        <accordion-heading>
+                            <span class="p-title-txt">{{'_DocumentType_' | translate}}: {{DocumentTypeName}}</span>
+                            <span class="accordion-icon"></span>
+                        </accordion-heading>
+                        <div class="list-1 root-list">
+                            <div class="lst-body">
+                                <div class="lst-item" ng-repeat="item in DocumentItems | filter:{RowNumber:'1'} | orderBy:'RowNubmer'">
+                                    <div class="col-grid-sm-1">
+                                        <input type="checkbox" id="chkSelectD{{item.Id}}" ng-model="item.chkSelect" />
+                                        <label for="chkSelectD{{item.Id}}"></label>
+                                    </div>
+                                    <div class="col-grid-sm-4" data-colmn-title="{{'_DocumentType_'| translate}}">
+                                        <label>{{item.DocumentType}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-4" data-colmn-title="{{'_FileTitle_'| translate}}">
+                                        <a class="page-url" href="/APQP/DocumentManagement/DocumentManagement/DownloadFile?filePath={{item.FilePath}}&fileName={{item.FileTitle}}" target="_blank">{{item.FileTitle}}</a>
+                                    </div>
+                                    <div class="col-grid-sm-3" data-colmn-title="{{'_ReceivedDate_'| translate}}">
+                                        <label>{{item.ReceivedDate | date:'dd-MMM-yy'}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-3" data-colmn-title="{{'_RevLevel_'| translate}}">
+                                        <label>{{item.RevLevel}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-3" data-colmn-title="{{'_CreatedDate_'| translate}}">
+                                        <label>{{item.CreatedDateString}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-4" data-colmn-title="{{'_Comments_'| translate}}">
+                                        <label>{{item.Comments}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-2">
+                                        <a href="javascript:void(0)" class="anchor mar-r-5" ng-click="ShowHideHistory(DocumentItems,item.DocumentTypeId, !DocumentItems.showHistoryButton)" ng-attr-title="{{DocumentItems.showHistoryButton?'Hide History':'Show History'}}" ng-show="item.DocumentCount>1">
+                                            <img src="/Content/images/history-off-icon.png">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="lst-item" ng-repeat="item in DocumentItems | filter:{RowNumber:'!1'} | orderBy:'RowNubmer'" ng-show="item.DocumentTypeId==DocumentItems.varDocumentTypeId">
+                                    <div class="col-grid-sm-1">
+                                        <input type="checkbox" id="chkSelectD{{item.Id}}" ng-model="item.chkSelect" />
+                                        <label for="chkSelectD{{item.Id}}"></label>
+                                    </div>
+                                    <div class="col-grid-sm-4" data-colmn-title="{{'_DocumentType_'| translate}}">
+                                        <label>{{item.DocumentType}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-4" data-colmn-title="{{'_FileTitle_'| translate}}">
+                                        <a class="page-url" href="/APQP/DocumentManagement/DocumentManagement/DownloadFile?filePath={{item.FilePath}}&fileName={{item.FileTitle}}" target="_blank">{{item.FileTitle}}</a>
+                                    </div>
+                                    <div class="col-grid-sm-3" data-colmn-title="{{'_ReceivedDate_'| translate}}">
+                                        <label>{{item.ReceivedDate | date:'dd-MMM-yy'}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-3" data-colmn-title="{{'_RevLevel_'| translate}}">
+                                        <label>{{item.RevLevel}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-3" data-colmn-title="{{'_CreatedDate_'| translate}}">
+                                        <label>{{item.CreatedDateString}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-4" data-colmn-title="{{'_Comments_'| translate}}">
+                                        <label>{{item.Comments}}</label>
+                                    </div>
+                                    <div class="col-grid-sm-2">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                <div class="lst-item" ng-hide="DocumentsList.length>0">
+                                    <div class="col-12">
+                                        <div class="error-box rounded-info-box">
+                                            <p translate="yes">_NoRecordsFound_</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+    </div>
+    <!--DOCUMENT MANAGEMENT End-->
+</div>
+<div class="modal-footer">
+    <button ng-show="DocumentsList.length>0" class="orange-btn" ng-click="DownloadDocuments()" translate="yes">_Download_</button>
+    <!--<button class="orange-btn" ng-click="Cancel()">{{'_Cancel_' | translate}}</button>-->
+</div>
+
+
+

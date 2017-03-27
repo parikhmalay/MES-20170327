@@ -1,0 +1,25 @@
+﻿<form unsaved-warning-form novalidate>
+    <div class="modal-header">
+        <h3 translate="yes">_PageHeading_</h3>
+    </div>
+    <div class="modal-body overFlowNone">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_RFQSource_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="RFQSource" aa-field-name="{{'_RFQSource_' | translate}}" ng-model="RFQSource.rfqSource" required />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="orange-btn" aa-submit-form="SaveRFQSource()" translate="yes">_Save_</button>
+        <button class="orange-btn" ng-click="Cancel()" translate="yes">_Cancel_</button>
+    </div>
+</form>

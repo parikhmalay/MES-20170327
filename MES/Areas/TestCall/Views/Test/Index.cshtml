@@ -1,0 +1,16 @@
+@{
+    ViewBag.Title = "Test area page";
+}
+
+<div ng-view></div>
+
+<a href="http://localhost:65389/testCall/test#/">click here</a>
+
+@section scriptsFooter{
+    @*@System.Web.Optimization.Scripts.Render("~/bundles/TestCall")*@
+    <script src="~/App_Client/views/TestCall/TestCall.Route.js"></script>
+    <script src="~/App_Client/views/TestCall/TestCall.Controller.js"></script>
+    <script src="~/App_Client/common/services/TestCall/TestCall.Service.js"></script>
+}
+
+

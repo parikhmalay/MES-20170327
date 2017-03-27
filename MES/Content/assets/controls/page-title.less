@@ -1,0 +1,123 @@
+.page-title-h {
+    /*background-color: @color-black-98;
+    border-bottom: 1px solid @color-black-90;*/
+    width: auto;
+    display: inline-block;
+    float: left;
+    min-height:51px;
+}
+.page-title-h > .p-title-txt {
+    font-size: 1.4em;
+    font-weight: 600;
+    color:@color-white;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 17px 15px 0;
+    text-transform:uppercase;
+}
+.page-title {
+    background-color: @color-black-98;
+    border-bottom: 1px solid @color-black-90;
+    width: 100%;
+    display: inline-block;
+    float: left;
+    min-height:51px;
+}
+
+    .page-title > .p-title-txt {
+        font-size: 1.8em;
+        font-weight: 600;
+        color: @color-black-27;
+        vertical-align: middle;
+        display: inline-block;
+        padding: 12px 20px;
+
+        & [class*="icon-"] {
+            vertical-align: middle;
+            font-size: 1.2em;
+            font-weight: normal;
+            color: @color-black-60;
+            cursor: pointer;
+
+            &:hover {
+                color: @color-black-20;
+            }
+        }
+    }
+
+    .page-title + div[ng-view] {
+        display: inline-block;
+        width: 100%;
+        float: left;
+    }
+
+    .page-title .btn-section {
+        padding: 9px 20px;
+    }
+
+    .page-title .p-title-txt em {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 0.8em;
+        color: @color-black-60;
+        margin-left: 10px;
+    }
+
+    .page-title + .bx-light-gray {
+        margin-top: -1px;
+        border-bottom: 1px solid @color-black-90;
+    }
+
+        .page-title + .bx-light-gray .nav-tabs {
+            border-bottom: none;
+        }
+
+    .page-title .form-element {
+        display: inline-block;
+        vertical-align: middle;
+        min-width: 300px;
+        padding-left: 0px;
+    }
+
+        .page-title .form-element.form-element-data {
+        }
+
+        .page-title .form-element input {
+            vertical-align: middle;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .page-title .form-element label {
+            display: inline-block;
+            vertical-align: middle;
+            padding-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .page-title .form-element contactselector {
+            display: inline-block;
+            min-width: 280px;
+        }
+
+
+.fit-to-page-title {
+    margin-top: -52px;
+
+    & .btn-field {
+        float: left;
+    }
+}
+
+@media screen and (max-width:768px) {
+
+
+    .fit-to-page-title {
+        margin-top: 0px;
+    }
+
+    .page-title .btn-section {
+        float: none;
+        display: inline-block;
+    }
+}

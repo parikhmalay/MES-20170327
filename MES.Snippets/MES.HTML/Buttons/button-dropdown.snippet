@@ -1,0 +1,31 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Button Dropdown</Title>
+    <Author>NonProfitEasy</Author>
+    <Shortcut>tagi</Shortcut>
+    <Description>Markup snippet for a Tag Input</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header> 
+  <Snippet>
+    <Code Language="html">
+      <![CDATA[
+      <!-- Start Action Button -->
+      <div class="btn-group action-btn" dropdown>
+          <button type="button" class="btn btn-danger" ng-click="">Edit</button>
+          <button type="button" class="btn btn-danger action-toggle">
+              <span class="caret"></span>
+              <span class="sr-only">Split button!</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:void(0)" ng-click="">Copy</a></li>
+              <li><a href="javascript:void(0)" ng-click="">Paste</a></li>
+          </ul>
+      </div>
+      <!-- End Action Button -->
+       $end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

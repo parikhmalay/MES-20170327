@@ -1,0 +1,90 @@
+
+/*----------------------------------------------------------------------------------------------*/
+/*---------------------------- Second Level Menu Start Here ------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+.second-level-menu {
+    background: #e5e7ea;
+    width: 180px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+    display:inline-block;
+
+    & span.second-level-menu-search {
+        position: relative;
+        width: 100%;
+        min-height: 50px;
+        display:inline-block;
+
+        & input {
+            height: 50px;
+            width: 100%;
+            border: none;
+            background: none !important;
+            padding-left: 10px;
+            padding-right: 35px;
+        }
+
+        & span[class*="icon-"] {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            margin-top: 2px;
+            line-height: 0px;
+            font-size: 3em;
+            color: @color-black-20;
+        }
+    }
+
+    & ul {
+        width: 100%;
+        float: left;
+        border-top: 1px solid #cbcfd4;
+
+        & li {
+            border-bottom: 1px solid #cbcfd4;
+
+            &.active a {
+                background: #343b44;
+                color: @color-white;
+
+                &:hover {
+                    background: #343b44;
+                    color: @color-white;
+                }
+            }
+
+            & a {
+                font-size: 13px;
+                line-height: 18px;
+                padding: 7px 10px 7px 10px;
+                display: inline-block;
+                width: 100%;
+                color: #343b44;
+                .boxSizing(border-box);
+
+                &:hover {
+                    background: #ffffff;
+                }
+            }
+        }
+    }
+}
+
+.second-level-target-content {
+    background: #e5e7ea;
+    padding-left: 180px;
+    float: left;
+    position: relative;
+    width: 100%;
+
+    & > .second-level-sub-content {
+        border-left: 3px solid #b9bec4;
+        width: 100%;
+        float: left;
+    }
+}
+/*----------------------------------------------------------------------------------------------*/
+/*---------------------------- Second Level Menu End Here ------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/

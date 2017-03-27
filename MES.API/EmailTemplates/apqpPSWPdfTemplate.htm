@@ -1,0 +1,457 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .container
+        {
+            width: 900px;
+            margin: 0 auto;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            border: 1px solid #000;
+        }
+        .container div
+        {
+            padding-top: 3px;
+            padding-left: 2px;
+        }       
+    </style>
+</head>
+<body>
+    <div class="container" align="center">
+        <div style="border-bottom: 1px solid #000; font-size: 16px!important">
+            <b>Part Submission Warrant</b></div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 10%; text-align: left">
+                Part Name</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 40%;
+                text-align: left">
+                <%PartName%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 15%; text-align: left">
+                Cust. Part Number</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 28%">
+                <%CustPartName%>&nbsp;</div>
+        </div>
+        <div style="clear: both">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 15%; text-align: left">
+                Shown on Drawing No.</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 35%;
+                text-align: left">
+                <%ShownOnDrawingNo%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 15%; text-align: left">
+                Org. Part Number</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 28%">
+                <%OrgPartNumber%>&nbsp;</div>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 18%; text-align: left">
+                Engineering Change Level</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 36%;
+                text-align: left">
+                <%EngineeringChangeLevel%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 11%; text-align: left">
+                Dated</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 28%">
+                <%EngChangeLevelDate%>&nbsp;</div>
+        </div>
+        <div style="clear: both">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 18%; text-align: left">
+                Additional Engineering Changes</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 36%;
+                text-align: left">
+                <%AdditionalEngineeringChanges%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 11%; text-align: left">
+                Dated</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 28%">
+                <%AdditionalEngineeringChangesDate%>&nbsp;</div>
+        </div>
+        <div style="clear: both">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 25%; text-align: left">
+                Safety and/or Government Regulation</div>
+            <div style="margin-right: 35px; float: left; width: 15%; text-align: left">
+                <input type="radio" name="SafetyGovernmentRegulation" id="YesSafetyGovernmentRegulation"
+                    <%YesSafetyGovernmentRegulation%> />
+                <label for="YesSafetyGovernmentRegulation">
+                    YES</label>
+                <input type="radio" name="SafetyGovernmentRegulation" id="NoSafetyGovernmentRegulation"
+                    <%NoSafetyGovernmentRegulation%> />
+                <label for="NoSafetyGovernmentRegulation">
+                    NO</label></div>
+            <div style="float: left; margin-right: 5px; width: 15%; text-align: right">
+                Purchase Order No.</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 12%">
+                <%PurchaseOrderNumber%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 10%; text-align: right">
+                Weight(kg)</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 15%">
+                <%Weight%>&nbsp;</div>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 10%; text-align: left">
+                Checking Aid No.</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 16%;
+                text-align: left">
+                <%CheckingAidNo%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 22%; text-align: right">
+                Checking Aid Engineering Change Level</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 22%">
+                <%CheckingAidEngineeringChangeLevel%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 5%; text-align: right">
+                Dated</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 18%">
+                <%CheckingAidEngChangeLevelDate%>&nbsp;</div>
+        </div>
+        <div style="clear: both; padding-bottom: 3px">
+        </div>
+        <div style="float: left; width: 46%" align="left">
+            <b>ORGANIZATION MANUFACTURING INFORMATION</b></div>
+        <div style="float: right; width: 48%" align="left">
+            <b>CUSTOMER SUBMITTAL INFORMATION</b></div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 47%; text-align: left">
+                <p style="width: 100%; display: table;">
+                    <span style="display: table-cell; width: 100%; float: left; border-bottom: 1px solid black;">
+                        <%SupplierCode%>&nbsp;</span>
+                    <span style="float: left; clear: left">Supplier Name & Supplier Code</span></p>
+            </div>
+            <div style="float: right; margin-right: 5px; width: 47%; text-align: left" align="right">
+                <p style="width: 100%; display: table;">
+                    <span style="display: table-cell; width: 100%; float: left; border-bottom: 1px solid black;">
+                        <%CustomerName%>&nbsp;</span>
+                    <span style="float: left; clear: left">Customer Name/Division</span></p>
+            </div>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 47%; text-align: left">
+                <p style="width: 100%; display: table;">
+                    <span style="display: table-cell; width: 100%; float: left; border-bottom: 1px solid black;">
+                        <%SupplierStreetAddress%>&nbsp;</span>
+                    <span style="float: left; clear: left">Street Address</span></p>
+            </div>
+            <div style="float: right; margin-right: 5px; width: 47%; text-align: left" align="right">
+                <p style="width: 100%; display: table;">
+                    <span style="display: table-cell; width: 99%; float: left; border-bottom: 1px solid black;">
+                        <%Buyer%>&nbsp;</span>
+                    <span style="float: left; clear: left">Buyer/Buyer Code</span></p>
+            </div>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 47%; text-align: left">
+                <p style="width: 100%; display: table;">
+                    <span style="display: table-cell; width: 100%; float: left; border-bottom: 1px solid black;">
+                        <%SupplierCityStateZip%>&nbsp;</span>
+                    <span style="display: table-cell; width: 100%; float: left;">
+                        <label>
+                            City</label><label style="padding-left: 40px">State</label><label style="padding-left: 40px">Zip</label></span></p>
+            </div>
+            <div style="float: right; margin-right: 5px; width: 47%; text-align: left">
+                <p style="width: 100%; display: table;">
+                    <span style="display: table-cell; width: 100%; float: left; border-bottom: 1px solid black;">
+                        <%Application%>&nbsp;</span>
+                    <span style="float: left; clear: left">Application</span></p>
+            </div>
+        </div>
+        <div style="clear: both; padding-bottom: 3px;">
+        </div>
+        <div align="left">
+            <b>MATERIALS REPORTING</b></div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 45%; text-align: left; padding-left: 5px">
+                Has customer -required Substances of Concern information been reported?</div>
+            <div style="margin-right: 35px; float: left; width: 50%; text-align: left">
+                <input type="radio" name="MaterialsReporting" id="YesMaterialsReportingRadio" value="YES"
+                    <%YesMaterialsReporting%> />
+                <label for="YesMaterialsReportingRadio">
+                    YES</label>
+                <input type="radio" name="MaterialsReporting" id="NoMaterialsReportingRadio" value="NO"
+                    <%NoMaterialsReporting%> />
+                <label for="NoMaterialsReportingRadio">
+                    NO</label>
+                <input type="radio" name="NAMaterialsReportingRadio" id="NAMaterialsReportingRadio"
+                    value="N/A" <%NAMaterialsReporting%> />
+                <label for="NAMaterialsReportingRadio">
+                    N/A</label></div>
+        </div>
+        <div style="clear: both">
+            <div style="float: left; margin-right: 16px; width: 45%; text-align: right">
+                Submitted by IMDS or other customer format:</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 50%;
+                text-align: left">
+                <span style="display: table-cell; width: 100%; float: left;">
+                    <%MaterialsReportingIMDS%>&nbsp;</span>
+            </div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 50%;
+                text-align: left">
+                &nbsp;</div>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 45%; text-align: left">
+                Are polymeric parts identified with appropriate ISO marking codes?</div>
+            <div style="margin-right: 35px; float: left; width: 50%; text-align: left">
+                <input type="radio" name="MaterialsReportingISO" id="YesMaterialsReportingISORadio"
+                    value="YES" <%YesMaterialsReportingISO%> />
+                <label for="YesMaterialsReportingISORadio">
+                    YES</label>
+                <input type="radio" name="MaterialsReportingISO" id="NoMaterialsReportingISORadio"
+                    value="NO" <%NoMaterialsReportingISO%> />
+                <label for="NoMaterialsReportingISORadio">
+                    NO</label>
+                <input type="radio" name="MaterialsReportingISO" id="NAMaterialsReportingISORadio"
+                    value="N/A" <%NAMaterialsReportingISO%> />
+                <label for="NAMaterialsReportingISORadio">
+                    N/A</label></div>
+        </div>
+        <div align="left" style="clear: both; padding-top: 3px">
+            <b>REASON FOR SUBMISSION</b></div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission1" <%ReasonForSubmissionInitialSubmission%> /><label
+                for="ReasonForSubmission1">Initial Submission</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission6" <%ReasonForSubmissionChangeToOptionalConstructionOrMaterial%> /><label
+                for="ReasonForSubmission6">Change to Optional Construction or Material</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission2" <%ReasonForSubmissionEngineeringChange%> /><label
+                for="ReasonForSubmission2">Engineering Change(s)</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission7" <%ReasonForSubmissionSubSupplierOrMaterialSourceChange%> /><label
+                for="ReasonForSubmission7">Sub-Supplier or Material Source Change</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission3" <%ReasonForSubmissionToolingTransferReplacementRefurbishmentOrAdditional%> /><label
+                for="ReasonForSubmission3">Tooling: Transfer, Replacement, Refurbishment or additional</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission8" <%ReasonForSubmissionChangeInPartProcessing%> /><label
+                for="ReasonForSubmission8">Change in Part Processing</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission4" <%ReasonForSubmissionCorrectionofDiscrepancy%> /><label
+                for="ReasonForSubmission4">Correctionof Discrepancy</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission9" <%ReasonForSubmissionPartProducedAtAdditionalLocation%> /><label
+                for="ReasonForSubmission9">Part Produced at Additional Location</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission5" <%ReasonForSubmissionToolingInactive%> /><label
+                for="ReasonForSubmission5">Tooling Inactive > 1 year</label>
+        </div>
+        <div style="float: left; width: 45%; text-align: left">
+            <input type="checkbox" id="ReasonForSubmission10" <%ReasonForSubmissionOtherPleaseSpecifyBelow%> /><label
+                for="ReasonForSubmission10">Other - Please specify below</label>
+        </div>
+        <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 50%;
+            text-align: left">
+            <span style="display: table-cell; width: 100%; float: left;">
+                <%ReasonForSubmissionOtherSpecifyComment%>&nbsp;</span>
+        </div>
+        <div style="clear: both;">
+        </div>
+        <div align="left">
+            <b>REQUESTED SUBMISSION LEVEL (Check One)</b></div>
+        <div style="float: left; margin-right: 5px; width: 100%; text-align: left">
+            <input type="radio" name="RequestedForSubmissionLevel" id="RequestedForSubmissionLevelRadio1"
+                <%ReasonSubmissionLevelCheckLevel1%> />
+            <label for="RequestedForSubmissionLevelRadio1">
+                Level 1 - Warrant only (and for designated appearance items, an Appearance Approval
+                Report) submitted to customer.</label><br />
+            <input type="radio" name="RequestedForSubmissionLevel" id="RequestedForSubmissionLevelRadio2"
+                <%ReasonSubmissionLevelCheckLevel2%> />
+            <label for="RequestedForSubmissionLevel2">
+                Level 2 - Warrant with product samples and limited supporting data submitted to
+                customer.</label><br />
+            <input type="radio" name="RequestedForSubmissionLevel" id="RequestedForSubmissionLevelRadio3"
+                <%ReasonSubmissionLevelCheckLevel3%> />
+            <label for="RequestedForSubmissionLevel3">
+                Level 3 - Warrant with product samples and complete supporting data submitted to
+                customer.</label><br />
+            <input type="radio" name="RequestedForSubmissionLevel" id="RequestedForSubmissionLevelRadio4"
+                <%ReasonSubmissionLevelCheckLevel4%> />
+            <label for="RequestedForSubmissionLevel4">
+                Level 4 - Warrant and other requirements as defined by customer.</label><br />
+            <input type="radio" name="MaterialsReportingISO" id="RequestedForSubmissionLevelRadio5"
+                <%ReasonSubmissionLevelCheckLevel5%> />
+            <label for="RequestedForSubmissionLevel5">
+                Level 5 - Warrant with product samples and complete supporting data reviewed at
+                supplier's manufacturing location.</label></div>
+        <div style="clear: both; padding-bottom: 3px;">
+        </div>
+        <div align="left">
+            <b>SUBMISSION RESULTS</b></div>
+        <div style="float: left; margin-right: 5px; width: 20%; text-align: left">
+            The results for</div>
+        <div style="margin-right: 35px; float: left; width: 75%; text-align: left; vertical-align: top">
+            <input type="checkbox" id="SubmissionResultCheckbox1" <%SubmissionResultDimensionalMeasurements%> /><label
+                for="SubmissionResultCheckbox1">dimensional measurements</label>
+            <input type="checkbox" id="SubmissionResultCheckbox2" <%SubmissionResultMaterialAndFunctionalTests%> /><label
+                for="SubmissionResultCheckbox2">material and functional tests</label>
+            <input type="checkbox" id="SubmissionResultCheckbox3" <%SubmissionResultAppearanceCriteria%> /><label
+                for="SubmissionResultCheckbox3">appearance criteria</label>
+            <input type="checkbox" id="SubmissionResultCheckbox4" <%SubmissionResultStatisticalProcessPackage%> /><label
+                for="SubmissionResultCheckbox4">statistical process package</label></div>
+        <div style="clear: both; float: left; margin-right: 5px; width: 30%; text-align: left">
+            These results meet all drawing and specification requirements:</div>
+        <div style="margin-right: 35px; float: left; width: 55%; text-align: left">
+            <input type="radio" name="SubmissionResultRequirement" id="YesSubmissionResultRequirement"
+                value="YES" <%YesDrawingAndSpecificationRequirement%> />
+            <label for="YesSubmissionResultRequirement">
+                YES</label>
+            <input type="radio" name="SubmissionResultRequirement" id="NoSubmissionResultRequirement"
+                value="NO" <%NoDrawingAndSpecificationRequirement%> />
+            <label for="NoSubmissionResultRequirement" style="padding-right: 10px">
+                NO</label>(If "NO" - Explanation Required)</div>
+        <div style="float: left; margin-right: 5px; width: 20%; text-align: left">
+            Mold / Cavity / Production Process</div>
+        <div align="left" style="clear: both; padding-top: 3px">
+            <b>DECLARATION</b></div>
+        <div>
+            <div style="float: left; margin-right: 5px; text-align: left">
+                I hereby affirm that the samples represented by this warrant are representative
+                of our parts, have been made to the applicable drawing<br />
+                Production Part Approval Process Manual 4th Edition Requirements. I further affirm
+                that these samples were produced at the production rate of
+                <span style="border-bottom: 1px solid black; padding-left: 50px">
+                    <%DeclarationProductionRate1%>&nbsp;</span>
+                <span>/&nbsp;</span>
+                <span style="border-bottom: 1px solid black; padding-left: 50px">
+                    <%DeclarationProductionRate2%>&nbsp;</span>.<br />
+                I also certify that documented evidence of such compliance is on file and available
+                for review. I have noted any deviations from this declaration below.</div>
+        </div>
+        <div style="clear: both; padding-bottom: 3px;">
+        </div>
+        <div>
+            <div style="float: left; margin-right: 16px; width: 20%; text-align: left">
+                <b>EXPLANATION/COMMENTS:</b></div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 75%;
+                text-align: left">
+                <%Explanation%>&nbsp;</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 75%;
+                text-align: left">
+                &nbsp;</div>
+        </div>
+        <div style="clear: both">
+            <div style="float: left; margin-right: 5px; width: 30%; text-align: left">
+                Is each customer Tool Properly tagged and numbered?</div>
+            <div style="margin-right: 35px; float: left; width: 65%; text-align: left">
+                <input type="radio" name="CustomerToolTagged" id="YesCustomerToolTagged" value="YES"
+                    <%YesCustomerToolTagged%> />
+                <label for="YesCustomerToolTagged">
+                    YES</label>
+                <input type="radio" name="CustomerToolTagged" id="NoCustomerToolTagged" value="NO"
+                    <%NoCustomerToolTagged%> />
+                <label for="NoCustomerToolTagged">
+                    NO</label>
+                <input type="radio" name="CustomerToolTagged" id="NACustomerToolTagged" value="N/A"
+                    <%NACustomerToolTagged%> />
+                <label for="NACustomerToolTagged">
+                    N/A</label>
+            </div>
+        </div>
+        <div style="clear: both">
+            <div style="float: left; margin-right: 5px; width: 20%; text-align: left">
+                Organization Authorized Signature</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: left; width: 55%;
+                text-align: left">
+                <%OrgAuthSign%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 5%; text-align: right">
+                Date</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 15%">
+                <%OrgAuthSignDate%>&nbsp;</div>
+        </div>
+        <div>
+            <div style="clear: both; float: left; margin-right: 5px; width: 10%; text-align: left">
+                Print Name</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 30px; float: left; width: 30%;
+                text-align: left">
+                <%PrintName%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 10%; text-align: right">
+                Phone No.</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 15px; float: left; width: 15%;
+                text-align: left">
+                <%PhoneNo%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 10%; text-align: right">
+                Fax No.</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 15%;
+                text-align: left">
+                <%FaxNo%>&nbsp;</div>
+        </div>
+        <div style="clear: both">
+            <div style="float: left; margin-right: 5px; width: 5%; text-align: left">
+                Title</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 30%;
+                text-align: left">
+                <%Title%>&nbsp;</div>
+            <div style="float: left; margin-right: 5px; width: 10%; text-align: right">
+                E-mail</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 47%;
+                text-align: left">
+                <%email%>&nbsp;</div>
+        </div>
+        <div style="clear: both; padding-bottom: 3px; border-bottom: 1px solid #000;">
+        </div>
+        <div>
+            FOR CUSTOMER USE ONLY (IF APPLICABLE)</div>
+        <div>
+            <div style="float: left; margin-right: 5px; width: 20%; text-align: left">
+                Part Warrant Dispostition</div>
+            <div style="margin-right: 35px; float: left; width: 75%; text-align: left">
+                <span style="float: left">
+                    <input type="checkbox" id="PartWarrantDisposition1" /><label for="PartWarrantDisposition1">Approved</label>
+                    <input type="checkbox" id="PartWarrantDisposition2" /><label for="PartWarrantDisposition2">Rejected</label>
+                    <input type="checkbox" id="PartWarrantDisposition3" /><label for="PartWarrantDisposition3">Other</label>
+                </span>
+                <div style="border-bottom: 1px solid #000; float: right; width: 72%; text-align: left">
+                    <%OtherPartWarrantDisposition%>&nbsp;
+                </div>
+            </div>
+        </div>
+        <div>
+            <div style="clear: both; float: left; margin-right: 5px; width: 20%; text-align: left">
+                Customer Signature</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 45%;
+                text-align: left">
+                &nbsp;
+            </div>
+            <div style="float: left; margin-right: 5px; width: 15%; text-align: right">
+                Date</div>
+            <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 13%">
+                &nbsp;
+            </div>
+            <div style="clear: both">
+                <div style="float: left; margin-right: 5px; width: 20%; text-align: left">
+                    Print Name</div>
+                <div style="border-bottom: 1px solid #000; margin-right: 35px; float: left; width: 35%;
+                    text-align: left">
+                    <%PrintName%>&nbsp;</div>
+                <div style="float: left; margin-right: 5px; width: 25%; text-align: right">
+                    Customer Tracking Number (optional)</div>
+                <div style="border-bottom: 1px solid #000; margin-right: 5px; float: right; width: 13%">
+                    <%CustTrackingNo%>&nbsp;</div>
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

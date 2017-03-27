@@ -1,0 +1,176 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        td {
+            vertical-align: top;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+        }
+    </style>
+</head>
+<body>  
+    <table cellpadding="2" cellspacing="0" width="1040px" border="0">
+        <thead style="display: table-header-group">
+            <tr>
+                <td style="border: 0px">
+                    <table cellpadding="2" cellspacing="0" width="100%">
+                        <tr>
+                            <td align="left" colspan="6" bgcolor="#EBFFD6" style="border-right: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Quote Details</b></font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" nowrap="nowrap" bgcolor="#e1dbd1" width="18%">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>MES Quote #</b></font>
+                            </td>
+                            <td align="left" bgcolor="#e1dbd1" width="18%">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <%QuoteNo%>
+                                </font>
+                            </td>
+                            <td align="left" nowrap="nowrap" bgcolor="#e1dbd1" width="18%">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Ref. RFQ #</b></font>
+                            </td>
+                            <td align="left" bgcolor="#e1dbd1" width="18%">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <%RFQNo%>
+                                </font>
+                            </td>
+                            <td align="left" nowrap="nowrap" bgcolor="#e1dbd1" width="18%">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Project Name</b></font>
+                            </td>
+                            <td align="left" bgcolor="#e1dbd1" style="border-right: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <%ProjectName%>
+                                </font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" nowrap="nowrap" bgcolor="#e1dbd1">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Date</b></font>
+                            </td>
+                            <td align="left" bgcolor="#e1dbd1">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <%Date%>
+                                </font>
+                            </td>
+                            <td align="left" nowrap="nowrap" bgcolor="#e1dbd1">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Customer Name</b></font>
+                            </td>
+                            <td align="left" bgcolor="#e1dbd1">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <%Customer%>
+                                </font>
+                            </td>
+                            <td bgcolor="#e1dbd1">&nbsp;</td>
+                            <td style="border-right: 1px solid #000;" bgcolor="#e1dbd1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="left" nowrap="nowrap" bgcolor="#e1dbd1" style="border-bottom: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <b>
+                                        Sales Account
+                                        Manager
+                                    </b>
+                                </font>
+                            </td>
+                            <td align="left" bgcolor="#e1dbd1" style="border-bottom: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <%SAMName%>
+                                </font>
+                            </td>
+                            <td align="left" nowrap="nowrap" bgcolor="#e1dbd1" style="border-bottom: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <b>
+                                        Contact Full
+                                        Name
+                                    </b>
+                                </font>
+                            </td>
+                            <td align="left" bgcolor="#e1dbd1" style="border-bottom: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <%CustomerContact%>
+                                </font>
+                            </td>
+                            <td style="border-bottom: 1px solid #000;" bgcolor="#e1dbd1">&nbsp;</td>
+                            <td style="border-right: 1px solid #000;border-bottom: 1px solid #000;" bgcolor="#e1dbd1">&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 0px">
+                    <table cellpadding="2" cellspacing="0" width="100%" style="margin-top: -2px;">
+                        <tr>
+                            <td align="left" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Part No.</b></font>
+                            </td>
+                            <td align="left" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Rev Level</b></font>
+                            </td>
+                            <td align="left" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Description</b></font>
+                            </td>
+                            <td align="left" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Material</b></font>
+                            </td>
+                            <td align="center" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Annual Quantity</b></font>
+                            </td>
+                            <td align="center" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Weight(KG)</b></font>
+                            </td>
+                            <td align="left" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Shipping Assumption</b></font>
+                            </td>
+                            <td align="center" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Final MES Price</b></font>
+                            </td>
+                            <!-- <td align="center" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Final MES Price
+                                    Per Kg</b></font>
+                            </td>-->
+                            <td align="center" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Tooling</b></font>
+                            </td>
+                            <td align="center" bgcolor="#EBFFD6">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <b>
+                                        Total Annual
+                                        Cost
+                                    </b>
+                                </font>
+                            </td>
+                            <td align="left" bgcolor="#EBFFD6" style="border-right: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14"><b>Leadtime / Comments</b></font>
+                            </td>
+                        </tr>
+                        <%PartsList%>
+                        <tr>
+                            <td colspan="11" bgcolor="#EBFFD6" style="border-right: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" size="1" color="#2f1c14">
+                                    <b>
+                                        Assumptions /
+                                        Basic Quote Terms
+                                    </b>
+                                </font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td bgcolor="#ffffff" colspan="11" style="border-bottom: 1px solid #000; border-right: 1px solid #000;">
+                                <font face="Arial, Helvetica, sans-serif;" color="#2f1c14" size="1">
+                                    <%Assumptions%>
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

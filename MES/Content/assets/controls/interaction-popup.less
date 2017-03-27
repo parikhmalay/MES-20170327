@@ -1,0 +1,236 @@
+/*---------------- Start interaction classes --------------------------------*/
+#interaction-list,
+#interaction-data {
+    overflow: auto;
+    height: 100%;
+    float: left;
+}
+
+#interaction-list {
+    width: 25%;
+}
+
+#interaction-data {
+    width: 75%;
+}
+
+    #interaction-data .hdr {
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+        position: relative;
+    }
+
+        #interaction-data .hdr span[data-interaction-status] {
+            position: absolute;
+        }
+
+        #interaction-data .hdr h1 {
+            font-size: 2.5em;
+            font-weight: normal;
+            line-height: 1em;
+            color: @color-black-27;
+            padding-left: 60px;
+        }
+
+            #interaction-data .hdr h1 .icon-edit {
+                line-height: 0;
+                vertical-align: middle;
+                color: @color-black-60;
+                cursor: pointer;
+            }
+
+                #interaction-data .hdr h1 .icon-edit:hover {
+                    color: @color-black-20;
+                }
+
+        #interaction-data .hdr h6 {
+            color: @color-black-69;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding-top: 6px;
+            padding-left: 60px;
+        }
+
+            #interaction-data .hdr h6 b {
+                font-weight: normal;
+                color: @color-black-27;
+            }
+
+    #interaction-data span[data-status="Open"] {
+        color: @color-red;
+    }
+
+    #interaction-data span[data-status="In Progress"] {
+        color: @color-green;
+    }
+
+    #interaction-data span[data-status="On Hold"] {
+        color: @color-orange;
+    }
+
+    #interaction-data span[data-status="Completed"] {
+        color: @color-black-80;
+    }
+
+#interaction-list {
+    & > .list-1.middleAlign {
+        & .lst-item {
+            & > div {
+                padding: 8px 5px;
+                &.inter-status{
+
+                }
+                &.inter-details {
+                }
+                &.inter-buttons {
+                    text-align: right;
+                    width:70px;
+                }
+            }
+        }
+    }
+}
+
+#interaction-list .list-1.middleAlign .lst-item p {
+    font-size: 1.1em;
+    line-height: 1.1em;
+}
+
+#interaction-list .list-1.middleAlign .lst-item h3 {
+    margin-bottom: 0px;
+}
+
+#interaction-list .list-1 span[data-status] {
+    display: inline-block;
+    text-align: center;
+}
+
+span[data-interaction-status]:after {
+    color: @color-white;
+    display: inline-block;
+    font-size: 4.6em;
+    width: 50px;
+    height: 50px;
+    line-height: 1em;
+    overflow: hidden;
+    text-align: center;
+    vertical-align: middle;
+    text-align: center;
+    .borderRadius(4px);
+}
+
+span[data-interaction-status="Open"]:after {
+    content: "O";
+    background-color: @color-red;
+}
+
+span[data-interaction-status="In Progress"]:after {
+    content: "P";
+    background-color: @color-green;
+}
+
+span[data-interaction-status="On Hold"]:after {
+    content: "H";
+    background-color: @color-orange;
+}
+
+span[data-interaction-status="Completed"]:after {
+    content: "C";
+    background-color: @color-black-80;
+}
+
+.list-1 .interaction-list [class*="icon-"] {
+    color: @color-black-60;
+    font-size: 2.4em;
+    cursor: pointer;
+}
+
+/*-------- Communication History interaction popup classes starts here  ---------------*/
+#interaction-data.communication-interaction {
+    width: 100%;
+}
+/*-------- Communication History interaction popup classes ends here  ---------------*/
+@media only screen and (max-width: 1200px) {
+    #interaction-list .list-1.middleAlign .lst-item > div.inter-status{
+        vertical-align:top;
+        & > span[data-interaction-status]:after{ 
+            font-size:2.3em; 
+            width:25px; 
+            height:25px; 
+            display: inline-block;
+            margin-top: 2px;
+        }
+    }
+}
+@media only screen and (max-width: 1024px) {
+    #interaction-list .list-1.middleAlign .lst-item > div {
+        padding: 5px;
+    }
+
+    #interaction-list .list-1.middleAlign .lst-item h3 {
+        font-size: 1.3em;
+    }
+
+    #interaction-data .hdr h1 {
+        font-size: 2.0em;
+    }
+
+    #interaction-data .hdr h6 {
+        font-size: 1.1em;
+    }
+
+    #interaction-data .hdr > .col-6 {
+        padding-top: 8px;
+    }
+
+    span[data-interaction-status]:after {
+        font-size: 3.3em;
+        height: 35px;
+        width: 35px;
+    }
+}
+@media only screen and (max-width: 960px) {
+    #interaction-list .list-1.middleAlign .lst-item{
+        position:relative;
+        display:inline-block;
+        width:100%;
+        border-bottom:1px solid #e5e5e5;
+    }
+        #interaction-list .list-1.middleAlign .lst-item > div {
+            display: inline-block;
+
+            &.inter-status {
+                width: 38px;
+                position: absolute;
+            }
+
+            &.inter-details, &.inter-buttons {
+                width: 100% !important;
+                padding-left: 38px;
+                text-align: left;
+            }
+
+            &.inter-status, &.inter-details, &.inter-buttons {
+                border-top:0;
+            }
+        }
+}
+@media only screen and (max-width: 768px) {
+    #interaction-data .hdr .col-2 {
+        width: 32.33%;
+        margin-top: 10px;
+    }
+
+    #interaction-list.sap-v {
+        border-right: 1px solid @color-black-90;
+    }
+}
+
+/*@media only screen and (max-height: 1024px) {
+    #interaction-list, #interaction-data { max-height: 705px; }
+}
+
+@media only screen and (max-height: 768px) {
+    #interaction-list, #interaction-data { max-height: 475px; }
+}*/

@@ -1,0 +1,30 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Button-Group</Title>
+    <Author>NonProfitEasy</Author>
+    <Shortcut>button-group</Shortcut>
+    <Description>Button Group for multiple action using single button.</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Code Language="html">
+      <![CDATA[
+      <!-- Start Button Group here -->
+      <div class="btn-group action-btn">
+          <button class="btn" type="button" >Edit</button>
+          <button class="btn action-toggle" type="button">
+              <span class="caret"></span>
+              <span class="sr-only">Split button!</span>
+          </button>
+          <ul role="menu" class="dropdown-menu">
+              <li><a href="javascript:void(0)">Delete</a></li>
+          </ul>
+      </div>
+      <!-- End Button Group here -->
+          $selected$$end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

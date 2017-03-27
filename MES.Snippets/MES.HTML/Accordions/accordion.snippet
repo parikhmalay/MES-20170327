@@ -1,0 +1,42 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>Accordion</Title>
+    <Author>NonProfitEasy</Author>
+    <Shortcut>Accordion</Shortcut>
+    <Description>Markup snippet for a Tag</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Code Language="html">
+      <![CDATA[
+      <!-- Start tab structure here -->
+      <accordion close-others="oneAtATime">
+          <div ng-transclude="" class="panel-group">
+              <div class="panel panel-default" heading="">
+                  <div class="panel-heading">
+                      <h4 class="panel-title">
+                          <a accordion-transclude="heading" ng-click="isOpen = !isOpen" class="accordion-toggle ng-binding">
+                              <span ng-click="isOpen =!isOpen;FilterByCategory(category.Code)" class="ng-scope ng-binding">Acknowledgments</span>
+                              <span ng-click="isOpen =!isOpen" class="accordion-icon ng-scope icon-down-arrow2" ng-class="{'icon-up-arrow2': isOpen, 'icon-down-arrow2': !isOpen}"></span>
+                          </a>
+                      </h4>
+                  </div>
+                  <div collapse="!isOpen" class="panel-collapse collapse">
+                      <div ng-transclude="" class="panel-body">
+                          <accordion-heading class="ng-scope"></accordion-heading>
+                          <div>
+                              <a>aa</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </accordion>
+      <!-- End tab structure here -->
+          $selected$$end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

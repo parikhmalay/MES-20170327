@@ -1,0 +1,359 @@
+﻿<div class="col-12 pad-t-0 openScrollDiv" ng-controller="ReportsCtrl">
+    <div class="col-12 pad-b-10">
+        <div class="header-highligt-panel title-header-spacer-two">
+            <span class="small"><label translate="yes">_RFQDate_</label><p>{{SelectionCriteria.RFQDateFrom | date:'dd-MMM-yy'}} - {{SelectionCriteria.RFQDateTo | date:'dd-MMM-yy'}}</p></span>
+            <span><label translate="yes">_SAM_</label><p>{{SelectionCriteria.SAMItems}}</p></span>
+            <span><label translate="yes">_Customer_</label> <p>{{SelectionCriteria.CustomerItems}}</p></span>
+            <span class="big"><label translate="yes">_Commodity_</label> <p>{{SelectionCriteria.CommodityItems}}</p></span>
+            <span class="big"><label translate="yes">_RFQSource_</label><p>{{SelectionCriteria.RFQSourceItems}}</p></span>
+        </div>
+    </div>
+    <div ng-show="RFQNonAwardReasonReportList.length>0">
+        <accordion close-others="false">
+            <accordion-group heading="" is-open="true">
+                <accordion-heading>
+                    <span class="p-title-txt">Chart</span>
+                    <span class="accordion-icon"></span>
+                </accordion-heading>
+                <div class="col-12 pad-10 pad-t-0">
+                    <highchart id="NonAwardReasonChart" style="height:350px;" config="highchartsNG"></highchart>
+                </div>
+            </accordion-group>
+        </accordion>
+        <div class="col-12 pad-10 pad-t-30"></div>
+        <div class="col-12">
+            <div class="custom-grid-panel mar-b-10 grid-option-three">
+                <div class="border-full">
+                    <div class="grid-common-detail-panel">
+                        <div class="grid-common-content-panel">
+                            <div class="grid-right-panel">
+                                <div class="scroller-panel">
+                                    <div class="common-grid-panel supplierQuote sliderOn col-width-1800" row column-width="200" column-move="1" margin-minus="340">
+                                        <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                        <div class="common-grid-box cg-120">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_RFQDate_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-150">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_TotalRFQ_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-120">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_RFQNo_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-160">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_Customer_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-160" ng-hide="SelectionCriteria.GroupBy=='SAM'">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_SAM_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-160" ng-hide="SelectionCriteria.GroupBy=='NonAwardFeedback'">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_NonAwardFeedback_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_NonAwardDetailedFeedback_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-150">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_Commodity_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-150">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_Process_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-150">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_RFQSource_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-110">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0">{{'_RFQType_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-160">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0 align-right">{{'_QuoteAmount_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="common-grid-box cg-160">
+                                            <div class="col-hori-box ng-s">
+                                                <div class="list-1 root-list">
+                                                    <div class="lst-header">
+                                                        <div class="lst-item">
+                                                            <div class="col-12 pad-0 align-right">{{'_ToolingCost_' | translate}}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-common-detail-panel">
+                    <div class="fixed-height-grid auto-height-grid height-auto-important">
+                        <div class="border-full">
+                            <div class="section-coomon">
+                                <div class="grid-common-content-panel">
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel" ng-repeat="item in RFQNonAwardReasonReportList">
+                                            <div class="common-grid-panel SupplierQuote sliderOn col-width-1800" row column-width="200" column-move="1">
+                                                <div class="common-grid-box cg-120">
+                                                    <div class="col-hori-box"><label>{{item.RfqDate}}</label></div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div class="col-hori-box"><label>Total RFQ(s): {{item.NoOfRfq}}</label></div>
+                                                </div>
+                                                <div class="common-grid-box cg-120">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.RFQ}} <span class="tooltip-h align-left">{{subItem.RFQ}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box sub-total-price-box"><label>{{key}} - Total: ${{getGroupByTotal(Value) | number:3}}</label></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.RFQ}} <span class="tooltip-h align-left">{{subItem.RFQ}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            <label translate="yes">_NoRecordsFound_</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-160">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.Customer}} <span class="tooltip-h align-left">{{subItem.Customer}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.Customer}} <span class="tooltip-h align-left">{{subItem.Customer}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-160" ng-hide="SelectionCriteria.GroupBy=='SAM'">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.AccountManager}} <span class="tooltip-h align-left">{{subItem.AccountManager}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.AccountManager}} <span class="tooltip-h align-left">{{subItem.AccountManager}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-160" ng-hide="SelectionCriteria.GroupBy=='NonAwardFeedback'">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.NonAwardFeedback}}<span class="tooltip-h align-left">{{subItem.NonAwardFeedback}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.NonAwardFeedback}} <span class="tooltip-h align-left">{{subItem.NonAwardFeedback}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.NonAwardDetailedFeedback}} <span class="tooltip-h align-left">{{subItem.NonAwardDetailedFeedback}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.NonAwardDetailedFeedback}} <span class="tooltip-h align-left">{{subItem.NonAwardDetailedFeedback}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.Commodity}} <span class="tooltip-h align-left">{{subItem.Commodity}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.Commodity}} <span class="tooltip-h align-left">{{subItem.Commodity}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.Process}} <span class="tooltip-h align-left">{{subItem.Process}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.Process}} <span class="tooltip-h align-left">{{subItem.Process}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-150">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.RFQSource}} <span class="tooltip-h align-left">{{subItem.RFQSource}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.RFQSource}} <span class="tooltip-h align-left">{{subItem.RFQSource}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-110">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>{{subItem.RFQType}} <span class="tooltip-h align-left">{{subItem.RFQType}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                            <label>{{subItem.RFQType}} <span class="tooltip-h align-left">{{subItem.RFQType}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box"></div>
+                                                </div>
+                                                <div class="common-grid-box cg-160">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box align-right" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>${{subItem.totalquoted | number:3}} <span class="tooltip-h align-left">{{subItem.totalquoted | number:3}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box align-right" ng-repeat="subItem in Value">
+                                                            <label>${{subItem.totalquoted | number:3}} <span class="tooltip-h align-left">{{subItem.RFQDateTotalQuoted | number:3}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box align-right">
+                                                        <label>${{item.RFQDateTotalQuoted  | number:3}} <span class="tooltip-h align-left">{{item.RFQDateTotalQuoted | number:3}}</span></label>
+                                                    </div>
+                                                </div>
+                                                <div class="common-grid-box cg-160">
+                                                    <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box align-right" ng-repeat="subItem in item.lstRFQNonAwardReasonReportDetails"><label>${{subItem.ToolingCost | number:3}} <span class="tooltip-h align-left">{{subItem.ToolingCost | number:3}}</span></label></div>
+                                                    <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in item.lstRFQNonAwardReasonReportDetails">
+                                                        <div class="col-hori-box title-sub-group-box"></div>
+                                                        <div class="col-hori-box  align-right" ng-repeat="subItem in Value">
+                                                            <label>${{subItem.ToolingCost | number:3}} <span class="tooltip-h align-left">{{subItem.ToolingCost | number:3}}</span></label>
+                                                        </div>
+                                                        <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-hori-box title-total-price-box align-right">
+                                                        <label>${{item.RFQDateTotalToolingCost | number:3}} <span class="tooltip-h align-left">{{item.RFQDateTotalToolingCost | number:3}}</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 align-center" ng-hide="RFQNonAwardReasonReportList.length>0">
+        <div class="spacer-gray-line"></div>
+        <div class="error-box rounded-info-box" style="display:inline-block;">
+            <p translate="yes">_NoRecordsFound_</p>
+        </div>
+    </div>
+
+    <!--<div ng-show="RFQNonAwardReasonReportList.length>0">
+        <mespagination boundary-links="true" total-items="Paging.TotalRecords" on-select-page="pageChanged(page)"
+                       page="Paging.PageNo" items-per-page="Paging.PageSize"
+                       previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page-size="pageSizeChanged(pagesize)" pagesize="Paging.PageSize">
+        </mespagination>
+    </div>-->
+</div>

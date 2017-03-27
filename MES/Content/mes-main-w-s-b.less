@@ -1,0 +1,51 @@
+﻿@import "assets/variables.less";
+@import "assets/mixins.less";
+
+@import "assets/icons/icons.less";
+@import "assets/icons/font-awesome.less";
+@import "main-frame-w-s-b.less";
+@import "assets/controls/nice-scroll.less";
+@import "assets/base.less";
+@import "assets/control.less";
+
+
+.rating{
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+
+ul.rating {
+  display: inline-block;
+}
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rating .filled {
+  color: #f37121;
+}
+
+.customDivWidth {
+    /*width: 977px;*/
+    & .wizard-s1 {
+        background:none;
+        & li {
+            background:@color-orange-light-tab;
+        }
+    }
+}
+.spacer-gray-line {
+    width:100%;
+    float:left;
+    height:3px;
+    background:@color-black-87;
+    margin-top:10px;
+    margin-bottom:5px;
+}

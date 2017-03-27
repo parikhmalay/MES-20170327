@@ -1,0 +1,79 @@
+﻿
+/*----------------------------------------------------------------------------------------------*/
+/*---------------------------- Blue box start here ---------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+
+.blue-content-box {
+    background: #f4f8fb;
+    border: 1px solid #cad7e7;
+    width: 100%;
+    display: inline-block;
+
+    & h2 {
+
+        & span {
+            color: @color-blue;
+        }
+    }
+
+    & p {
+        font-size:1.4em;
+        line-height:20px;
+    }
+}
+
+.content-point-list {
+    width: 100%;
+    display: inline-block;
+    margin: 0px;
+
+    & > li {
+        width: 100%;
+        position: relative;
+        padding: 4px 0 4px 20px;
+        font-size: 15px;
+
+        &:before {
+            position: absolute;
+            left: 0px;
+            top: 8px;
+            font-size: 10px;
+            content: "";
+            display: inline-block;
+            color: #9eb6d0;
+            font-family: 'FontAwesome';
+        }
+    }
+}
+.content-number-list {
+    width: 100%;
+    display: inline-block;
+    margin: 0px;
+    counter-reset: number;
+    & > li {
+        width: 100%;
+        position: relative;
+        padding: 4px 0 4px 25px;
+        font-size: 15px;
+        
+        &:before {
+            counter-increment: number;
+            content: counter(number);
+            position: absolute;
+            left: 0px;
+            top: 8px;
+            font-size: 10px;
+            display: inline-block;
+            background: #9eb6d0;
+            color: #fff;
+            border-radius: 12px;
+            padding: 1px 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: -4px;
+        }
+    }
+}
+/*----------------------------------------------------------------------------------------------*/
+/*---------------------------- Blue box start here ---------------------------------------------*/
+/*----------------------------------------------------------------------------------------------*/

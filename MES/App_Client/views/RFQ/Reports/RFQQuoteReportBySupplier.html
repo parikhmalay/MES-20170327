@@ -1,0 +1,128 @@
+﻿<div class="col-12 pad-10 border-top-spacer" ng-controller="RFQQuoteReportBySupplierCtrl">
+    <div class="full-wrap-table-panel">
+        <div class="full-wrap-table-box">
+            <div class="col-12 pad-10">
+                <div class="list-1 root-list-tb ng-isolate-scope">
+                    <div class="lst-header">
+                        <div class="lst-item">
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'PartNumber';sortReverse = !sortReverse">
+                                    {{'_PartNumber_' | translate}}
+                                    <i ng-show="sortType == 'PartNumber' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'PartNumber' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'Description';sortReverse = !sortReverse">
+                                    {{'_Description_' | translate}}
+                                    <i ng-show="sortType == 'Description' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'Description' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'AnnualQuantity';sortReverse = !sortReverse">
+                                    {{'_AnnualQuantity_' | translate}}
+                                    <i ng-show="sortType == 'AnnualQuantity' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'AnnualQuantity' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'Weight';sortReverse = !sortReverse">
+                                    {{'_Weight_' | translate}}
+                                    <i ng-show="sortType == 'Weight' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'Weight' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'SupplierName';sortReverse = !sortReverse">
+                                    {{'_SupplierName_' | translate}}
+                                    <i ng-show="sortType == 'SupplierName' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'SupplierName' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'QuoteDate';sortReverse = !sortReverse">
+                                    {{'_QuoteDate_' | translate}}
+                                    <i ng-show="sortType == 'QuoteDate' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'QuoteDate' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'ToolingPrice';sortReverse = !sortReverse">
+                                    {{'_ToolingPrice_' | translate}}
+                                    <i ng-show="sortType == 'ToolingPrice' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'ToolingPrice' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'MaterialCost';sortReverse = !sortReverse">
+                                    {{'_MaterialCost_' | translate}}
+                                    <i ng-show="sortType == 'MaterialCost' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'MaterialCost' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'ConversionCost';sortReverse = !sortReverse">
+                                    {{'_ConversionCost_' | translate}}
+                                    <i ng-show="sortType == 'ConversionCost' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'ConversionCost' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'MachiningCost';sortReverse = !sortReverse">
+                                    {{'_MachiningCost_' | translate}}
+                                    <i ng-show="sortType == 'MachiningCost' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'MachiningCost' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'OtherProcessCost';sortReverse = !sortReverse">
+                                    {{'_OtherProcessCost_' | translate}}
+                                    <i ng-show="sortType == 'OtherProcessCost' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'OtherProcessCost' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'PiecePrice';sortReverse = !sortReverse">
+                                    {{'_PiecePrice_' | translate}}
+                                    <i ng-show="sortType == 'PiecePrice' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'PiecePrice' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                            <div class="col-grid-sm-1">
+                                <label ng-click="sortType = 'SupplierCostPerkg';sortReverse = !sortReverse">
+                                    {{'_SupplierCostPerkg_' | translate}}
+                                    <i ng-show="sortType == 'SupplierCostPerkg' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                    <i ng-show="sortType == 'SupplierCostPerkg' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>  <div class="lst-body">
+                        <div class="lst-item ng-pristine ng-valid ng-scope" ng-repeat="item in RFQQuoteBySupplierList | orderBy:sortType:sortReverse">
+                            <div class="col-grid-sm-1" data-colmn-title="{{'_PartNumber_'| translate}}">
+                                <label>{{item.Id}}</label>
+                            </div>   <div class="lst-item" ng-hide="RFQQuoteBySupplierList.length>0">
+                                <div class="col-12">
+                                    <div class="error-box rounded-info-box">
+                                        <p translate="yes">_NoRecordsFound_</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="RFQQuoteBySupplierList.length>0">
+    <mespagination boundary-links="true" total-items="Paging.TotalRecords" on-select-page="pageChanged(page)"
+                   page="Paging.PageNo" items-per-page="Paging.PageSize"
+                   previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page-size="pageSizeChanged(pagesize)" pagesize="Paging.PageSize">
+    </mespagination>
+
+    <div class="last-trip-panel pad-10 pad-b-0 ng-scope">
+
+    </div>
+</div>

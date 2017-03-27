@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Change Password";
+}
+
+<div ng-view></div>
+@*<script src="~/App_Client/common/services/UserManagement/UserIdentity.services.js"></script>
+<script src="~/App_Client/views/UserManagement/ChangePassword/ChangePassword.controller.js"></script>
+<script src="~/App_Client/views/UserManagement/ChangePassword/ChangePassword.route.js"></script>*@
+
+@section pageScripts{
+    @System.Web.Optimization.Scripts.Render("~/bundles/ChangePassword")
+}

@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1de1eb7e738844afbb91677aafccf27b" Name="Diagram1" ZoomLevel="14">
+        <EntityTypeShape EntityType="Model.RFQType" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.ProjectCategory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.ProjectStage" Width="1.5" PointX="3" PointY="5.5" />
+        <AssociationConnector Association="Model.FK_ProjectStage_ProjectCategory" />
+        <EntityTypeShape EntityType="Model.Origin" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Process" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.Remark" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Designation" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="Model.Forwarder" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.MachineDesc" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.MachiningDesc" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Commodity" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Model.CommodityCategory" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="Model.AssociatedTo" Width="1.5" PointX="9.375" PointY="12.875" />
+        <EntityTypeShape EntityType="Model.DocumentType" Width="1.5" PointX="9.375" PointY="5" />
+        <EntityTypeShape EntityType="Model.DocumentTypeAssociatedTo" Width="1.5" PointX="11.625" PointY="5.125" />
+        <AssociationConnector Association="Model.FK_DocumentTypeAssociatedTo_Setup_AssociatedTo" />
+        <AssociationConnector Association="Model.FK_Setup_DocumentTypeAssociatedTo_Setup_DocumentType" />
+        <EntityTypeShape EntityType="Model.RFQSource" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.NonAwardFeedback" Width="1.5" PointX="11.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Model.Status" Width="1.5" PointX="3.375" PointY="12.75" />
+        <EntityTypeShape EntityType="Model.SecondaryOperationDesc" Width="1.5" PointX="11.375" PointY="8.75" />
+        <EntityTypeShape EntityType="Model.RemarksAssociatedTo" Width="1.5" PointX="9.625" PointY="17" />
+        <EntityTypeShape EntityType="Model.StatusAssociatedTo" Width="1.5" PointX="11.625" PointY="13.25" />
+        <AssociationConnector Association="Model.FK_StatusAssociatedTo_AssociatedTo" />
+        <AssociationConnector Association="Model.FK_Setup_RemarksAssociatedTo_Setup_Remarks" />
+        <AssociationConnector Association="Model.FK_StatusAssociatedTo_Status" />
+        <AssociationConnector Association="Model.FK_RemarksAssociatedTo_AssociatedTo" />
+        <EntityTypeShape EntityType="Model.CommodityType" Width="1.5" PointX="14.375" PointY="2.25" />
+        <EntityTypeShape EntityType="Model.CommodityTypeCustomer" Width="1.5" PointX="16.625" PointY="4" />
+        <EntityTypeShape EntityType="Model.CommodityTypeSupplier" Width="1.5" PointX="16.625" PointY="1.125" />
+        <AssociationConnector Association="Model.FK_CommodityTypeCustomer_CommodityType" />
+        <AssociationConnector Association="Model.FK_CommodityTypeSupplier_CommodityType" />
+        <EntityTypeShape EntityType="Model.Customer" Width="1.5" PointX="14.375" PointY="13.5" />
+        <EntityTypeShape EntityType="Model.Division" Width="1.5" PointX="16.625" PointY="25.875" />
+        <EntityTypeShape EntityType="Model.Document" Width="1.5" PointX="16.625" PointY="3.25" />
+        <AssociationConnector Association="Model.FK_CommodityTypeCustomer_Customers" />
+        <AssociationConnector Association="Model.FK_Customer_Divisions_Customers" />
+        <AssociationConnector Association="Model.FK_SupplierDocuments_Setup_DocumentType" />
+        <EntityTypeShape EntityType="Model.EmailTemplate" Width="1.5" PointX="5.375" PointY="12.75" />
+        <EntityTypeShape EntityType="Model.Country" Width="1.5" PointX="12.5" PointY="17" />
+        <EntityTypeShape EntityType="Model.Prefix" Width="1.5" PointX="37.625" PointY="14.375" />
+        <AssociationConnector Association="Model.FK_Customers_Setup_Country" />
+        <AssociationConnector Association="Model.FK_Customer_Divisions_Setup_Country" />
+        <EntityTypeShape EntityType="Model.Supplier" Width="1.5" PointX="14.75" PointY="38.25" />
+        <AssociationConnector Association="Model.FK_CommodityTypeSupplier_Suppliers" />
+        <AssociationConnector Association="Model.FK_Suppliers_Setup_Country" />
+        <AssociationConnector Association="Model.FK_SupplierDocuments_Suppliers" />
+        <EntityTypeShape EntityType="Model.Gender" Width="1.5" PointX="0.75" PointY="16.75" />
+        <EntityTypeShape EntityType="Model.DesignationMapping" Width="1.5" PointX="9.625" PointY="21" />
+        <AssociationConnector Association="Model.FK_DesignationMapping_Designation" />
+        <EntityTypeShape EntityType="Model.Document1" Width="1.5" PointX="15.875" PointY="3.125" />
+        <EntityTypeShape EntityType="Model.POPart" Width="1.5" PointX="15.875" PointY="53.25" />
+        <EntityTypeShape EntityType="Model.Shipment" Width="1.5" PointX="13.625" PointY="0.75" />
+        <AssociationConnector Association="Model.FK_ShipmentDocuments_Setup_DocumentType" />
+        <AssociationConnector Association="Model.FK_Shipment_Setup_Forwarder" />
+        <AssociationConnector Association="Model.FK_Shipment_Setup_Origin" />
+        <AssociationConnector Association="Model.FK_ShipmentDocuments_Shipment" />
+        <AssociationConnector Association="Model.FK_ShipmentPOParts_Shipment" />
+        <EntityTypeShape EntityType="Model.Destination" Width="1.5" PointX="3.375" PointY="16.75" />
+        <EntityTypeShape EntityType="Model.Part" Width="1.5" PointX="19.375" PointY="1" />
+        <EntityTypeShape EntityType="Model.ShipmentSupplier" Width="1.5" PointX="19" PointY="22.625" />
+        <AssociationConnector Association="Model.FK_ShipmentSupplier_Shipment" />
+        <AssociationConnector Association="Model.FK_ShipmentSupplier_Suppliers" />
+        <EntityTypeShape EntityType="Model.rfqSupplier" Width="1.5" PointX="20.875" PointY="10.25" />
+        <EntityTypeShape EntityType="Model.SupplierPartQuote" Width="1.5" PointX="23.125" PointY="5.625" />
+        <AssociationConnector Association="Model.FK_RFQSupplierPartQuote_RFQParts" />
+        <AssociationConnector Association="Model.FK_RFQSupplierPartQuote_RFQSupplier" />
+        <EntityTypeShape EntityType="Model.dqMachining" Width="1.5" PointX="5.375" PointY="16.75" />
+        <EntityTypeShape EntityType="Model.dqMachiningOtherOperation" Width="1.5" PointX="25.375" PointY="17.5" />
+        <EntityTypeShape EntityType="Model.dqMachiningSecondaryOperation" Width="1.5" PointX="25.375" PointY="25.75" />
+        <EntityTypeShape EntityType="Model.dqOverhead" Width="1.5" PointX="25.375" PointY="29.75" />
+        <EntityTypeShape EntityType="Model.dqPrimaryProcessConversion" Width="1.5" PointX="25.375" PointY="34" />
+        <EntityTypeShape EntityType="Model.dqSurfaceTreatment" Width="1.5" PointX="25.375" PointY="21.625" />
+        <AssociationConnector Association="Model.FK_dqMachiningOtherOperation_RFQSupplierPartQuote" />
+        <AssociationConnector Association="Model.FK_dqMachiningSecondaryOperation_RFQSupplierPartQuote" />
+        <AssociationConnector Association="Model.FK_dqOverhead_RFQSupplierPartQuote" />
+        <AssociationConnector Association="Model.FK_dqPrimaryProcessConversion_RFQSupplierPartQuote" />
+        <AssociationConnector Association="Model.FK_dqSurfaceTreatment_RFQSupplierPartQuote" />
+        <EntityTypeShape EntityType="Model.QuoteStatu" Width="1.5" PointX="16.375" PointY="17.75" />
+        <EntityTypeShape EntityType="Model.Quote" Width="1.5" PointX="25.875" PointY="5.5" />
+        <AssociationConnector Association="Model.FK_Quote_Setup_QuoteStatus" />
+        <EntityTypeShape EntityType="Model.Address" Width="1.5" PointX="19.625" PointY="17.5" />
+        <EntityTypeShape EntityType="Model.AddressType" Width="1.5" PointX="17.375" PointY="37.75" />
+        <AssociationConnector Association="Model.FK_Address_AddressType" />
+        <AssociationConnector Association="Model.FK_Address_Country" />
+        <AssociationConnector Association="Model.FK_Address_Customers" />
+        <EntityTypeShape EntityType="Model.QuoteCalculationHistory" Width="1.5" PointX="28.125" PointY="6.875" />
+        <AssociationConnector Association="Model.FK_QuoteCalculationHistory_Quote" />
+        <EntityTypeShape EntityType="Model.PageSize" Width="1.5" PointX="12.75" PointY="19.75" />
+        <EntityTypeShape EntityType="Model.UserPreference" Width="1.5" PointX="3.375" PointY="20.75" />
+        <EntityTypeShape EntityType="Model.AssessmentQuestionType" Width="1.5" PointX="15.5" PointY="58.625" />
+        <EntityTypeShape EntityType="Model.AssessmentScopeOfWork" Width="1.5" PointX="19.25" PointY="50.875" />
+        <EntityTypeShape EntityType="Model.AssessmentElement" Width="1.5" PointX="17.75" PointY="58.375" />
+        <AssociationConnector Association="Model.FK_AssessmentElement_AssessmentQuestionType" />
+        <EntityTypeShape EntityType="Model.apqpDocument" Width="1.5" PointX="12" PointY="24.5" />
+        <EntityTypeShape EntityType="Model.PPAPSubmission" Width="1.5" PointX="5.75" PointY="20.75" />
+        <EntityTypeShape EntityType="Model.ProjectTracking" Width="1.5" PointX="22.75" PointY="15.75" />
+        <EntityTypeShape EntityType="Model.SAPItemFlatTable" Width="1.5" PointX="22.75" PointY="20.75" />
+        <EntityTypeShape EntityType="Model.ToolingLaunch" Width="1.5" PointX="24.75" PointY="0.75" />
+        <AssociationConnector Association="Model.FK_apqpDocuments_AssociatedToLookup" />
+        <AssociationConnector Association="Model.FK_APQPDocuments_DocumentTypeLookup" />
+        <EntityTypeShape EntityType="Model.AssessmentSubElementDetail" Width="1.5" PointX="22.25" PointY="62.25" />
+        <EntityTypeShape EntityType="Model.AssessmentSubElementValue" Width="1.5" PointX="24.5" PointY="51.5" />
+        <AssociationConnector Association="Model.FK_AssessmentSubElementValue_AssessmentSubElementDetails" />
+        <EntityTypeShape EntityType="Model.AssessmentElementDetail" Width="1.5" PointX="20" PointY="57.875" />
+        <EntityTypeShape EntityType="Model.AssessmentElementValue" Width="1.5" PointX="22.25" PointY="49.25" />
+        <AssociationConnector Association="Model.FK_AssessmentElementDetails_AssessmentElement" />
+        <AssociationConnector Association="Model.FK_AssessmentElementValue_AssessmentElementDetails" />
+        <AssociationConnector Association="Model.FK_AssessmentSubElementDetails_AssessmentElementDetails" />
+        <EntityTypeShape EntityType="Model.ControlToolTip" Width="1.5" PointX="0.75" PointY="22.75" />
+        <EntityTypeShape EntityType="Model.Role" Width="1.5" PointX="8.375" PointY="24.75" />
+        <EntityTypeShape EntityType="Model.RoleObjectPrivilege" Width="1.5" PointX="10.625" PointY="29.75" />
+        <AssociationConnector Association="Model.FK_RoleObjectPrivileges_Roles" />
+        <EntityTypeShape EntityType="Model.crChangeRequestWatcher" Width="1.5" PointX="21.25" PointY="30.5" />
+        <EntityTypeShape EntityType="Model.dtDefectTracking" Width="1.5" PointX="27.375" PointY="13.75" />
+        <EntityTypeShape EntityType="Model.dtPartDocument" Width="1.5" PointX="27.375" PointY="18.75" />
+        <EntityTypeShape EntityType="Model.dtDefectTrackingDetail" Width="1.5" PointX="5.625" PointY="37.625" />
+        <AssociationConnector Association="Model.FK_dtDefectTrackingDetails_DestinationLookup" />
+        <EntityTypeShape EntityType="Model.crDocument" Width="1.5" PointX="11.625" PointY="34.125" />
+        <AssociationConnector Association="Model.FK_crDocuments_DocumentType" />
+        <EntityTypeShape EntityType="Model.Object" Width="1.5" PointX="6.5" PointY="26.5" />
+        <EntityTypeShape EntityType="Model.Privilege" Width="1.5" PointX="0.75" PointY="25.875" />
+        <AssociationConnector Association="Model.FK_RoleObjectPrivileges_Privileges" />
+        <AssociationConnector Association="Model.FK_Roles_Objects" />
+        <EntityTypeShape EntityType="Model.SupplierAssessment" Width="1.5" PointX="17" PointY="40.5" />
+        <AssociationConnector Association="Model.FK_AssessmentElementValue_SupplierAssessment" />
+        <AssociationConnector Association="Model.FK_AssessmentScopeOfWork_SupplierQualification" />
+        <AssociationConnector Association="Model.FK_AssessmentSubElementValue_SupplierAssessment" />
+        <AssociationConnector Association="Model.FK_SupplierQualification_Suppliers" />
+
+        <EntityTypeShape EntityType="Model.Detail" Width="1.5" Point"28.125"1" Point"0.75"6" />
+        <AssociationConnector Association="Model.FK_QuoteDetails_Quote" />
+        <EntityTypeShape EntityType="Model.PartAttachment" Width="1.5" PointX="8.6270463730334512" PointY="1.1118533914498303" />
+        <AssociationConnector Association="Model.FK_RFQPartAttachments_RFQParts" />
+        <AssociationConnector Association="Model.FK_UserPreferences_Objects" />
+        <EntityTypeShape EntityType="Model.Contact" Width="1.5" PointX="0.37041371332966427" PointY="28.493015988028151" />
+        <EntityTypeShape EntityType="Model.Contacts1" Width="1.5" PointX="5.1773620998381453" PointY="5.9220342067638567" />
+        <AssociationConnector Association="Model.FK_Customer_Contacts_Customers" />
+        <AssociationConnector Association="Model.FK_Customer_Contacts_Setup_Prefix" />
+        <AssociationConnector Association="Model.FK_SupplierContacts_Setup_Prefix" />
+        <AssociationConnector Association="Model.FK_SupplierContacts_Suppliers" />
+        <EntityTypeShape EntityType="Model.dqRawMaterial" Width="1.5" PointX="0.96406056963096409" PointY="7.4395858829094035" />
+        <AssociationConnector Association="Model.FK_dqRawMaterial_RFQSupplierPartQuote" />
+        <EntityTypeShape EntityType="Model.TriggerPoint" Width="1.5" PointX="5.5648648485377734" PointY="25.465843510565275" />
+        <EntityTypeShape EntityType="Model.TriggerPointUser" Width="1.5" PointX="0.049272878118452088" PointY="1.3449497080151689" />
+        <AssociationConnector Association="Model.FK_Setup_TriggerPointUsers_TriggerPoint" />
+        <AssociationConnector Association="Model.FK_TriggerPointUsers_TriggerPoint" />
+        <EntityTypeShape EntityType="Model.DefectType" Width="1.5" PointX="9.6499885384226154" PointY="18.56418249875502" />
+        <EntityTypeShape EntityType="Model.CommoditySupplier" Width="1.5" PointX="9.4333122844962922" PointY="10.500569855096083" />
+        <AssociationConnector Association="Model.FK_CommoditySupplier_Commodity" />
+        <AssociationConnector Association="Model.FK_CommoditySupplier_Suppliers" />
+        <EntityTypeShape EntityType="Model.capaApproval" Width="1.5" PointX="4.94824491112877" PointY="28.295195309582724" />
+        <EntityTypeShape EntityType="Model.capaApproverTitle" Width="1.5" PointX="4.5370274058249906" PointY="9.8903255061667057" />
+        <EntityTypeShape EntityType="Model.capaFeedForward" Width="1.5" PointX="7.4082205106542549" PointY="24.659864809671355" />
+        <EntityTypeShape EntityType="Model.capaItemMaster" Width="1.5" PointX="8.0035653170214811" PointY="19.943478325355557" />
+        <EntityTypeShape EntityType="Model.capaPartAffectedDetail" Width="1.5" PointX="8.8601562142652259" PointY="0.11612896626634942" />
+        <EntityTypeShape EntityType="Model.capaPermanentCountermeasure" Width="1.5" PointX="6.1823406956076354" PointY="7.43064032841038" />
+        <EntityTypeShape EntityType="Model.capaQuery" Width="1.5" PointX="10.159694316871322" PointY="9.2178506894120247" />
+        <EntityTypeShape EntityType="Model.capaRootCauseWhyMade" Width="1.5" PointX="3.378250475683366" PointY="8.8966660988035926" />
+        <EntityTypeShape EntityType="Model.capaRootCauseWhyShipped" Width="1.5" PointX="10.803246197664759" PointY="17.445301585572448" />
+        <EntityTypeShape EntityType="Model.capaTempCountermeasure" Width="1.5" PointX="9.9816101165402742" PointY="26.517925602625091" />
+        <EntityTypeShape EntityType="Model.capaVerification" Width="1.5" PointX="9.07208539967988" PointY="21.528700436245977" />
+        <AssociationConnector Association="Model.FK_capaApprovals_capaApproverTitle" />
+        <AssociationConnector Association="Model.FK_capaApprovals_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaFeedForward_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaItemMaster_dtDefectTracking" />
+        <AssociationConnector Association="Model.FK_capaPartAffectedDetails_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaPermanentCountermeasure_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaRootCauseWhyMade_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaRootCauseWhyShipped_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaTempCountermeasure_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaVerification_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaPartAffectedDetails_DefectType" />
+        <AssociationConnector Association="Model.FK_capaRootCauseWhyMade_capaQuery" />
+        <AssociationConnector Association="Model.FK_capaRootCauseWhyShipped_capaRootCauseWhyShipped" />
+        <EntityTypeShape EntityType="Model.capaPartDocument" Width="1.5" PointX="5.39766545472558" PointY="16.660424582967732" />
+        <AssociationConnector Association="Model.FK_capaPartDocument_capaPartAffectedDetails" />
+        <EntityTypeShape EntityType="Model.AspNetUser" Width="1.5" PointX="9.25881527050343" PointY="26.7584712778956" />
+        <AssociationConnector Association="Model.FK_AspNetUsers_Country" />
+        <AssociationConnector Association="Model.FK_AspNetUsers_Gender" />
+        <AssociationConnector Association="Model.FK_AspNetUsers_Suppliers" />
+        <AssociationConnector Association="Model.FK_cr_ChangeRequestWatcher_Users" />
+        <AssociationConnector Association="Model.FK_DesignationMapping_DesignationMapping" />
+        <AssociationConnector Association="Model.FK_TriggerPointUsers_AspNetUsers" />
+        <EntityTypeShape EntityType="Model.NPIFDocusign" Width="1.5" PointX="1.3109676043088396" PointY="15.132089532507624" />
+        <EntityTypeShape EntityType="Model.NPIFDocuSignApprover" Width="1.5" PointX="10.137736993905966" PointY="9.6201218709443328" />
+        <AssociationConnector Association="Model.FK_NPIFDocusign_NPIFDocusign" />
+        <AssociationConnector Association="Model.FK_NPIFDocuSignApprovers_NPIFDocusign" />
+        <AssociationConnector Association="Model.FK_NPIFApprovers_AspNetUsers1" />
+        <EntityTypeShape EntityType="Model.RFQPriority" Width="1.5" PointX="8.41996833142823" PointY="28.017526952557976" />
+        <EntityTypeShape EntityType="Model.RFQ" Width="1.5" PointX="9.6751837235294218" PointY="9.3942032053108342" />
+        <AssociationConnector Association="Model.FK_RFQ_Customers" />
+        <AssociationConnector Association="Model.FK_Quote_RFQ" />
+        <AssociationConnector Association="Model.FK_RFQ_CommodityType" />
+        <AssociationConnector Association="Model.FK_RFQ_RFQ" />
+        <AssociationConnector Association="Model.FK_RFQ_Setup_Commodity" />
+        <AssociationConnector Association="Model.FK_RFQ_Setup_NonAwardFeedback" />
+        <AssociationConnector Association="Model.FK_RFQ_Setup_Process" />
+        <AssociationConnector Association="Model.FK_RFQ_Setup_RFQType" />
+        <AssociationConnector Association="Model.FK_RFQSupplier_RFQ" />
+        <EntityTypeShape EntityType="Model.crItemMaster" Width="1.5" PointX="11.501730199671226" PointY="2.0596535066420461" />
+        <EntityTypeShape EntityType="Model.ItemMaster" Width="1.5" PointX="5.5779851533370017" PointY="16.21585185090818" />
+        <AssociationConnector Association="Model.FK_crChangeRequestWatcher_crItemMaster" />
+        <AssociationConnector Association="Model.FK_crItemMaster_apqpItemMaster" />
+        <AssociationConnector Association="Model.FK_crItemMaster_setupStatusLookup" />
+        <AssociationConnector Association="Model.FK_apqp_ItemMaster_setup_Status" />
+        <AssociationConnector Association="Model.FK_APQPItemMaster_APQPItemMaster" />
+        <AssociationConnector Association="Model.FK_NPIFDocusign_ItemMaster" />
+        <EntityTypeShape EntityType="Model.IndustryType" Width="1.5" PointX="4.3624436167825218" PointY="21.220723549472506" />
+        <AssociationConnector Association="Model.FK_RFQ_IndustryType" />
+        <EntityTypeShape EntityType="Model.capaProblemDescription" Width="1.5" PointX="0.22367054420694271" PointY="27.622831983316146" />
+        <AssociationConnector Association="Model.FK_capaProblemDescription_capaItemMaster" />
+        <AssociationConnector Association="Model.FK_capaProblemDescription_capaQuery" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
