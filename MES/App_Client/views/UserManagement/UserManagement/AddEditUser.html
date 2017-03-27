@@ -1,0 +1,246 @@
+﻿<div class="common-accordion-panel" ng-controller="AddEditUserCtrl">
+    <form unsaved-warning-form novalidate id="spnAddEditUser">
+        <us-spinner spinner-key="spnAddEditUser"></us-spinner>
+        <!--<div class="page-title">
+            <span class="p-title-txt">{{'_PageHeading_' | translate}}</span>
+        </div>-->
+        <div class="col-12 pad-10">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_PersonalDetails_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="fs linear fs-col-3">
+                            <div class="fs-g">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Prefix_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Prefix_' | translate}}" aa-field-name="{{'_Prefix_' | translate}}" ng-model="User.PrefixId" ng-options="item.Id as item.Name for item in PrefixList"></select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_FirstName_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_FirstName_' | translate}}" aa-field-name="{{'_FirstName_' | translate}}"
+                                               ng-model="User.FirstName" required ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_MiddleName_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_MiddleName_' | translate}}" aa-field-name="{{'_MiddleName_' | translate}}"
+                                               ng-model="User.MiddleName" ng-maxlength="20" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_LastName_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_LastName_' | translate}}" aa-field-name="{{'_LastName_' | translate}}"
+                                               ng-model="User.LastName" required ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Email_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <input type="email" name="{{'_Email_' | translate}}" aa-field-name="{{'_Email_' | translate}}"
+                                               ng-model="User.Email" required ng-maxlength="256" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Gender_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Gender_' | translate}}" required aa-field-name="{{'_Gender_' | translate}}" ng-model="User.GenderId" ng-options="item.Id as item.Name for item in GenderList">
+                                            <option value="">{{'_SelectGender_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-12 pad-10">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_AddressDetails' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="fs linear fs-col-3">
+                            <div class="fs-g">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_AddressLine1_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_AddressLine1_' | translate}}" aa-field-name="{{'_AddressLine1_' | translate}}"
+                                               ng-model="User.AddressLine1" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_AddressLine2_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_AddressLine2_' | translate}}" aa-field-name="{{'_AddressLine2_' | translate}}"
+                                               ng-model="User.AddressLine2" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_City_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_City_' | translate}}" aa-field-name="{{'_City_' | translate}}"
+                                               ng-model="User.City" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_State_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_State_' | translate}}" aa-field-name="{{'_State_' | translate}}"
+                                               ng-model="User.State" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ZipCode_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_ZipCode_' | translate}}" aa-field-name="{{'_ZipCode_' | translate}}"
+                                               ng-model="User.ZipCode" ng-maxlength="15" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Country_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Country_' | translate}}" required aa-field-name="{{'_Country_' | translate}}" ng-model="User.CountryId" ng-options="item.Id as item.Name for item in CountryList">
+                                            <option value="">{{'_SelectCountry_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-12 pad-10">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_AccountDetails_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="fs linear fs-col-3">
+                            <div class="fs-g">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Status_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Status_' | translate}}" ng-model="User.Active" aa-field-name="{{'_Status_'|translate}}"
+                                                ng-options="status.value as status.name for status in StatusList"></select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_SystemRole</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_SystemRole' | translate}}" required aa-field-name="{{'_SystemRole' | translate}}" ng-model="User.RoleId"
+                                                ng-options="item.Id as item.Name for item in RoleList">
+                                            <option value="">{{'_SelectRole_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f custom-select-box">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Designation_</label>
+                                    </span> <span class="fs-f-i">
+                                        <multiselect multiple="true"
+                                                     ng-model="User.lstUserDesignation"
+                                                     itemkey="Id"
+                                                     itemvalue="Name"
+                                                     options="item.Id as item.Name for item in DesignationList"
+                                                     header="{{'_SelectDesignation_' | translate}}" button-class="small"
+                                                     name="Multiselect"></multiselect>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_UserName_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_UserName_' | translate}}" aa-field-name="{{'_UserName_' | translate}}"
+                                               ng-blur="ValidateUserName()" ng-model="User.UserName" required ng-maxlength="256" ng-readonly="TransactionMode == 'Edit'" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Supplier_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Supplier_' | translate}}" aa-field-name="{{'_Supplier_' | translate}}" ng-model="User.SupplierId" ng-options="item.Id as item.Name for item in SupplierList">
+                                            <option value="">{{'_SelectSupplier_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <!--<div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label class="no-colon">&nbsp;</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="checkbox" id="chkIsRFQCoordinator" ng-model="User.IsRFQCoordinator" />
+                                        <label for="chkIsRFQCoordinator" translate="yes" tabindex="18">_IsRFQCoordinator_</label>
+                                    </span>
+                                </div>-->
+                                <div class="fs-f" ng-if="TransactionMode != 'Edit'">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Password_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <input type="password" name="{{'_Password_' | translate}}" aa-field-name="{{'_Password_' | translate}}"
+                                               ng-model="User.Password" ng-required="TransactionMode != 'Edit'" ng-maxlength="256" />
+                                    </span>
+                                </div>
+                                <div class="fs-f" ng-if="TransactionMode != 'Edit'">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ConfirmPassword_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <input type="password" name="{{'_ConfirmPassword_' | translate}}" aa-field-name="{{'_ConfirmPassword_' | translate}}"
+                                               ng-model="User.ConfirmPassword" ng-required="TransactionMode != 'Edit'" ng-maxlength="256" />
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <!--Top Header Show Start-->
+        <div class="freeze-bottom top-header-freeze-panel">
+            <button class="orange-btn" aa-submit-form="CreateUser()" translate="yes" ng-disabled="IsReadOnlyPage">_Save_</button>
+            <button class="orange-btn" ng-click="ResetForm()" translate="yes">_Reset_</button>
+            <button class="orange-btn" ng-click="RedirectToList()" translate="yes">_Cancel_</button>
+        </div>
+        <!--Top Header Show End-->
+        <div class="freeze-bottom">
+            <button class="orange-btn" aa-submit-form="CreateUser()" translate="yes" ng-disabled="IsReadOnlyPage">_Save_</button>
+            <button class="orange-btn" ng-click="ResetForm()" translate="yes">_Reset_</button>
+            <button class="orange-btn" ng-click="RedirectToList()" translate="yes">_Cancel_</button>
+        </div>
+    </form>
+</div>

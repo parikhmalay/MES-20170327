@@ -1,0 +1,399 @@
+﻿<div class="col-12 window-min-height bx-white" ng-controller="APQPReportsCtrl">
+    <form unsaved-warning-form ng-valid id="spnReports" ng-submit="SearchAndLoadReportView()">
+        <us-spinner spinner-key="spnReports"></us-spinner>
+        <div ui-view="" class="col-12 ng-scope">
+            <div class="common-accordion-panel">
+                <div class="ng-scope">
+                    <div class="col-12 pad-10">
+                        <accordion close-others="false">
+                            <accordion-group heading="" is-open="true">
+                                <accordion-heading>
+                                    <span class="p-title-txt">{{'_Reports_' | translate}}</span>
+                                    <span class="accordion-icon"></span>
+                                </accordion-heading>
+                                <div class="col-12 pad-10">
+                                    <div class="fs linear fs-col-5">
+                                        <div class="fs-  pad-b-10">
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_Reports_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_Reports_' | translate}}" aa-field-name="{{'_Reports_' | translate}}" ng-model="SearchCriteria.ReportId" ng-change="fillDropdowns(SearchCriteria.ReportId)">
+                                                        <option value="0">{{'_Select_' | translate}}</option>
+                                                        <option value="1">{{'_ProjectStatus_' | translate}}</option>
+                                                        <option value="2">{{'_DefectTrackingList_' | translate}}</option>
+                                                        <option value="3">{{'_APQPWeeklyMeetingReport_' | translate}}</option>
+                                                        <option value="4">{{'_APQPPPAPApprovalReport_' | translate}}</option>
+                                                    <!--    <option value="5">{{'_APQPNewBusinessAwardedReport_' | translate}}</option>-->
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="fs-g" ng-if="SearchCriteria.ReportId==1">
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_RfqNo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_RfqNo_' | translate}}" aa-field-name="{{'_RfqNo_'|translate}}" ng-model="SearchCriteria.RFQNumber" ng-options="item.Id as item.Name for item in RFQList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_QuoteNo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_QuoteNo_' | translate}}" aa-field-name="{{'_QuoteNo_'|translate}}" ng-model="SearchCriteria.QuoteNumber" ng-options="item.Id as item.Name for item in QuoteNumberList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_PartNo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_PartNo_' | translate}}" aa-field-name="{{'_PartNo_' | translate}}" ng-model="SearchCriteria.PartNo" ng-maxlength="50" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_Program_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_Program_' | translate}}" aa-field-name="{{'_Program_' | translate}}" ng-model="SearchCriteria.ProjectName" ng-maxlength="100" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_Customer_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_Customer_' | translate}}" aa-field-name="{{'_Customer_'|translate}}" ng-model="SearchCriteria.CustomerId" ng-options="item.Id as item.Name for item in CustomerList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_MesSam_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_MesSam_' | translate}}" aa-field-name="{{'_MesSam_'|translate}}" ng-model="SearchCriteria.SAMUserId" ng-options="item.Id as item.Name for item in SAMList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ManufactureCode_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_ManufactureCode_' | translate}}" aa-field-name="{{'_ManufactureCode_' | translate}}" ng-model="SearchCriteria.ManufacturerCode" ng-maxlength="50" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ManufactureName_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_ManufactureName_' | translate}}" aa-field-name="{{'_ManufactureName_' | translate}}" ng-model="SearchCriteria.ManufacturerName" ng-maxlength="100" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ApqpEngineer_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_ApqpEngineer_' | translate}}" aa-field-name="{{'_ApqpEngineer_'|translate}}" ng-model="SearchCriteria.APQPQualityEngineerId" ng-options="item.Id as item.Name for item in APQPQualityEngineerList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_SupplyChainCoordinator_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_SupplyChainCoordinator_' | translate}}" aa-field-name="{{'_SupplyChainCoordinator_'|translate}}" ng-model="SearchCriteria.SupplyChainCoordinatorId" ng-options="item.Id as item.Name for item in SupplyChainCoordinatorList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ApqpStatus_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <multiselect multiple="true"
+                                                                 ng-model="SearchCriteria.APQPStatusItems"
+                                                                 itemkey="Id"
+                                                                 itemvalue="Name"
+                                                                 options="item as item.Name for item in APQPStatusList"
+                                                                 header="{{'_APQPStatus_' | translate}}" button-class="small"></multiselect>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ProjectKickoffDateFrom_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_ProjectKickoffDateFrom_' | translate}}" aa-field-name="{{'_ProjectKickoffDateFrom_' | translate}}" ng-model="SearchCriteria.ProjectKickoffDateFrom" date-time view="date" min-view="date" format="dd-MMM-yy" max="{{SearchCriteria.ProjectKickoffDateTo}}" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ProjectKickoffDateTo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_ProjectKickoffDateTo_' | translate}}" aa-field-name="{{'_ProjectKickoffDateTo_' | translate}}" ng-model="SearchCriteria.ProjectKickoffDateTo" date-time view="date" min-view="date" format="dd-MMM-yy" min="{{SearchCriteria.ProjectKickoffDateFrom}}" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="fs-g" ng-if="SearchCriteria.ReportId==2">
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_Rma_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_Rma_' | translate}}" aa-field-name="{{'_Rma_' | translate}}" ng-model="SearchCriteria.RMANumber" ng-maxlength="50" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_PartNo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_PartNo_' | translate}}" aa-field-name="{{'_PartNo_'|translate}}" ng-model="SearchCriteria.PartNo" ng-options="item.Id as item.Name for item in PartNoList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_Customer_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_Customer_' | translate}}" aa-field-name="{{'_Customer_'|translate}}" ng-model="SearchCriteria.CustomerId" ng-options="item.Id as item.Name for item in CustomerList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_RMAInitiatedBy_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_RMAInitiatedBy_' | translate}}" aa-field-name="{{'_RMAInitiatedBy_'|translate}}" ng-model="SearchCriteria.RMAInitiatedBy" ng-options="item.Id as item.Name for item in RMAInitiatedByList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_RMADateBetween_</label>
+                                                </span>
+                                                <span class="col-5">
+                                                    <input type="text" name="{{'_RMADateFrom_' | translate}}"
+                                                           aa-field-name="{{'_RMADateFrom_' | translate}}"
+                                                           ng-model="SearchCriteria.RMADateFrom" date-time view="date" min-view="date" format="dd-MMM-yy" max="{{SearchCriteria.RMADateTo}}" />
+                                                </span>
+                                                <span class="col-2 align-center label-spacer-line-height"><label translate="yes">_And_</label></span>
+                                                <span class="col-5">
+                                                    <input type="text" name="{{'_RMADateTo_' | translate}}"
+                                                           aa-field-name="{{'_RMADateTo_' | translate}}"
+                                                           ng-model="SearchCriteria.RMADateTo" date-time view="date" min-view="date" format="dd-MMM-yy" min="{{SearchCriteria.RMADateFrom}}" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_SupplierCode_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_SupplierCode_' | translate}}" aa-field-name="{{'_SupplierCode_' | translate}}" ng-model="SearchCriteria.SupplierCode" ng-maxlength="50" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_SupplierName_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_SupplierName_' | translate}}" aa-field-name="{{'_SupplierName_'|translate}}" ng-model="SearchCriteria.SupplierId" ng-options="item.Id as item.Name for item in SupplierList">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_CapaNumber_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_CapaNumber_' | translate}}" aa-field-name="{{'_CapaNumber_' | translate}}" ng-model="SearchCriteria.CAPANumber" ng-maxlength="100" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_MESWarehouseLocation_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_MESWarehouseLocation_' | translate}}" aa-field-name="{{'_MESWarehouseLocation_' | translate}}" ng-model="SearchCriteria.MESWarehouseLocation" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="fs-g" ng-if="SearchCriteria.ReportId==3">
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_DateFrom_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_DateFrom_' | translate}}" aa-field-name="{{'_DateFrom_' | translate}}" ng-model="SearchCriteria.WeeklyDateFrom" date-time view="date" min-view="date" format="dd-MMM-yy" max="{{SearchCriteria.WeeklyDateTo}}" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_DateTo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_DateTo_' | translate}}" aa-field-name="{{'_DateTo_' | translate}}" ng-model="SearchCriteria.WeeklyDateTo" date-time view="date" min-view="date" format="dd-MMM-yy" min="{{SearchCriteria.WeeklyDateFrom}}" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="fs-g" ng-if="SearchCriteria.ReportId==4">
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_PPAPPartsApprovedDateFrom_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_PPAPPartsApprovedDateFrom_' | translate}}" aa-field-name="{{'_PPAPPartsApprovedDateFrom_' | translate}}" ng-model="SearchCriteria.PPAPPartsApprovedDateFrom" date-time view="date" min-view="date" format="dd-MMM-yy" max="{{SearchCriteria.PPAPPartsApprovedDateTo}}" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_PPAPPartsApprovedDateTo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_PPAPPartsApprovedDateTo_' | translate}}" aa-field-name="{{'_PPAPPartsApprovedDateTo_' | translate}}" ng-model="SearchCriteria.PPAPPartsApprovedDateTo" date-time view="date" min-view="date" format="dd-MMM-yy" min="{{SearchCriteria.PPAPPartsApprovedDateFrom}}" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_CustomerName_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_CustomerName_' | translate}}" aa-field-name="{{'_CustomerName_' | translate}}" ng-model="SearchCriteria.CustomerName" ng-maxlength="100" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ApqpEngineer_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <multiselect multiple="true"
+                                                                 ng-model="SearchCriteria.APQPQualityEngineerItems"
+                                                                 itemkey="Id"
+                                                                 itemvalue="Name"
+                                                                 options="item as item.Name for item in APQPQualityEngineerList"
+                                                                 header="{{'_ApqpEngineer_' | translate}}" button-class="small"></multiselect>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_SupplyChainCoordinator_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <multiselect multiple="true"
+                                                                 ng-model="SearchCriteria.SupplyChainCoordinatorItems"
+                                                                 itemkey="Id"
+                                                                 itemvalue="Name"
+                                                                 options="item as item.Name for item in SupplyChainCoordinatorList"
+                                                                 header="{{'_SupplyChainCoordinator_' | translate}}" button-class="small"></multiselect>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_MesSam_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <multiselect multiple="true"
+                                                                 ng-model="SearchCriteria.SAMUserItems"
+                                                                 itemkey="Id"
+                                                                 itemvalue="Name"
+                                                                 options="item as item.Name for item in SAMList"
+                                                                 header="{{'_MesSam_' | translate}}" button-class="small"></multiselect>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_ProjectType_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <multiselect multiple="true"
+                                                                 ng-model="SearchCriteria.ProjectStageItems"
+                                                                 itemkey="Id"
+                                                                 itemvalue="Name"
+                                                                 options="item as item.Name for item in ProjectStageList"
+                                                                 header="{{'_Stage_' | translate}}" button-class="small"></multiselect>
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_PPAPStatus_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_PPAPStatus_' | translate}}" aa-field-name="{{'_PPAPStatus_'|translate}}" ng-model="SearchCriteria.PPAPStatus">
+                                                        <option value="">{{'_Select_' | translate}}</option>
+                                                        <option value="1">On Time</option>
+                                                        <option value="2">Late</option>
+                                                    </select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="fs-g" ng-if="SearchCriteria.ReportId==5">
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_DateFrom_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_DateFrom_' | translate}}" aa-field-name="{{'_DateFrom_' | translate}}" ng-model="SearchCriteria.WeeklyDateFrom" date-time view="date" min-view="date" format="dd-MMM-yy" max="{{SearchCriteria.WeeklyDateTo}}" />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_DateTo_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="{{'_DateTo_' | translate}}" aa-field-name="{{'_DateTo_' | translate}}" ng-model="SearchCriteria.WeeklyDateTo" date-time view="date" min-view="date" format="dd-MMM-yy" min="{{SearchCriteria.WeeklyDateFrom}}" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="last-trip-panel pad-10">
+                                    <button class="orange-btn" translate="yes" aa-submit-form="SearchAndLoadReportView()" tabindex="">_GenerateReport_</button>
+                                    <button class="orange-btn" translate="yes" ng-click="ResetSearch()" tabindex="">_Reset_</button>
+                                </div>
+                            </accordion-group>
+                        </accordion>
+                    </div>
+                    <div class="col-12 pad-10" ng-if="SearchCriteria.ReportViewPath!=''">
+                        <h3 class="pad-b-5 title-sd">
+                            <span class="p-title-txt ng-binding">{{SearchCriteria.ReportSearchResultHeading}}</span>
+                        </h3>
+                        <div ng-include="SearchCriteria.ReportViewPath"></div>
+                    </div>
+                    <!-- Start tab structure here -->
+                    <div class="freeze-bottom">
+                        <button class="back-button" onclick="RedirecttoDashboard.Go()"></button>
+                        <button class="orange-btn ng-scope" ng-show="ShowExportButton" ng-click="exportToExcel()" translate="yes">_ExporttoExcel_</button>
+                    </div>
+                    <!-- End tab structure here -->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+

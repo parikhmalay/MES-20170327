@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm", @class = "" }))
+    {
+        <ul>
+            <li>
+                <a href="javascript:void(0)" id="profileopen">
+                    <span class="user-photo"><img src="~/Content/images/user-icon.png" /></span>
+                    Welcome, <span class="users">@User.Identity.Name</span>
+                </a>
+                <ul class="user-drop-menu">
+                    <li ng-controller="changepasswordPopupCtrl">
+                        <a href="javascript:void(0)" ng-click="openPopup()"><i class="fa fa-unlock-alt"></i> Change Password</a>
+                    </li>
+                    <li ng-controller="PreferencesPopupCtrl">
+                        <a href="javascript:void(0)" ng-click="openPreferencePopup()"><i class="fa fa-cog"></i> Preferences</a>
+                        @*/UserManagement/Preferences#/*@
+                    </li>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i> Sign Out</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="search-icon" id="advanceSearchOpen">
+                <a href="javascript:void(0)" class="search-btn">
+                    <i class="fa fa-search"></i>
+                </a>
+            </li>
+        </ul>
+    }
+}
+

@@ -1,0 +1,177 @@
+.modal-backdrop-slider {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: transparent;
+
+    &.fade {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        .transition(all 1s);
+    }
+
+    &.in {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        .transition(all 2s);
+    }
+}
+
+.modal-slider {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    font-family:Arial;
+    color:@color-black-85;
+    &.fade {
+        & > .modal-dialog {
+            .transform(translate(100%,0));
+            .transition(transform 0.4s ease-out, true);
+        }
+    }
+
+    &.in {
+        & > .modal-dialog {
+            .transform(translate(0, 0));
+        }
+    }
+
+    & > .modal-dialog {
+        position: relative;
+        display: inline-block;
+        width: 400px;
+        height: 100%;
+        float: right;
+        overflow: hidden;
+        padding-left: 20px;
+        .boxSizing(border-box);
+
+        & > .modal-content {
+            height: 100%;
+            overflow: auto;
+            background-color: @color-black-20;
+            .boxShadow(-10px 0px 10px rgba(0, 0, 0, 0.2));
+            background-clip: padding-box;
+            outline: none;
+            position: relative;
+
+            & .modal-header {
+                padding: 15px 63px 15px 15px;
+                height: 26px;
+                border-bottom: 1px solid @color-black-40;
+                & h3 {
+                    display: inline-block;
+                    float: left;
+                    font-size: 18px;
+                    font-weight: normal;
+                    text-overflow:ellipsis;
+                    width:100%;
+                    overflow:hidden;
+                    white-space:nowrap;
+                    margin:0;
+                }
+
+                & input {
+                    margin-top: -2px;
+                }
+
+                & .close {
+                    font-size: 3em;
+                    line-height: 0.7em;
+                    vertical-align: middle;
+                    color: @color-black-60;
+                    cursor: pointer;
+                    position: absolute;
+                    right: 2px;
+                    top: 5px;
+                    z-index: 1;
+
+                    &:after {
+                        //font-family: @icon-font-npe !important;
+                        content: "x";
+                        vertical-align: middle;
+                    }
+                }
+
+                &.header-form {
+                    padding: 14px 15px 0px;
+
+                    & .fs {
+                        width: auto !important;
+                    }
+
+                    & .fs, & .fs-g, & .fs-f {
+                        margin: 0px !important;
+                        padding: 0px !important;
+                    }
+                }
+            }
+
+            
+
+            & .modal-body {
+                position: relative;
+                padding: 20px;
+                height: 100%;
+                overflow: auto;
+
+                & .freeze-bottom {
+                    left: 0px;
+                    padding: 15px;
+                    position: relative;
+                    border-top: none;
+                    background: none;
+                }
+            }
+
+            & .modal-footer {
+                padding: 15px;
+                height:38px;
+                overflow:hidden;
+                text-align: left;
+                border-top: 1px solid @color-black-40;
+
+                & button {
+                    margin-left: 5px;
+                    background: @color-black-27;
+                    color: @color-white;
+                    .borderRadius(0px 0px 0px 0px);
+                    padding: 9px 15px;
+                    font-size: 14px;
+                    border: none;
+
+                    &:hover {
+                        .boxShadow(0px 0px 6px @color-black inset);
+                    }
+
+                    &.blue-btn {
+                        margin-left: 5px;
+                        background: @color-black-27;
+                        color: @color-white;
+                        .borderRadius(0px 0px 0px 0px);
+                        padding: 9px 15px;
+                        font-size: 1.4em;
+                        border: none;
+
+                        &:hover {
+                            .boxShadow(0px 0px 6px @color-black inset);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+html.calc .modal-slider > .modal-dialog > .modal-content .modal-body{
+    height: ~"calc(100% - 166px)";
+}

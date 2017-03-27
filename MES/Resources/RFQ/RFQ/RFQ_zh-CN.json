@@ -1,0 +1,83 @@
+﻿{
+    "_RFQList_": "This is chineese text",
+
+    "_QuotesRcvd_": "Quotes Rcvd.",
+    "_RFQId_": "RFQ Id",
+    "_CustomerContactName_": "Customer Contact Name",
+    "_RFQCoordinator_": "RFQ Coordinator",
+    "_Date_": "Date",
+    "_QuoteDueDate_": "Quote Due Date",
+
+
+    "_CustomerName_": "Customer Name",
+    "_ContactFullName_": "Contact Full Name",
+    "_ProjectName_": "Project Namew",
+    "_PartNumber_": "Part Number",
+    "_RFQCreatedBetween_": "RFQ Created between",
+    "_And_": "And",
+    "_RFQCreatedDate_": "RFQ Created Date",
+    "_SelectRFQSource_": "Select RFQ Source",
+    "_SelectRFQCoordinator_": "Select RFQ Coordinator",
+    "_SelectCommodityType_": "Select Commodity Type",
+    "_ViewQuote_": "View Quote",
+
+    "_PageHeading_": "Add/Edit RFQ",
+    "_SectionOne_": "RFQ Details",
+    "_RFQNo_": "RFQ #",
+    "_Customer_": "Customer",
+    "_ProjectName_": "Project Name",
+    "_ContactPerson_": "Contact Person",
+    "_Email_": "Email",
+    "_RFQDate_": "RFQ Date",
+    "_QuoteDueDate_": "Quote Due Date",
+    "_Status_": "Status",
+    "_SAM_": "Sales Account Manager",
+    "_CommodityType_": "Commodity Type",
+    "_Commodity_": "Commodity",
+    "_Process_": "Process",
+    "_RFQType_": "RFQ Type",
+    "_RFQCoordinator_": "RFQ Coordinator",
+    "_RFQSource_": "RFQ Source",
+    "_UploadRFQFile_": "Upload RFQ File",
+    "_Document_": "Document",
+    "_Remarks_": "Remarks",
+    "_OtherAssumptions_": "Other Assumptions",
+    "_NonAwardReason_": "Non-Award Reason",
+    "_NonAwardDetailedFeedback_": "Non-Award Detailed Feedback",
+
+    "_SectionTwo_": "Parts",
+    "_PageRFQPart_": "Add/Edit RFQ Part",
+    "_PartNo_": "Part No.",
+    "_RevLevel_": "Rev Level",
+    "_Description_": "Description",
+    "_AdditionalPartDesc_": "Additional Part Desc.",
+    "_Material_": "Material",
+    "_AnnualQuantity_": "Annual Quantity",
+    "_Weight_": "Weight(KG)",
+    "_Specification_": "Specification",
+
+    "_Select_": "--Select--",
+    "_Action_": "Action",
+    "_RFQPart_": "RFQ Part",
+
+
+    "_Send_": "Send (RFQ# ",
+    "_To_": ") To",
+
+    "_RFQText_": "(RFQ# ",
+    "_SentTo_": ") Sent To",
+    "_SendResend_": "Send/Resend",
+    "_Resend_": "Resend",
+    "_SendEmail_": "Send Email",
+
+    "_SelectCountry_": "--Select Country--",
+    "_SupplierName_": "Supplier Name",
+    "_City_": "City",
+    "_Country_": "Country",
+    "_Go_": "GO"
+
+
+
+
+
+}

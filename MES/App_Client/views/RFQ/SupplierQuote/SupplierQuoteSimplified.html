@@ -1,0 +1,310 @@
+﻿<div class="common-accordion-panel" ng-controller="RFQSupplierPartQuoteCtrl">
+    <!--spinner-start-active="1"-->
+    <form unsaved-warning-form novalidate id="spnRFQSupplierPartQuote" ng-show="IsForm==true">
+        <us-spinner spinner-key="spnRFQSupplierPartQuote" spinner-start-active="1"></us-spinner>
+        <section id="left-sidebar">
+            <div class="logo-box">
+                <a href="javascript:void(0)" title="MES">
+                    <!-- <img src="images/logo.png" alt="MES" title="MES"> -->
+                </a>
+            </div>
+            <div class="req-details-panel">
+                <div class="title-left-box">
+                    <label> RFQ Details </label>
+                </div>
+                <div class="rfq-list-panel">
+                    <div class="row pad-l-10 pad-r-10">
+                        <div class="col-6 ls-i"><label>{{'_Number_' | translate}}</label></div>
+                        <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].RfqId}}</label></div>
+                    </div>
+                    <div class="row pad-l-10 pad-r-10">
+                        <div class="col-6 ls-i"><label>{{'_Supplier_' | translate}}</label></div>
+                        <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].CompanyName}}</label></div>
+                    </div>
+                    <div class="row pad-l-10 pad-r-10">
+                        <div class="col-6 ls-i"><label>{{'_RFQDate_' | translate}}</label></div>
+                        <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].RFQDate |customDate: 'dd-MMM-yy'}}</label></div>
+                    </div>
+                    <div class="row pad-l-10 pad-r-10">
+                        <div class="col-6 ls-i"><label>{{'_QuoteDueDate_' | translate}}</label></div>
+                        <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].QuoteDueDate |customDate: 'dd-MMM-yy'}}</label></div>
+                    </div>
+                    <div class="row pad-l-10 pad-r-10">
+                        <div class="col-6 ls-i"><label>{{'_Remarks_' | translate}}</label></div>
+                        <div class="col-6 rs-i"><label>{{RFQSupplierPartQuoteList[0].RFQRemarks}}</label></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--<div class="page-title">
+            <span class="p-title-txt">{{'_PageHeading_' | translate}}</span>
+        </div>-->
+
+        <div class="col-12 pad-10 pad-t-20">
+            <input type="radio" ng-model="EnterQuote" ng-value="true" id="rdoEnterQuote" name="QouteType" ng-checked="true">
+            <label for="rdoEnterQuote">{{'_EnterQuote_'|translate}}</label>
+            <input type="radio" ng-model="EnterQuote" ng-value="false" id="rdoUploadQuote" name="QouteType">
+            <label for="rdoUploadQuote">{{'_UploadQuote_'|translate}}</label>
+
+            <input type="checkbox" ng-model="NoQuote" id="chkNoQuote">
+            <label for="chkNoQuote">{{'_NoQuote_'|translate}}</label>
+        </div>
+        <div ng-show="EnterQuote==true && NoQuote==false">
+            <div class="col-12 pad-10 pad-t-0">
+                <div class="col-12 title-col-full-header">
+                    <h3>{{'_PartsList_' | translate}}</h3>
+                </div>
+                <div class="col-12">
+                    <div class="full-wrap-table-panel-show">
+                        <div class="full-wrap-table-show-box w3000">
+                            <div class="table-list-grid">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th width="3%">{{'_PartNo_'| translate}}</th>
+                                            <th>{{'_Description_'| translate}} </th>
+                                            <th>{{'_Material_'| translate}}</th>
+                                            <th>{{'_Specifications_'| translate}}</th>
+                                            <th class="align-right">{{'_AnnualQuantity_'| translate}}</th>
+                                            <th class="align-right">{{'_MinOrderQty_'| translate}}</th>
+                                            <th>{{'_MinimumOrderQtyConfirmation_'| translate}}</th>
+                                            <th class="align-right">{{'_PartWeight(KG)_'| translate}}</th>
+                                            <th class="align-right">{{'_ToolingCost_'| translate}}</th>
+                                            <th>{{'_ToolingWarranty_'| translate}}</th>
+                                            <th>{{'_SupplierToolingLeadtime_'| translate}}</th>
+                                            <th class="align-right">{{'_MaterialCost(cost/pc)_'| translate}} <br /> <span>{{'_MaterialCost/pc_'| translate}}</span></th>
+                                            <th class="align-right">{{'_ConversionCost(cost/pc)_'| translate}} <br /><span>{{'_ConversionCost/pc_'| translate}}</span></th>
+                                            <th class="align-right">{{'_MachiningCost_'| translate}} <br /><span>{{'_MachiningCost/pc_'| translate}}</span></th>
+                                            <th class="align-right">{{'_OtherProcessCostIfApplicable_'| translate}} <br /><span>{{'_OtherProcessCostIfApplicable/pc_'| translate}}</span></th>
+                                            <th class="align-right">{{'_NoOfCavities_'| translate}}</th>
+                                            <th class="align-right">{{'_UnitPriceinUSD_'| translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in RFQSupplierPartQuoteList">
+                                            <td>{{item.CustomerPartNo}}</td>
+                                            <td>
+                                                {{item.PartDescription}}<br />
+                                                {{item.AdditionalPartDesc}}
+                                            </td>
+                                            <td>{{item.MaterialType}}</td>
+                                            <td>{{item.Specifications}}</td>
+                                            <td class="align-right">{{item.EstimatedQty}}</td>
+                                            <td class="align-right">
+                                                <input id="MinOrderQty_{{$index}}" type="text" class="align-right red-invalid" name="{{'_MinOrderQty_'| translate}}" aa-field-name="{{'_MinOrderQty_'| translate}}" placeholder="0" ng-model="item.MinOrderQty" integer-only to-precision="0" ng-maxlength="10" ng-disabled="item.MOQConfirmation" ng-required="item.IsMandatory" ng-blur="SetValidationRowWise(item,$index)" />
+                                            </td>
+                                            <td>
+                                                <input type="checkbox" ng-model="item.MOQConfirmation" id="chkMOQConfirmation{{$index}}" ng-change="SetMinimumOrderQuantity(item,$index)">
+                                                <label for="chkMOQConfirmation{{$index}}">{{'_NoMOQ?_'| translate}}</label>
+                                            </td>
+                                            <td class="align-right">{{item.PartWeightKG | number:3}}</td>
+                                            <td class="align-right"><input id="ToolingCost_{{$index}}" class="align-right" type="text" placeholder="0.000" name="{{'_ToolingCost_'| translate}}" aa-field-name="{{'_ToolingCost_'| translate}}" ng-model="item.ToolingCost" ng-keyup="CalculateUnitPrice(item,$index)" ng-maxlength="13" numbers-only to-precision="3" ng-blur="SetValidationRowWise(item,$index);setToolingCost(item)" /></td>
+                                            <td><textarea id="ToolingWarranty_{{$index}}" name="{{'_ToolingWarranty_'| translate}}" type="text" ng-model="item.ToolingWarranty" ng-maxlength="255"></textarea></td>
+                                            <td><textarea id="SupplierToolingLeadtime_{{$index}}" name="{{'_SupplierToolingLeadtime_'| translate}}" type="text" ng-model="item.SupplierToolingLeadtime" ng-maxlength="255"></textarea></td>
+                                            <td class="align-right"><input id="MaterialCost_{{$index}}" class="align-right red-invalid" type="text" placeholder="0.000" name="{{'_MaterialCost(cost/pc)_'| translate}}" aa-field-name="{{'_MaterialCost(cost/pc)_'| translate}}" ng-model="item.MaterialCost" ng-change="CalculateUnitPrice(item,$index);setRawMaterialPriceAssumed(item)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" ng-blur="SetValidationRowWise(item,$index)" /></td>
+                                            <td class="align-right"><input id="ConversionCost_{{$index}}" class="align-right red-invalid" type="text" placeholder="0.000" name="{{'_ConversionCost(cost/pc)_'| translate}}" aa-field-name="{{'_ConversionCost(cost/pc)_'| translate}}" ng-model="item.ProcessCost" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-required="item.IsMandatory" ng-blur="SetValidationRowWise(item,$index)" /></td>
+                                            <td class="align-right"><input id="MachiningCost_{{$index}}" class="align-right" type="text" placeholder="0.000" name="{{'_MachiningCost_'| translate}}" aa-field-name="{{'_MachiningCost_'| translate}}" ng-model="item.MachiningCost" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-blur="SetValidationRowWise(item,$index)" /></td>
+                                            <td class="align-right"><input id="OtherProcessCost_{{$index}}" class="align-right" type="text" placeholder="0.000" name="{{'_OtherProcessCostIfApplicable_'| translate}}" aa-field-name="{{'_OtherProcessCostIfApplicable_'| translate}}" ng-model="item.OtherProcessCost" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="11" numbers-only to-precision="3" ng-blur="SetValidationRowWise(item,$index)" /></td>
+                                            <td class="align-right"><input id="NoOfCavities_{{$index}}" class="align-right  red-invalid" type="text" placeholder="0" name="{{'_NoOfCavities_'| translate}}" aa-field-name="{{'_NoOfCavities_'| translate}}" ng-model="item.NoOfCavities" ng-maxlength="4" integer-only to-precision="0" ng-required="item.IsMandatory" ng-blur="SetValidationRowWise(item,$index)" /></td>
+                                            <td class="align-right high-light-Col-yellow">{{item.UnitPrice}}</td>
+                                        </tr>
+                                        <tr ng-hide="RFQSupplierPartQuoteList.length>0">
+                                            <td colspan="17">
+                                                <div class="error-box rounded-info-box">
+                                                    <p translate="yes">_NoRecordsFound_</p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="spacer-gray-line"></div>
+            <div class="col-12">
+                <div class="col-6 pad-10">
+                    <div class="fs linear">
+                        <div class="fs-g">
+                            <div class="fs-f">
+                                <span class="fs-f-l">
+                                    <label translate="yes">_SupplierRemarks_</label>- {{'_SupplierRemarksNote1_'|translate}}
+                                </span>
+                                <span class="fs-f-i">
+                                    <textarea type="text" name="{{'_Remarks_' | translate}}"
+                                              aa-field-name="{{'_Remarks_' | translate}}"
+                                              ng-model="RFQSupplierPartQuoteList[0].Remarks"></textarea>
+                                    <p class="pad-5 pad-l-0">
+                                        - {{'_SupplierRemarksNote2_'|translate}}<br />
+                                        - {{'_SupplierRemarksNote3_'|translate}}
+                                    </p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 pad-10">
+                    <div class="fs linear">
+                        <div class="fs-g">
+                            <div class="fs-f">
+                                <span class="fs-f-l">
+                                    <label translate="yes">_ExchangeRate1USD_</label>
+                                    <span class="required">*</span>
+                                </span>
+                                <span class="fs-f-i">
+                                    <div class="col-8">
+                                        <input type="text" name="{{'_ExchangeRate_' | translate}}"
+                                               placeholder="0.000" aa-field-name="{{'_ExchangeRate_' | translate}}"
+                                               ng-model="RFQSupplierPartQuoteList[0].ExchangeRate" ng-maxlength="9" numbers-only to-precision="3" required class="red-invalid" />
+                                    </div>
+                                    <div class="col-4">
+                                        <input type="text" name="{{'_Currency_' | translate}}"
+                                               placeholder="{{'_Currency_' | translate}}" aa-field-name="{{'_Currency_' | translate}}"
+                                               ng-model="RFQSupplierPartQuoteList[0].Currency" required class="red-invalid" />
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="fs-f">
+                                <span class="fs-f-l">
+                                    <label translate="yes">_UploadFile_</label>
+                                </span>
+                                <span class="fs-f-i">
+                                    <input type="file" name="{{'_UploadFile_' | translate}}"
+                                           aa-field-name="{{'_UploadFile_' | translate}}"
+                                           ng-model="RFQSupplierPartQuoteList[0].QuoteAttachmentFilePath" />
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 pad-10">
+                    <div class="fs linear">
+                        <div class="fs-g">
+                            <div class="fs-f">
+                                <span class="fs-f-l">
+                                    <label translate="yes">_RawMaterialPriceAssumed_</label>
+                                    <span class="required">*</span>
+                                </span>
+                                <span class="fs-f-i">
+                                    <input type="text" name="{{'_RawMaterialPriceAssumed_' | translate}}"
+                                           aa-field-name="{{'_RawMaterialPriceAssumed_' | translate}}"
+                                           ng-model="RFQSupplierPartQuoteList[0].RawMaterialPriceAssumed" required class="red-invalid" />
+                                    <p class="pad-5 pad-l-0" translate="yes">_RawMatPriceNoteText_</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="freeze-bottom">
+                <button class="orange-btn" aa-submit-form="SaveRFQSupplierPartQuote()" tabindex="23" translate="yes">_SaveQuote_</button>
+                <button class="orange-btn" ng-click="ResetForm()" tabindex="24" translate="yes">_Reset_</button>
+                <!--<button class="btn" ng-click="RedirectToList()" tabindex="25" translate="yes">_Cancel_</button>-->
+            </div>
+        </div>
+
+        <div ng-hide="NoQuote==true || EnterQuote==true">
+            <div class="col-12 pad-10 pad-t-0">
+                <accordion close-others="false">
+                    <accordion-group heading="" is-open="true">
+                        <accordion-heading>
+                            <span class="p-title-txt">{{'_DownloadQuote_' | translate}}</span>
+                            <span class="accordion-icon"></span>
+                        </accordion-heading>
+                        <div class="col-12 pad-10">
+                            <div class="col-12">
+                                <div class="list-box-item-panel">
+                                    <p>{{'_DownloadQuoteText1_' | translate}}</p>
+                                    <ul>
+                                        <li>{{'_DownloadQuoteText2_' | translate}}</li>
+                                        <li>{{'_DownloadQuoteText3_' | translate}}</li>
+                                        <li>{{'_DownloadQuoteText4_' | translate}}</li>
+                                        <li>{{'_DownloadQuoteText5_' | translate}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="last-trip-panel">
+                                <button class="orange-btn" ng-click="DownloadQuoteFile()" translate="yes">_DownloadQuote_</button>
+                            </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
+            </div>
+            <div class="col-12 pad-10 pad-t-0">
+                <accordion close-others="false">
+                    <accordion-group heading="" is-open="true">
+                        <accordion-heading>
+                            <span class="p-title-txt">{{'_UploadQuote_' | translate}}</span>
+                            <span class="accordion-icon"></span>
+                        </accordion-heading>
+                        <div class="col-12 pad-10">
+                            <div class="col-12">
+                                <div class="list-box-item-panel">
+                                    <p>{{'_UploadQuoteText1_'|translate}}</p>
+                                    <ul>
+                                        <li>{{'_UploadQuoteText2_'|translate}}</li>
+                                        <li>{{'_UploadQuoteText3_'|translate}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="last-trip-panel">                               
+                                <div class="last-trip-panel">
+                                    <file-select fs-model="RFQSupplierPartQuoteList[0].UploadQuoteFilePath"
+                                                 fs-multiselect="false"
+                                                 fs-upload-path="RFQSupplierQuoteFiles"
+                                                 fs-extension-validation-msg="File not supported"
+                                                 fs-extension=".xls, .xlsx"
+                                                 fs-saveuploadedfiles="SetObjectvalues(UploadedFilePath,UploadedFileName,'Q')"
+                                                 fs-spinnder-key="spnRFQSupplierPartQuote"
+                                                 fs-stop-spinner="1"
+                                                 fs-file-upload-folder-name="TempFilesEmailAttachments"
+                                                 fs-max-size="1050000" style="width:auto;"></file-select>
+                                    <label title="{{RFQSupplierPartQuoteList[0].UploadQuoteFilePath}}"></label>
+                                    <button class="orange-btn" ng-click="UploadQuoteFile()" translate="yes">_UploadQuote_</button>
+                                </div>
+                                <button class="orange-btn" ng-click="UploadQuoteFile()" translate="yes">_UploadQuote_</button>
+                            </div>
+                        </div>
+                    </accordion-group>
+                </accordion>
+            </div>
+        </div>
+
+        <div ng-show="NoQuote==true">
+            <div class="col-12 pad-10">
+
+            </div>
+            <div class="freeze-bottom">
+                <button class="orange-btn" ng-click="SubmitNoQuote()" translate="yes">_SaveQuote_</button>
+            </div>
+        </div>
+
+    </form>
+
+    <div ng-show="IsThanks==true">
+        <section id="left-sidebar">
+            <div class="logo-box">
+                <a href="javascript:void(0)" title="MES">
+                </a>
+            </div>
+        </section>
+        <div class="thanks-msg">
+            <p class="sms">{{ThanksMsg}}</p>
+            <p class="copy-right">Copyright &copy; 2009 MES Inc. | Powered by <a href="http://www.iqrconsulting.com/" target="_blank">IQR Consulting Pvt. Ltd.</a></p>
+        </div>
+    </div>
+    <div ng-show="IsWarning==true">
+        <section id="left-sidebar">
+            <div class="logo-box">
+                <a href="javascript:void(0)" title="MES">
+                </a>
+            </div>
+        </section>
+        <div class="thanks-msg">
+            <p class="sms">{{WarningMsg}}</p>
+            <p class="copy-right">Copyright &copy; 2009 MES Inc. | Powered by <a href="http://www.iqrconsulting.com/" target="_blank">IQR Consulting Pvt. Ltd.</a></p>
+        </div>
+    </div>
+</div>

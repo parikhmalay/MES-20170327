@@ -1,0 +1,327 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+            <td style="background-color: #fff; border-top-width: 1px; border-top-style: solid;
+                border-top-color: #060405; border-left-width: 1px; border-left-style: solid;
+                border-left-color: #060405; border-right-width: 1px; border-right-style: solid;
+                border-right-color: #060405; padding-top: 10px; padding-left: 20px;">
+                <img src="http://rfq.mesinc.net/images/MES-Email-logo.png" width="225" alt="MES RFQ Management" />
+            </td>
+        </tr>
+        <tr>
+            <td style="background-color: #e1dbd1; border: solid 1px #060405; padding: 20px;">
+                <table cellpadding="0" cellspacing="0" width="100%" border="0" style="border: solid 1px #d7d7d7;">
+                    <tr>
+                        <td valign="top" style="padding: 10px; background-color: #fbfbfb;">
+                            <table cellpadding="5" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td style="font-family: Tahoma, Geneva, sans-serif; color: #780000; font-size: 12px;"></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family: Tahoma, Geneva, sans-serif; color: #626465; font-size: 12px;">
+                                        <table cellpadding="0" cellspacing="5" border="0" width="100%">
+                                            <tr>
+                                                <td>
+                                                    <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                        text-transform: uppercase; font-weight: bold; padding-left: 10px">Created By:</font>
+                                                    <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                        <%LoggedinUser%>
+                                                    </font>&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" style="background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #D4CEC5;
+                                                    font-family: Tahoma,Geneva,sans-serif; margin-bottom: 5px; padding: 4px;" width="50%">
+                                                    <h2 style="font-size: 11px; font-family: Tahoma, Geneva, sans-serif; font-weight: bold;
+                                                        margin: 0px; text-transform: uppercase; background: none repeat scroll 0 0 #E1E3E1;
+                                                        color: #2A2326; margin: -4px -4px 4px; padding: 8px 8px;">
+                                                        Shipment Information
+                                                    </h2>
+                                                    <table cellpadding="0" cellspacing="5" border="0">
+                                                        <tr>
+                                                            <td valign="top" width="50%">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Shipment ID</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ShipmentId%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Shipment Mode</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ShipmentMode%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Origin</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%Origin%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Est. Sail Date</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%EstShpmtDate%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Actual Sail Date</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ActShpmtDate%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">ETA at warehouse at Destination</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ETADest%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">
+                                                                    Actual Arrival Date at warehouse
+                                                                    at Destination
+                                                                </font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ActArrDateDest%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Destination</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%Destination%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Status</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%Status%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Invoice Number(s)</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%InvoiceNumbers%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Shipment Reviewed?</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ShipmentReviewed%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Supplier Name</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%Supplier%>
+                                                                </font>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                                <td valign="top" style="background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #D4CEC5;
+                                                    font-family: Tahoma,Geneva,sans-serif; margin-bottom: 5px; padding: 4px;" width="50%">
+                                                    <h2 style="font-size: 11px; font-family: Tahoma, Geneva, sans-serif; color: #2A2326;
+                                                        font-weight: bold; margin: 0px; text-transform: uppercase; padding: 8px 8px;
+                                                        margin: -4px -4px 4px -4px; background: #e1e3e1; color: #2A2326;">
+                                                        Forwarder
+                                                    </h2>
+                                                    <table cellpadding="0" cellspacing="5" border="0">
+                                                        <tr>
+                                                            <td valign="top" width="50%">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Forwarder Name</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%Forwarder%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Est Forwarder Pick-up Date</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%EstFrwdPickupDate%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Actual Forwarder Pick-up Date</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ActFrwdPickupDate%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Late Delivery to Forwarder?</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%LateDel%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;
+                                                                    text-transform: uppercase; font-weight: bold;">Container Number</font>
+                                                            </td>
+                                                            <td valign="top">
+                                                                <font style="color: #635857; font-family: Tahoma, Geneva, sans-serif; font-size: 11px;">
+                                                                    <%ContainerNumber%>
+                                                                </font>&nbsp;
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top">
+                                        <table cellpadding="5" cellspacing="0" border="1" width="100%" style="margin: 2px"
+                                            <%addStyle%>>
+                                            <tr>
+                                                <td style="border-top: solid 1px #d7d7d7; border-bottom: solid 1px #d7d7d7; color: #626465;
+                                                    font-size: 11px; font-family: Tahoma, Geneva, sans-serif;" colspan="4">
+                                                    <h2 style="font-size: 11px; font-family: Tahoma, Geneva, sans-serif; font-weight: bold;
+                                                        margin: 0px; text-transform: uppercase; background: none repeat scroll 0 0 #E1E3E1;
+                                                        color: #2A2326; margin: -4px -4px 4px; padding: 8px 8px;">
+                                                        PO List</h2>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th align="left" width="30%" style="background-color: #e1dbd1; color: #665F5E; font-family: Tahoma, Geneva, sans-serif;
+                                                    font-size: 10px; text-transform: uppercase;">
+                                                    PO Number
+                                                </th>
+                                                <th align="left" width="30%" style="background-color: #e1dbd1; color: #665F5E; font-family: Tahoma, Geneva, sans-serif;
+                                                    font-size: 10px; text-transform: uppercase;">
+                                                    Part Number
+                                                </th>
+                                                <th align="left" width="30%" style="background-color: #e1dbd1; color: #665F5E; font-family: Tahoma, Geneva, sans-serif;
+                                                    font-size: 10px; text-transform: uppercase;">
+                                                    Quantity
+                                                </th>
+                                                <th align="left" width="30%" style="background-color: #e1dbd1; color: #665F5E; font-family: Tahoma, Geneva, sans-serif;
+                                                    font-size: 10px; text-transform: uppercase;">
+                                                    Comments
+                                                </th>
+                                            </tr>
+                                            <%POListstr%>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top">
+                                        <table cellpadding="5" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="border-top: solid 1px #d7d7d7; border-bottom: solid 1px #d7d7d7; color: #626465;
+                                                    font-size: 11px; font-family: Tahoma, Geneva, sans-serif;">
+                                                    Warm Regards,<br />
+                                                    MES Team.
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border-top: solid 1px #d7d7d7; color: #FF0000; font-size: 10px; font-family: Tahoma, Geneva, sans-serif;
+                            background-color: #fbfbfb; padding: 5px;" align="left">
+                            Electronic Privacy Notice & Email Disclaimer:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="color: #626465; font-size: 10px; font-family: Tahoma, Geneva, sans-serif;
+                            background-color: #fbfbfb; padding: 5px;" align="left">
+                            This email, and any attachments, contains information that is, or may be, covered
+                            by electronic communications privacy laws, and is also confidential and proprietary
+                            in nature. If you are not the intended recipient, please be advised that you are
+                            legally prohibited from retaining, using, copying, distributing, or otherwise disclosing
+                            this information in any manner. Instead, please reply to the sender that you have
+                            received this communication in error and then immediately delete it. MES Inc. is
+                            not liable for any damage caused by any virus transmitted by this email. Thank you
+                            for your co operation.
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

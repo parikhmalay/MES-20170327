@@ -1,0 +1,49 @@
+﻿<form unsaved-warning-form novalidate id="frmCommodityType">
+    <div class="modal-header">
+        <h3 translate="yes">_PageHeading_</h3>
+    </div>
+    <div class="modal-body overFlowNone">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_CommodityType_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="CommodityType" aa-field-name="{{'_CommodityType_' | translate}}" ng-model="CommodityType.commodityType" required tabindex="1" />
+                        </span>
+                    </div>
+                    <div class="fs-f custom-select-box">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Suppliers_</label>
+                        </span> <span class="fs-f-i">
+                            <multiselect multiple="true"
+                                         ng-model="CommodityType.CommodityTypeSupplierList"
+                                         itemkey="Id"
+                                         itemvalue="Name"
+                                         options="item.Id as item.Name for item in SupplierList"
+                                         header="{{'_SelectSupplier_' | translate}}" button-class="small" tabindex="2"></multiselect>
+                        </span>
+                    </div>
+                    <div class="fs-f custom-select-box">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Customers_</label>
+                        </span> <span class="fs-f-i">
+                            <multiselect multiple="true"
+                                         ng-model="CommodityType.CommodityTypeCustomerList"
+                                         itemkey="Id"
+                                         itemvalue="Name"
+                                         options="item.Id as item.Name for item in CustomerList"
+                                         header="{{'_SelectCustomer_' | translate}}" button-class="small" tabindex="3"></multiselect>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="orange-btn" aa-submit-form="SaveCommodityType()" translate="yes" tabindex="4">_Save_</button>
+        <button class="orange-btn" ng-click="Cancel()" translate="yes" tabindex="5">_Cancel_</button>
+    </div>
+</form>

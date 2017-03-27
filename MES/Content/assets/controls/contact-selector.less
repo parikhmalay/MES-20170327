@@ -1,0 +1,78 @@
+/*----------------------------------------------------------------------------------------------*/
+/*-------------------------------- Contact Selector Start here ---------------------------------*/
+/*----------------------------------------------------------------------------------------------*/
+.contact-selector {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+
+    & .external-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0px;
+        right: 0px;
+        display: none;
+
+        & .popout-window {
+            display: block !important;
+            padding: 5px 10px !important;
+
+            & > label {
+                font-size: 12px;
+            }
+        }
+    }
+
+    & input:focus + ul + .external-dropdown {
+        display: block;
+    }
+
+    & input:hover + ul + .external-dropdown {
+        display: block;
+    }
+}
+
+.contact-selector-info-top .contact-selector {
+
+    & .external-dropdown {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        display: none;
+
+        & .popout-window {
+            display: block !important;
+            padding: 5px 10px !important;
+            bottom: 30px;
+            top: inherit !important;
+
+            &:before {
+                border-style: solid;
+                border-left-color: transparent;
+                border-top-color: @color-black-80;
+                border-bottom-color: transparent;
+                border-right-color: transparent;
+                left: 8px;
+                bottom: -16px;
+                right: inherit !important;
+                top: inherit !important;
+            }
+
+            & > label {
+                font-size: 12px;
+            }
+        }
+    }
+
+    & input:focus + ul + .external-dropdown {
+        display: block;
+    }
+
+    & input:hover + ul + .external-dropdown {
+        display: block;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------*/
+/*-------------------------------- Contact Selector End here ---------------------------------*/
+/*----------------------------------------------------------------------------------------------*/

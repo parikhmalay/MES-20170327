@@ -1,0 +1,12 @@
+﻿{
+    "_CommodityType_": "Commodity Type",
+    "_CommodityTypes_": "Commodity Type List",
+    "_Suppliers_": "Supplier(s)",
+    "_SelectSupplier_": "Select Supplier",
+    "_Customers_": "Customer(s)",
+    "_SelectCustomer_": "Select Customer",
+    "_Yes_": "Yes",
+    "_No_": "No",
+    "_PageHeading_": "Add/ Edit Commodity Type",
+       "_ChangeLogHeader_": "Change Log - Commodity Type"
+}

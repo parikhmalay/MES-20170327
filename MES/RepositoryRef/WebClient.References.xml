@@ -1,0 +1,58 @@
+﻿<module name="API">
+  <!-- Bind business Library Repositories -->
+  <!--Bind business library for User Management-->
+  <!--<bind service="Account.Business.Repositories.Identity.IUserManagementRepository, Account.Business.Repositories" to="Account.Business.Library.BO.Identity.UserManagement, Account.Business.Library" scope="singleton" />-->
+  <bind service="MES.Business.Repositories.Lookup.ILookupRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Lookup.Lookup, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Destination.IDestinationRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Destination.Destination, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.ProjectCategory.IProjectCategoryRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.ProjectCategory.ProjectCategory, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.ProjectStage.IProjectStageRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.ProjectStage.ProjectStage, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.CoatingType.ICoatingTypeRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.CoatingType.CoatingType, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Designation.IDesignationRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Designation.Designation, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Forwarder.IForwarderRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Forwarder.Forwarder, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.MachineDescription.IMachineDescriptionRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.MachineDescription.MachineDescription, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.MachiningDescription.IMachiningDescriptionRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.MachiningDescription.MachiningDescription, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Commodity.ICommodityRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Commodity.Commodity, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.DocumentType.IDocumentTypeRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.DocumentType.DocumentType, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.CommodityType.ICommodityTypeRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.CommodityType.CommodityType, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.TriggerPoint.ITriggerPointRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.TriggerPoint.TriggerPoint, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.EmailTemplate.IEmailTemplateRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.EmailTemplate.EmailTemplate, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.RFQType.IRFQTypeRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.RFQType.RFQType, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Process.IProcessRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Process.Process, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Origin.IOriginRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Origin.Origin, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Remarks.IRemarksRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Remarks.Remarks, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.RFQSource.IRFQSourceRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.RFQSource.RFQSource, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.Status.IStatusRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.Status.Status, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.NonAwardFeedback.INonAwardFeedbackRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.NonAwardFeedback.NonAwardFeedback, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.SecondaryOperationDesc.ISecondaryOperationDescRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.SecondaryOperationDesc.SecondaryOperationDesc, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.RFQPriority.IRFQPriorityRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.RFQPriority.RFQPriority, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.IndustryType.IIndustryTypeRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.IndustryType.IndustryType, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.AuditLogs.IAuditLogsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.AuditLogs.AuditLogs, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Supplier.ISuppliersRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Supplier.Suppliers, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.UserManagement.IUserManagementRepository, MES.Business.Repositories" to="MES.Business.Library.BO.UserManagement.UserManagement, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Supplier.IContactsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Supplier.Contacts, MES.Business.Library" scope="singleton" />
+  <!--<bind service="MES.Business.Repositories.RFQ.Supplier.IDocumentsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Supplier.Documents, MES.Business.Library" scope="singleton" />-->
+  <bind service="MES.Business.Repositories.RFQ.Customer.ICustomersRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Customer.Customers, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Customer.IContactsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Customer.Contacts, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Customer.IDivisionsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Customer.Divisions, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Customer.IAddressRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Customer.Address, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.ShipmentTracking.IShipmentsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.ShipmentTracking.Shipments, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.RFQ.IRFQRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.RFQ.RFQ, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.RFQ.IRFQPartsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.RFQ.RFQParts, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.RFQ.IRFQSuppliersRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.RFQ.RFQSuppliers, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.RFQ.IRFQSupplierPartQuoteRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.RFQ.RFQSupplierPartQuote, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Quote.IQuoteRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Quote.Quote, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Quote.IQuoteDetailsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Quote.QuoteDetails, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.UserManagement.IPreferencesRepository, MES.Business.Repositories" to="MES.Business.Library.BO.UserManagement.Preferences, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.RFQReports.IRFQReportsRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.RFQReports.RFQReports, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RFQ.Supplier.ISupplierAssessmentRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RFQ.Supplier.SupplierAssessment, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.APQP.APQP.IAPQPRepository, MES.Business.Repositories" to="MES.Business.Library.BO.APQP.APQP.APQP, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.APQP.ChangeRequest.IChangeRequestRepository, MES.Business.Repositories" to="MES.Business.Library.BO.APQP.ChangeRequest.ChangeRequest, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.APQP.DefectTracking.IDefectTrackingRepository, MES.Business.Repositories" to="MES.Business.Library.BO.APQP.DefectTracking.DefectTracking, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.APQP.DocumentManagement.IDocumentManagementRepository, MES.Business.Repositories" to="MES.Business.Library.BO.APQP.DocumentManagement.DocumentManagement, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.RoleManagement.IRoleRepository, MES.Business.Repositories" to="MES.Business.Library.BO.RoleManagement.Role, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Dashboard.IDashboardRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Dashboard.Dashboard, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Setup.DefectType.IDefectTypeRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Setup.DefectType.DefectType, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.APQP.CAPA.ICAPARepository, MES.Business.Repositories" to="MES.Business.Library.BO.APQP.CAPA.CAPA, MES.Business.Library" scope="singleton" />
+  <bind service="MES.Business.Repositories.Common.ICommonWorkerRoleRepository, MES.Business.Repositories" to="MES.Business.Library.BO.Common.CommonWorkerRole, MES.Business.Library" scope="singleton" />
+
+</module>

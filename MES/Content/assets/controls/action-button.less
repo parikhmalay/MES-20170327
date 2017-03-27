@@ -1,0 +1,262 @@
+.action-btn > a {
+    font-size: inherit !important;
+    color: inherit !important;
+}
+
+.action-btn .dropdown-menu {
+    min-width: 100%;
+    left: inherit;
+    right: 0px;
+}
+
+.align-left .action-btn .dropdown-menu {
+    min-width: 100%;
+    left: 0px;
+    right: inherit;
+}
+
+.action-btn {
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    height: auto;
+    margin: 0px 0px 0px 3px;
+
+    & button {
+        background-color: @color-white;
+        color: @color-black-40;
+        border: solid 1px @color-black-80;
+        padding-top: 3px;
+        padding-bottom: 3px;
+    }
+}
+
+.modal-footer .action-btn {
+
+    & .dropdown-menu {
+        top: inherit;
+        bottom: 100%;
+        .borderRadius(0px);
+    }
+
+    & button {
+        .borderRadius(0px);
+    }
+
+        & button.action-toggle {
+            .borderRadius(0px);
+        }
+}
+
+.action-btn-text {
+    padding-right: 10px;
+}
+
+.action-btn.remove-sap {
+}
+
+.action-btn .btn {
+    display: inline-block;
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    .borderRadius(3px 0px 0px 3px);
+}
+
+    .action-btn .btn.action-toggle {
+        padding-left: 3px;
+        padding-right: 5px;
+        .borderRadius(0px 3px 3px 0px);
+        margin-left: -4px;
+    }
+
+    .action-btn .btn .sr-only {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+    }
+
+    .action-btn .btn .caret {
+        border-left: 4px solid rgba(0, 0, 0, 0);
+        border-right: 4px solid rgba(0, 0, 0, 0);
+        border-top: 4px solid;
+        display: inline-block;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        width: 0;
+    }
+
+    .action-btn .btn:hover,
+    .action-btn .btn:focus {
+        .boxShadow(none);
+        background: @base-color-2-l2-5;
+        color: @color-white;
+        border: 1px solid @base-color-2-l7;
+    }
+
+.action-btn.disable-dropdown > .btn {
+    .borderRadius(3px);
+}
+
+.action-btn.disable-dropdown .action-toggle {
+    display: none;
+}
+
+    .action-btn.disable-dropdown .action-toggle + .dropdown-menu {
+        display: none;
+    }
+
+
+
+.dropdown-btn-icon {
+    margin: 0px;
+
+    & .btn {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: @color-black;
+
+        & span[class*="icon-"] {
+            font-size: 2em !important;
+            margin-left: -5px;
+            font-weight: normal !important;
+        }
+
+        &.green-status {
+            & span[class*="icon-"] {
+                color: @color-green !important;
+            }
+
+                & span[class*="icon-"].hover-red-icon {
+                    display: none;
+                }
+
+            & .hover-red-text {
+                display: none;
+            }
+        }
+
+        &.hover-red-status:hover {
+            & span[class*="icon-"].hover-red-icon {
+                display: inline-block;
+                color: @color-red !important;
+            }
+
+            & .hover-red-text {
+                display: inline-block;
+            }
+
+            & .green-text {
+                display: none;
+            }
+
+            & .green-icon {
+                display: none;
+            }
+        }
+
+        &.gray-status {
+            & span[class*="icon-"] {
+                color: @color-black-80 !important;
+            }
+        }
+
+        &.red-status {
+            & span[class*="icon-"] {
+                color: @color-red !important;
+            }
+        }
+
+        &:hover, &:focus {
+            background-color: @color-black-98;
+            color: @color-black;
+            border-color: @color-black-80;
+        }
+
+        &[disabled] {
+        }
+    }
+
+    & .dropdown-menu {
+        & li {
+
+            &.green-status {
+                & span[class*="icon-"] {
+                    color: @color-green !important;
+                }
+
+                    & span[class*="icon-"].hover-red-icon {
+                        display: none;
+                    }
+
+                & .hover-red-text {
+                    display: none;
+                }
+            }
+
+            &.gray-status {
+                & span[class*="icon-"] {
+                    color: @color-black-80 !important;
+                }
+            }
+
+            &.hover-red-status:hover {
+                & span[class*="icon-"].hover-red-icon {
+                    display: inline-block;
+                    color: @color-red !important;
+                }
+
+                & .hover-red-text {
+                    display: inline-block;
+                }
+
+                & .green-text {
+                    display: none;
+                }
+
+                & .green-icon {
+                    display: none;
+                }
+            }
+
+            &.red-status {
+                & span[class*="icon-"] {
+                    color: @color-red !important;
+                }
+            }
+
+            & a {
+                font-weight: 600;
+                text-transform: uppercase;
+                color: @color-black !important;
+
+                &:hover, &:focus {
+                    background-color: @color-black-98 !important;
+                    color: @color-black !important;
+                }
+
+                & span[class*="icon-"] {
+                    font-size: 2em !important;
+                    margin-left: -5px;
+                    font-weight: normal !important;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .action-btn .dropdown-menu {
+        left: 0px;
+        right: inherit;
+    }
+    .add-field-container.dropdown-menu {
+        left:inherit !important;
+        right:0px !important;
+    }
+}

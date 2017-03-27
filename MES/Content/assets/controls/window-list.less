@@ -1,0 +1,226 @@
+/*------------------------------------------------------------------------------------------------*/
+/*------------------------------ window-list start here ------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+
+.window-list {
+    width: 100%;
+    display: inline-block;
+
+    & .window-list-body {
+        width: 100%;
+        float: left;
+
+        & .window-list-item {
+            float: left;
+            width: 100%;
+            padding: 5px;
+
+            &:hover .window-box {
+                background: @color-black-69;
+            }
+
+            & .window-box {
+                width: 100%;
+                display: inline-block;
+                background: @color-black-80;
+                padding: 5px;
+
+                & .window-dot-list {
+                    float: left;
+                    width: 100%;
+                    padding-bottom: 5px;
+
+                    & .window-dot {
+                        .borderRadius(50%);
+                        width: 8px;
+                        height: 8px;
+                        margin-right: 1px;
+                        display: inline-block;
+                        background: @color-white;
+                    }
+                }
+
+                & .window-box-body {
+                    width: 100%;
+                    float: left;
+                    min-height: 80px;
+                    background: @color-white;
+
+                    & img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.window-1 .window-list-body .window-list-item {
+    width: 100%;
+}
+
+.window-2 .window-list-body .window-list-item {
+    width: 50%;
+}
+
+.window-3 .window-list-body .window-list-item {
+    width: 33.33%;
+}
+
+.window-4 .window-list-body .window-list-item {
+    width: 25%;
+}
+
+.window-5 .window-list-body .window-list-item {
+    width: 20%;
+}
+
+.window-6 .window-list-body .window-list-item {
+    width: 16.66%;
+}
+
+.window-7 .window-list-body .window-list-item {
+    width: 14.28%;
+}
+
+.window-8 .window-list-body .window-list-item {
+    width: 12.5%;
+}
+
+@media screen and (max-width:1280px) {
+    .window-lg-1 .window-list-body .window-list-item {
+        width: 100%;
+    }
+
+    .window-lg-2 .window-list-body .window-list-item {
+        width: 50%;
+    }
+
+    .window-lg-3 .window-list-body .window-list-item {
+        width: 33.33%;
+    }
+
+    .window-lg-4 .window-list-body .window-list-item {
+        width: 25%;
+    }
+
+    .window-lg-5 .window-list-body .window-list-item {
+        width: 20%;
+    }
+
+    .window-lg-6 .window-list-body .window-list-item {
+        width: 16.66%;
+    }
+
+    .window-lg-7 .window-list-body .window-list-item {
+        width: 14.28%;
+    }
+
+    .window-lg-8 .window-list-body .window-list-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .window-md-1 .window-list-body .window-list-item {
+        width: 100%;
+    }
+
+    .window-md-2 .window-list-body .window-list-item {
+        width: 50%;
+    }
+
+    .window-md-3 .window-list-body .window-list-item {
+        width: 33.33%;
+    }
+
+    .window-md-4 .window-list-body .window-list-item {
+        width: 25%;
+    }
+
+    .window-md-5 .window-list-body .window-list-item {
+        width: 20%;
+    }
+
+    .window-md-6 .window-list-body .window-list-item {
+        width: 16.66%;
+    }
+
+    .window-md-7 .window-list-body .window-list-item {
+        width: 14.28%;
+    }
+
+    .window-md-8 .window-list-body .window-list-item {
+        width: 12.5%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .window-sm-1 .window-list-body .window-list-item {
+        width: 100%;
+    }
+
+    .window-sm-2 .window-list-body .window-list-item {
+        width: 50%;
+    }
+
+    .window-sm-3 .window-list-body .window-list-item {
+        width: 33.33%;
+    }
+
+    .window-sm-4 .window-list-body .window-list-item {
+        width: 25%;
+    }
+
+    .window-sm-5 .window-list-body .window-list-item {
+        width: 20%;
+    }
+
+    .window-sm-6 .window-list-body .window-list-item {
+        width: 16.66%;
+    }
+
+    .window-sm-7 .window-list-body .window-list-item {
+        width: 14.28%;
+    }
+
+    .window-sm-8 .window-list-body .window-list-item {
+        width: 12.5%;
+    }
+}
+
+.window-link-box {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    .boxSizing(border-box);
+
+    & [class*="icon-"] {
+        font-size: 6em;
+        line-height: 1em;
+        display: inline-block;
+    }
+
+    & span.window-main-title {
+        padding-top: 10px;
+        border-top: 2px solid @color-black-90;
+        width: 100%;
+        display: inline-block;
+        font-size: 2em;
+        color: @color-black-20;
+        line-height: 1em;
+    }
+
+    & span.window-sub-title {
+        line-height: 1.3em;
+        width: 100%;
+        display: inline-block;
+        font-size: 1.5em;
+        color: @color-black-60;
+    }
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/*------------------------------ window-list start here ------------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/

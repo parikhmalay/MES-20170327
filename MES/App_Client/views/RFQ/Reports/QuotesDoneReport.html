@@ -1,0 +1,296 @@
+﻿<div class="col-12 pad-t-0 openScrollDiv" ng-controller="ReportsCtrl">
+    <div class="col-12 pad-b-10">
+        <div class="header-highligt-panel title-header-spacer-two">
+            <span class="small"><label translate="yes">_QuoteDate_</label><p>{{SelectionCriteria.QuoteDateFrom | date:'dd-MMM-yy'}} - {{SelectionCriteria.QuoteDateTo | date:'dd-MMM-yy'}}</p></span>
+            <span><label translate="yes">_SAM_</label><p>{{SelectionCriteria.SAMItems}}</p></span>
+            <span><label translate="yes">_Customer_</label> <p>{{SelectionCriteria.CustomerItems}}</p></span>
+        </div>
+    </div>
+    <div ng-show="DataList.length>0">
+        <accordion close-others="false">
+            <accordion-group heading="" is-open="true">
+                <accordion-heading>
+                    <span class="p-title-txt">Chart</span>
+                    <span class="accordion-icon"></span>
+                </accordion-heading>
+                <div class="col-12 pad-10 pad-t-0">
+                    <highchart id="AnalysisChart" style="height:350px;" config="highchartsNG"></highchart>
+                </div>
+            </accordion-group>
+        </accordion>
+        <div class="col-12 pad-10 pad-t-30"></div>
+        <div class="col-12 pad-t-0">
+            <div class="col-12">
+                <div class="custom-grid-panel mar-b-10 grid-option-three">
+                    <div class="border-full">
+                        <div class="grid-common-detail-panel">
+                            <div class="grid-common-content-panel">
+                                <div class="grid-right-panel">
+                                    <div class="scroller-panel">
+                                        <div class="common-grid-panel supplierQuote sliderOn col-width-1490" row column-width="200" column-move="1" margin-minus="340">
+                                            <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                            <div class="common-grid-box cg-120">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_QuoteNumber_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-120">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_RefRFQ_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-290">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_Customer_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-240" ng-hide="SelectionCriteria.GroupBy=='SAM'">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_SAM_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box" ng-hide="SelectionCriteria.GroupBy=='Commodity'">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_CommodityQuoteDone_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box" ng-hide="SelectionCriteria.GroupBy=='Process'">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_Process_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-120">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0 align-right">{{'_QuoteDateQuoteDone_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box align-right cg-170">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_Amount_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-120">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_QuoteResult_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box align-right cg-150">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_AmountWon_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-common-detail-panel">
+                        <div class="fixed-height-grid auto-height-grid height-auto-important">
+                            <div class="border-full">
+                                <div class="section-coomon">
+                                    <div class="grid-common-content-panel">
+                                        <div class="grid-right-panel">
+                                            <div class="scroller-panel">
+                                                <div class="common-grid-panel SupplierQuote sliderOn col-width-1490" row column-width="200" column-move="1">
+                                                    <div class="common-grid-box  cg-120">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="item in QuotesDoneReportList"><label>{{item.QuoteNumber}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box sub-total-price-box"><label>{{key}} - Total: ${{getGroupByTotalForQuoteDone(Value) | number:3}}</label></div>
+                                                            <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.QuoteNumber}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                                <label translate="yes">_NoRecordsFound_</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-120">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="item in QuotesDoneReportList"><label>{{item.RFQ}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.RFQ}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-290">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="item in QuotesDoneReportList"><label>{{item.Customer}}<span class="tooltip-h ng-binding">{{item.Customer}}</span></label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.Customer}} <span class="tooltip-h ng-binding">{{subItem.Customer}}</span></label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-240" ng-hide="SelectionCriteria.GroupBy=='SAM'">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="item in QuotesDoneReportList"><label>{{item.AccountManager}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.AccountManager}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box" ng-hide="SelectionCriteria.GroupBy=='Commodity'">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="item in QuotesDoneReportList"><label>{{item.Commodity}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.Commodity}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box" ng-hide="SelectionCriteria.GroupBy=='Process'">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="item in QuotesDoneReportList"><label>{{item.Process}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.Process}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-120">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box align-right" ng-repeat="item in QuotesDoneReportList"><label>{{item.QuoteDate | date:'dd-MMM-yy'}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box align-right" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.QuoteDate | date:'dd-MMM-yy'}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-170">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box align-right" ng-repeat="item in QuotesDoneReportList"><label>${{item.Amount | number:3}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box align-right" ng-repeat="subItem in Value">
+                                                                <label>${{subItem.Amount | number:3}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box align-right"><label>Total: ${{getTotalForQuoteDone() | number:3}} <span class="tooltip-h ng-binding">{{getTotalForQuoteDone() | number:3}}</span></label></div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-120">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box" ng-repeat="item in QuotesDoneReportList"><label>{{item.QuoteResult}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box" ng-repeat="subItem in Value">
+                                                                <label>{{subItem.QuoteResult}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-150">
+                                                        <div ng-if="SelectionCriteria.GroupBy==''" class="col-hori-box align-right" ng-repeat="item in QuotesDoneReportList"><label>${{item.AmountWon | number:3}}</label></div>
+                                                        <div ng-if="SelectionCriteria.GroupBy!=''" ng-repeat="(key, Value) in QuotesDoneReportList">
+                                                            <div class="col-hori-box title-sub-group-box"></div>
+                                                            <div class="col-hori-box align-right" ng-repeat="subItem in Value">
+                                                                <label>${{subItem.AmountWon | number:3}}</label>
+                                                            </div>
+                                                            <div ng-show="SelectionCriteria.GroupBy!='' && Value.length<=0" class="col-hori-box">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-hori-box title-total-price-box"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 align-center" ng-hide="DataList.length>0">
+        <div class="spacer-gray-line"></div>
+        <div class="error-box rounded-info-box" style="display:inline-block;">
+            <p translate="yes">_NoRecordsFound_</p>
+        </div>
+    </div>
+</div>

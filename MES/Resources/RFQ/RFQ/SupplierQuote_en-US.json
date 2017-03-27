@@ -1,0 +1,144 @@
+﻿{
+    "_PageHeading_": "Supplier Quote",
+    "_EnterQuote_": "Enter Quote",
+    "_UploadQuote_": "Upload Quote",
+    "_NoQuote_": "No Quote",
+    "_PartsList_": "Part(s) List",
+    "_PartNo_": "Part No.",
+
+
+
+    "_PartDetail_": "Part Detail",
+    "_RawMaterial_": "Raw Material",
+    "_PrimaryProcess/Conversion_": "Primary Process/Conversion",
+    "_Machining_": "Machining",
+    "_Machining/SecondaryOpr_": "Machining 2/Secondary Opr.",
+    "_Machining/OtherOpr_": "Machining 3/Other Opr.",
+    "_SurfaceTreatment_": "Surface Treatment",
+    "_Overhead_": "Overhead",
+
+    "_Description_": "Description",
+    "_AdditionalDescription_": "Additional Description",
+    "_MaterialSimple_": "Material",
+    "_Specifications_": "Specifications",
+    "_AnnualQuantity_": "Annual Quantity",
+    "_MinOrderQty_": "Min. Order Qty",
+    "_MinimumOrderQtyConfirmation_": "Minimum Order Qty Confirmation",
+
+    "_PartWeightSimple(KG)_": "Weight (KG)",
+    "_MaterialCost(cost/pc)_": "Material Cost (USD)",
+    "_MaterialCost/pc_": "(cost/pc)",
+    "_ConversionCost(cost/pc)_": "Conversion Cost (USD)",
+    "_ConversionCost/pc_": "(cost/pc)",
+    "_MachiningCost_": "Machining Cost (USD)",
+    "_MachiningCost/pc_": "(if applicable)(cost/pc)",
+    "_OtherProcessCostIfApplicable_": "Other Process Cost (USD)",
+    "_OtherProcessCostIfApplicable/pc_": "(if applicable)(cost/pc)",
+
+    "_Tooling_": "Tooling",
+    "_NoOfCavities_": "No. Of Cavities",
+    "_ToolingCost_": "Tooling Cost (USD)",
+    "_ToolingCostNote_": "(Must include cost of 6 PPAP samples)",
+    "_ToolingWarranty_": "Tooling Warranty",
+    "_SupplierToolingLeadtime_": "Supplier Tooling Leadtime",
+
+    "_FinalPiecePrice_": "Final Piece Price / Part",
+
+    "_Material_": "Raw Material Description",
+    "_RawMaterialIndexUsed_": "Raw Material Index Used",
+    "_RawMatInput_": "Raw Mat'l Input",
+    "_RawMatInputGrossWtInkg_": "(Gross wt in kg)",
+    "_RawMatCost_": "Raw Mat'l Cost (USD)",
+    "_RawMatCost/kg_": "(Per kg)",
+    "_PartWeight(KG)_": "Part Weight (KG)",
+    "_MaterialLoss_": "Material Loss (%)",
+    "_MfgRejectRate_": "Mfg. Reject Rate (%)",
+    "_RawMatTotal_": "Raw Mat'l Total",
+
+
+    "_MachineDesc_": "Machine Description",
+    "_MachineSize_": "Machine Size (Tons)",
+    "_MachineCycleTime_": "Cycle Time (sec)",
+    "_ManMachineRatePerHour_": "Man + Machine Rate Per Hour",
+    "_ProcessConvCostPerPart_": "Process Conversion Cost Per Part",
+
+
+    "_MachiningDesc_": "Machining Description",
+    "_MachiningCycleTime_": "Cycle Time (sec)",
+    "_MManMachineRatePerHour_": "Man + Machine Rate Per Hour",
+    "_MachiningCostPerPart_": "Machining Cost Per Part",
+
+
+    "_MSOSecOperationDesc_": "Secondary Operation Description",
+    "_MSOCycleTime_": "Cycle Time (sec)",
+    "_MSOManMachineRatePerHour_": "Man + Machine Rate Per Hour",
+    "_MSOSecCostPerPart_": "Secondary Cost Per Part",
+
+
+    "_MOOSecOperationDesc_": "Secondary Operation Description",
+    "_MOOCycleTime_": "Cycle Time (sec)",
+    "_MOOManMachineRatePerHour_": "Man + Machine Rate Per Hour",
+    "_MOOSecCostPerPart_": "Secondary Cost Per Part",
+
+
+    "_CoatingType_": "Coating Type",
+    "_STPartsPerHour_": "Parts Per Hour",
+    "_STManMachineRatePerHour_": "Man + Machine Rate Per Hour",
+    "_CoatingCostPerHour_": "Coating / Painting Cost Per Hour",
+
+
+    "_InventoryCost_": "Inventory Carrying Cost (USD)",
+    "_IfApplicable_": "(If Applicable)",
+    "_PackagingMat_": "Packaging Material",
+    "_PackingLabour_": "Packing Labour",
+    "_FOBPort_": "FOB Port (Shipping Cost per Pc.)",
+    "_ProfitSGA_": "Profit and S, G & A",
+    "_OverheadAsPercent_": "Overhead as % of Piece Price",
+    "_FinalPiecePricePerPart_": "Final Piece Price / Part",
+
+
+    "_SupplierRemarks_": "Supplier Remarks",
+    "_SupplierRemarksNote1_": "(Please note exchange rate used)",
+    "_SupplierRemarksNote2_": "Prices to be quoted in USD unless otherwise requested by MES.",
+    "_SupplierRemarksNote3_": "Supplier can specify the exchange rate and RM prices used.",
+    "_ExchangeRate1USD_": "Exchange Rate 1 USD",
+    "_RawMaterialPriceAssumed_": "Raw Material Price Assumed",
+    "_RawMatPriceNoteText_": "(Please include unit of measure…i.e. $1.000/kg)",
+    "_UploadFile_": "Upload File",
+    "_Number_": "Number",
+    "_Supplier_": "Supplier",
+    "_RFQDate_": "RFQ Date",
+    "_QuoteDueDate_": "Quote Due Date",
+    "_Remarks_": "Remarks",
+    "_SupplierRequirement_": "Supplier Requirement",
+    "_Currency_": "Currency",
+    "_ExchangeRate_": "Exchange Rate",
+    "_SaveQuote_": "Save Quote",
+    "_SaveAndCloseQuote_": "Save And Close",
+    "_Close_": "Close",
+
+    "_DownloadQuote_": "Download Quote",
+    "_DownloadQuoteText1_": "Steps to follow:",
+    "_DownloadQuoteText2_": "1. Click DOWNLOAD QUOTE button for RFQ quote template.",
+    "_DownloadQuoteText3_": "2. Fill in the downloaded quote with the required information.",
+    "_DownloadQuoteText4_": "3. Verify your quote in the file.",
+    "_DownloadQuoteText5_": "4. Upload the quote from the below section.",
+
+    "_UploadQuote_": "Upload Quote",
+    "_UploadQuoteText1_": "Steps to follow:",
+    "_UploadQuoteText2_": "1. Upload the quote from here by selecting your file.",
+    "_UploadQuoteText3_": "2. Click on UPLOAD QUOTE and wait for the Thank You message. This will confirm that your quote has been submitted.",
+
+    "_SelectQuote_": "Select Quote",
+    "_SelectCustomer_": "Select Customer",
+    "_Customer_": "Customer",
+    "_SelectRFQ_": "Select RFQ #",
+    "_RFQ_": "RFQ",
+    "_SelectSupplier_": "Select Supplier",
+    "_Manufacturer_": "Manufacturer",
+    "_BackToRFQ_": "Back To RFQ",
+    "_SelectFile_": "Please select an excel file.",
+    "_IsRequiredErrMsg_": "Please enter valid value for the required field(s) marked with yellow background.",
+    "_Others_": "Others",
+    "_ViewFile_": "View File"
+}

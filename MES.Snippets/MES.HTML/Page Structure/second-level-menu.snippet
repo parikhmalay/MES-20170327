@@ -1,0 +1,52 @@
+<CodeSnippet Format="1.1.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <Header>
+    <Title>second level menu</Title>
+    <Author>NonProfitEasy</Author>
+    <Shortcut>second level menu</Shortcut>
+    <Description>Markup snippet for a Box Style 1</Description>
+    <SnippetTypes>
+      <SnippetType>Expansion</SnippetType>
+      <SnippetType>SurroundsWith</SnippetType>
+    </SnippetTypes>
+  </Header>
+  <Snippet>
+    <Code Language="html">
+      <![CDATA[
+      <!-- Start Thumb List structure here -->
+      <div class="second-level-target-content window-min-height">
+          <div class="second-level-menu">
+              <span class="second-level-menu-search">
+                  <input type="search">
+                  <span class="icon-search"></span>
+              </span>
+              <ul>
+                  <li ng-class="{active: $state.includes('eventView.AttendeeManage')}"><a ui-sref="eventView.AttendeeManage.RegistrationList()" href="#/3109/Manage/RegistrationList/" class="ng-scope">Manage Attendees</a></li>
+                  <li ui-sref-active="active"><a ui-sref="eventView.FormConfiguration()" href="#/3109/FormConfiguration" class="ng-scope">Configure Registration Form</a></li>
+                  <li ui-sref-active="active" class=""><a ng-show="eventDetail.EventType != 2" ui-sref="eventView.WaitListSettings()" href="#/3109/WaitListSettings" class="ng-scope">Waitlist Settings</a></li>
+                  <li ui-sref-active="active"><a ui-sref="eventView.ImageGallery()" href="#/3109/ImageGallery" class="ng-scope">Image Gallery</a></li>
+                  <li ui-sref-active="active"><a ui-sref="eventView.Sponsors()" href="#/3109/Sponsors" class="ng-scope">Sponsors</a></li>
+                  <li ng-class="{active: $state.includes('eventView.OtherItems') || $state.includes('eventView.OtherItemsEdit') }"><a ui-sref="eventView.OtherItems()" href="#/3109/OtherItems" class="ng-scope">Other Items</a></li>
+                  <li ui-sref-active="active"><a ui-sref="eventView.TicketSetting()" href="#/3109/TicketSetting/" class="ng-scope">Customize Tickets</a></li>
+                  <li ng-class="{active: $state.includes('eventView.InviteList') || $state.includes('eventView.InviteManage') }" class="active"><a ui-sref="eventView.InviteList()" href="#/3109/Invite/" class="ng-scope">Invites</a></li>
+                  <li ui-sref-active="active"><a ui-sref="eventView.EventDocuments()" href="#/3109/EventDocuments" class="ng-scope">Event Documents</a></li>
+                  <li ui-sref-active="active" class=""><a ui-sref="eventView.Expenses()" href="#/3109/Expenses" class="ng-scope">Track Expenses</a></li>
+                  <li ng-class="{active: $state.includes('eventView.NotificationList') || $state.includes('eventView.NotificationManage') }"><a ui-sref="eventView.NotificationList()" href="#/3109/Notification/" class="ng-scope">Notifications</a></li>
+              </ul>
+          </div>
+          <div class="second-level-sub-content">
+              <div class="page-title">
+                  <span class="p-title-txt"><b class="ng-binding">Copy of Workshop Event <!--<span ng-click="EditEvent()" class="icon-edit" tooltip="Edit Event"></span>--></b></span>
+                  <span class="btn-section float-r">
+                      <button ng-hide="$state.includes('eventView.EventDashboard')" click-once="" ng-click="ViewEvent()" class="ng-scope">Dashboard</button>
+                      <button click-once="" ng-click="EditEvent()" class="ng-scope">Edit</button>
+                  </span>
+              </div>
+              <div class="col-12 window-min-height bx-white" style="min-height: 292px;">
+              </div>
+          </div>
+      </div>
+      <!-- End Thumb List structure here -->
+           $selected$$end$]]>
+    </Code>
+  </Snippet>
+</CodeSnippet>

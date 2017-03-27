@@ -1,0 +1,99 @@
+﻿{
+    "_ShipmentList_": "Shipment List",
+    "_ShipmentNumber_": "Shipment Number",
+    "_ShipmentMode_": "Shipment Mode",
+
+    "_Origin_": "Origin",
+    "_Destination_": "Destination",
+    "_SupplierNames_": "Supplier Names",
+    "_PONumbers_": "PO Numbers",
+    "_InvoiceNumbers_": "Invoice Numbers",
+    "_ContainerNumber_": "Container Number",
+    "_QualityReview_": "Quality Review",
+    "_ShipmentReviewed_": "Shipment Reviewed?",
+
+
+    "_SelectShipmentMode_": "Select Shipment Mode",
+    "_SelectSupplier_": "Select Supplier",
+    "_SelectOrigin_": "Select Origin",
+    "_SelectForwarder_": "Select Forwarder",
+    "_SelectQualityReviewStatus_": "Select Quality Review Status",
+    "_SelectStatus_": "Select Status",
+    "_InspectorName_": "Inspector Name",
+    "_And_": "And",
+    "_EstSailDateBetween_": "Estimated Sail Date Between",
+    "_ETAAtWarehouseAtDestBetween_": "ETA at Warehouse at Destination Between",
+    "_ActArrDateAtWarehouseAtDestBetween_": "Actual Arrival Date at Warehouse at Destination Between",
+    "_InspectionDateBetween_": "Inspection Date Between",
+
+
+
+    "_PageHeading_": "Add/Edit Shipment",
+    "_SectionOne_": "Shipment Information",
+    "_ShipmentId_": "Shipment Id",
+    "_ActSailDate_": "Actual Sail Date",
+    "_EstSailDate_": "Estimated Sail Date",
+    "_ActArrDateAtWarehouseAtDest_": "Actual Arrival Date at Warehouse at Destination",
+    "_ETAAtWarehouseAtDest_": "ETA at Warehouse at Destination",
+    "_Status_": "Status",
+    "_SupplierName_": "Supplier Name",
+
+    "_SectionTwo_": "Forwarder",
+    "_ForwarderName_": "Forwarder Name",
+    "_EstForwarderPickupDate_": "Est Forwarder Pick-up Date",
+    "_ActForwarderPickupDate_": "Actual Forwarder Pick-up Date",
+    "_ContainerNumber_": "Container Number",
+    "_LateDelToForwarder_": "Late Delivery to Forwarder?",
+
+
+    "_SectionThree_": "Upload Documents",
+    "_DocumentType_": "Document Type",
+    "_Document_": "Document",
+
+    "_SectionFour_": "Inspection Information",
+    "_Inspector_": "Inspector",
+    "_UploadFile_": "Upload File",
+    "_InspectionDate_": "Inspection Date",
+    "_QualityReviewStatus_": "Quality Review Status",
+    "_Select_": "--Select--",
+    "_All_": "--All--",
+    "_QualityReviewComments_": "Quality Review Comments",
+
+    "_SectionFive_": "PO List",
+    "_PONumber_": "PO Number",
+    "_PartNumber_": "Part Number",
+    "_Quantity_": "Quantity",
+    "_Comments_": "Comments",
+
+    "_Action_": "Action",
+
+
+    "_DocumentType_": "Document Type",
+    "_SelectDocumentType_": "Select Document Type",
+    "_Document_": "Document",
+    "_PageDocument_": "Add/Edit Shipment Documents",
+
+    "_SectionFive_": "PO List",
+    "_PONumber_": "PO Number",
+    "_PartNumber_": "Part Number",
+    "_Quantity_": "Quantity",
+    "_Comments_": "Comments",
+    "_POPart_": "PO Part",
+    "_PagePOPart_": "Add/Edit Shipment PO Part",
+
+
+    
+    "_ReportSectionOne_": "Report",
+    "_ReportSectionTwo_": "Shipments",
+    "_Forwarder_": "Forwarder",
+    "_Supplier_": "Supplier Name",
+    "_InspectionFileUploaded_": "Inspection File Uploaded?",
+    "_DocumentsAttached_": "Documents Attached",
+    "_PartNumbers_": "Part Numbers",
+    "_GenerateReport_": "Generate Report",
+
+    "_ShipmentReviewed_": "Shipment Reviewed?",
+    "_ViewFile_": "View File",
+    "_ViewInspectionFileReport_" :  "View Inspection File Report"
+        
+}

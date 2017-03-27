@@ -1,0 +1,13 @@
+﻿{
+    "_EmailTemplate_": "Email Template",
+    "_EmailTemplates_": "Email Template Management",
+    "_PageHeading_": "Add/ Edit Email Template",
+       "_Title_": "Title",
+    "_EmailSubject_": "Subject",
+    "_EmailBody_": "Content",
+    "_ShortCode_": "Short Code",
+    "_Description_": "Description",
+    "_TestEmailAddress_": "Test Email Address",
+    "_SendNow_": "Send Now",
+    "_ChangeLogHeader_": "Change Log - Email Template Management"
+}

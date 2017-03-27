@@ -1,0 +1,556 @@
+﻿<div class="col-12 window-min-height bx-white" ng-controller="ReportCtrl" id="spnShipment">
+    <!-- uiView:  -->
+    <div ui-view="" class="col-12 ng-scope">
+        <div class="common-accordion-panel">
+            <div id="spnShipment" class="ng-scope">
+                <us-spinner spinner-key="spnShipment" spinner-start-active="1"></us-spinner>
+                <div class="col-12 pad-10">
+                    <accordion close-others="false">
+                        <accordion-group heading="" is-open="true">
+                            <accordion-heading>
+                                <span class="p-title-txt">{{'_ReportSectionOne_' | translate}}</span>
+                                <span class="accordion-icon"></span>
+                            </accordion-heading>
+                            <div class="col-12 pad-10">
+                                <div class="fs linear fs-col-3">
+                                    <div class="fs-g">
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_ShipmentNumber_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <input type="text" name="{{'_ShipmentNumber_' | translate}}" ng-model="SearchCriteria.Id" tabindex="1" numbers-only maxlength="6" />
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_LateDelToForwarder_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <input type="checkbox" id="chkLateDelToForwarder" ng-model="SearchCriteria.IsLateDeliveryToForwarder" tabindex="2" />
+                                                <label for="chkLateDelToForwarder" translate="yes">_LateDelToForwarder_</label>
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_ShipmentMode_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <select name="{{'_ShipmentMode_' | translate}}" ng-model="SearchCriteria.ShipmentMode" aa-field-name="{{'_ShipmentMode_'|translate}}" tabindex="3"
+                                                        ng-options="mode.value as mode.name for mode in ShipmentModeList">
+                                                    <option value="">{{'_SelectShipmentMode_' | translate}}</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_SupplierName_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <select name="{{'_SupplierName_' | translate}}" aa-field-name="{{'_SupplierName_' | translate}}" ng-model="SearchCriteria.SupplierId" tabindex="4" ng-options="item.Id as item.Name for item in SupplierList">
+                                                    <option value="">{{'_SelectSupplier_' | translate}}</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_EstSailDateBetween_</label>
+                                            </span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_EstSailDateBetween_' | translate}}"
+                                                       aa-field-name="{{'_EstSailDateBetween_' | translate}}"
+                                                       ng-model="SearchCriteria.EstShpmntDateFrom" tabindex="12" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                            <span class="col-2 align-center label-spacer-line-height"><label translate="yes">_And_</label></span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_EstSailDate_' | translate}}"
+                                                       aa-field-name="{{'_EstSailDate_' | translate}}"
+                                                       ng-model="SearchCriteria.EstShpmntDateTo" tabindex="13" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_Origin_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <select name="{{'_Origin_' | translate}}" ng-model="SearchCriteria.OriginId" aa-field-name="{{'_Origin_'|translate}}" tabindex="5"
+                                                        ng-options="item.Id as item.Name for item in OriginList">
+                                                    <option value="">{{'_SelectOrigin_' | translate}}</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_Forwarder_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <select name="{{'_Forwarder_' | translate}}" ng-model="SearchCriteria.ForwarderId" aa-field-name="{{'_Forwarder_'|translate}}" tabindex="6"
+                                                        ng-options="item.Id as item.Name for item in ForwarderList">
+                                                    <option value="">{{'_SelectForwarder_' | translate}}</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_QualityReviewStatus_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <select name="{{'_QualityReviewStatus_' | translate}}" ng-model="SearchCriteria.QualityReviewStatusId" aa-field-name="{{'_QualityReviewStatus_'|translate}}" tabindex="7"
+                                                        ng-options="qrs.value as qrs.name for qrs in QualityReviewStatusList">
+                                                    <option value="">{{'_SelectQualityReviewStatus_' | translate}}</option>
+                                                </select>
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_Status_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_Status_' | translate}}" ng-model="SearchCriteria.Status" aa-field-name="{{'_Status_'|translate}}" tabindex="8"
+                                                            ng-options="status.value as status.name for status in StatusList">
+                                                        <option value="">{{'_SelectStatus_' | translate}}</option>
+                                                    </select>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_ETAAtWarehouseAtDestBetween_</label>
+                                            </span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_ETAAtWarehouseAtDestBetween_' | translate}}"
+                                                       aa-field-name="{{'_ETAAtWarehouseAtDestBetween_' | translate}}"
+                                                       ng-model="SearchCriteria.ETAAtWarehouseAtDestFrom" tabindex="12" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                            <span class="col-2 align-center label-spacer-line-height"><label translate="yes">_And_</label></span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_ETAAtWarehouseAtDest_' | translate}}"
+                                                       aa-field-name="{{'_ETAAtWarehouseAtDest_' | translate}}"
+                                                       ng-model="SearchCriteria.ETAAtWarehouseAtDestTo" tabindex="13" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_PONumber_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <input type="text" name="{{'_PONumber_' | translate}}" ng-model="SearchCriteria.PONumber" tabindex="9" maxlength="10" />
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_PartNumber_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <input type="text" name="{{'_PartNumber_' | translate}}" ng-model="SearchCriteria.PartNumber" tabindex="10" maxlength="50" />
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_InspectorName_</label>
+                                            </span>
+                                            <span class="fs-f-i">
+                                                <input type="text" name="{{'_InspectorName_' | translate}}" ng-model="SearchCriteria.Inspector" tabindex="11" maxlength="50" />
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_ActArrDateAtWarehouseAtDestBetween_</label>
+                                            </span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_ActArrDateAtWarehouseAtDestBetween_' | translate}}"
+                                                       aa-field-name="{{'_ActArrDateAtWarehouseAtDestBetween_' | translate}}"
+                                                       ng-model="SearchCriteria.ActArrDateAtWarehouseAtDestFrom" tabindex="14" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                            <span class="col-2 align-center label-spacer-line-height"><label translate="yes">_And_</label></span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_ActArrDateAtWarehouseAtDest_' | translate}}"
+                                                       aa-field-name="{{'_ActArrDateAtWarehouseAtDest_' | translate}}"
+                                                       ng-model="SearchCriteria.ActArrDateAtWarehouseAtDestTo" tabindex="15" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                        </div>
+                                        <div class="fs-f">
+                                            <span class="fs-f-l">
+                                                <label translate="yes">_InspectionDateBetween_</label>
+                                            </span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_InspectionDateBetween_' | translate}}"
+                                                       aa-field-name="{{'_InspectionDateBetween_' | translate}}"
+                                                       ng-model="SearchCriteria.InspectionDateFrom" tabindex="16" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                            <span class="col-2 align-center label-spacer-line-height"><label translate="yes">_And_</label></span>
+                                            <span class="col-5">
+                                                <input type="text" name="{{'_InspectionDate_' | translate}}"
+                                                       aa-field-name="{{'_InspectionDate_' | translate}}"
+                                                       ng-model="SearchCriteria.InspectionDateTo" tabindex="17" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="last-trip-panel pad-10">
+                                <button class="orange-btn" translate="yes" ng-click="Search()" tabindex="">_GenerateReport_</button>
+                                <button class="orange-btn" translate="yes" ng-click="ResetSearch()" tabindex="">_Reset_</button>
+                            </div>
+                        </accordion-group>
+                    </accordion>
+                </div>
+                <div class="col-12 pad-10 pad-t-0">
+                    <h3 class="pad-b-5 title-sd">
+                        <span class="p-title-txt ng-binding">{{'_ReportSectionTwo_' | translate}}</span>
+                    </h3>
+                </div>
+                <div class="col-12 pad-10 pad-t-10"></div>
+                <div class="col-12 pad-10">
+                    <div class="col-12">
+                        <div class="custom-grid-panel mar-b-10 grid-option-three">
+                            <div class="border-full">
+                                <div class="grid-common-detail-panel">
+                                    <div class="grid-common-content-panel">
+                                        <div class="grid-right-panel">
+                                            <div class="scroller-panel">
+                                                <div class="common-grid-panel supplierQuote sliderOn" row column-width="200" column-move="1" margin-minus="340">
+                                                    <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                                    <div class="common-grid-box cg-150">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_ShipmentNumber_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_ShipmentMode_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_Origin_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-170">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_EstSailDate_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-150">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_ActSailDate_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-170 header-two-line">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_ETAAtWarehouseAtDest_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-400">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_ActArrDateAtWarehouseAtDest_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-400">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_Destination_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box cg-400">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_SupplierNames_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_ForwarderName_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box header-two-line">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_EstForwarderPickupDate_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box header-two-line">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_ActForwarderPickupDate_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box header-two-line">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_LateDelToForwarder_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_DocumentsAttached_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_Inspector_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_InspectionDate_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_InspectionFileUploaded_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_QualityReviewStatus_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_QualityReviewComments_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_PONumbers_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="common-grid-box">
+                                                        <div class="col-hori-box ng-s">
+                                                            <div class="list-1 root-list">
+                                                                <div class="lst-header">
+                                                                    <div class="lst-item">
+                                                                        <div class="col-12 pad-0">{{'_PartNumbers_' | translate}}</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-common-detail-panel">
+                                <div class="fixed-height-grid auto-height-grid height-auto-important">
+                                    <div class="border-full">
+                                        <div class="section-coomon">
+                                            <div class="grid-common-content-panel">
+                                                <div class="grid-right-panel">
+                                                    <div class="scroller-panel">
+                                                        <div class="common-grid-panel SupplierQuote sliderOn" row column-width="200" column-move="1">
+                                                            <div class="common-grid-box cg-150">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.Id}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.ShipmentMode}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.Origin}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box cg-170">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.EstShpmntDate | date:'dd-MMM-yy'}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box cg-150">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.ActShpmntDate| date:'dd-MMM-yy'}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box cg-170">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.ETAAtWarehouseAtDest| date:'dd-MMM-yy'}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box cg-400 big-tooltip-s">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.ActArrDateAtWarehouseAtDest| date:'dd-MMM-yy'}}<span class="tooltip-h ng-binding">{{item.ActArrDateAtWarehouseAtDest| date:'dd-MMM-yy'}}</span></label></div>
+                                                            </div>
+                                                            <div class="common-grid-box cg-400 big-tooltip-s">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.Destination}}<span class="tooltip-h ng-binding">{{item.Destination}}</span></label></div>
+                                                            </div>
+                                                            <div class="common-grid-box cg-400 big-tooltip-s">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.SupplierNames}}<span class="tooltip-h ng-binding">{{item.SupplierNames}}</span></label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.ForwarderName}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.EstForwarderPickupDate | date:'dd-MMM-yy'}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.ActForwarderPickupDate | date:'dd-MMM-yy' }}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.LateDeliveryToForwarder}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.Documents}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.Inspector}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.InspectionDate| date:'dd-MMM-yy'}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.InspectionFileUploaded}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.QualityReviewStatus}}</label></div>
+                                                            </div>
+                                                            <div class="common-grid-box mid-tooltip-s">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.QualityReviewComments}}<span class="tooltip-h ng-binding">{{item.QualityReviewComments}}</span></label></div>
+                                                            </div>
+                                                            <div class="common-grid-box mid-tooltip-s">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.PONumbers}}<span class="tooltip-h ng-binding">{{item.PONumbers}}</span></label></div>
+                                                            </div>
+                                                            <div class="common-grid-box">
+                                                                <div class="col-hori-box" ng-repeat="item in ShipmentList"><label>{{item.PartNumber}}</label></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12" ng-show="ShipmentList.length>0">
+                    <mespagination boundary-links="true" total-items="Paging.TotalRecords" on-select-page="pageChanged(page)"
+                                   page="Paging.PageNo" items-per-page="Paging.PageSize" fix-to-bottom=""
+                                   previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page-size="pageSizeChanged(pagesize)" pagesize="Paging.PageSize"></mespagination>
+                </div>
+
+                <!--Top Header Show Start-->
+                <div class="freeze-bottom top-header-freeze-panel">
+                    <button class="orange-btn ng-scope" ng-show="ShipmentList.length>0" ng-click="exportToExcel()" translate="yes">_ExporttoExcel_</button>
+                </div>
+                <!--Top Header Show End-->
+                <!-- Start tab structure here -->
+                <div class="freeze-bottom">
+                    <button class="back-button" onclick="RedirecttoDashboard.Go()"></button>
+                    <button class="orange-btn ng-scope" ng-show="ShipmentList.length>0" ng-click="exportToExcel()" translate="yes">_ExporttoExcel_</button>
+                </div>
+                <!-- End tab structure here -->
+            </div>
+        </div>
+    </div>
+</div>
+

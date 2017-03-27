@@ -1,0 +1,140 @@
+.advance-search-panel {
+	width: 260px;
+	position: fixed;
+	top: 0px;
+    bottom: 0px;
+    right: 0;
+    height: 100%;
+    overflow:auto;
+    z-index:55;
+	background: #f5f5f5;
+	border-left: solid 1px #dedede;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	& .search-title-box {
+		.display-inlineblock-100();
+		height: 50px;
+		border-bottom: solid 1px @color-black-80;
+		& .search-title {
+			font-size: 1.4em;
+			color: #1d2d4b;
+			font-weight: 400;
+			float: left;
+            display:inline-block;
+            width:100%;
+			padding: 15px 20px 0 20px;
+			text-transform: uppercase; 
+            & > span.fa{
+                float:right;
+                color:@color-black-60;
+                margin-top:1px;
+                cursor:pointer;
+                &:hover{
+                    color:@color-orange;
+                }
+            }
+		}
+	}
+	& .search-content-panel {
+		.display-inlineblock-100();
+		padding: 20px;
+        position: absolute;
+        overflow: auto;
+        bottom: 57px;
+        top: 50px;
+        left:0;
+		& input.textbox {
+			.display-inlineblock-100();
+			background: none;
+			border: solid 1px #b1b3b6;
+			height: 40px;
+			padding: 10px;
+			font-size:15px;
+			color: #1d2d4b;
+		}
+		& .calender {
+			background: url("@{images}/calc-icon.png") right no-repeat;
+			cursor: pointer;
+		}
+		& select.selectbox {
+			.display-inlineblock-100();
+			background: url("@{images}/select-arrow.png") right no-repeat;
+			border: solid 1px #b1b3b6;
+			height: 40px;
+			padding: 10px 30px 10px 10px;
+			font-size:15px;
+			color: #1d2d4b;
+			outline:none;
+			display: inline-block;
+			-webkit-appearance:none;
+			-moz-appearance:none;
+			appearance:none;
+			cursor:pointer;
+		}
+		& button.button {
+			.display-inlineblock-100();
+			background: @base-color-1;
+			border: solid 1px @base-color-1;
+			height: 35px;
+			font-size:15px;
+			color: #fff;
+			text-transform: uppercase;
+			&:hover {
+				background:@color-orange;
+				border: solid 1px @color-orange;
+			}
+		}
+		& .row {
+			padding-bottom: 15px;
+		}
+		& .row:last-child {
+			padding-bottom: 0;
+		}
+        & label {
+            margin-right:0px;
+        }
+        & .spacer-trip-full {
+            background: #b9b9b9;
+            float: left;
+            height: 1px;
+            margin: 5px 0 15px 0;
+            width: 100%;
+        }
+        & .btn-group {
+            width:100%;
+            & > button {
+                width:100%;
+                text-align:left;
+                font-size:1.3em;
+                color:#000;
+                padding:5px 12px 5px 5px;
+                margin-left:0px;
+                text-transform:uppercase;
+                & span.icon-down-arrow {
+                    float: right;
+                    margin-right: -3px;
+                    margin-top: -7px;
+                }
+            }
+            & .dropdown-menu {
+                min-width:100%;
+            }
+        }
+	}
+    & .search-footer-box{
+        border-top: solid 1px @color-black-80;
+        position:absolute;
+        bottom:0;
+        width:100%;
+        padding: 10px 0;
+        text-align:center;
+    }
+    transform:translateX(100%);
+}
+body.search-advance-opened {
+	& .advance-search-panel {
+        transform:translateX(0);
+	}
+}

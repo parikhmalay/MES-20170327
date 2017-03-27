@@ -1,0 +1,133 @@
+﻿<form unsaved-warning-form novalidate id="frmContact">
+    <div class="modal-header">
+        <h3 translate="yes">_PageContact_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Prefix_</label>
+                        </span> <span class="fs-f-i">
+                            <select name="{{'_Prefix_' | translate}}" aa-field-name="{{'_Prefix_' | translate}}" ng-model="Contact.PrefixId" tabindex="21"
+                                    ng-options="item.Id as item.Name for item in PrefixList">
+                            </select>
+                        </span>
+                    </div>
+
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_FirstName_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_FirstName_' | translate}}"
+                                   aa-field-name="{{'_FirstName_' | translate}}"
+                                   ng-model="Contact.FirstName" tabindex="22" required ng-maxlength="100" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_LastName_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_LastName_' | translate}}"
+                                   aa-field-name="{{'_LastName_' | translate}}"
+                                   ng-model="Contact.LastName" tabindex="23" required ng-maxlength="100" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Suffix_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_Suffix_' | translate}}"
+                                   aa-field-name="{{'_Suffix_' | translate}}"
+                                   ng-model="Contact.Suffix" tabindex="24" ng-maxlength="5" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Designation_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_Designation_' | translate}}"
+                                   aa-field-name="{{'_Designation_' | translate}}"
+                                   ng-model="Contact.Designation" tabindex="25" ng-maxlength="50" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Phone_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_Phone_' | translate}}"
+                                   aa-field-name="{{'_Phone_' | translate}}"
+                                   ng-model="Contact.DirectPhone" tabindex="26" numbers-only required ng-maxlength="20" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Ext_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_Ext_' | translate}}"
+                                   aa-field-name="{{'_Ext_' | translate}}"
+                                   ng-model="Contact.Extension" tabindex="27" numbers-only ng-maxlength="5" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_CellPhone_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_CellPhone_' | translate}}"
+                                   aa-field-name="{{'_CellPhone_' | translate}}"
+                                   ng-model="Contact.CellPhone" tabindex="28" numbers-only ng-maxlength="20" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Fax_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="{{'_Fax_' | translate}}"
+                                   aa-field-name="{{'_Fax_' | translate}}"
+                                   ng-model="Contact.DirectFax" tabindex="29" numbers-only ng-maxlength="20" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Email_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="email" name="{{'_Email_' | translate}}"
+                                   aa-field-name="{{'_Email_' | translate}}"
+                                   ng-model="Contact.Email" tabindex="30" ng-maxlength="100" ng-required="true" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Comments_</label>
+                        </span> <span class="fs-f-i">
+                            <textarea type="text" name="{{'_Comments_' | translate}}"
+                                      aa-field-name="{{'_Comments_' | translate}}"
+                                      ng-model="Contact.Comments" tabindex="31" ng-maxlength="500" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label class="no-colon">&nbsp;</label>
+                        </span> <span class="fs-f-i">
+                            <input type="checkbox" id="chkIsDefault" ng-model="Contact.IsDefault" ng-disabled="IsDefault==true" />
+                            <label for="chkIsDefault" translate="yes" tabindex="32">_IsDefault_</label>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="fs-g">
+            <button class="orange-btn" aa-submit-form="AddContact()" tabindex="33" translate="yes">_Save_</button>
+            <!--<button class="btn" ng-click="ResetContactPopup()" tabindex="33" translate="yes">_Reset_</button>-->
+            <button class="orange-btn" ng-click="Cancel()" tabindex="34" translate="yes">_Cancel_</button>
+        </div>
+    </div>
+</form>

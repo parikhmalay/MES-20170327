@@ -1,0 +1,129 @@
+﻿<div class="col-lg-12 pad-10" ng-controller="DashboardSummaryCtrl" id="spnDashboard">
+    <us-spinner spinner-key="spnDashboard" spinner-start-active="1"></us-spinner>
+    <div class="col-12 dashabord-header-panel">
+        <div class="fs fs-linear1024 fs-col-4 pad-10 pad-l-45">
+            <div class="fs-g">
+                <div class="fs-f icon-thumb">
+                    <i class="fa fa-calendar"></i>
+                </div>
+                <div class="fs-f">
+                    <span class="fs-f-l">
+                        <label class="ng-scope">{{'_DateFrom_' | translate}}</label>
+                    </span>
+                    <span class="fs-f-i">
+                        <input type="text" position="fixed" width="200" name="{{'_DateFrom_' | translate}}" aa-field-name="{{'_DateFrom_' | translate}}" ng-model="SearchCriteria.DashDateFrom" date-time view="date" min-view="date" format="dd-MMM-yy" max="{{SearchCriteria.DashDateTo}}" />
+                    </span>
+                </div>
+                <div class="fs-f">
+                    <span class="fs-f-l">
+                        <label class="ng-scope">{{'_DateTo_' | translate}}</label>
+                    </span>
+                    <span class="fs-f-i">
+                        <input type="text" position="fixed" width="200" name="{{'_DateTo_' | translate}}" aa-field-name="{{'_DateTo_' | translate}}" ng-model="SearchCriteria.DashDateTo" date-time view="date" min-view="date" format="dd-MMM-yy" min="{{SearchCriteria.DashDateFrom}}" />
+                    </span>
+                </div>
+                <div class="fs-f">
+                    <span class="fs-f-i">
+                        <button class="orange-btn" ng-click="searchDashboardData()">{{'_Go_' | translate}}</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashbord-body-panel">
+        <div class="col-12 pad-t-10 pad-t-10">
+            <div class="col-3 pad-r-20">
+                <div class="hight-light-box">
+                    <div class="inner-box-lr">
+                        <div class="thumb-icon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <div class="details-title">
+                            <div class="digit-big">{{DashBoardSummary.RFQsCount}}</div>
+                            <div class="title-small">RFQs</div>
+                        </div>
+                    </div>
+                    <div class="details-box-lr">
+                        <a href="javascript:void(0);" ng-click="RedirectToList('RFQ')">{{'_ViewList_' | translate}} <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 pad-r-20">
+                <div class="hight-light-box">
+                    <div class="inner-box-lr">
+                        <div class="thumb-icon">
+                            <i class="fa fa-cubes"></i>
+                        </div>
+                        <div class="details-title">
+                            <div class="digit-big">{{DashBoardSummary.QuotesCount}}</div>
+                            <div class="title-small">Quotes to customer</div>
+                        </div>
+                    </div>
+                    <div class="details-box-lr">
+                        <a href="javascript:void(0);" ng-click="RedirectToList('QuoteToCustomer')">{{'_ViewList_' | translate}} <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 pad-r-20">
+                <div class="hight-light-box">
+                    <div class="inner-box-lr">
+                        <div class="thumb-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <div class="details-title">
+                            <div class="digit-big">{{DashBoardSummary.APQPCount}}</div>
+                            <div class="title-small">APQP</div>
+                        </div>
+                    </div>
+                    <div class="details-box-lr">
+                        <a href="javascript:void(0);" ng-click="RedirectToList('APQP')">{{'_ViewList_' | translate}} <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="hight-light-box">
+                    <div class="inner-box-lr">
+                        <div class="thumb-icon">
+                            <i class="fa fa-puzzle-piece"></i>
+                        </div>
+                        <div class="details-title">
+                            <div class="digit-big">{{DashBoardSummary.DefectTrackingCount}}</div>
+                            <div class="title-small">Defect Tracking</div>
+                        </div>
+                    </div>
+                    <div class="details-box-lr">
+                        <a href="javascript:void(0);" ng-click="RedirectToList('DefectTracking')">{{'_ViewList_' | translate}} <i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 pad-t-10 pad-t-10">
+            <div class="col-6 pad-r-20">
+                <div class="widget-box-panel">
+                    <div class="widget-header-panel">
+                        <h5>Business Analysis Report</h5>
+                    </div>
+                    <div class="widget-body-panel">
+                        <div class="col-12 pad-10 pad-t-0">
+                            <highchart id="AnalysisChart" style="height:350px;" config="highchartsNGAnalysisData"></highchart>
+                        </div>
+                        <!--<img src="/Content/images/chart-img.png" />-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="widget-box-panel">
+                    <div class="widget-header-panel">
+                        <h5>Quotes Done Report</h5>
+                    </div>
+                    <div class="widget-body-panel">
+                        <div class="col-12 pad-10 pad-t-0">
+                            <highchart id="QuotesDoneChart" style="height:350px;" config="highchartsNGQuotesDone"></highchart>
+                        </div>
+                        <!--<img src="/Content/images/chart-img.png" />-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

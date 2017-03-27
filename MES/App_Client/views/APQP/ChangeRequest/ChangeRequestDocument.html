@@ -1,0 +1,65 @@
+﻿<form unsaved-warning-form novalidate id="frmDocument">
+    <div class="modal-header">
+        <h3 translate="yes">_PageDocument_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f full-c">
+                        <span class="fs-f-l">
+                            <label translate="yes">_DocumentType_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <select name="{{'_DocumentType_' | translate}}" aa-field-name="{{'_DocumentType_' | translate}}" ng-model="Document.DocumentTypeItem"
+                                    ng-options="item as item.Name for item in DocumentTypeList track by item.Id" required>
+                                <option value="">{{'_Select_' | translate}}</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Files_</label>
+                        </span> <span class="fs-f-i upload-image">
+                            <file-select fs-model="Document.FilePath"
+                                         fs-multiselect="false"
+                                         fs-upload-path="documentPath"
+                                         fs-extension-validation-msg="File not supported"
+                                         fs-saveuploadedfiles="SetObjectvalues(UploadedFilePath,UploadedFileName)"
+                                         fs-spinnder-key="spnAPQP"
+                                         fs-stop-spinner="1"
+                                         fs-extension=".txt, .pdf, .xls, .xlsx, .doc, .docx, .jpg, .jpeg, .gif, .png, .tif, .tiff, .csv, .ppt, .pptx, .stp, .step, .iges, .igs, .dwf,
+                                                 .dxf, .dwg, .zip, .rar, .7z, .sldprt, .1, .2, .3, .10, .15, .16, .20, .36, .39, .59, .82, .104, .115, .170"
+                                         fs-file-upload-folder-name="APQPFile/CR"
+                                         fs-max-size="1050000"></file-select>
+                            <ul class="images-upload-panal mar-t-5" ng-hide="Document.FilePath==undefined || Document.FilePath==''">
+                                <li>
+                                    <a href="/APQP/ChangeRequest/ChangeRequest/DownloadFile?filePath={{Document.FilePath}}&fileName={{Document.FileTitle}}" target="_blank">{{Document.FileTitle}}</a>
+                                    <button class="btn float-r" ng-click="deleteFile(Document.FilePath,$index)"> <i class="fa fa-close"></i> </button>
+                                </li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Comments_</label>
+                        </span> <span class="fs-f-i">
+                            <textarea type="text" name="{{'_Comments_' | translate}}"
+                                      aa-field-name="{{'_Comment_' | translate}}"
+                                      ng-model="Document.Comments" ng-maxlength="300" /><label>
+                                (Maximum 500 characters allowed.)
+                            </label>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="fs-g">
+            <button class="orange-btn" aa-submit-form="AddDocument()" tabindex="34" translate="yes">_Save_ </button>
+            <button class="orange-btn" ng-click="Cancel()" tabindex="34" translate="yes">_Cancel_</button>
+        </div>
+    </div>
+</form>

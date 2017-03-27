@@ -1,0 +1,25 @@
+﻿<form unsaved-warning-form novalidate id="frmProjectCategory">
+    <div class="modal-header">
+        <h3 translate="yes">_PageHeading_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_ProjectCategory_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="ProjectCategory" aa-field-name="{{'_ProjectCategory_' | translate}}" ng-model="ProjectCategory.projectCategory" required tabindex="1" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="orange-btn" aa-submit-form="SaveProjectCategory()" tabindex="2" translate="yes">_Save_</button>
+        <button class="orange-btn" ng-click="Cancel()" tabindex="3" translate="yes">_Cancel_</button>
+    </div>
+</form>

@@ -1,0 +1,55 @@
+﻿<form unsaved-warning-form novalidate id="frmEmailTemplate">
+    <div class="modal-header">
+        <h3 translate="yes">_PageHeading_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-1">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Title_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="Title" aa-field-name="{{'_Title_' | translate}}" ng-model="EmailTemplate.Title" required tabindex="1" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_EmailSubject_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="EmailSubject" aa-field-name="{{'_EmailSubject_' | translate}}" ng-model="EmailTemplate.EmailSubject" required tabindex="2" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_EmailBody_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <!--<input type="text" name="EmailBody" aa-field-name="{{'_EmailBody_' | translate}}" ng-model="EmailTemplate.EmailBody" required tabindex="3" />-->
+                            <textarea ng-model="EmailTemplate.EmailBody" required tabindex="3" ckeditor></textarea>
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_TestEmailAddress_</label>
+                        </span> <span class="btn-field">
+                            <input type="email" name="TestEmailAddress" aa-field-name="{{'_TestEmailAddress_' | translate}}" ng-model="EmailTemplate.TestEmailAddress" tabindex="4" />
+                            <span class="btn-field-send"><button ng-click="SendTestEmail()" translate="yes">_SendNow_</button></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="orange-btn" aa-submit-form="SaveEmailTemplate()" tabindex="4" translate="yes">_Save_</button>
+        <button class="orange-btn" ng-click="Cancel()" tabindex="5" translate="yes">_Cancel_</button>
+    </div>
+</form>
+
+
+
+

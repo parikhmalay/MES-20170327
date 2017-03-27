@@ -1,0 +1,70 @@
+﻿<div>
+    <div class="modal-body">
+        <div class="box-white">
+            <accordion close-others="false">
+                <div class="list-1 root-list">
+                    <div class="lst-header">
+                        <div class="lst-item">
+                            <div class="col-3">
+                                <label translate="yes">_FieldName_</label>
+                            </div>
+                            <div class="col-3">
+                                <label translate="yes">_NewValue_</label>
+                            </div>
+                            <div class="col-3">
+                                <label translate="yes">_OldValue_</label>
+                            </div>
+                            <div class="col-2">
+                                <label translate="yes">_UpdatedOn_</label>
+                            </div>
+                            <div class="col-1">
+                                <label translate="yes">_UpdatedBy_</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <accordion-group heading="" ng-repeat="(UpdatedOn,Item) in AuditLogsList" is-open="true" ng-hide="IsAccordionObjectEmpty" ng-init="Item.IsOpen=true">
+                    <accordion-heading>
+                        <span class="title">{{'_UpdatedOn_' | translate}}: {{Item[0].UpdatedOnString}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <!-- Start List Style 1 structure here -->
+                    <div class="list-1 root-list">
+                        <div class="lst-body">
+                            <div class="lst-item" ng-repeat="subItem in Item">
+                                <div class=" col-3" data-colmn-title="{{'_FieldName_' | translate}}">
+                                    <label>{{subItem.FieldAlias}}</label>
+                                </div>
+                                <div class=" col-3" data-colmn-title="{{'_NewValue_' | translate}}">
+                                    <label bind-html-unsafe="subItem.NewValue"></label>
+                                </div>
+                                <div class=" col-3" data-colmn-title="{{'_OldValue_' | translate}}">
+                                    <label bind-html-unsafe="subItem.OldValue"></label>
+                                </div>
+                                <div class=" col-2" data-colmn-title="{{'_UpdatedOn_' | translate}}">
+                                    <label>{{subItem.TimeStampString}}</label>
+                                </div>
+                                <div class=" col-1" data-colmn-title="{{'_UpdatedBy_' | translate}}">
+                                    <label>{{subItem.UpdatedBy}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End List Style 1 structure here -->
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="no-data-panel" ng-show="IsAccordionObjectEmpty">
+            <div class="lst-item">
+                <div class="col-12">
+                    <div class="error-box rounded-info-box">
+                        <p translate="yes">_NoRecordsFound_</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" ng-hide="IsAccordionObjectEmpty">
+        <mespagination boundary-links="true" total-items="AuditLogPaging.TotalRecords" on-select-page="auditLogPageChanged(page)" page="AuditLogPaging.PageNo" items-per-page="AuditLogPaging.PageSize" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page-size="auditLogPageSizeChanged(pagesize)" pagesize="AuditLogPaging.PageSize"></mespagination>
+    </div>
+</div>

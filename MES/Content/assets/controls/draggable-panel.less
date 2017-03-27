@@ -1,0 +1,143 @@
+.draggable-section {
+    background: @base-color-2-l57;
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.draggable {
+    background: @base-color-2-l44;
+    width: 10px;
+    height: 100%;
+    cursor: col-resize;
+    position: absolute;
+    right: 0;
+}
+
+.draggable-left {
+    float: left;
+    width: 20%;
+    position: relative;
+    height: 100%;
+    z-index: 1;
+    padding-right: 10px;
+}
+
+.draggable-right {
+    float: left;
+    width: 80%;
+    background: @color-white;
+    height: 100%;
+    overflow:auto;
+}
+
+
+.draggable-section-static {
+    background: @base-color-2-l57;
+    float: left;
+    width: 100%;
+    position: relative;
+
+    & .draggable {
+        position:absolute;
+        top:0px;
+        bottom:0px;
+        left:20%;
+        margin-left:-10px;
+        cursor:auto;
+    }
+}
+.draggable-left-static {
+    float: left;
+    width: 20%;
+    z-index: 1;
+    padding-right: 10px;
+
+    & .draggable-left-inner {
+    }
+}
+.draggable-right-static {
+    float: left;
+    width: 80%;
+    background: @color-white;
+
+    & .draggable-right-inner {
+        float:left;
+        width:100%;
+        background: @color-white;
+    }
+}
+
+
+@media screen and (max-width:1024px) {
+    .draggable-left {
+        width: 30%;
+    }
+
+    .draggable-right {
+        width: 70%;
+    }
+    .draggable-left-static {
+        width: 30%;
+    }
+
+    .draggable-right-static {
+        width: 70%;
+    }
+    .draggable-section-static .draggable {
+        left:30%;
+    }
+
+        .draggable-right .col-4 {
+            width: 50%;
+        }
+}
+
+@media screen and (max-width:980px) {
+    .draggable-left {
+        width: 40%;
+    }
+
+    .draggable-right {
+        width: 60%;
+    }
+    .draggable-left-static {
+        width: 40%;
+    }
+
+    .draggable-right-static {
+        width: 60%;
+    }
+    .draggable-section-static .draggable {
+        left:40%;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .draggable-left {
+        width: 100%;
+        min-height: inherit;
+    }
+
+    .draggable-right {
+        border-top: 10px solid @base-color-2-l44;
+        border-left: none;
+        width: 100%;
+        min-height: inherit;
+    }
+    .draggable-left-static {
+        width: 100%;
+        min-height: inherit;
+        padding-right:0px;
+    }
+
+    .draggable-right-static {
+        border-top: 10px solid @base-color-2-l44;
+        border-left: none;
+        width: 100%;
+        min-height: inherit;
+    }
+    .draggable-section-static .draggable {
+        display:none;
+    }
+}

@@ -1,0 +1,25 @@
+﻿<form unsaved-warning-form novalidate id="frmMachiningDescription">
+    <div class="modal-header">
+        <h3 translate="yes">_PageHeading_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_MachiningDescription_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="MachiningDescription" aa-field-name="{{'_MachiningDescription_' | translate}}" ng-model="MachiningDescription.machiningDescription" required tabindex="1" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="orange-btn" aa-submit-form="SaveMachiningDescription()" tabindex="2" translate="yes">_Save_</button>
+        <button class="orange-btn" ng-click="Cancel()" tabindex="3" translate="yes">_Cancel_</button>
+    </div>
+</form>

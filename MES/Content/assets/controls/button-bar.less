@@ -1,0 +1,58 @@
+.button-bar {
+    float: left;
+    padding: 15px 20px;
+    width: 100%;
+}
+
+    .button-bar.freeze-bottom {
+        width: auto;
+        padding: 10px 10px 10px 0;
+    }
+
+    .button-bar h3,
+    .button-bar label {
+        padding: 7px 0 7px 0;
+        display: inline-block;
+    }
+
+    .button-bar .search-bar {
+        display: inline-block;
+        width: 100%;
+    }
+
+        .button-bar .search-bar input {
+            display: inline-block;
+        }
+
+    .button-bar .input-field {
+        white-space: nowrap;
+    }
+
+        .button-bar .input-field label {
+            line-height: 2.5em;
+            display: inline-block;
+            white-space: nowrap;
+            margin-right: 10px;
+            padding: 0;
+        }
+
+        .button-bar .input-field input {
+            display: inline-block;
+            width: auto !important;
+        }
+
+@media screen and (max-width:768px) {
+    .button-bar > div:not([class*="col-sm-"]) {
+        margin-bottom: 10px;
+    }
+
+    .button-bar > div:not([class*="col-md-"]) {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .button-bar > div {
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,54 @@
+.freeze-bottom {
+    position: fixed;
+    text-align: right;
+    right: 0;
+    background: rgba(255,255,255,0.9);
+    border-top: 2px solid @color-orange;
+    height: 55px;
+    bottom: -53px;
+    z-index: 55;
+    padding-top:10px;
+    padding-right:8px;
+    .animation(freezeUp .5s linear 1s forwards);
+
+    & .pager-section {
+        padding: 0px;
+        margin-top: -1px;
+        float: left;
+    }
+
+    & .back-button + .pager-section {
+        margin-left: 63px;
+    }
+}
+body.sidebar-opened .freeze-bottom {
+    left:192px;
+}
+body.sidebar-minimize .freeze-bottom {
+    left:66px;
+}
+.ie9 .freeze-bottom {
+    bottom: 0px\9;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes freezeUp {
+    from {
+        bottom: -53px;
+    }
+
+    to {
+        bottom: 0px;
+    }
+}
+
+/* Standard syntax */
+@keyframes freezeUp {
+    from {
+        bottom: -53px;
+    }
+
+    to {
+        bottom: 0px;
+    }
+}

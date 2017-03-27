@@ -1,0 +1,31 @@
+
+.frame-component {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+    .frame-component > .frame-content {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .frame-component > .frame-popup {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 3px;
+        min-height: 100%;
+        overflow: hidden;
+        .transition(width 1s);
+    }
+
+        .frame-component > .frame-popup > .inner-frame-popup {
+            border-left: 3px solid @color-black-90;
+            width: 800px;
+        }
+
+    .frame-component.frame-popup-show > .frame-popup {
+        width: 800px;
+        overflow: inherit;
+    }

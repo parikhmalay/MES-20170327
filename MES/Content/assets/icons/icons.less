@@ -1,0 +1,732 @@
+﻿@import "../variables.less";
+@import "../mixins.less";
+
+
+@font-face {
+    font-family: @icon-font-npe;
+    src: url('/fonts/npe-icons-webfont.eot');
+    src: url('/fonts/npe-icons-webfont.eot?#iefix') format('embedded-opentype'), url('/fonts/npe-icons-webfont.woff') format('woff'), url('/fonts/npe-icons-webfont.ttf') format('truetype'), url('/fonts/npe-icons-webfont.svg#npe_icons_v1regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-chart-48,
+.icon-chart-48-disable{
+    background-image:url("/content/images/chart-icon.png");
+    background-repeat:no-repeat;
+}
+
+.icon-chart-48,
+.icon-chart-48-disable{
+    width:48px;
+    height:48px;
+    cursor:pointer;
+    display:inline-block;
+}
+
+.icon-chart-48{
+    background-position:-915px -77px; 
+}
+.icon-chart-48-disable{
+    background-position:-915px -378px; 
+}
+
+.icon-left-arrow,
+.icon-right-arrow,
+.icon-top-arrow,
+.icon-bottom-arrow,
+.icon-setting,
+.icon-user,
+.icon-monitor,
+.icon-up-down,
+.icon-comment,
+.icon-logout,
+.icon-dashboard,
+.icon-cart,
+.icon-close,
+.icon-email,
+.icon-edit,
+.icon-add,
+.icon-refund,
+.icon-search,
+.icon-switch,
+.icon-globe,
+.icon-down-arrow,
+.icon-arrow-t,
+.icon-Home-mail,
+.icon-globe-email,
+.icon-mail-email,
+.icon-calendar,
+.icon-copy,
+.icon-save,
+.icon-lock,
+.icon-up-arrow2,
+.icon-change-password,
+.icon-help,
+.icon-delete,
+.icon-mobile,
+.icon-location,
+.icon-go-next,
+.icon-note,
+.icon-tools,
+.icon-database,
+.icon-contact-info,
+.icon-dolor-currency,
+.icon-dolor-bag,
+.icon-bar,
+.icon-three-dot,
+.icon-down-sign,
+.icon-up-sign,
+.icon-print,
+.icon-gift,
+.icon-video,
+.icon-picture,
+.icon-ok-circle,
+.icon-plus-circle,
+.icon-minus-circle,
+.icon-cancel-circle,
+.icon-link,
+.icon-attach,
+.icon-lock-close,
+.icon-lock-open,
+.icon-tag,
+.icon-reply,
+.icon-reply-all,
+.icon-code,
+.icon-retweet,
+.icon-folder,
+.icon-archive,
+.icon-cw-circle,
+.icon-updown-circle,
+.icon-youtube,
+.icon-address-book,
+.icon-book,
+.icon-fire,
+.icon-braille,
+.icon-magnet,
+.icon-credit-card,
+.icon-tasks,
+.icon-filter,
+.icon-inbox,
+.icon-play-circled2,
+.icon-eject,
+.icon-cw,
+.icon-zoom-in,
+.icon-resize-small,
+.icon-resize-full,
+.icon-zoom-out,
+.icon-lightbulb,
+.icon-phone,
+.icon-mic,
+.icon-clock,
+.icon-embassy,
+.icon-login,
+.icon-logout2,
+.icon-export,
+.icon-flash,
+.icon-star,
+.icon-star-empty,
+.icon-users,
+.icon-user-female,
+.icon-user-male,
+.icon-print2,
+.icon-chart-pie,
+.icon-dollar,
+.icon-grid,
+.icon-squares,
+.icon-th-list,
+.icon-money,
+.icon-layers,
+.icon-split,
+.icon-loop-alt,
+.icon-share,
+.icon-thumbs-up,
+.icon-thumbs-down,
+.icon-plus-squared,
+.icon-minus-squared,
+.icon-back,
+.icon-camera,
+.icon-download,
+.icon-upload,
+.icon-doc-text-inv,
+.icon-fax,
+.icon-active,
+.icon-inactive,
+.icon-down-arrow2,
+.icon-true,
+.icon-color-editor,
+.icon-membership {
+    font-family: @icon-font-npe !important;
+    text-transform:none !important;
+    font-weight:normal !important;
+}
+
+.icon-left-arrow:after {
+    content: "<";
+}
+
+.icon-right-arrow:after {
+    content: ">";
+}
+
+.icon-top-arrow:after {
+    content: ".";
+}
+
+.icon-bottom-arrow:after {
+    content: ",";
+}
+
+.icon-setting:after {
+    content: "S";
+}
+
+.icon-user:after {
+    content: "U";
+}
+
+.icon-monitor:after {
+    content: "m";
+}
+
+.icon-up-down:after {
+    content: "A";
+}
+
+.icon-comment:after {
+    content: "`";
+}
+
+.icon-logout:after {
+    content: "l";
+}
+
+.icon-dashboard:after {
+    content: "D";
+}
+
+.icon-cart:after {
+    content: "C";
+}
+
+.icon-close:after {
+    content: "c";
+}
+
+.icon-email:after {
+    content: "E";
+}
+
+.icon-edit:after {
+    content: "e";
+}
+
+.icon-add:after {
+    content: "a";
+}
+
+.icon-refund:after {
+    content: "r";
+}
+
+.icon-search:after {
+    content: "s";
+}
+
+.icon-switch:after {
+    content: "=";
+}
+
+.icon-globe:after {
+    content: "b";
+}
+
+.icon-down-arrow:after {
+    content: "8";
+}
+
+.icon-arrow-t:after {
+    content: "B";
+}
+
+.icon-Home-mail:after {
+    content: "F";
+}
+
+.icon-globe-email:after {
+    content: "f";
+}
+
+.icon-mail-email:after {
+    content: "h";
+}
+
+.icon-calendar:after {
+    content: "i";
+}
+
+.icon-copy:after {
+    content: "I";
+}
+
+.icon-save:after {
+    content: "j";
+}
+
+.icon-lock:after {
+    content: "J";
+}
+
+.icon-up-arrow2:after {
+    content: ".";
+}
+.icon-down-arrow2:after {
+    content: ",";
+}
+
+.icon-change-password:after {
+    content: "k";
+}
+
+.icon-help:after {
+    content: "?";
+}
+
+.icon-delete:after {
+    content: "d";
+}
+
+.icon-mobile:after {
+    content: "#";
+}
+
+.icon-location:after {
+    content: "@";
+}
+
+.icon-go-next:after {
+    content: "(";
+}
+
+.icon-note:after {
+    content: "n";
+}
+
+.icon-tools:after {
+    content: "T";
+}
+
+.icon-database:after {
+    content: "0";
+}
+
+.icon-contact-info:after {
+    content: "p";
+}
+
+.icon-dolor-currency:after {
+    content: "$";
+}
+
+.icon-dolor-bag:after {
+    content: "~";
+}
+
+.icon-bar:after {
+    content: "G";
+}
+
+.icon-three-dot:after {
+    content: "H";
+}
+
+.icon-down-sign:after {
+    content: ",";
+}
+
+.icon-up-sign:after {
+    content: ".";
+}
+.icon-true:after {
+    content:"o";
+}
+
+.icon-print2:after {
+    content: "P";
+}
+
+.icon-gift:after {
+    content: 'v';
+}
+
+.icon-video:after {
+    content: '\e800';
+}
+
+.icon-picture:after {
+    content: '\e801';
+}
+
+.icon-ok-circle:after {
+    content: '\e802';
+}
+
+.icon-plus-circle:after {
+    content: '\e803';
+}
+
+.icon-minus-circle:after {
+    content: '\e804';
+}
+
+.icon-cancel-circle:after {
+    content: '\e805';
+}
+
+.icon-link:after {
+    content: '\e806';
+}
+
+.icon-attach:after {
+    content: '\e807';
+}
+
+.icon-lock-close:after {
+    content: '\e808';
+}
+
+.icon-lock-open:after {
+    content: '\e809';
+}
+
+.icon-tag:after {
+    content: '\e80a';
+}
+
+.icon-reply:after {
+    content: '\e80b';
+}
+
+.icon-reply-all:after {
+    content: '\e80c';
+}
+
+.icon-code:after {
+    content: '\e80e';
+}
+
+.icon-retweet:after {
+    content: '\e80f';
+}
+
+.icon-folder:after {
+    content: '\e810';
+}
+
+.icon-archive:after {
+    content: '\e811';
+}
+
+.icon-cw-circle:after {
+    content: '\e812';
+}
+
+.icon-updown-circle:after {
+    content: '\e813';
+}
+
+.icon-youtube:after {
+    content: '\e814';
+}
+
+.icon-address-book:after {
+    content: '\e815';
+}
+
+.icon-book:after {
+    content: '\e816';
+}
+
+.icon-fire:after {
+    content: '\e817';
+}
+
+.icon-braille:after {
+    content: '\e818';
+}
+
+.icon-magnet:after {
+    content: '\e819';
+}
+
+.icon-credit-card:after {
+    content: '\e81a';
+}
+
+.icon-tasks:after {
+    content: '\e81b';
+}
+
+.icon-filter:after {
+    content: '\e81c';
+}
+
+.icon-inbox:after {
+    content: '\e81d';
+}
+
+.icon-play-circled2:after {
+    content: '\e81e';
+}
+
+.icon-eject:after {
+    content: '\e81f';
+}
+
+.icon-cw:after {
+    content: '\e820';
+}
+
+.icon-zoom-in:after {
+    content: '\e821';
+}
+
+.icon-resize-small:after {
+    content: '\e822';
+}
+
+.icon-resize-full:after {
+    content: '\e823';
+}
+
+.icon-zoom-out:after {
+    content: '\e824';
+}
+
+.icon-lightbulb:after {
+    content: '\e825';
+}
+
+.icon-phone:after {
+    content: '\e826';
+}
+
+.icon-mic:after {
+    content: '\e827';
+}
+
+.icon-embassy:after {
+    content: '\e828';
+}
+
+.icon-login:after {
+    content: '\e829';
+}
+
+.icon-logout2:after {
+    content: '\e82a';
+}
+
+.icon-export:after {
+    content: '\e82b';
+}
+
+.icon-flash:after {
+    content: '\e82c';
+}
+
+.icon-star:after {
+    content: '\e82d';
+}
+
+.icon-star-empty:after {
+    content: '\e82e';
+}
+
+.icon-users:after {
+    content: '\e82f';
+}
+
+.icon-user-female:after {
+    content: '\e830';
+}
+
+.icon-user-male:after {
+    content: '\e83e';
+}
+
+.icon-print:after {
+    content: '\e831';
+}
+
+.icon-chart-pie:after {
+    content: '\e832';
+}
+
+.icon-dollar:after {
+    content: '\e833';
+}
+
+.icon-grid:after {
+    content: '\e834';
+}
+
+.icon-squares:after {
+    content: '\e835';
+}
+
+.icon-th-list:after {
+    content: '\e836';
+}
+
+.icon-money:after {
+    content: '\e837';
+}
+
+.icon-layers:after {
+    content: '\e838';
+}
+
+.icon-split:after {
+    content: '\e839';
+}
+
+.icon-loop-alt:after {
+    content: '\e83a';
+}
+
+.icon-share:after {
+    content: '\e83b';
+}
+
+.icon-thumbs-up:after {
+    content: '\e83c';
+}
+
+.icon-thumbs-down:after {
+    content: '\e83d';
+}
+
+.icon-plus-squared:after {
+    content: '\e840';
+}
+
+.icon-minus-squared:after {
+    content: '\e841';
+}
+
+.icon-back:after {
+    content: '\e842';
+}
+
+.icon-camera:after {
+    content: '\e843';
+}
+
+.icon-download:after {
+    content: '\e844';
+}
+
+.icon-upload:after {
+    content: '\e845';
+}
+
+.icon-doc-text-inv:after {
+    content: '\e846';
+}
+
+.icon-fax:after {
+    content: '\e847';
+}
+.icon-color-editor:after {
+    content:"K";
+}
+.icon-clock:after {
+    content:"t";
+}
+.icon-membership:after {
+    content:"w";
+}
+
+
+
+
+.icon-active {
+    color: @color-green !important;
+}
+
+.icon-inactive {
+    color: @color-black-60 !important;
+}
+
+.icon-active:after,
+.icon-inactive:after {
+    content: "\e802";
+}
+
+
+
+button > [class*='icon-'] {
+    display: inline-block;
+    font-size: 1.8em;
+    height: 0.6em;
+    line-height: 0.6em;
+    margin-left: -5px;
+    vertical-align: middle;
+}
+
+button > .only-icon {
+    margin: 0 -10px;
+}
+button > .only-icon-text {
+    margin: 0 0px 0 -10px;
+}
+
+button[class*="icon-"] {
+    border: 0 none;
+    .borderRadius(0px);
+    color: @color-black-69;
+    font-size: 4.9em;
+    height: 0.7em;
+    line-height: 0.67em;
+    margin: 0;
+    padding: 0;
+    text-indent: -0.18em;
+    vertical-align: top;
+    width: 0.66em;
+    background: transparent;
+}
+    button[class*="icon-"]:focus {
+        .boxShadow(none);
+        
+    }
+button[class*="icon-"]:hover {
+    .boxShadow(none);
+}
+
+.btn-group button > [class*="icon-"] {
+    font-size: inherit;
+    line-height:0px;
+    height: inherit;
+    margin: inherit;
+}
+
+button.button-size-big span[class*="icon-"] {
+    font-size: 2.8em;
+    vertical-align: middle;
+    line-height: 0px;
+    margin-left: -9px;
+    display: inline-block;
+}
+
+.btn-field .btn-field-send > button[class*="icon-"]
+{
+    font-size: 2.6em;
+    height: 30px;
+    padding-left: 23px;
+    color:@color-black-60;
+}
+.btn-field .btn-field-send > button[class*="icon-"]:hover
+{
+    color:@color-black-20;
+}

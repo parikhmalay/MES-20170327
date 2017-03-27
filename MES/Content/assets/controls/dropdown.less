@@ -1,0 +1,323 @@
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    padding: 7px 7px 6px;
+}
+
+    .dropdown-toggle > .icon-down-arrow {
+        vertical-align: middle;
+        padding-left: 20px;
+    }
+
+    .dropdown-toggle:focus {
+        outline: 0;
+    }
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    text-align: left;
+    left: 0;
+    z-index: 1;
+    display: none;
+    float: left;
+    /*min-width: 175px;*/
+    min-width: 275px;
+    overflow: hidden;
+    margin: 2px 0 0;
+    list-style: none;
+    background-color: @color-white;
+    border: 1px solid @color-black-80;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    .borderRadius(4px);
+    .boxShadow(0px 0px 6px rgba(0, 0, 0, 0.175));
+    background-clip: padding-box;
+    max-height: 450px;
+    overflow: auto;
+    z-index: 4;
+}
+
+.freeze-bottom .dropdown-menu {
+    top: inherit;
+    bottom: 100%;
+}
+
+& .slider-scroll-container {
+    & .linear {
+        & .fs-f-i label {
+            padding:3px 0;
+            padding-bottom:0 !important;
+        }
+    }
+}
+.panel-body {
+     & .linear {
+        & .fs-f-i label {
+            padding:3px 0;
+            padding-bottom:0 !important;
+        }
+    }
+    & file-select {
+        display: inline-block;
+        position: relative;
+        top: 2px;
+    }
+}
+.dropdown-menu.pull-right {
+    right: 0;
+    left: auto;
+}
+
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: @color-black-90;
+}
+
+.dropdown-menu > .input,
+.dropdown-menu > .button {
+    padding: 6px 8px;
+    background: @color-black-94;
+}
+
+    .dropdown-menu > .input + .button {
+        padding-top: 0;
+    }
+
+.dropdown-menu > ul {
+    max-height: 200px;
+    overflow: auto;
+}
+
+.dropdown-menu li a {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid @color-black-80;
+    padding-left: 5px;
+    padding-right: 5px;
+    .boxSizing(border-box);
+    font-size: 1.3em !important;
+    padding: 7px 10px 7px 10px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dropdown-menu li:last-child > a {
+    border-bottom: none;
+    margin-bottom:0 !important;
+    text-transform:uppercase;
+}
+
+.dropdown-menu > li a:hover,
+.dropdown-menu > li a:focus {
+    text-decoration: none;
+    color: @color-white;
+    background-color: @color-hover;
+}
+
+
+.bootstrap-tagsinput .dropdown-menu {
+    min-width: 300px;
+}
+
+.dropdown-menu > .input input {
+    font-size: 1.0em;
+}
+
+.dropdown-menu > .button button {
+    font-size: 0.9em;
+    padding: 4px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.dropdown-menu > .button.apply-btn button {
+    font-size: 1.0em;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    color: inherit;
+    text-decoration: none;
+    outline: 0;
+    background-color: @color-hover;
+}
+
+
+.action-btn .dropdown-menu li a:hover,
+.action-btn .dropdown-menu li a:focus {
+    background: @base-color-2-l2-5;
+    color: @color-white !important;
+}
+
+.action-btn .dropdown-menu li.active a,
+.action-btn .dropdown-menu li.active a:hover,
+.action-btn .dropdown-menu li.active a:focus {
+    background: @base-color-2-l2-5;
+    color: @color-white;
+}
+
+
+.dropdown-menu table {
+    cursor: pointer;
+}
+
+    .dropdown-menu table tr > td > h5 {
+        font-weight: 600;
+        font-size: 1.1em !important;
+        color: @color-black-20;
+    }
+
+        .dropdown-menu table tr > td > h5 > strong {
+            font-weight: 600;
+            color: @color-black-20;
+        }
+
+    .dropdown-menu table tr > td > span {
+        color: @color-black-60;
+        font-size: 0.9em;
+        display: inline-block;
+    }
+
+        .dropdown-menu table tr > td > span:after {
+            padding-left: 7px;
+            content: "|";
+            padding-right: 7px;
+        }
+
+        .dropdown-menu table tr > td > span:last-child:after {
+            content: "";
+        }
+
+
+.list-1 .dropdown-menu a {
+    color: inherit !important;
+}
+
+.list-1 .dropdown-menu {
+    background: @color-white;
+}
+
+
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+    .dropdown-menu.auto-complete > li > a > [class*="col-"] {
+        margin-bottom: 0px;
+        padding: 1px 0 1px 0;
+    }
+}
+
+.dropdown-menu.auto-complete li > a > [class*="col-"].drop-text-style1,
+.list-1 .dropdown-menu.auto-complete li > a > [class*="col-"].drop-text-style1 {
+    color: @color-black-60;
+    font-size: 0.9em;
+}
+
+.dropdown-menu.auto-complete li > a > [class*="col-"].drop-head-style1,
+.list-1 .dropdown-menu.auto-complete li > a > [class*="col-"].drop-head-style1 {
+    color: @color-black-20;
+    font-size: 1.0em;
+}
+
+
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+    color: @color-black-60;
+}
+
+    .dropdown-menu > .disabled > a:hover,
+    .dropdown-menu > .disabled > a:focus {
+        text-decoration: none;
+        background-color: transparent;
+        background-image: none;
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+        cursor: not-allowed;
+    }
+
+.open > .dropdown-menu {
+    display: block;
+}
+
+.open > a {
+    outline: 0;
+}
+
+.dropdown-menu-right {
+    left: auto;
+    right: 0;
+}
+
+.dropdown-menu-left {
+    left: 0;
+    right: auto;
+}
+
+.dropdown-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: @color-black-60;
+}
+
+.dropdown-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 990;
+}
+
+.pull-right > .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret {
+    border-top: 0;
+    border-bottom: 4px solid;
+    content: "";
+}
+
+.dropup .dropdown-menu,
+.navbar-fixed-bottom .dropdown .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 1px;
+}
+
+.dropdown-menu .dm-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("/content/images/npe-sprite.png");
+    background-position: -46px -47px;
+    vertical-align: middle;
+    margin-right: 2px;
+    position:relative;
+    top:-1px;
+}
+
+    .dropdown-menu .dm-icon.dm-checked {
+        background-position: -86px -47px;
+    }
+
+@media (min-width: 768px) {
+    .navbar-right .dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+
+    .navbar-right .dropdown-menu-left {
+        left: 0;
+        right: auto;
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="MES.Scheduler.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="MES.Scheduler">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mesmeshstorage2;AccountKey=tf41mmByClu74MZ0hD/NW0TXGifVxHzwRLOeq4/2Z4ZDgij48tflQslp0CWW0+kOYgNWGO8Kr9uScFdOaXrg2A==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="meshuser" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBnQYJKoZIhvcNAQcDoIIBjjCCAYoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEGSGxhsG0jCoQENrKE2AvWYwDQYJKoZIhvcNAQEBBQAEggEAsMYvs3C7NjL/csgTi6UBw0wIi9tbW8enT8SCKqKYG22WPgkoyctcChv+BTNXkBD2AjD80NLKzxEfVl8SnKxg3VCNs4BmSv7ZkTloI/3Dd6U4+X27DxGBkucqKMYV/+fSuFl/BJw6rTx+nPR8VN8LkmA16NCwQFv7yrZ5iBr3AFfy5o6ny9EWkvZe3DrxaCnbBHPNsWGn8r/FwNFGMI+9FvP1p7pExdkxGh66+HNYWyo6Ryg1bKdZnKh5kppMfZFJ0hddMjLOl3770LIk0EbzmMcEwUXLseICE1wzwcuOmk9ms+xM5s5sLS6bxtAGdiIw5EtDUvCaE9LY/RTONAxL9TAzBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECGNvlo6DvxqJgBA0MRcbt1TSSeZ+27v57pwe" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2018-02-16T23:59:59.0000000+05:30" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="80F30A8A353122A5A2159B6D7AFD8A7EEBC8A05F" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

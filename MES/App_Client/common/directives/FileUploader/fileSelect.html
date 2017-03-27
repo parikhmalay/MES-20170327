@@ -1,0 +1,31 @@
+﻿<div id="dragAndDropDiv">
+    <div ng-show="dropSupported">
+        <div class="drop-box" 
+             ng-file-drop="onFileSelect($files, {{fsUploadPath}})" ng-file-drop-available="dropSupported=true"
+             ng-file-drag-over-class="dragOverClass" ng-file-drag-over-delay="100">
+            <span class="min-text" ng-hide="btnOnly" ng-style="dragStyle">{{dragText}}</span>            
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="onDragDiv">
+                <tr>
+                    <td align="center" valign="middle">
+                        <span class="icon-close drag-drop-close" ng-click="closeDragPopup($event)"></span>
+                        <span class="txt"><span class="icon-add"></span><br />Drag your file(s) here </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <label class="fs-info-label" ng-show="fsShowExtentionLabel">Supported file types: {{fsExtension}} <span class="label-info">( Max file size: {{fsMaxSizeinMB}} MB )</span></label>
+
+    <div id="uploaderDiv" ng-show="!dropSupported || btnOnly">        
+        <div ng-class="cssClass">
+            <div class="file-uploader">
+                <button class="{{fsButtonClass}}" bind-html-unsafeapp="fsButtonText"></button>                
+                <input type="file" ng-show="MultiSelectAttrb==true" ng-file-select="onFileSelect($files, {{fsUploadPath}})" ng-model="fsModel" multiple  name="mul"/>
+                <input type="file" ng-show="MultiSelectAttrb==false" ng-file-select="onFileSelect($files, {{fsUploadPath}})" ng-model="fsModel" name="single" />
+                <span class="file-Names">{{fsModel}}</span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

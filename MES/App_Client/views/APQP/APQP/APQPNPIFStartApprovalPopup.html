@@ -1,0 +1,100 @@
+﻿<div>
+    <div class="modal-header">
+        <h3>{{'_APQPStartNPIFPopupPageHeading_'| translate}}{{apqpNPIFDocuSign.PartNumber}}</h3>
+    </div>
+    <div class="modal-body pad-0">
+        <div class="list-1 root-list">
+            <div class="lst-header">
+                <div class="lst-item">
+                    <div class="col-1"></div>
+                    <div class="col-1">
+                        <label>
+                            {{'_RoutingOrder_' | translate}}
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <label>
+                            {{'_Designation_' | translate}}
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <label>
+                            {{'_Name_' | translate}}
+                        </label>
+                    </div>
+                    <div class="col-3">
+                        <label>
+                            {{'_Email_' | translate}}
+                        </label>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                </div>
+            </div>
+            <div class="lst-body">
+                <div class="lst-item" ng-repeat="recipientItem in apqpNPIFDocuSign.lstNPIFDocuSignApprovers">
+                    <div class="col-1">
+                        <label>
+                            {{$index + 1}}
+                        </label>
+                    </div>
+                    <div class="col-1">
+                        <select name="{{'_RoutingOrder_' | translate}}" aa-field-name="{{'_RoutingOrder_'|translate}}" ng-model="recipientItem.RoutingOrder" ng-options="rItem.value as rItem.name for rItem in lstRoutingOrder"
+                                ng-disabled="$index==0"></select>
+                    </div>
+                    <div class="col-3">
+                        <select name="{{'_Designation_' | translate}}" aa-field-name="{{'_Designation_'|translate}}" ng-model="recipientItem.DesignationId" ng-options="dItem.Id as dItem.Name for dItem in lstDesignation"
+                                ng-disabled="$index==0"
+                                ng-change="getUsers(recipientItem.DesignationId,recipientItem)" class="always-disable">
+                            <option value="">{{'_Select_' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select name="{{'_Name_' | translate}}" aa-field-name="{{'_Name_'|translate}}" ng-model="recipientItem.UserId" ng-options="uItem.Id as uItem.Name for uItem in recipientItem.UserList"
+                                ng-disabled="$index==0"
+                                ng-change="getUserEmail(recipientItem.UserId,recipientItem)">
+                            <option value="">{{'_Select_' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label>{{recipientItem.Email}}</label>
+                    </div>
+                    <div class="col-1 align-right button-add-s">
+                        <button class="mar-r-15" ng-click="DeleteNPIFRecipients($index)" ng-disabled="$index==0" style="background: none !important;"><i class="fa fa-minus-circle"></i></button>
+                    </div>
+                </div>
+                <div class="lst-item" ng-show="apqpNPIFDocuSign.lstNPIFDocuSignApprovers.length<6">
+                    <div class="col-1">
+                        <label>
+                            {{apqpNPIFDocuSign.lstNPIFDocuSignApprovers.length + 1}}
+                        </label>
+                    </div>
+                    <div class="col-1">
+                        <select name="{{'_RoutingOrder_' | translate}}" aa-field-name="{{'_RoutingOrder_'|translate}}" ng-model="objNPIFRecipients.RoutingOrder" ng-options="rItem.value as rItem.name for rItem in lstRoutingOrder"></select>
+                    </div>
+                    <div class="col-3">
+                        <select name="{{'_Designation_' | translate}}" aa-field-name="{{'_Designation_'|translate}}" ng-model="objNPIFRecipients.DesignationId" ng-options="dItem.Id as dItem.Name for dItem in lstFilteredDesignation" ng-change="getUsers(objNPIFRecipients.DesignationId,objNPIFRecipients)">
+                            <option value="">{{'_Select_' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select name="{{'_Name_' | translate}}" aa-field-name="{{'_Name_'|translate}}" ng-model="objNPIFRecipients.UserId" ng-options="uItem.Id as uItem.Name for uItem in objNPIFRecipients.UserList" ng-change="getUserEmail(objNPIFRecipients.UserId,objNPIFRecipients)">
+                            <option value="">{{'_Select_' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label>{{objNPIFRecipients.Email}}</label>
+                    </div>
+                    <div class="col-1 align-right button-add-s">
+                        <button class="mar-r-15" ng-click="AddNPIFRecipients()" ng-attr-title="{{'_AddNewRecipient_'| translate}}"><i class="fa fa-plus-circle"></i></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="orange-btn" ng-click="SaveApprovers()">{{'_Send_' | translate}}</button>
+            <button class="orange-btn" ng-click="Cancel()">{{'_Cancel_' | translate}}</button>
+        </div>
+    </div>
+</div>

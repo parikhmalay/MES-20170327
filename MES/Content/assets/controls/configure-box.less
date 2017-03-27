@@ -1,0 +1,151 @@
+/*-----------------------------------------------------------------------------------------------*/
+/*------------------------ Configure box start here ---------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+.configure-box {
+    width: 100%;
+    float: left;
+    position: relative;
+    border: 1px solid @color-black-80;
+    box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 3px 0px rgba(0,0,0,0.1);
+
+    &.disable {
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+
+        & .configure-box-overlay {
+            display: block;
+        }
+    }
+
+    & .configure-box-overlay {
+        background: rgba(255,255,255,0.7);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: 2;
+        display: none;
+        cursor: not-allowed;
+    }
+
+    & .configure-box-content {
+        width: 100%;
+        float: left;
+        background: @color-black-98;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+
+        &:hover {
+            background: @color-white;
+
+            & .configure-icon-part .configure-icon {
+                background: @color-green;
+            }
+        }
+
+        & .configure-content {
+            width: 100%;
+            float: left;
+            min-height: 115px;
+            padding-top: 45px;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+
+            & span {
+                width: 100%;
+                display: inline-block;
+                text-align: center;
+                font-size: 1.8em;
+                color: @color-black-60;
+            }
+
+            & h3 {
+                font-size: 1.8em;
+                font-weight: 600;
+                text-align: center;
+                width: 100%;
+                display: inline-block;
+                color: @color-black-20;
+                padding-bottom: 0px;
+            }
+        }
+
+        & .configure-icon-part {
+            min-height: 90px;
+            position: relative;
+            width: 100%;
+            float: left;
+            border-bottom: 1px solid @color-black-80;
+
+            & .configure-icon {
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+                background: @base-color-2;
+                display: inline-block;
+                position: absolute;
+                left: 50%;
+                margin-left: -36px;
+                top: 100%;
+                margin-top: -36px;
+                text-align: center;
+
+                & i[class*="icon-"] {
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 6em;
+                    color: @color-white;
+                    display: inline-block;
+                    margin-top: 36px;
+                    line-height: 0px;
+                }
+            }
+        }
+    }
+
+    & .configure-switch-input {
+        display: none;
+    }
+
+    & .configure-switch {
+        width: 27px;
+        height: 27px;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 3;
+        cursor: pointer;
+        padding: 0px;
+        margin: 0px;
+
+        &:before {
+            display: none;
+        }
+
+        &.off-switch {
+            background: url("/content/images/npe-sprite.png") no-repeat 0px -396px;
+        }
+
+        &.on-switch {
+            background: url("/content/images/npe-sprite.png") no-repeat 0px -443px;
+        }
+    }
+}
+
+@media screen and (max-width:980px) and (min-width:769px) {
+    .configure-box .configure-box-content .configure-content h3,
+    .configure-box .configure-box-content .configure-content span {
+        font-size: 1.7em;
+    }
+}
+/*-----------------------------------------------------------------------------------------------*/
+/*------------------------ Configure box End here -----------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/

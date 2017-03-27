@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08EEA579-76A2-4B5C-B12D-4928873D7750}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MES.DTO.Library</RootNamespace>
+    <AssemblyName>MES.DTO.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExpressiveAnnotations, Version=2.3.8.0, Culture=neutral, PublicKeyToken=d3e372f3c1e83cec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ExpressiveAnnotations.2.6.8\lib\net45\ExpressiveAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="ExpressiveAnnotations.MvcUnobtrusive, Version=2.4.5.0, Culture=neutral, PublicKeyToken=d3e372f3c1e83cec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ExpressiveAnnotations.2.6.8\lib\net45\ExpressiveAnnotations.MvcUnobtrusive.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling">
+      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data">
+      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPE.Infrastructure.Core">
+      <HintPath>..\SharedBin\NPE.Infrastructure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APQP\APQP\APQPNewBusinessAwardedReport.cs" />
+    <Compile Include="APQP\APQP\APQPWeeklyMeetingReport.cs" />
+    <Compile Include="APQP\APQP\APQPPPAPApprovalReport.cs" />
+    <Compile Include="APQP\APQP\APQPProjectStatusReport.cs" />
+    <Compile Include="APQP\APQP\NPIFDocuSign.cs" />
+    <Compile Include="APQP\APQP\UpdateIndividualFields.cs" />
+    <Compile Include="APQP\APQP\PredefinedDocumentTypes.cs" />
+    <Compile Include="APQP\APQP\PSWItem.cs" />
+    <Compile Include="APQP\APQP\ControlToolTip.cs" />
+    <Compile Include="APQP\APQP\QuotePartItem.cs" />
+    <Compile Include="APQP\APQP\SAPItem.cs" />
+    <Compile Include="APQP\APQP\APQP.cs" />
+    <Compile Include="APQP\APQP\ToolingLaunch.cs" />
+    <Compile Include="APQP\APQP\PPAPSubmission.cs" />
+    <Compile Include="APQP\APQP\Document.cs" />
+    <Compile Include="APQP\APQP\ProjectTracking.cs" />
+    <Compile Include="APQP\APQP\KickOff.cs" />
+    <Compile Include="APQP\CAPA\CAPA.cs" />
+    <Compile Include="APQP\CAPA\capaQuery.cs" />
+    <Compile Include="APQP\CAPA\capaApproverTitle.cs" />
+    <Compile Include="APQP\CAPA\capaApproval.cs" />
+    <Compile Include="APQP\CAPA\capaFeedForward.cs" />
+    <Compile Include="APQP\CAPA\capaPartAffectedDetail.cs" />
+    <Compile Include="APQP\CAPA\capaPartDocument.cs" />
+    <Compile Include="APQP\CAPA\capaPermanentCountermeasure.cs" />
+    <Compile Include="APQP\CAPA\capaProblemDescription.cs" />
+    <Compile Include="APQP\CAPA\capaRootCauseWhyMade.cs" />
+    <Compile Include="APQP\CAPA\capaRootCauseWhyShipped.cs" />
+    <Compile Include="APQP\CAPA\capaTempCountermeasure.cs" />
+    <Compile Include="APQP\CAPA\capaVerification.cs" />
+    <Compile Include="APQP\ChangeRequest\ChangeRequest.cs" />
+    <Compile Include="APQP\ChangeRequest\Document.cs" />
+    <Compile Include="APQP\DefectTracking\DefectTrackingReport.cs" />
+    <Compile Include="APQP\DocumentManagement\DocumentManagement.cs" />
+    <Compile Include="APQP\DocumentManagement\Document.cs" />
+    <Compile Include="APQP\DefectTracking\DefectTrackingDetail.cs" />
+    <Compile Include="APQP\DefectTracking\DefectTracking.cs" />
+    <Compile Include="APQP\DefectTracking\PartDocument.cs" />
+    <Compile Include="AuditLogs\AuditLogs.cs" />
+    <Compile Include="Base\Messaging\Languages.cs" />
+    <Compile Include="Base\Messaging\Resources\DTOMessageResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTOMessageResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Base\UpdateOptions.cs" />
+    <Compile Include="Common\EmailData.cs" />
+    <Compile Include="Common\LookupFields.cs" />
+    <Compile Include="Constants\MESConstants.cs" />
+    <Compile Include="Dashboard\Dashboard.cs" />
+    <Compile Include="Identity\AccountRecovery.cs" />
+    <Compile Include="Identity\AccountViewModels.cs" />
+    <Compile Include="RFQ\Customer\Address.cs" />
+    <Compile Include="RFQ\Quote\Quote.cs" />
+    <Compile Include="RFQ\Quote\QuoteCalculationHistory.cs" />
+    <Compile Include="RFQ\Quote\QuoteDetails.cs" />
+    <Compile Include="RFQ\RFQReports\DetailedSupplierQuoteReport.cs" />
+    <Compile Include="RFQ\RFQReports\QuotesDoneReport.cs" />
+    <Compile Include="RFQ\RFQReports\RFQPartCostComparisonReport.cs" />
+    <Compile Include="RFQ\RFQReports\RFQSupplierActivityLevelReport.cs" />
+    <Compile Include="RFQ\RFQReports\OpenRFQsReport.cs" />
+    <Compile Include="RFQ\RFQReports\RFQSupplierReport.cs" />
+    <Compile Include="RFQ\RFQReports\RFQQuotedBySupplierReport.cs" />
+    <Compile Include="RFQ\RFQReports\RFQSupplierPartsQuoteReport.cs" />
+    <Compile Include="RFQ\RFQReports\RFQPartsSupplierWiseReport.cs" />
+    <Compile Include="RFQ\RFQReports\QuoteTotalDollarQuotedReport.cs" />
+    <Compile Include="RFQ\RFQ\RFQdqMachining.cs" />
+    <Compile Include="RFQ\RFQ\RFQdqMachiningSecondaryOperation.cs" />
+    <Compile Include="RFQ\RFQ\RFQdqMachiningOtherOperation.cs" />
+    <Compile Include="RFQ\RFQ\RFQdqSurfaceTreatment.cs" />
+    <Compile Include="RFQ\RFQ\RFQdqOverhead.cs" />
+    <Compile Include="RFQ\RFQ\RFQdqPrimaryProcessConversion.cs" />
+    <Compile Include="RFQ\RFQ\RFQPartCostComparision.cs" />
+    <Compile Include="RFQ\RFQReports\RFQReports.cs" />
+    <Compile Include="RFQ\RFQ\RFQSupplierPartQuote.cs" />
+    <Compile Include="RFQ\RFQ\RFQ.cs" />
+    <Compile Include="RFQ\RFQ\RFQdqRawMaterial.cs" />
+    <Compile Include="RFQ\RFQ\RFQSuppliers.cs" />
+    <Compile Include="RFQ\RFQ\RFQParts.cs" />
+    <Compile Include="RFQ\Supplier\SupplierAssessment.cs" />
+    <Compile Include="RoleManagement\Role.cs" />
+    <Compile Include="RoleManagement\RoleObjectPrivilege.cs" />
+    <Compile Include="RoleManagement\SecurityObjectInfo.cs" />
+    <Compile Include="Setup\DefectType\DefectType.cs" />
+    <Compile Include="Setup\IndustryType.cs" />
+    <Compile Include="Setup\RFQPriority.cs" />
+    <Compile Include="ShipmentTracking\POParts.cs" />
+    <Compile Include="ShipmentTracking\Documents.cs" />
+    <Compile Include="ShipmentTracking\Shipments.cs" />
+    <Compile Include="UserManagement\ChangePassword.cs" />
+    <Compile Include="Identity\LoginUser.cs" />
+    <Compile Include="RFQ\Customer\Contacts.cs" />
+    <Compile Include="RFQ\Customer\Divisions.cs" />
+    <Compile Include="RFQ\Customer\Customers.cs" />
+    <Compile Include="RFQ\Supplier\Documents.cs" />
+    <Compile Include="RFQ\Supplier\Contacts.cs" />
+    <Compile Include="RFQ\Supplier\Suppliers.cs" />
+    <Compile Include="Setup\EmailTemplate\EmailTemplate.cs" />
+    <Compile Include="Setup\TriggerPoint\TriggerPoint.cs" />
+    <Compile Include="Setup\TriggerPoint\TriggerPointUsers.cs" />
+    <Compile Include="Setup\CommodityType\CommodityType.cs" />
+    <Compile Include="Setup\CommodityType\CommodityTypeCustomer.cs" />
+    <Compile Include="Setup\CommodityType\CommodityTypeSupplier.cs" />
+    <Compile Include="Setup\StatusAssociatedTo.cs" />
+    <Compile Include="Setup\RemarksAssociatedTo.cs" />
+    <Compile Include="Setup\DocumentType\DocumentTypeAssociatedTo.cs" />
+    <Compile Include="Setup\MachiningDescription\MachiningDescription.cs" />
+    <Compile Include="Setup\MachineDescription\MachineDescription.cs" />
+    <Compile Include="Setup\Forwarder\Forwarder.cs" />
+    <Compile Include="Setup\Designation\Designation.cs" />
+    <Compile Include="Setup\CoatingType\CoatingType.cs" />
+    <Compile Include="Common\CreateEditPropBase.cs" />
+    <Compile Include="Setup\Commodity\Commodity.cs" />
+    <Compile Include="Setup\DocumentType\DocumentType.cs" />
+    <Compile Include="Setup\SecondaryOperationDesc.cs" />
+    <Compile Include="Setup\Status.cs" />
+    <Compile Include="Setup\NonAwardFeedback.cs" />
+    <Compile Include="Setup\ProjectStage\ProjectStage.cs" />
+    <Compile Include="Setup\ProjectCategory\ProjectCategory.cs" />
+    <Compile Include="Setup\Process.cs" />
+    <Compile Include="Setup\Remarks.cs" />
+    <Compile Include="Setup\Origin.cs" />
+    <Compile Include="Setup\RFQSource.cs" />
+    <Compile Include="Setup\RFQType.cs" />
+    <Compile Include="Setup\Destination\Destination.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserManagement\Preferences.cs" />
+    <Compile Include="UserManagement\UserDesignationMappings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Base\Messaging\Resources\DTOMessageResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DTOMessageResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Scripts\jquery-2.2.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\expressive.annotations.validate.js" />
+    <Content Include="Scripts\expressive.annotations.validate.min.js" />
+    <Content Include="Scripts\jquery-2.2.2.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.2.js" />
+    <Content Include="Scripts\jquery-2.2.2.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,156 @@
+﻿<div class="col-12 pad-t-0 openScrollDiv">
+    <div class="col-12 pad-10 pad-b-0 pad-l-0">
+        <div class="header-highligt-panel">
+            <span class="height-20"><label translate="yes">_Date_</label><p>{{SelectionCriteria.WeeklyDateFrom | date:'dd-MMM-yy'}} - {{SelectionCriteria.WeeklyDateTo | date:'dd-MMM-yy'}}</p></span>
+        </div>
+    </div>
+    <div ng-show="ShowExportButton">
+        <div class="col-12 pad-t-0 none-arrow-button-1600">
+            <div class="col-12">
+                <div class="custom-grid-panel mar-b-10 grid-option-five">
+                    <div class="border-full">
+                        <div class="grid-common-detail-panel">
+                            <div class="grid-common-content-panel">
+                                <div class="grid-right-panel">
+                                    <div class="scroller-panel">
+                                        <div class="common-grid-panel supplierQuote sliderOn col-width-1440" row column-width="200" column-move="1" margin-minus="340">
+                                            <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>
+                                            <div class="common-grid-box cg-250">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">&nbsp;</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-400">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_NewPartsKickedOff_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-400">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_PN(PPAP)ApprovedforSupplyChaininLastweek_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="common-grid-box cg-400">
+                                                <div class="col-hori-box ng-s">
+                                                    <div class="list-1 root-list">
+                                                        <div class="lst-header">
+                                                            <div class="lst-item">
+                                                                <div class="col-12 pad-0">{{'_PPAPSubmissionthisweekSubmittedlastweek_' | translate}}</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-common-detail-panel">
+                        <div class="fixed-height-grid auto-height-grid height-auto-important">
+                            <div class="border-full">
+                                <div class="section-coomon">
+                                    <div class="grid-common-content-panel">
+                                        <div class="grid-right-panel">
+                                            <div class="scroller-panel sap-group">
+                                                <div class="common-grid-panel sub-group SupplierQuote sliderOn" row column-width="200" column-move="1">
+                                                    <div class="common-grid-panel">
+                                                        <div class="common-grid-box cg-250">
+                                                            <div class="col-hori-box" ng-repeat="itemA in APQPWeeklyMeetingReportData.lstAPQPWeeklyMeetingReportPartA">
+                                                                <label>{{itemA.APQPEngineer}} <span class="tooltip-h ng-binding">{{itemA.APQPEngineer}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-400">
+                                                            <div class="col-hori-box" ng-repeat="itemA in APQPWeeklyMeetingReportData.lstAPQPWeeklyMeetingReportPartA">
+                                                                <label>{{itemA.PartNumberCount!=0?itemA.PartNumberCount:''}}{{itemA.PartNumber!=''?'('+itemA.PartNumber+')':''}} <span class="tooltip-h cg-400">{{itemA.PartNumberCount!=0?itemA.PartNumberCount:''}}{{itemA.PartNumber!=''?'('+itemA.PartNumber+')':''}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-400">
+                                                            <div class="col-hori-box" ng-repeat="itemB in APQPWeeklyMeetingReportData.lstAPQPWeeklyMeetingReportPartB">
+                                                                <label>{{itemB.PartNumberCount!=0?itemB.PartNumberCount:''}}{{itemB.PartNumber!=''?'('+itemB.PartNumber+')':''}} <span class="tooltip-h cg-400">{{itemB.PartNumberCount!=0?itemB.PartNumberCount:''}}{{itemB.PartNumber!=''?'('+itemB.PartNumber+')':''}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-400">
+                                                            <div class="col-hori-box" ng-repeat="itemC in APQPWeeklyMeetingReportData.lstAPQPWeeklyMeetingReportPartC">
+                                                                <label>{{itemC.PartNumberCount!=0?itemC.PartNumberCount:''}}{{itemC.PartNumber!=''?'('+itemC.PartNumber+')':''}} <span class="tooltip-h cg-400">{{itemC.PartNumberCount!=0?itemC.PartNumberCount:''}}{{itemC.PartNumber!=''?'('+itemC.PartNumber+')':''}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="common-grid-box third-group">
+                                                        <div class="col-hori-box title-sub-group-box sub-total-price-box"><label style="width:100% !important;">{{'_PartswithProblemsIssuesThingstobediscussed_' | translate}}</label></div>
+                                                    </div>
+
+                                                    <div class="common-grid-panel list-level-3" ng-repeat="itemD in APQPWeeklyMeetingReportData.lstAPQPWeeklyMeetingReportPartD">
+                                                        <div class="common-grid-box cg-250">
+                                                            <div class="col-hori-box" style="border-bottom-color:transparent !important;">
+                                                                <label>{{itemD.APQPEngineer}} <span class="tooltip-h ng-binding">{{itemD.APQPEngineer}}</span></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="common-grid-box cg-1200">
+                                                            <div class="cg-1200 float-l" ng-repeat="customerNameValue in itemD.objCustomerNameValue">
+                                                                <div class="cg-250 float-l">
+                                                                    <div class="col-hori-box">
+                                                                        <label>{{customerNameValue.CustomerName}} <span class="tooltip-h">{{customerNameValue.CustomerName}}</span></label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="float-l cg-950 border-s1-left">
+                                                                    <div class="col-hori-box" ng-repeat="nameValue in customerNameValue.lstNameValue">
+                                                                        <label>{{nameValue.Name}} - {{nameValue.Value}} <span class="tooltip-h cg-950">{{nameValue.Name}} - {{nameValue.Value}}</span></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cg-1200 float-l" ng-hide="itemD.objCustomerNameValue.length>0">
+                                                                <div class="cg-250 float-l">
+                                                                    <div class="col-hori-box">
+                                                                        <label>&nbsp;</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="float-l cg-950 border-s1-left">
+                                                                    <div class="col-hori-box">
+                                                                        <label>&nbsp;</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 align-center" ng-hide="ShowExportButton">
+        <div class="spacer-gray-line"></div>
+        <div class="error-box rounded-info-box" style="display:inline-block;">
+            <p translate="yes">_NoRecordsFound_</p>
+        </div>
+    </div>
+</div>

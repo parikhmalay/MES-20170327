@@ -1,0 +1,372 @@
+/*------------------------------------------------------------------------------------------------*/
+/*--------------------------- thumb image list start here ----------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/
+
+.thumb-image-list {
+    float: left;
+    width: 100%;
+
+    & .thumb-image-lst-item {
+        float: left;
+        width: 100%;
+        padding: 5px;
+
+        &.active {
+            & .thumb-item-overlay {
+                background: @color-selected;
+                border: 1px solid @color-black-90;
+
+                & .thumb-title {
+                    color: @color-black-20;
+                }
+            }
+        }
+
+        & .thumb-item-overlay {
+            float: left;
+            width: 100%;
+            padding: 15px 15px 5px 15px;
+            border: 1px solid @color-white;
+
+            &:hover {
+                background: @color-hover;
+                border: 1px solid @color-black-90;
+                cursor: pointer;
+
+                & .thumb-title {
+                    color: @color-black-20;
+                }
+            }
+        }
+
+        & .thumb-lst-area {
+            border: 1px solid @color-black-90;
+            padding: 10px;
+            float: left;
+            width: 100%;
+            background: @color-white;
+
+            & .thumb-image-area {
+                width: 100%;
+                float: left;
+
+                & img {
+                    width: 100%;
+                    float: left;
+                }
+            }
+        }
+
+        & .thumb-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: @color-black-40;
+            text-align: center;
+            width: 100%;
+            float: left;
+            padding: 10px 0px;
+        }
+    }
+}
+
+@media screen and (min-width:1281px) {
+
+
+    .thumb-image-list.thumb-view-1 .thumb-image-lst-item {
+        width: 100%;
+        clear: none;
+
+        &:nth-child(1n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-2 .thumb-image-lst-item {
+        width: 50%;
+        clear: none;
+
+        &:nth-child(2n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-3 .thumb-image-lst-item {
+        width: 33.33%;
+        clear: none;
+
+        &:nth-child(3n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-4 .thumb-image-lst-item {
+        width: 25%;
+        clear: none;
+
+        &:nth-child(4n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-5 .thumb-image-lst-item {
+        width: 20%;
+        clear: none;
+
+        &:nth-child(5n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-6 .thumb-image-lst-item {
+        width: 16.66%;
+        clear: none;
+
+        &:nth-child(6n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-7 .thumb-image-lst-item {
+        width: 14.28%;
+        clear: none;
+
+        &:nth-child(7n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-8 .thumb-image-lst-item {
+        width: 12.5%;
+        clear: none;
+
+        &:nth-child(8n + 1) {
+            clear: both;
+        }
+    }
+}
+
+@media screen and (max-width:1280px) and (min-width:1025px) {
+    .thumb-image-list.thumb-view-lg-1 .thumb-image-lst-item {
+        width: 100%;
+        clear: none;
+
+        &:nth-child(1n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-lg-2 .thumb-image-lst-item {
+        width: 50%;
+        clear: none;
+
+        &:nth-child(2n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-lg-3 .thumb-image-lst-item {
+        width: 33.33%;
+        clear: none;
+
+        &:nth-child(3n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-lg-4 .thumb-image-lst-item {
+        width: 25%;
+        clear: none;
+
+        &:nth-child(4n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-lg-5 .thumb-image-lst-item {
+        width: 20%;
+        clear: none;
+
+        &:nth-child(5n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-lg-6 .thumb-image-lst-item {
+        width: 16.66%;
+        clear: none;
+
+        &:nth-child(6n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-lg-7 .thumb-image-lst-item {
+        width: 14.28%;
+        clear: none;
+
+        &:nth-child(7n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-lg-8 .thumb-image-lst-item {
+        width: 12.5%;
+        clear: none;
+
+        &:nth-child(8n + 1) {
+            clear: both;
+        }
+    }
+}
+
+@media screen and (max-width:1024px) and (min-width:769px) {
+    .thumb-image-list.thumb-view-md-1 .thumb-image-lst-item {
+        width: 100%;
+        clear: none;
+
+        &:nth-child(1n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-md-2 .thumb-image-lst-item {
+        width: 50%;
+        clear: none;
+
+        &:nth-child(2n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-md-3 .thumb-image-lst-item {
+        width: 33.33%;
+        clear: none;
+
+        &:nth-child(3n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-md-4 .thumb-image-lst-item {
+        width: 25%;
+        clear: none;
+
+        &:nth-child(4n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-md-5 .thumb-image-lst-item {
+        width: 20%;
+        clear: none;
+
+        &:nth-child(5n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-md-6 .thumb-image-lst-item {
+        width: 16.66%;
+        clear: none;
+
+        &:nth-child(6n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-md-7 .thumb-image-lst-item {
+        width: 14.28%;
+        clear: none;
+
+        &:nth-child(7n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-md-8 .thumb-image-lst-item {
+        width: 12.5%;
+        clear: none;
+
+        &:nth-child(8n + 1) {
+            clear: both;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .thumb-image-list.thumb-view-sm-1 .thumb-image-lst-item {
+        width: 100%;
+        clear: none;
+
+        &:nth-child(1n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-sm-2 .thumb-image-lst-item {
+        width: 50%;
+        clear: none;
+
+        &:nth-child(2n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-sm-3 .thumb-image-lst-item {
+        width: 33.33%;
+        clear: none;
+
+        &:nth-child(3n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-sm-4 .thumb-image-lst-item {
+        width: 25%;
+        clear: none;
+
+        &:nth-child(4n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-sm-5 .thumb-image-lst-item {
+        width: 20%;
+        clear: none;
+
+        &:nth-child(5n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-sm-6 .thumb-image-lst-item {
+        width: 16.66%;
+        clear: none;
+
+        &:nth-child(6n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-sm-7 .thumb-image-lst-item {
+        width: 14.28%;
+        clear: none;
+
+        &:nth-child(7n + 1) {
+            clear: both;
+        }
+    }
+
+    .thumb-image-list.thumb-view-sm-8 .thumb-image-lst-item {
+        width: 12.5%;
+        clear: none;
+
+        &:nth-child(8n + 1) {
+            clear: both;
+        }
+    }
+}
+
+/*------------------------------------------------------------------------------------------------*/
+/*--------------------------- thumb image list start here ----------------------------------------*/
+/*------------------------------------------------------------------------------------------------*/

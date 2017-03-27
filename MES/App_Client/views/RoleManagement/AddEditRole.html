@@ -1,0 +1,91 @@
+﻿<div class="col-12" ng-controller="AddEditRolesCtrl" id="spnAddEditRole">
+
+    <us-spinner spinner-key="spnAddEditRole"></us-spinner>
+    <form unsaved-warning-form novalidate id="spnAddEditRole">
+        <!-- End page title here -->
+        <div class="list-1 root-list role-management-panel">
+            <div class="lst-body">
+                <div class="lst-item">
+                    <div class="col-2">
+                        <div class="box-5">
+                            <div class="header-panel"><b translate="yes">_AddEditRole_</b></div>
+                            <div class="box-content">
+                                <div class="box-in-content">
+                                    <div class="fs linear fs-col-1">
+                                        <div class="fs-g">
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_RoleName_</label>
+                                                    <span class="required">*</span>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <input type="text" name="RoleName" aa-field-name="{{'_RoleName_' | translate}}" ng-model="Role.RoleName" ng-blur="ValidateRoleName()" required />
+                                                </span>
+                                            </div>
+                                            <div class="fs-f">
+                                                <span class="fs-f-l">
+                                                    <label translate="yes">_Status_</label>
+                                                </span>
+                                                <span class="fs-f-i">
+                                                    <select name="{{'_Status_' | translate}}" required ng-model="Role.IsActive" aa-field-name="{{'_Status_'|translate}}"
+                                                            ng-options="status.value as status.name for status in StatusList"></select>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="box-separator" translate="yes">
+                                    _DefaultLandingPage_
+                                </div>
+                                <div class="list-s-panel">
+                                    <ul>
+                                        <li ng-repeat="item in DefaultLandingPageList">
+                                            <input type="radio" id="DefaultLandingPage_{{item.Id}}" name="DefaultLandingPage" value="{{item.Id}}" ng-model="Role.DefaultObjectId" />
+                                            <label for="DefaultLandingPage_{{item.Id}}">{{item.Name}}</label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="box-5">
+                            <div class="box-content">
+                                <div class="box-s-main set-screen-height-coomon">
+                                    <div class="box-in-header">
+                                        <div class="page-name"><b translate="yes">_Objects_</b></div>  <!--fa fa-minus-square--> <!--<span class="fa fa-plus-square"></span>-->
+                                        <div class="page-s-title">None</div>
+                                        <div class="page-s-title">Read</div>
+                                        <div class="page-s-title">Write</div>
+                                        <div class="page-s-label"></div>
+                                    </div>
+                                    <div class="box-in-body set-screen-height-box" margin-minus="210" data-angular-treeview="true" data-tree-model="Role.lstRoleObjectPrivilege" data-node-id="ObjectId" data-node-label="ObjectName" data-node-children="childObject">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Start tab structure here -->
+        <div class="freeze-bottom top-header-freeze-panel">
+            <button class="orange-btn" aa-submit-form="SaveRole(0)" ng-disabled="IsReadOnlyPage">{{'_Save_' | translate}}</button>
+            <button class="orange-btn" aa-submit-form="SaveRole(1)" ng-disabled="IsReadOnlyPage">{{'_SaveAndClose_' | translate}}</button>
+            <button class="orange-btn" ng-click="ResetForm()" translate="yes">_Reset_</button>
+            <button class="orange-btn" ng-click="RedirectToList()" translate="yes">_Cancel_</button>
+        </div>
+        <!-- End tab structure here -->
+        <!-- Start tab structure here -->
+        <div class="freeze-bottom">
+            <button class="orange-btn" aa-submit-form="SaveRole(0)" ng-disabled="IsReadOnlyPage">{{'_Save_' | translate}}</button>
+            <button class="orange-btn" aa-submit-form="SaveRole(1)" ng-disabled="IsReadOnlyPage">{{'_SaveAndClose_' | translate}}</button>
+            <button class="orange-btn" ng-click="ResetForm()" translate="yes">_Reset_</button>
+            <button class="orange-btn" ng-click="RedirectToList()" translate="yes">_Cancel_</button>
+        </div>
+        <!-- End tab structure here -->
+    </form>
+</div>

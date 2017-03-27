@@ -1,0 +1,179 @@
+﻿<div class="col-12" ng-controller="DocumentManagementCtrl" id="spnAPQP">
+    <us-spinner spinner-key="spnAPQP" spinner-start-active="1"></us-spinner>  <!--spinner-start-active="1"-->
+    <!--Document Management Start-->
+    <div class="col-12">
+        <div class="list-1 root-list">
+            <div class="lst-header">
+                <div class="lst-item">
+                    <div class="col-grid-sm-1">
+                        &nbsp;
+                    </div>
+                    <div class="col-grid-sm-4">
+                        <label ng-click="sortType = 'PartNo';sortReverse = !sortReverse">
+                            {{'_PartNo_' | translate}}
+                            <i ng-show="sortType == 'PartNo' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'PartNo' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-8">
+                        <label ng-click="sortType = 'PartDescription';sortReverse = !sortReverse">
+                            {{'_PartDescription_' | translate}}
+                            <i ng-show="sortType == 'PartDescription' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'PartDescription' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-4">
+                        <label ng-click="sortType = 'RfqNo';sortReverse = !sortReverse">
+                            {{'_RfqNo_' | translate}}
+                            <i ng-show="sortType == 'RfqNo' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'RfqNo' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-4">
+                        <label ng-click="sortType = 'QuoteNo';sortReverse = !sortReverse">
+                            {{'_QuoteNo_' | translate}}
+                            <i ng-show="sortType == 'QuoteNo' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'QuoteNo' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                    <div class="col-grid-sm-3">
+                        <label ng-click="sortType = 'Customer';sortReverse = !sortReverse">
+                            {{'_Customer_' | translate}}
+                            <i ng-show="sortType == 'Customer' && sortReverse==false" class="fa fa-sort-asc"></i>
+                            <i ng-show="sortType == 'Customer' && sortReverse==true" class="fa fa-sort-desc"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="lst-body">
+                <div class="lst-item" ng-repeat="APQPDocument in APQPDocumentList | orderBy:sortType:sortReverse">
+                    <div class="col-grid-sm-1 attachment-link">
+                        <a href="javascript:void(0)" ng-show="APQPDocument.IsDocument"><i class="fa fa-paperclip"></i></a>
+                        <input type="radio" ng-model="tempModel" value="{{APQPDocument.Id}}" id="rdoUploadQuote{{$index}}" name="rdobuttons" ng-click="ShowPopupDocuments(APQPDocument.Id, APQPDocument.IsDocument)">
+                        <label for="rdoUploadQuote{{$index}}"></label>
+                    </div>
+                    <div class="col-grid-sm-4" data-colmn-title="{{'_PartNo_'| translate}}">
+                        <label>{{APQPDocument.PartNumber}}</label>
+                    </div>
+                    <div class="col-grid-sm-8" data-colmn-title="{{'_PartDescription_'| translate}}">
+                        <label>{{APQPDocument.PartDesc}}</label>
+                    </div>
+                    <div class="col-grid-sm-4" data-colmn-title="{{'_RfqNo_'| translate}}">
+                        <label>{{APQPDocument.RFQNumber}}</label>
+                    </div>
+                    <div class="col-grid-sm-4" data-colmn-title="{{'_QuoteNo_'| translate}}">
+                        <label>{{APQPDocument.QuoteNumber}}</label>
+                    </div>
+                    <div class="col-grid-sm-3" data-colmn-title="{{'_Customer_'| translate}}">
+                        <label>{{APQPDocument.CustomerName}}</label>
+                    </div>
+                </div>
+                <div class="lst-item" ng-hide="APQPDocumentList.length>0">
+                    <div class="col-12">
+                        <div class="error-box rounded-info-box">
+                            <p translate="yes">_NoRecordsFound_</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Document Management End-->
+
+    <mespagination boundary-links="true" total-items="Paging.TotalRecords" on-select-page="pageChanged(page)"
+                   page="Paging.PageNo" items-per-page="Paging.PageSize" fix-to-bottom=""
+                   previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page-size="pageSizeChanged(pagesize)" pagesize="Paging.PageSize"></mespagination>
+
+    <!-- Start tab structure here -->
+    <div class="freeze-bottom">
+        <button class="back-button" onclick="RedirecttoDashboard.Go()"></button>
+    </div>
+    <!-- End tab structure here -->
+    <!--Advance Search Part start-->
+    <form ng-submit="Search()">
+        <div class="advance-search-panel">
+            <div class="search-title-box">
+                <div class="search-title">
+                    Advance Search
+                    <span onclick="advanceSearch.close()" class="fa fa-times-circle"></span>
+                </div>
+            </div>
+            <div class="search-content-panel">
+                <!-- Start form layout structure here -->
+                <div class="fs linear">
+                    <div class="fs-g">
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_PartNo_' | translate}}" placeholder="{{'_PartNo_' | translate}}"
+                                       ng-model="SearchCriteria.PartNo" tabindex="1" ng-maxlength="50" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_PartDesc_' | translate}}" placeholder="{{'_PartDesc_' | translate}}"
+                                       ng-model="SearchCriteria.PartDescription" tabindex="2" ng-maxlength="100" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_RfqNo_' | translate}}" placeholder="{{'_RfqNo_' | translate}}"
+                                       ng-model="SearchCriteria.RFQNumber" tabindex="2" ng-maxlength="50" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_QuoteNo_' | translate}}" placeholder="{{'_QuoteNo_' | translate}}"
+                                       ng-model="SearchCriteria.QuoteNumber" tabindex="3" ng-maxlength="50" />
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <input type="text" name="{{'_Customer_' | translate}}" pla placeholder="{{'_Customer_' | translate}}"
+                                       ng-model="SearchCriteria.CustomerName" tabindex="4" ng-maxlength="100" />
+                            </span>
+                        </div>
+
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <multiselect multiple="true"
+                                             ng-model="SearchCriteria.APQPStatusItems"
+                                             itemkey="Id"
+                                             itemvalue="Name"
+                                             options="item as item.Name for item in DashAPQPStatusList"
+                                             header="{{'_APQPStatus_' | translate}}" button-class="small"></multiselect>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <select name="{{'_APQPQualityEngineer_' | translate}}" aa-field-name="{{'_APQPQualityEngineer_' | translate}}" ng-model="SearchCriteria.APQPQualityEngineerId" tabindex="8" ng-options="item.Id as item.Name for item in DashAPQPQualityEngineerList">
+                                    <option value="">{{'_APQPQualityEngineer_' | translate}}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <select name="{{'_SupplyChainCoordinator_' | translate}}" aa-field-name="{{'_SupplyChainCoordinator_' | translate}}" ng-model="SearchCriteria.SupplyChainCoordinatorId" tabindex="9" ng-options="item.Id as item.Name for item in DashSupplyChainCoordinatorList">
+                                    <option value="">{{'_SupplyChainCoordinator_' | translate}}</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="fs-f">
+                            <span class="fs-f-i">
+                                <select name="{{'_MesSam_' | translate}}" aa-field-name="{{'_MesSam_' | translate}}" ng-model="SearchCriteria.SAMUserId" tabindex="7" ng-options="item.Id as item.Name for item in DashSAMList">
+                                    <option value="">{{'_MesSam_' | translate}}</option>
+                                </select>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- End form layout structure here -->
+            </div>
+            <div class="search-footer-box">
+                <button class="orange-btn" translate="yes" aa-submit-form="Search()" tabindex="57">_Search_</button>
+                <button class="orange-btn" translate="yes" ng-click="ResetSearch()" tabindex="58">_Reset_</button>
+            </div>
+        </div>
+    </form>
+    <!--Advance Search End-->
+
+</div>

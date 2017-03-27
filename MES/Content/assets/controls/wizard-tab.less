@@ -1,0 +1,130 @@
+.wizard-s1 .nav {
+    padding-left: 0px;
+}
+
+.wizard-s1 .nav-tabs {
+    border-bottom: none;
+}
+
+.wizard-s1.no-count > ul > li > a:before {
+    display:none;
+}
+
+.wizard-s1 {
+    width: 100%;
+    float: left;
+    border-bottom:solid 2px @base-color-2-l2-5;
+}
+
+    .wizard-s1 > ul {
+        /*counter-reset: number;*/
+        float: left;
+        width: auto;
+    }
+
+        .wizard-s1 > ul > li {
+            float: left;
+            border-right: 1px solid @color-black-90;
+            position: relative;
+            font-size: 1.2em;
+            padding: 0;
+            background: @color-orange-light-tab;
+            text-transform:uppercase;
+        }
+
+            .wizard-s1 > ul > li > a {
+                display: block;
+                line-height: 35px;
+                color: @color-black-dark-tab;
+                padding: 0 12px;
+                border-bottom: none;
+                font-size: inherit;
+                margin: 0;
+            }
+
+                .wizard-s1 > ul > li > a:hover, .wizard-s1 > ul > li.active > a {
+                    background: @base-color-2-l2-5;
+                    color: @color-white !important;
+                    border-bottom: none;
+                    font-weight: normal;
+                }
+
+                .wizard-s1 > ul > li > a:focus {
+                    border-bottom: none !important;
+                }
+
+            .wizard-s1 > ul > li.active > a:hover {
+                border-bottom: none;
+            }
+
+            .wizard-s1 > ul > li > a:before {
+                /*content: counter(number);
+                counter-increment: number;
+                .borderRadius(23px);*/
+                width: 23px;
+                height: 23px;
+                float: left;
+                text-align: center;
+                line-height: 23px;
+                background: @color-white;
+                margin-top: 12px;
+                color: @base-color-2-l13;
+                margin-right: 10px;
+            }
+
+    .wizard-s1 > .recent-changes {
+        float: right;
+        text-align: right;
+        font-size: 1.2em;
+        color: @base-color-2-l2-5;
+        line-height: 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        margin-right: 20px;
+    }
+
+    .wizard-s1 > ul > li.disable > a,
+    .wizard-s1 > ul > li.disable > a:before {
+        color: @base-color-2-l39;
+        cursor: auto;
+    }
+
+        .wizard-s1 > ul > li.disable > a:hover {
+            color: @base-color-2-l39;
+            cursor: auto;
+            background: @base-color-2-l52;
+        }
+
+    .wizard-s1 .nav-tab {
+        border-bottom: none;
+    }
+
+@media screen and (max-width:768px) {
+    .wizard-s1 > ul {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .wizard-s1 {
+        border-top: none;
+    }
+
+        .wizard-s1 > ul {
+            width: 100%;
+            border-right: none;
+        }
+
+            .wizard-s1 > ul > li {
+                width: 100%;
+                border-left: none;
+                border-right: none;
+                border-bottom: 1px solid @color-black-90;
+            }
+
+        .wizard-s1 > .recent-changes {
+            text-align: center;
+            width: 100%;
+            margin-right: 0px;
+        }
+}

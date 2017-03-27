@@ -1,0 +1,454 @@
+﻿<div class="common-accordion-panel" ng-controller="AddEditShipmentCtrl">
+    <form unsaved-warning-form novalidate id="AddEditShipmentCtrl" name="AddEditShipmentCtrl" accessible-form>
+        <us-spinner spinner-key="AddEditShipmentCtrl"></us-spinner>
+        <div ng-init="setFormName(AddEditShipmentCtrl);"></div>
+        <div class="col-12 pad-10 pad-b-0" dir-field-disabled="IsReadOnlyPage">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_SectionOne_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="fs linear fs-col-4">
+                            <div class="fs-g">
+                                <div class="fs-f" ng-show="TransactionMode=='Edit'">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ShipmentId_</label>
+                                    </span> <span class="fs-f-i">
+                                        <label name="{{'_ShipmentId_' | translate}}">{{Shipment.Id}}</label>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ShipmentMode_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_ShipmentMode_' | translate}}" required ng-model="Shipment.ShipmentModeId" aa-field-name="{{'_ShipmentMode_'|translate}}" tabindex="1"
+                                                ng-options="mode.value as mode.name for mode in ShipmentModeList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Origin_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Origin_' | translate}}" required aa-field-name="{{'_Origin_' | translate}}" ng-model="Shipment.OriginId" tabindex="2" ng-options="item.Id as item.Name for item in OriginList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_EstSailDate_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_EstSailDate_' | translate}}"
+                                               aa-field-name="{{'_EstSailDate_' | translate}}"
+                                               ng-model="Shipment.EstShpmntDate" tabindex="3" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ActSailDate_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_ActSailDate_' | translate}}"
+                                               aa-field-name="{{'_ActSailDate_' | translate}}"
+                                               ng-model="Shipment.ActShpmntDate" tabindex="4" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ETAAtWarehouseAtDest_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_ETAAtWarehouseAtDest_' | translate}}"
+                                               aa-field-name="{{'_ETAAtWarehouseAtDest_' | translate}}"
+                                               ng-model="Shipment.ETAAtWarehouseAtDest" tabindex="5" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ActArrDateAtWarehouseAtDest_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_ActArrDateAtWarehouseAtDest_' | translate}}"
+                                               aa-field-name="{{'_ActArrDateAtWarehouseAtDest_' | translate}}"
+                                               ng-model="Shipment.ActArrDateAtWarehouseAtDest" tabindex="6" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Destination_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Destination_' | translate}}" required ng-model="Shipment.DestinationId" aa-field-name="{{'_Destination_'|translate}}" tabindex="7"
+                                                ng-options="item.Id as item.Name for item in DestinationList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Status_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_Status_' | translate}}" ng-model="Shipment.Status" aa-field-name="{{'_Status_'|translate}}" tabindex="8"
+                                                ng-options="status.value as status.name for status in StatusList"></select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_InvoiceNumbers_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_InvoiceNumbers_' | translate}}" aa-field-name="{{'_InvoiceNumbers_' | translate}}"
+                                               ng-model="Shipment.InvoiceNumbers" tabindex="9" ng-maxlength="500" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_SupplierName_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i custom-select-box">
+                                        <multiselect multiple="true"
+                                                     ng-model="Shipment.ShipmentSuppliers"
+                                                     itemkey="Id"
+                                                     itemvalue="Name"
+                                                     options="item.Id as item.Name for item in SupplierList"
+                                                     header="{{'_Select_' | translate}}" button-class="small"
+                                                     required name="Multiselect"
+                                                     required-msg="Supplier is required."></multiselect>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label class="no-colon">&nbsp;</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="checkbox" id="chkIsShipmentReviewed" ng-model="Shipment.IsShipmentReviewed" />
+                                        <label for="chkIsShipmentReviewed" translate="yes" tabindex="18">_ShipmentReviewed_</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-12 pad-10 pad-b-0" dir-field-disabled="IsReadOnlyPage">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_SectionTwo_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="fs linear fs-col-3">
+                            <div class="fs-g">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ForwarderName_</label>
+                                        <span class="required">*</span>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_ForwarderName_' | translate}}" required ng-model="Shipment.ForwarderId" aa-field-name="{{'_ForwarderName_'|translate}}" tabindex="11"
+                                                ng-options="item.Id as item.Name for item in ForwarderList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_EstForwarderPickupDate_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_EstForwarderPickupDate_' | translate}}"
+                                               aa-field-name="{{'_EstForwarderPickupDate_' | translate}}"
+                                               ng-model="Shipment.EstForwarderPickupDate" tabindex="12" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ActForwarderPickupDate_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_ActForwarderPickupDate_' | translate}}"
+                                               aa-field-name="{{'_ActForwarderPickupDate_' | translate}}"
+                                               ng-model="Shipment.ActForwarderPickupDate" tabindex="13" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_ContainerNumber_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_ContainerNumnber_' | translate}}" aa-field-name="{{'_ContainerNumber_' | translate}}"
+                                               ng-model="Shipment.ContainerNumber" tabindex="14" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label class="no-colon">&nbsp;</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="checkbox" id="chkLateDelToForwarder" ng-model="Shipment.IsLateDeliveryToForwarder" tabindex="15" />
+                                        <label for="chkLateDelToForwarder" translate="yes">_LateDelToForwarder_</label>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-12 pad-10 pad-b-0" dir-field-disabled="IsReadOnlyPage">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_SectionThree_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="list-1 root-list">
+                            <div class="lst-header">
+                                <div class="lst-item">
+                                    <div class="col-4">
+                                        <label ng-click="sortType = 'DocumentType';sortReverse = !sortReverse">
+                                            {{'_DocumentType_' | translate}}
+                                            <i ng-show="sortType == 'DocumentType' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                            <i ng-show="sortType == 'DocumentType' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-6">
+                                        <label ng-click="sortType = 'DocumentFilePath';sortReverse = !sortReverse">
+                                            {{'_Document_' | translate}}
+                                            <i ng-show="sortType == 'DocumentFilePath' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                            <i ng-show="sortType == 'DocumentFilePath' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-2 align-right spacer-right-t">
+                                        <label ng-click="sortType = 'IsDefault';sortReverse = !sortReverse">
+                                            {{'_Action_' | translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lst-body">
+                                <div class="lst-item" ng-repeat="item in Shipment.lstDocument | orderBy:sortType:sortReverse">
+                                    <div class="col-4" data-colmn-title="{{'_DocumentType_'| translate}}">
+                                        <label>{{item.DocumentTypeItem.Name}}</label>
+                                    </div>
+                                    <div class="col-6" data-colmn-title="{{'_Document_'| translate}}">
+                                        <a ng-if="item.DocumentFilePath!=''" href="\ShipmentTracking\Shipment\DownloadFile?filePath={{item.DocumentFilePath}}&fileName={{item.DocumentFileName}}">{{item.DocumentFileName}}</a>
+                                    </div>
+                                    <div class="col-2 align-right" data-colmn-title="Action">
+                                        <div class="btn-group action-btn" dropdown>
+                                            <button type="button" class="btn" data-ng-click="EditDocument(item,$index)" translate="yes">_Edit_</button>
+                                            <button type="button" class="btn action-toggle">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Split button!</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="javascript:void(0)" data-ng-click="DeleteDocument($index)" translate="yes">_Delete_</a></li>
+                                                <!--<li><a href="javascript:void(0)" data-ng-click="ShowChangeLogPopup(item.Id)" translate="yes">_ViewChangeLog_</a></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lst-item" ng-hide="Shipment.lstDocument.length>0">
+                                    <div class="col-12">
+                                        <div class="error-box rounded-info-box">
+                                            <p translate="yes">_NoRecordsFound_</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-hide="AddEditDocument==true" class="last-trip-panel">
+                            <button class="btn" ng-click="AddNewDocument()" tabindex="16" translate="yes">_AddNew_</button>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-12 pad-10  pad-b-0" dir-field-disabled="IsReadOnlyPage">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_SectionFour_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="fs linear fs-col-3">
+                            <div class="fs-g">
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_Inspector_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_Inspector_' | translate}}" aa-field-name="{{'_Inspector_' | translate}}"
+                                               ng-model="Shipment.Inspector" tabindex="17" ng-maxlength="50" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_InspectionDate_</label>
+                                    </span> <span class="fs-f-i">
+                                        <input type="text" name="{{'_InspectionDate_' | translate}}"
+                                               aa-field-name="{{'_InspectionDate_' | translate}}"
+                                               ng-model="Shipment.InspectionDate" tabindex="19" date-time view="date" min-view="date" format="dd-MMM-yy" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_QualityReviewStatus_</label>
+                                    </span> <span class="fs-f-i">
+                                        <select name="{{'_QualityReviewStatus_' | translate}}" ng-model="Shipment.QualityReviewStatusId" aa-field-name="{{'_QualityReviewStatus_'|translate}}" tabindex="20"
+                                                ng-options="qrs.value as qrs.name for qrs in QualityReviewStatusList">
+                                            <option value="">{{'_Select_' | translate}}</option>
+                                        </select>
+                                    </span>
+                                </div>
+
+
+                                <div class="fs-f duble-col">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_QualityReviewComments_</label>
+                                    </span> <span class="fs-f-i">
+                                        <textarea type="text" name="{{'_QualityReviewComments_' | translate}}" aa-field-name="{{'_QualityReviewComments_' | translate}}"
+                                                  ng-model="Shipment.QualityReviewComments" tabindex="21" ng-maxlength="500" />
+                                    </span>
+                                </div>
+                                <div class="fs-f">
+                                    <span class="fs-f-l">
+                                        <label translate="yes">_UploadFile_</label>
+                                    </span>
+                                    <span class="fs-f-i">
+                                        <file-select fs-model="Shipment.InspectionReportFilePath"
+                                                     fs-multiselect="false"
+                                                     fs-upload-path="InspectionReportFilePath"
+                                                     fs-extension-validation-msg="File not supported"
+                                                     fs-extension=".txt, .pdf, .xls, .xlsx, .doc, .docx, .jpg, .jpeg, .gif, .png, .tif, .tiff, .csv, .ppt, .pptx, .stp, .step, .iges, .igs, .dwf, .dxf, .dwg, .zip, .rar, .7z"
+                                                     fs-saveuploadedfiles="SetObjectvalues(UploadedFilePath,UploadedFileName)"
+                                                     fs-spinnder-key="AddEditShipmentCtrl"
+                                                     fs-stop-spinner="1"
+                                                     fs-file-upload-folder-name="ShipmentFiles/Inspection"
+                                                     fs-max-size="1050000"
+                                                     ng-if="Shipment.InspectionReportFilePath==''"></file-select>
+                                        <ul class="images-upload-panal mar-t-5" ng-if="Shipment.InspectionReportFilePath!=''">
+                                            <li>
+                                                <a href="/ShipmentTracking/Shipment/DownloadFile?filePath={{Shipment.InspectionReportFilePath}}&fileName={{Shipment.InspectionReportFileName}}" target="_blank">
+                                                    <span translate="yes" ng-show="Shipment.InspectionReportFileName==undefined || Shipment.InspectionReportFileName==''">_ViewInspectionFileReport_</span>
+                                                    <span translate="yes" ng-show="Shipment.InspectionReportFileName!=undefined && Shipment.InspectionReportFileName!=''">{{Shipment.InspectionReportFileName}}</span>
+                                                </a>
+                                                <button class="btn float-r" ng-click="deleteFile(Shipment.InspectionReportFilePath)"> <i class="fa fa-close"></i> </button>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <div class="col-12 pad-10" dir-field-disabled="IsReadOnlyPage">
+            <accordion close-others="false">
+                <accordion-group heading="" is-open="true">
+                    <accordion-heading>
+                        <span class="p-title-txt">{{'_SectionFive_' | translate}}</span>
+                        <span class="accordion-icon"></span>
+                    </accordion-heading>
+                    <div class="col-12 pad-10">
+                        <div class="list-1 root-list">
+                            <div class="lst-header">
+                                <div class="lst-item">
+                                    <div class="col-2">
+                                        <label ng-click="sortType = 'PONumber';sortReverse = !sortReverse">
+                                            {{'_PONumber_' | translate}}
+                                            <i ng-show="sortType == 'PONumber' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                            <i ng-show="sortType == 'PONumber' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-2">
+                                        <label ng-click="sortType = 'PartNumber';sortReverse = !sortReverse">
+                                            {{'_PartNumber_' | translate}}
+                                            <i ng-show="sortType == 'PartNumber' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                            <i ng-show="sortType == 'PartNumber' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-2">
+                                        <label ng-click="sortType = 'PartQuantity';sortReverse = !sortReverse">
+                                            {{'_Quantity_' | translate}}
+                                            <i ng-show="sortType == 'PartQuantity' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                            <i ng-show="sortType == 'PartQuantity' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-4">
+                                        <label ng-click="sortType = 'PartDescription';sortReverse = !sortReverse">
+                                            {{'_Comments_' | translate}}
+                                            <i ng-show="sortType == 'PartDescription' && sortReverse==false" class="fa fa-sort-asc"></i>
+                                            <i ng-show="sortType == 'PartDescription' && sortReverse==true" class="fa fa-sort-desc"></i>
+                                        </label>
+                                    </div>
+                                    <div class="col-2 align-right spacer-right-t">
+                                        <label ng-click="sortType = 'IsDefault';sortReverse = !sortReverse">
+                                            {{'_Action_' | translate}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lst-body">
+                                <div class="lst-item" ng-repeat="item in Shipment.lstPOPart | orderBy:sortType:sortReverse">
+                                    <div class="col-2" data-colmn-title="{{'_PONumber_'| translate}}">
+                                        <label>{{item.PONumber}}</label>
+                                    </div>
+                                    <div class="col-2" data-colmn-title="{{'_PartNumber_'| translate}}">
+                                        <label>{{item.PartNumber}}</label>
+                                    </div>
+                                    <div class="col-2" data-colmn-title="{{'_Quantity_'| translate}}">
+                                        <label>{{item.PartQuantity}}</label>
+                                    </div>
+                                    <div class="col-4" data-colmn-title="{{'_Comments_'| translate}}">
+                                        <label>{{item.PartDescription}}</label>
+                                    </div>
+                                    <div class="col-2 align-right" data-colmn-title="Action">
+                                        <div class="btn-group action-btn" dropdown>
+                                            <button type="button" class="btn" data-ng-click="EditPOPart(item,$index)" translate="yes">_Edit_</button>
+                                            <button type="button" class="btn action-toggle">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Split button!</span>
+                                            </button>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="javascript:void(0)" data-ng-click="DeletePOPart($index)" translate="yes">_Delete_</a></li>
+                                                <!--<li><a href="javascript:void(0)" data-ng-click="ShowChangeLogPopup(item.Id)" translate="yes">_ViewChangeLog_</a></li>-->
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="lst-item" ng-hide="Shipment.lstPOPart.length>0">
+                                    <div class="col-12">
+                                        <div class="error-box rounded-info-box">
+                                            <p translate="yes">_NoRecordsFound_</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-hide="AddEditPOPart==true" class="last-trip-panel">
+                            <button class="btn" ng-click="AddNewPOPart()" tabindex="22" translate="yes">_AddNew_</button>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </div>
+        <!--Top Header Show Start-->
+        <div class="freeze-bottom top-header-freeze-panel">
+            <button class="orange-btn" aa-submit-form="SaveShipment(0)" tabindex="23" translate="yes" ng-disabled="IsReadOnlyPage">_Save_</button>
+            <button class="orange-btn" aa-submit-form="SaveShipment(1)" tabindex="23" translate="yes" ng-disabled="IsReadOnlyPage">_SaveAndClose_</button>
+            <!--<button class="orange-btn" ng-click="ResetForm()" tabindex="24" translate="yes">_Reset_</button>-->
+            <button class="orange-btn" ng-click="RedirectToList()" tabindex="25" translate="yes">_Cancel_</button>
+        </div>
+        <!--Top Header Show End-->
+
+
+        <div class="freeze-bottom">
+            <button class="orange-btn" aa-submit-form="SaveShipment(0)" tabindex="23" translate="yes" ng-disabled="IsReadOnlyPage">_Save_</button>
+            <button class="orange-btn" aa-submit-form="SaveShipment(1)" tabindex="23" translate="yes" ng-disabled="IsReadOnlyPage">_SaveAndClose_</button>
+            <!--<button class="orange-btn" ng-click="ResetForm()" tabindex="24" translate="yes">_Reset_</button>-->
+            <button class="orange-btn" ng-click="RedirectToList()" tabindex="25" translate="yes">_Cancel_</button>
+        </div>
+
+    </form>
+</div>

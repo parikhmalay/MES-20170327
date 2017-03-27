@@ -1,0 +1,38 @@
+﻿<form unsaved-warning-form novalidate id="frmDestination">
+    <div class="modal-header">
+        <h3 translate="yes">_PageHeading_</h3>
+    </div>
+    <div class="modal-body">
+        <div class="slider-scroll-container">
+            <div class="fs linear fs-col-2">
+                <div class="fs-g">
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Destination_</label>
+                            <span class="required">*</span>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="Destination" aa-field-name="{{'_Destination_' | translate}}" ng-model="Destination.destination" required tabindex="1" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                        <span class="fs-f-l">
+                            <label translate="yes">_Location_</label>
+                        </span> <span class="fs-f-i">
+                            <input type="text" name="Location" aa-field-name="{{'_Location_' | translate}}" ng-model="Destination.Location" tabindex="2" />
+                        </span>
+                    </div>
+                    <div class="fs-f">
+                         <span class="fs-f-i">
+                            <input type="checkbox" id="chkIsWarehouse" ng-model="Destination.IsWarehouse" />
+                            <label for="chkIsWarehouse" translate="yes" tabindex="3">_IsWarehouse_</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="orange-btn" aa-submit-form="SaveDestination()" translate="yes" tabindex="4">_Save_</button>
+        <button class="orange-btn" ng-click="Cancel()" translate="yes" tabindex="5">_Cancel_</button>
+    </div>
+</form>

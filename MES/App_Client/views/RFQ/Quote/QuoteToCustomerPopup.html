@@ -1,0 +1,471 @@
+﻿<div class="common-accordion-panel">
+    <form unsaved-warning-form novalidate id="spnAddEditQuote" accessible-form>
+        <us-spinner spinner-key="spnAddEditQuote" spinner-start-active="1"></us-spinner>
+        <div class="modal-header">
+            <h3 translate="yes">_QuoteToCustomerPageHeader_</h3>
+            <button class="btn float-r" ng-click="RedirectToList()"> <i class="fa fa-close"></i> </button>
+        </div>
+        <div class="modal-body">
+            <div class="col-12 pad-10 pad-t-0">
+                <div class="header-highligt-panel title-header-spacer width-7">
+                    <span>
+                        <label translate="yes">_QuoteNumber_</label>
+                        <p>{{Quote.QuoteNumber}}</p>
+                    </span>
+                    <span>
+                        <label translate="yes">_RFQId_</label>
+                        <p>{{RFQData.Id}}</p>
+                    </span>
+                    <span class="w11">
+                        <label translate="yes">_CustomerName_</label>
+                        <p class="fix">{{RFQData.CustomerName}}</p>
+                        <span class="tooltip-h">{{RFQData.CustomerName}}</span>
+                    </span>
+                    <span>
+                        <label translate="yes">_RFQType_</label>
+                        <p class="fix">{{RFQData.RFQType}}</p>
+                        <span class="tooltip-h">{{RFQData.RFQType}}</span>
+                    </span>
+                    <span>
+                        <label translate="yes">_Commodity_</label>
+                        <p class="fix">{{RFQData.Commodity}}</p>
+                        <span class="tooltip-h">{{RFQData.Commodity}}</span>
+                    </span>
+                    <span class="w11">
+                        <label translate="yes">_RFQCoordinator_</label>
+                        <p class="fix">{{RFQData.RFQCoordinator}}</p>
+                        <span class="tooltip-h">{{RFQData.RFQCoordinator}}</span>
+                    </span>
+                    <span class="w12">
+                        <label translate="yes">_ContactFullName_</label>
+                        <p class="fix">{{RFQData.CustomerContactName}}</p>
+                        <span class="tooltip-h">{{RFQData.CustomerContactName}}</span>
+                    </span>
+                    <span>
+                        <label translate="yes">_Date_</label>
+                        <p>
+                            {{RFQData.Date|date:'dd-MMM-yy'}}
+                        </p>
+                    </span>
+                    <span class="w12">
+                        <label translate="yes">_QuoteDueDate_</label>
+                        <p>
+                            {{RFQData.QuoteDueDate|date:'dd-MMM-yy'}}
+                        </p>
+                    </span>
+                </div>
+                <!--<div class="spacer-gray-line"></div>-->
+            </div>
+            <div class="col-12 pad-10 pad-t-0 openScrollDiv" ng-hide="SearchCriteria.RFQId == null || NoQuotes==1">
+                <div class="col-12" dir-field-disabled="IsReadOnlyQuoteToCustomerPage">
+                    <div class="custom-grid-panel mar-b-10 check-grid-box-panel">
+                        <div class="border-full">
+                            <div class="grid-common-detail-panel scroller-dummy drag-common-panel">
+                                <div class="grid-title-panel">
+                                    <h3>{{'_PartsList_' | translate}}</h3>
+                                </div>
+                                <div class="grid-common-content-panel">
+                                    <div class="grid-left-panel">
+                                        <ul>
+                                            <li class="checkbox">
+                                                <input ng-change="SelectDeselectAll()" type="checkbox" id="chkSelectAll" ng-model="SelectAllObj.SelectAll" />
+                                                <label for="chkSelectAll"></label> Select/Deselect All
+                                            </li>
+                                            <li>{{'_PartNo_'| translate}}</li>
+                                            <li>{{'_RevLevel_'| translate}}</li>
+                                            <li>{{'_Description_'| translate}}</li>
+                                            <li>{{'_Material_'| translate}}</li>
+                                            <li>{{'_AnnualQuantity_'| translate}}</li>
+                                            <li>{{'_Weight(KG)_'| translate}}</li>
+                                            <li>{{'_Supplier_'| translate}}<span class="required">*</span></li>
+                                            <li>{{'_SupplierQuotedPrice_'| translate}}</li>
+                                            <li>{{'_SupplierPriceUsed_'| translate}}<span class="required">*</span></li>
+                                        </ul>
+                                        <div class="right-fix-l-panel">
+                                            <div class="common-grid-box fixed-check-panel">
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box">
+                                                    <button data-ng-click="GenerateRFQPartQuoteReport(RFQData.Id)" class="orange-btn pad-3">Compare</button>
+                                                </div>
+                                                <div class="col-hori-box"></div>
+                                                <div class="col-hori-box"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grid-right-panel">
+                                        <div class="scroller-panel">
+                                            <div class="common-grid-panel supplierQuote sliderOn" row column-width="245" column-move="1" margin-minus="565" height-fixed-cols="306">
+                                                <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button" name="btnPrevious"></button>
+                                                <!--<button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button"></button>-->
+                                                <div class="common-grid-box" ng-repeat="item in Quote.lstQuoteDetails">
+                                                    <div class="col-hori-box">
+                                                        <input ng-change="select()" type="checkbox" id="chkSelect{{$index}}" ng-model="item.chkSelect" change-background-color-quote="{{$index}}" />
+                                                        <label for="chkSelect{{$index}}"></label>
+                                                    </div>
+                                                    <div class="col-hori-box"><label>{{item.CustomerPartNo}}</label></div>
+                                                    <div class="col-hori-box"><label>{{item.RevLevel}}</label></div>
+                                                    <div class="col-hori-box">
+                                                        <label>{{item.PartDescription}}<span class="additional">{{item.AdditionalPartDesc}}</span><span class="tooltip-h">{{item.PartDescription}}<br />{{item.AdditionalPartDesc}}</span></label>
+                                                    </div>
+                                                    <div class="col-hori-box"><label>{{item.MaterialType}}</label></div>
+                                                    <div class="col-hori-box align-right"><label>{{item.EstimatedQty | setDecimal:0}}</label></div>
+                                                    <div class="col-hori-box align-right"><label>{{item.PartWeightKG | number:3}}</label></div>
+                                                    <div class="col-hori-box">
+                                                        <select id="SupplierId_{{$index}}" class="half red-invalid always-enable" name="{{'_Supplier_' | translate}}" aa-field-name="{{'_Supplier_' | translate}}" ng-model="item.SupplierId" ng-options="obj.Id as obj.Name for obj in SupplierForSupplierQuoteList" ng-change="GetQuotedDetails(item,$index)" ng-required="item.IsMandatory" change-background-color-quote="{{$index}}">
+                                                            <option value="">{{'_Select_' | translate}}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-hori-box align-right"><label>{{item.SupplierQuotedPrice | number:3}}</label></div>
+                                                    <div class="col-hori-box align-right">
+                                                        <input id="SupplierPriceUsed_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_SupplierPriceUsed_'| translate}}" aa-field-name="{{'_SupplierPriceUsed_'| translate}}" ng-model="item.SupplierPriceUsed" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="13" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-quote="{{$index}}" />
+                                                    </div>
+                                                </div>
+                                                <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button" name="btnNext"></button>
+                                                <!--<button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button"></button>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-common-detail-panel">
+                            <div class="fixed-height-grid auto-height-grid">
+                                <div class="border-full">
+                                    <div class="section-coomon">
+                                        <div class="drag-section-panel"></div>
+                                        <div class="grid-common-content-panel">
+                                            <div class="grid-left-panel">
+                                                <ul>
+                                                    <li>{{'_SupplierCost/kg_'| translate}}</li>
+                                                    <li>{{'_CustomDuties_'| translate}}<span class="required">*</span></li>
+                                                    <li class="des">{{'_ShippingAssumption_'| translate}}</li>
+                                                    <li>{{'_ShippingCost/pc_'| translate}}<span class="required">*</span></li>
+                                                    <li>{{'_Warehousing_'| translate}}<span class="required">*</span></li>
+                                                    <li>{{'_SGAProfit_'| translate}}<span class="required">*</span></li>
+                                                    <li>{{'_SalesCommission_'| translate}}</li>
+                                                    <li class="high-light-header-blue">{{'_FinalMESPrice_'| translate}}</li>
+                                                    <li>{{'_FinalMESCostPerKg_'| translate}}</li>
+                                                    <li>{{'_SupplierTooling_'| translate}}</li>
+                                                    <li>{{'_Tooling_'| translate}}</li>
+                                                    <li class="des">{{'_SupplierToolingWarranty_'| translate}}</li>
+                                                    <li class="des">{{'_SupplierToolingLeadtime(Days)_'| translate}}</li>
+                                                    <li class="des">{{'_Leadtime/Comments_'| translate}}</li>
+                                                    <li>{{'_AnnualTotalCost_'| translate}}</li> <!--class="high-light-Col-yellow"-->
+                                                </ul>
+                                                <div class="right-fix-l-panel">
+                                                    <div class="common-grid-box fixed-check-panel">
+                                                        <div class="col-hori-box"></div>
+                                                        <div class="col-hori-box align-right">
+                                                            <input id="CustomDutiesPercent" class="align-right" type="text" placeholder="0.00" ng-model="Quote.CustomDutiesPercent" ng-maxlength="6" numbers-only to-precision="2" maxlength="6" /><span class="extra-value">%</span>
+                                                        </div>
+                                                        <div class="col-hori-box des">
+                                                            <!--<select name="{{'_WarehouseLocation_' | translate}}" aa-field-name="{{'_WarehouseLocation_'|translate}}" ng-model="Quote.ShippingAssumptionInput" ng-options="item.Name as item.Name for item in MESWareHouseList">
+                                                                <option value="">{{'_Select_' | translate}}</option>
+                                                            </select>-->
+                                                            <textarea id="LeadTimeComments" class="align-right" style="width: 45%;text-align: left;" type="text" ng-model="Quote.ShippingAssumptionInput" ng-maxlength="255" maxlength="255" />
+                                                            <span class="fa-stack fa-lg">
+                                                                <a href="" data-ng-click="setShippingAssumptions()"><i class="fa fa-file-o fa-stack-2x" style="font-size:16px; padding-top:6px;"></i></a>
+                                                                <a href="" data-ng-click="setShippingAssumptions()"><i class="fa fa-arrow-right fa-stack-1x" style="font-size:9px;padding-left:6px;padding-top:6px;"></i></a>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-hori-box align-right">
+                                                            <input id="ShippingCostPercent" class="align-right" type="text" placeholder="0.00" ng-model="Quote.ShippingCostPercent" ng-maxlength="6" numbers-only to-precision="2" maxlength="6" />
+                                                            <select id="ShippingCostCalMethod" ng-model="Quote.ShippingCostCalMethod">
+                                                                <option value="KG">KG</option>
+                                                                <option value="%">%</option>
+                                                            </select>
+                                                            <span class="extra-value"></span>
+                                                        </div>
+                                                        <div class="col-hori-box align-right">
+                                                            <input id="WarehousingPercent" class="align-right" type="text" placeholder="0.00" ng-model="Quote.WarehousingPercent" ng-maxlength="6" numbers-only to-precision="2" maxlength="6" /><span class="extra-value">%</span>
+                                                        </div>
+                                                        <div class="col-hori-box align-right">
+                                                            <input id="SGAProfitPercent" class="align-right" type="text" placeholder="0.00" ng-model="Quote.SGAProfitPercent" ng-maxlength="6" numbers-only to-precision="2" maxlength="6" /><span class="extra-value">%</span>
+                                                        </div>
+                                                        <div class="col-hori-box align-right">
+                                                            <input id="SalesCommissionPercent" class="align-right" type="text" placeholder="0.00" ng-model="Quote.SalesCommissionPercent" ng-maxlength="6" numbers-only to-precision="2" maxlength="6" /><span class="extra-value">%</span>
+                                                        </div>
+                                                        <div class="col-hori-box align-right high-light-header-blue">
+
+                                                        </div>
+                                                        <div class="col-hori-box"></div>
+                                                        <div class="col-hori-box"></div>
+                                                        <div class="col-hori-box align-right">
+                                                            <input id="ToolingCostPercent" class="align-right" type="text" placeholder="0.00" ng-model="Quote.ToolingCostPercent" ng-maxlength="6" numbers-only to-precision="2" maxlength="6" /><span class="extra-value">%</span>
+                                                        </div>
+                                                        <div class="col-hori-box des"></div>
+                                                        <div class="col-hori-box des"></div>
+                                                        <div class="col-hori-box des">
+                                                            <textarea id="LeadTimeComments" class="align-right" style="width: 45%;text-align: left;" type="text" ng-model="Quote.LeadTimeInput" ng-maxlength="255" maxlength="255" />
+                                                            <span class="fa-stack fa-lg">
+                                                                <a href="" data-ng-click="setLeadtimeComments()"><i class="fa fa-file-o fa-stack-2x" style="font-size:16px; padding-top:10px;"></i></a>
+                                                                <a href="" data-ng-click="setLeadtimeComments()"><i class="fa fa-arrow-right fa-stack-1x" style="font-size:9px;padding-left:6px;padding-top:10px;"></i></a>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col-hori-box"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="grid-right-panel">
+                                                <div class="scroller-panel">
+                                                    <div class="common-grid-panel SupplierQuote sliderOn" row column-width="245" column-move="1">
+                                                        <button role="button" aria-label="Previous" class="slick-prev slick-arrow" onclick="scrollColumn(1)" type="button" name="btnPrevious"></button>
+                                                        <div class="common-grid-box" ng-repeat="item in Quote.lstQuoteDetails">
+
+                                                            <div class="col-hori-box align-right"><label>{{item.SupplierCostPerKg}}</label></div>
+                                                            <div class="col-hori-box align-right">
+                                                                <label class="percent-history">{{item.CustomDutiesPercent}}</label>
+                                                                <input id="CustomDuties_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_CustomDuties_'| translate}}" aa-field-name="{{'_CustomDuties_'| translate}}" ng-model="item.CustomDuties" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="10" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-quote="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box des">
+                                                                <textarea id="ShippingAssumption_{{$index}}" name="{{'_ShippingAssumption_'| translate}}" type="text" ng-model="item.ShippingAssumption" ng-maxlength="255"></textarea>
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <label class="percent-history">{{item.ShippingCostPercent}}</label>
+                                                                <input id="ShippingCost_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_ShippingCost_'| translate}}" aa-field-name="{{'_ShippingCost_'| translate}}" ng-model="item.ShippingCost" ng-change="CalculateUnitPrice(item,$index);" ng-maxlength="10" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-quote="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <label class="percent-history">{{item.WarehousingPercent}}</label>
+                                                                <input id="Warehousing_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_Warehousing_'| translate}}" aa-field-name="{{'_Warehousing_'| translate}}" ng-model="item.Warehousing" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="10" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-quote="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <label class="percent-history">{{item.SGAProfitPercent}}</label>
+                                                                <input id="SGAProfit_{{$index}}" class="half align-right red-invalid" type="text" placeholder="0.000" name="{{'_SGAProfit_'| translate}}" aa-field-name="{{'_SGAProfit_'| translate}}" ng-model="item.SGAProfit" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="10" numbers-only to-precision="3" ng-required="item.IsMandatory" change-background-color-quote="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right">
+                                                                <label class="percent-history">{{item.SalesCommissionPercent}}</label>
+                                                                <input id="SalesCommission_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_SalesCommission_'| translate}}" aa-field-name="{{'_SalesCommission_'| translate}}" ng-model="item.SalesCommission" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="10" numbers-only to-precision="3" change-background-color-quote="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box align-right high-light-header-blue">
+                                                                <label>{{item.FinalMESPrice}}</label>
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.FinalMESPerKg}}</label></div>
+                                                            <div class="col-hori-box align-right"><label>{{item.SupplierToolingCost |setDecimal:3}}</label></div>
+                                                            <div class="col-hori-box align-right">
+                                                                <label class="percent-history">{{item.ToolingCostPercent}}</label>
+                                                                <input id="ToolingCost_{{$index}}" class="half align-right" type="text" placeholder="0.000" name="{{'_ToolingCost_'| translate}}" aa-field-name="{{'_ToolingCost_'| translate}}" ng-model="item.ToolingCost" ng-change="CalculateUnitPrice(item,$index)" ng-maxlength="10" numbers-only ng-blur="setToolingCost(item)" change-background-color-quote="{{$index}}" />
+                                                            </div>
+                                                            <div class="col-hori-box des">
+                                                                <textarea id="ToolingWarranty_{{$index}}" name="{{'_ToolingWarranty_'| translate}}" type="text" ng-model="item.ToolingWarranty" ng-maxlength="255"></textarea>
+                                                            </div>
+                                                            <div class="col-hori-box des">
+                                                                <textarea id="SupplierToolingLeadtime_{{$index}}" name="{{'_SupplierToolingLeadtime_'| translate}}" type="text" ng-model="item.SupplierToolingLeadtime" ng-maxlength="255"></textarea>
+                                                            </div>
+                                                            <div class="col-hori-box des">
+                                                                <textarea id="LeadTime_{{$index}}" name="{{'_LeadTime_'| translate}}" type="text" ng-model="item.Leadtime" ng-maxlength="255"></textarea>
+                                                            </div>
+                                                            <div class="col-hori-box align-right"><label>{{item.TotalAnnualCost| number:3}}</label></div>
+                                                        </div>
+                                                        <button role="button" aria-label="Next" class="slick-next slick-arrow" onclick="scrollColumn(0)" type="button" name="btnNext"></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="spacer-gray-line"></div>
+                                <div class="col-12">
+                                    <div class="col-4 pad-10">
+                                        <div class="fs linear">
+                                            <div class="fs-g">
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_Assumptions_</label>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <multiselect multiple="true"
+                                                                     ng-model="Quote.QuoteAssumptionList"
+                                                                     itemkey="Id"
+                                                                     itemvalue="Name"
+                                                                     options="item.Id as item.Name for item in QuoteAssumptionList"
+                                                                     header="{{'_Select_' | translate}}" button-class="small"
+                                                                     ng-change="ConcateAssumptions()"></multiselect>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="fs linear">
+                                            <div class="fs-g">
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">&nbsp;</span>
+                                                    <span class="fs-f-i">
+                                                        <textarea class="spacer-text-area" type="text" name="{{'_Assumptions_' | translate}}"
+                                                                  aa-field-name="{{'_Assumptions_' | translate}}"
+                                                                  ng-model="Quote.GeneralAssumption" rows="8"></textarea>
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 pad-10">
+                                        <div class="fs linear">
+                                            <div class="fs-g">
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_SAM_</label>
+                                                        <span class="required">*</span>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <select name="{{'_SAM_' | translate}}" ng-model="Quote.SAMId" required aa-field-name="{{'_SAM_'|translate}}"
+                                                                ng-options="item.Id as item.Name for item in SAMList">
+                                                            <option value="">{{'_Select_' | translate}}</option>
+                                                        </select>
+                                                    </span>
+                                                </div>
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_QuoteResult_</label>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <select name="{{'_QuoteResult_' | translate}}" ng-model="Quote.StatusId" aa-field-name="{{'_QuoteResult_'|translate}}"
+                                                                ng-options="item.Id as item.Name for item in QuoteStatusList" ng-change="setAmountWin(Quote.StatusId)"></select>
+                                                    </span>
+                                                </div>
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_AmountWon_</label>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <input type="text" name="{{'_AmountWon_' | translate}}" placeholder="{{'_AmountWon_' | translate}}" aa-field-name="{{'_AmountWon_' | translate}}"
+                                                               ng-model="Quote.AmountWon" ng-maxlength="10" />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 pad-10">
+                                        <div class="fs linear">
+                                            <div class="fs-g">
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">
+                                                        <label translate="yes">_MESComments_</label>
+                                                    </span>
+                                                    <span class="fs-f-i">
+                                                        <multiselect multiple="true"
+                                                                     ng-model="Quote.MESCommentsList"
+                                                                     itemkey="Id"
+                                                                     itemvalue="Name"
+                                                                     options="item.Id as item.Name for item in QuoteMESCommentList"
+                                                                     header="{{'_Select_' | translate}}" button-class="small"
+                                                                     ng-change="ConcateComments()"></multiselect>
+                                                    </span>
+                                                </div>
+                                                <div class="fs-f">
+                                                    <span class="fs-f-l">&nbsp;</span>
+                                                    <span class="fs-f-i">
+                                                        <textarea class="spacer-text-area" type="text" name="{{'_MESComments_' | translate}}" aa-field-name="{{'_MESComments_' | translate}}" ng-model="Quote.MESComments" rows="8"></textarea>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 pad-10 pad-b-0" ng-hide="IsAccordionObjectEmpty">
+                                    <div class="col-12">
+                                        <h3 class="pad-b-5 title-sd"><span class="p-title-txt">{{'_CalculationHistory_' | translate}}</span></h3>
+                                    </div>
+                                    <div class="col-12 pad-t-5">
+                                        <accordion close-others="false">
+                                            <div class="list-1 root-list-tb">
+                                                <div class="lst-header">
+                                                    <div class="lst-item">
+                                                        <div class="col-grid-sm-2">
+                                                            <label>{{'_PartNo_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-3">
+                                                            <label>{{'_Description_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-3">
+                                                            <label>{{'_HistoryDate_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-2">
+                                                            <label>{{'_CustomDuties_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-3">
+                                                            <label>{{'_ShippingCost/pc_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-3">
+                                                            <label>{{'_Warehousing_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-3">
+                                                            <label>{{'_SGAProfit_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-3">
+                                                            <label>{{'_SalesCommission_'| translate}}</label>
+                                                        </div>
+                                                        <div class="col-grid-sm-2">
+                                                            <label>{{'_Tooling_'| translate}}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <accordion-group heading="" ng-repeat="(UpdatedOn,QuoteCalculationHistory) in QuoteCalculationHistoryList" is-open="true" ng-hide="IsAccordionObjectEmpty" ng-init="QuoteCalculationHistory.IsOpen=true">
+                                                <accordion-heading>
+                                                    <span class="title">{{'_UpdatedOn_' | translate}}: {{QuoteCalculationHistory[0].UpdatedDate | date:'d-MMM-y'}}</span>
+                                                    <span class="accordion-icon"></span>
+                                                </accordion-heading>
+                                                <div class="list-1 root-list-tb">
+                                                    <div class="lst-body">
+                                                        <div class="lst-item" ng-repeat="item in QuoteCalculationHistory">
+                                                            <div class="col-grid-sm-2" data-colmn-title="{{'_PartNo_'| translate}}">
+                                                                <label>{{item.CustomerPartNo}}</label>
+                                                            </div>
+                                                            <div class="col-grid-sm-3" data-colmn-title="{{'_Description_'| translate}}">
+                                                                <label>{{item.PartDescription}}<span class="additional">{{item.AdditionalPartDesc}}</span></label>
+                                                            </div>
+                                                            <div class="col-grid-sm-3" data-colmn-title="{{'_HistoryDate_'| translate}}">
+                                                                <label>{{item.UpdatedDate | date:'d-MMM-y hh:mm:ss a'}}</label>
+                                                            </div>
+                                                            <div class="col-grid-sm-2" data-colmn-title="{{'_CustomDuties_'| translate}}">
+                                                                <label>{{item.CustomDutiesPercent}}% | {{item.CustomDuties}}</label>
+                                                            </div>
+                                                            <div class="col-grid-sm-3" data-colmn-title="{{'_ShippingCost/pc_'| translate}}">
+                                                                <label>{{item.ShippingCostPercent}}{{item.ShippingCostCalMethod}} | {{item.ShippingCost}}</label>
+                                                            </div>
+                                                            <div class="col-grid-sm-3" data-colmn-title="{{'_Warehousing_'| translate}}">
+                                                                <label>{{item.WarehousingPercent}}% | {{item.Warehousing}}</label>
+                                                            </div>
+                                                            <div class="col-grid-sm-3" data-colmn-title="{{'_SGAProfit_'| translate}}">
+                                                                <label>{{item.SGAProfitPercent}}% | {{item.SGAProfit}}</label>
+                                                            </div>
+                                                            <div class="col-grid-sm-3" data-colmn-title="{{'_SalesCommission_'| translate}}">
+                                                                <label>{{item.SalesCommissionPercent}}% | {{item.SalesCommission}}</label>
+                                                            </div>
+                                                            <div class="col-grid-sm-2" data-colmn-title="{{'_Tooling_'| translate}}">
+                                                                <label>{{item.ToolingCostPercent}}% | {{item.ToolingCost}}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </accordion-group>
+                                        </accordion>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="fs-g">
+                <!--<button class="orange-btn" ng-hide="(SearchCriteria.RFQId=='' || SearchCriteria.RFQId==null || Quote.lstQuoteDetails.length==0)" ng-click="downloadPDF()" translate="yes">_DownloadPDF_</button>-->
+                <button class="orange-btn" ng-hide="(SearchCriteria.RFQId=='' || SearchCriteria.RFQId==null || Quote.lstQuoteDetails.length==0)" ng-click="CalculateBasedOnPercent()" translate="yes" ng-disabled="IsReadOnlyQuoteToCustomerPage">_Calculate_</button>
+                <button class="orange-btn" ng-hide="(SearchCriteria.RFQId=='' || SearchCriteria.RFQId==null || Quote.lstQuoteDetails.length==0)" aa-submit-form="SaveQuote(0)" translate="yes" ng-disabled="IsReadOnlyQuoteToCustomerPage">_SaveQuote_</button>
+                <button class="orange-btn" ng-hide="(SearchCriteria.RFQId=='' || SearchCriteria.RFQId==null || Quote.lstQuoteDetails.length==0)" aa-submit-form="SaveQuote(1)" translate="yes" ng-disabled="IsReadOnlyQuoteToCustomerPage">_SaveAndClose_</button>
+                <button class="orange-btn" ng-hide="(SearchCriteria.RFQId=='' || SearchCriteria.RFQId==null || Quote.lstQuoteDetails.length==0 || TransactionMode != 'Edit')" ng-click="exportToExcel()" translate="yes">_ExporttoExcel_</button>
+                <button class="orange-btn" ng-click="RedirectToList()" translate="yes">_BackToRFQ_</button>
+            </div>
+        </div>
+    </form>
+</div>
+

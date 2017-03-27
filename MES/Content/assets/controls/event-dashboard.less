@@ -1,0 +1,309 @@
+/*-----------------------------------------------------------------------------------------------*/
+/*----------------------- Event Dashboard Start here --------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
+.event-dashboard {
+    display: inline-block;
+    float: left;
+    width: 100%;
+
+    & .event-dashboard-header {
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid @color-black-90;
+        padding: 15px 20px;
+
+        & .event-details-box {
+            float: left;
+            display: inline-block;
+
+            & .event-details-slide {
+                display: inline-block;
+                border-right: 1px solid @color-black-90;
+                padding-right: 15px;
+                margin-left: 10px;
+                max-width: 350px;
+                vertical-align: middle;
+                min-height: 50px;
+                position: relative;
+
+                & [class*="icon-"] {
+                    position: absolute;
+                    left: 0px;
+                    top: 11px;
+                    font-size: 2.5em;
+                    line-height: 0px;
+                }
+
+                & p {
+                    padding-left: 25px;
+                    width: 100%;
+                    color: @color-black-60;
+                    font-size: 1.4em;
+                    word-wrap: break-word;
+
+                    & b {
+                        font-weight: 600;
+                        font-size: 15px;
+                        color: @base-color-1;
+                    }
+                }
+
+                &:first-child {
+                    margin-left: 0px;
+                }
+
+                &:last-child {
+                    padding-right: 0px;
+                    border-right: none;
+                }
+            }
+        }
+
+        & .event-details-action {
+            float: right;
+            display: inline-block;
+        }
+    }
+
+    & .event-dashboard-statstic {
+        width: 100%;
+        display: inline-block;
+        border-bottom: 1px solid @color-black-80;
+        .boxShadow(0px 3px 0px rgba(0,0,0,0.1));
+
+        & .event-statstic-section {
+            padding: 15px;
+            min-height: 291px;
+
+            & > h3 {
+                font-size: 1.6em;
+                font-weight: 700;
+                color: @color-black-20;
+
+                & span.highlight {
+                    color: @color-green;
+                }
+            }
+        }
+
+        & .event-status {
+            width: 100%;
+            float: left;
+
+            & .status-container {
+                width: 100%;
+                float: left;
+
+                & .status-counter {
+                    width: 60%;
+                    float: left;
+                    padding-top: 15px;
+                }
+
+                & .status-graph {
+                    width: 40%;
+                    float: left;
+                    padding-top: 20px;
+                }
+            }
+        }
+
+        & .event-revenue {
+            width: 100%;
+            float: left;
+            background: @color-black-98;
+
+            & .event-revenue-container {
+                width: 100%;
+                float: left;
+
+                & .event-revenue-row {
+                    background: @color-white;
+                    padding: 10px 15px;
+                    float: left;
+                    width: 100%;
+                    border-bottom: 2px solid @color-black-90;
+
+                    &.total-row {
+                        background: @color-green;
+                        border-bottom: none;
+
+                        & span.left-text {
+                            color: @color-white !important;
+                            font-weight: 700;
+                        }
+
+                        & span.right-text {
+                            color: @color-white !important;
+                            font-weight: 700;
+                        }
+                    }
+
+                    & .text-row {
+                        width: 100%;
+                        float: left;
+                        padding: 2px 0px;
+
+                        & span.left-text {
+                            float: left;
+                            max-width: 50%;
+                            font-size: 1.4em;
+                            color: @color-black-60;
+                        }
+
+                        & span.right-text {
+                            float: right;
+                            max-width: 50%;
+                            font-size: 1.6em;
+                            color: @color-black-20;
+                            font-weight: 600;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        & .event-invite {
+            width: 100%;
+            float: left;
+
+            & .event-invite-container {
+                width: 100%;
+                float: left;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                min-height: 173px;
+
+                & .event-invite-small-stat {
+                    border-right: 1px solid @color-black-90;
+                    padding-right: 20px;
+                    width: 100%;
+                    float: left;
+                }
+            }
+
+            & .event-invite-action {
+                width: 100%;
+                float: left;
+
+                & span.action {
+                    width: 30px;
+                    height: 30px;
+                    float: left;
+                    margin-right: 5px;
+                    background: @color-black-98;
+                    border: 1px solid @color-black-90;
+                    cursor: pointer;
+
+                    & [class*="icon-"] {
+                        font-size: 3em;
+                        color: @color-black-60;
+                        width: 30px;
+                        line-height: 30px;
+                    }
+
+                    &:hover {
+                        & [class*="icon-"] {
+                            color: @color-black-20;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .event-dashboard-content {
+        width: 100%;
+        float: left;
+    }
+
+    & .event-count-stat {
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid @color-black-90;
+        padding: 0px 0px 7px 0px;
+
+        & h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: @color-black-20;
+            line-height: 17px;
+            width: 100%;
+            display: inline-block;
+            padding-bottom: 0px;
+        }
+
+        & span {
+            font-size: 1.2em;
+            color: @color-black-60;
+            text-transform: uppercase;
+            line-height: 17px;
+            width: 100%;
+            display: inline-block;
+        }
+
+        & .event-count-left {
+            float: left;
+            width: 50%;
+            text-align: left;
+        }
+
+        & .event-count-right {
+            float: right;
+            width: 50%;
+            text-align: right;
+        }
+    }
+
+    & .event-block-clount {
+        width: 100%;
+        float: left;
+        padding: 7px 0px;
+
+        &.inline-view {
+            & h4 {
+                width: auto;
+                vertical-align: bottom;
+            }
+
+            & span {
+                width: auto;
+                vertical-align: bottom;
+            }
+        }
+
+        & h4 {
+            padding-bottom: 0px;
+            font-size: 1.8em;
+            font-weight: 600;
+            line-height: 15px;
+            width: 100%;
+            display: inline-block;
+            color: @color-black-20;
+            vertical-align: middle;
+        }
+
+        & span {
+            font-size: 1.2em;
+            text-transform: uppercase;
+            color: @color-black-60;
+            line-height: 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .event-dashboard .event-dashboard-header .event-details-box .event-details-slide {
+        border: none;
+        margin: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+        padding-bottom: 10px;
+    }
+}
+/*-----------------------------------------------------------------------------------------------*/
+/*----------------------- Event Dashboard End here ----------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------*/
