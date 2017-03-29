@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <PublishProfile Include="Profiles\MESH-DocusignSchedulerStaging.azurePubxml" />
+    <PublishProfile Include="Profiles\MESH-DocusignScheduler-Production.azurePubxml" />
   </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
