@@ -30,14 +30,10 @@ namespace MES.Business.Library.BO.Email
             ToAddress.ForEach(addToaddress => mail.To.Add(addToaddress));
             if (CCEmail != null)
             {
-                //MailAddress bccAddress = new MailAddress("malay.parikh@almikatech.com");
-                //mail.Bcc.Add(bccAddress);
-                CCEmail.ForEach(cc => mail.CC.Add(cc));
+                 CCEmail.ForEach(cc => mail.CC.Add(cc));
             }
             if (BCCEmail != null)
             {
-                //MailAddress bccAddress = new MailAddress("malay.parikh@almikatech.com");
-                //mail.Bcc.Add(bccAddress);
                 BCCEmail.ForEach(bcc => mail.Bcc.Add(bcc));
             }
             //if (string.IsNullOrEmpty(CurrentUser) || CurrentUser == "anonymous")
