@@ -1453,6 +1453,8 @@ namespace MES.Business.Library.BO.APQP.APQP
                                 recordToBeUpdated.SalesPrice = drItem["Sales_Price"].ToString().Trim();
                                 recordToBeUpdated.SupplierName = drItem["Supplier"].ToString().Trim();
                                 recordToBeUpdated.SupplierCode = drItem["SupplierCode"].ToString().Trim();
+                                recordToBeUpdated.IsAPQPItem = false;
+                                recordToBeUpdated.IsDelete = false;
                                 isAnySaved = true;
                             }
                             if (isAnySaved)
