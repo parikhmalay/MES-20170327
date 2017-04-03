@@ -184,11 +184,10 @@
                         <div class="fs-f">
                             <span class="fs-f-l">
                                 <label translate="yes">_IndustryType_</label>
-                                <span class="required">*</span>
                             </span>
                             <span class="fs-f-i">
                                 <select name="{{'_IndustryType_' | translate}}" ng-model="RFQ.IndustryTypeId" aa-field-name="{{'_IndustryType_'|translate}}"
-                                        ng-options="item.Id as item.Name for item in IndustryTypeList" required>
+                                        ng-options="item.Id as item.Name for item in IndustryTypeList">
                                     <option value="">{{'_Select_' | translate}}</option>
                                 </select>
                             </span>
