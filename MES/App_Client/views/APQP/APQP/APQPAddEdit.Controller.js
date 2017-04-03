@@ -1514,6 +1514,7 @@ function (error) {
 
 var APQPSendEmailCtrl = function ($scope, $modalInstance, $timeout, common, SectionName, APQPItemIds, APQPSvc) {
     $scope.APQPSendEmailInit = function () {
+        $scope.EmailData.AttachDocument = true;
         $timeout(function () {
             common.usSpinnerService.stop('spnAPQP');
         }, 0);
