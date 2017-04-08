@@ -36,6 +36,9 @@ namespace MES.Business.Library.BO.RFQ.RFQ
 
             newrfqItem = ObjectLibExtensions.AutoConvert<DTO.Library.RFQ.RFQ.RFQ>(parentRfqItem);
             newrfqItem.Id = rfqNo;
+            newrfqItem.lstQuoteToCustomer = null;
+            newrfqItem.lstQuotedSuppliers = null;
+            newrfqItem.lstRFQPart = null;
             if (!string.IsNullOrEmpty(parentRfqItem.RfqFilePath))
                 newrfqItem.RfqFilePath = CreateRFQFile(rfqNo, parentRfqItem.RfqFilePath);
             newrfqItem.isRevision = true;
